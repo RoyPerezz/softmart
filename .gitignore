@@ -1,0 +1,8 @@
+
+*.ide-shm
+*.ide-shm
+*.ide-shm
+*.ide-wal
+appSugerencias/.vs/appSugerencias/v15/Server/sqlite3/storage.ide-shm
+appSugerencias/.vs/appSugerencias/v15/Server/sqlite3/storage.ide-wal
+*.ide-wal

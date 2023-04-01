@@ -1,0 +1,191 @@
+﻿using appSugerencias.Gastos_Externos.Controlador;
+using appSugerencias.Gastos_Externos.Modelo;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+
+namespace appSugerencias.Gastos_Externos.Vistas
+{
+    public partial class ReporteGastosFinanzas_Gerencia : Form
+    {
+
+        public ReporteGastosFinanzas_Gerencia()
+        {
+            InitializeComponent();
+        }
+
+
+
+        //private void BT_buscar_Click(object sender, EventArgs e)
+        //{
+
+        //}
+
+        //private void BT_guardar_Click(object sender, EventArgs e)
+        //{
+
+        //}
+
+
+
+        //private void ReporteGastosFinanzas_Gerencia_Load(object sender, EventArgs e)
+        //{
+
+        //}
+
+        //private void BT_excel_Click(object sender, EventArgs e)
+        //{
+
+        //}
+
+        public void PintarFila()
+        {
+
+            bool estado = false;
+
+
+            for (int i = 0; i < DG_tabla.Rows.Count; i++)
+            {
+                estado = Convert.ToBoolean(DG_tabla.Rows[i].Cells["CHECK"].Value);
+
+                if (estado == true)
+                {
+                    DG_tabla.Rows[i].DefaultCellStyle.BackColor = Color.Yellow;
+                }
+                else
+                {
+                    DG_tabla.Rows[i].DefaultCellStyle.BackColor = Color.White;
+                }
+            }
+
+
+        }
+        private void ReporteGastosFinanzas_Gerencia_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BT_buscar_Click_1(object sender, EventArgs e)
+        {
+            DG_tabla.Rows.Clear();
+            DateTime inicio = DT_inicio.Value;
+            DateTime fin = DT_fin.Value;
+            double total = 0;
+            DataGridViewCheckBoxCell check = new DataGridViewCheckBoxCell();
+
+            int revisado = 0;
+            List<GastoExterno> lista = GastoFinanzasController.ListaGastos(inicio, fin);
+            foreach (var item in lista)
+            {
+
+                revisado = item.Revisado;
+
+                if (revisado == 1)
+                {
+                    check.ThreeState = true;
+                }
+                else
+                {
+                    check.ThreeState = false;
+                }
+                DG_tabla.Rows.Add(item.Id, item.Concepto_gral, item.ConceptoDetalle, item.Descripcion, item.Importe, item.Folio, item.Fecha.ToString("yyyy-MM-dd"), check.ThreeState);
+                total += item.Importe;
+            }
+
+
+            LB_total.Text = total.ToString("C2");
+            DG_tabla.Columns["IMPORTE"].DefaultCellStyle.Format = "C2";
+            PintarFila();
+        }
+
+        private void BT_guardar_Click_1(object sender, EventArgs e)
+        {
+
+            int id = 0;
+            bool estado = false;
+            int revisado = 0;
+            for (int i = 0; i < DG_tabla.Rows.Count; i++)
+            {
+                id = Convert.ToInt32(DG_tabla.Rows[i].Cells["ID"].Value.ToString());
+                estado = Convert.ToBoolean(DG_tabla.Rows[i].Cells["CHECK"].Value);
+
+                if (estado == true)
+                {
+                    revisado = 1;
+                }
+                else
+                {
+                    revisado = 0;
+                }
+                GastoFinanzasController.ActualizarEstado(revisado, id);
+            }
+
+
+
+            MessageBox.Show("Se ha guardado el estado de cada gasto");
+            PintarFila();
+        }
+
+        private void BT_excel_Click_1(object sender, EventArgs e)
+        {
+            Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
+            excel.Application.Workbooks.Add(true);
+
+
+            int indiceColumna = 0;
+
+
+            foreach (DataGridViewColumn col in DG_tabla.Columns)
+            {
+
+                if (col.Visible == true)
+                {
+                    indiceColumna++;
+                    excel.Cells[5, indiceColumna] = col.Name;
+                }
+
+
+            }
+
+            int indiceFila = 4;
+
+
+
+            foreach (DataGridViewRow row in DG_tabla.Rows)
+            {
+                //if (row.Visible == true)
+                //{
+                indiceFila++;
+                indiceColumna = 0;
+
+                foreach (DataGridViewColumn col in DG_tabla.Columns)
+                {
+
+
+                    if (col.Visible == true)
+                    {
+                        indiceColumna++;
+
+
+                        excel.Cells[indiceFila + 1, indiceColumna] = row.Cells[col.Name].Value;
+                    }
+
+
+
+
+
+                }
+
+                //}
+            }
+           
+
+            excel.Visible = true;
+        }
+    }
+}
