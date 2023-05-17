@@ -218,7 +218,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblUsuario = new System.Windows.Forms.Label();
-            this.articulosConExistenciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -445,10 +444,9 @@
             this.pisoVentaGerente_toolStripmenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.altaBajaAsesoraVentaToolStripMenuItem,
             this.comisionesDiariasToolStripMenuItem,
-            this.totalComisionesToolStripMenuItem,
-            this.articulosConExistenciaToolStripMenuItem});
+            this.totalComisionesToolStripMenuItem});
             this.pisoVentaGerente_toolStripmenu.Name = "pisoVentaGerente_toolStripmenu";
-            this.pisoVentaGerente_toolStripmenu.Size = new System.Drawing.Size(180, 22);
+            this.pisoVentaGerente_toolStripmenu.Size = new System.Drawing.Size(121, 22);
             this.pisoVentaGerente_toolStripmenu.Text = "Gerente";
             // 
             // altaBajaAsesoraVentaToolStripMenuItem
@@ -1760,13 +1758,6 @@
             this.lblUsuario.TabIndex = 9;
             this.lblUsuario.Text = "USER";
             // 
-            // articulosConExistenciaToolStripMenuItem
-            // 
-            this.articulosConExistenciaToolStripMenuItem.Name = "articulosConExistenciaToolStripMenuItem";
-            this.articulosConExistenciaToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
-            this.articulosConExistenciaToolStripMenuItem.Text = "Articulos con existencia";
-            this.articulosConExistenciaToolStripMenuItem.Click += new System.EventHandler(this.articulosConExistenciaToolStripMenuItem_Click);
-            // 
             // Principal2_0
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1988,6 +1979,5 @@
         private System.Windows.Forms.ToolStripMenuItem registrarPersonaQueGeneraGastoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gastosFinanzasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem revisionEtiquetasToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem articulosConExistenciaToolStripMenuItem;
     }
 }

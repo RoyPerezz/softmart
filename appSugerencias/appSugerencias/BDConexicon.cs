@@ -487,5 +487,19 @@ namespace appSugerencias
 
         }
 
+        //****************************Catalogos  BD SAT
+        public static MySqlConnection ConectarSat()
+        {
+            string BD = "sat";
+            string IP = optieneIp();
+            MySqlConnection ConSat = new MySqlConnection($"server={IP}; database={BD}; Uid=root; pwd=;pooling = false; convert zero datetime=True;");
+            ConSat.Open();
+
+
+
+            return ConSat;
+
+        }
+
     }
 }

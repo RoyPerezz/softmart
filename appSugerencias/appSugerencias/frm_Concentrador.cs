@@ -54,7 +54,7 @@ namespace appSugerencias
 
                 limpiaTiendas();
 
-                MySqlCommand cmd = new MySqlCommand("SELECT articulo,descrip,costo_u,existencia,precio1,precio2, linea, marca,fabricante, peso, impuesto, unidad FROM prods  WHERE   articulo  LIKE '%" + tbBuscar.Text + "%' OR descrip LIKE '%" + tbBuscar.Text + "%' ORDER BY existencia DESC", conex_buscar);
+                MySqlCommand cmd = new MySqlCommand("SELECT articulo,descrip,costo_u,existencia,precio1,precio2, linea, marca,fabricante, peso, impuesto, unidad,CLAVESAT,DESCRIPCIONSAT FROM prods  WHERE   articulo  LIKE '%" + tbBuscar.Text + "%' OR descrip LIKE '%" + tbBuscar.Text + "%' ORDER BY existencia DESC", conex_buscar);
 
                 MySqlDataAdapter adaptador = new MySqlDataAdapter(cmd);
                 System.Data.DataTable dt = new System.Data.DataTable();
@@ -69,11 +69,11 @@ namespace appSugerencias
                 {
                     int n = dgvArticulo.Rows.Add();
 
-                    double costo,mayoreo, menudeo;
+                    double costo, mayoreo, menudeo;
                     string impuesto;
 
-                    menudeo= Convert.ToDouble(item["precio1"].ToString());
-                    mayoreo= Convert.ToDouble(item["precio2"].ToString());
+                    menudeo = Convert.ToDouble(item["precio1"].ToString());
+                    mayoreo = Convert.ToDouble(item["precio2"].ToString());
                     costo = Convert.ToDouble(item["costo_u"].ToString());
                     impuesto = item["impuesto"].ToString();
 
@@ -110,10 +110,12 @@ namespace appSugerencias
                     dgvArticulo.Rows[n].Cells[9].Value = item["peso"].ToString();
                     dgvArticulo.Rows[n].Cells[10].Value = item["impuesto"].ToString();
                     dgvArticulo.Rows[n].Cells[11].Value = item["unidad"].ToString();
+                    dgvArticulo.Rows[n].Cells[12].Value = item["CLAVESAT"].ToString();
+                    dgvArticulo.Rows[n].Cells[13].Value = item["DESCRIPCIONSAT"].ToString();
 
                 }
 
-                
+
 
             }
 #pragma warning disable CS0168 // La variable 'e' se ha declarado pero nunca se usa
@@ -152,6 +154,17 @@ namespace appSugerencias
             int dan = e.RowIndex;
             int dabb = e.ColumnIndex;
 
+            //tbArticulo.Text = dgvArticulo.Rows[e.RowIndex].Cells[0].Value.ToString();
+            //tbDescrip.Text = dgvArticulo.Rows[e.RowIndex].Cells[1].Value.ToString();
+            //tbCosto.Text = dgvArticulo.Rows[e.RowIndex].Cells[3].Value.ToString();
+            //tbMenudeo.Text = dgvArticulo.Rows[e.RowIndex].Cells[5].Value.ToString();
+            //tbMayoreo.Text = dgvArticulo.Rows[e.RowIndex].Cells[4].Value.ToString();
+            //tbLinea.Text = dgvArticulo.Rows[e.RowIndex].Cells[6].Value.ToString();
+            //tbMarca.Text = dgvArticulo.Rows[e.RowIndex].Cells[7].Value.ToString();
+            //tbFabricante.Text = dgvArticulo.Rows[e.RowIndex].Cells[8].Value.ToString();
+            //tbPresentacion.Text = dgvArticulo.Rows[e.RowIndex].Cells[9].Value.ToString();
+            //tbImpuesto.Text = dgvArticulo.Rows[e.RowIndex].Cells[10].Value.ToString();
+            //tbUnidad.Text = dgvArticulo.Rows[e.RowIndex].Cells[11].Value.ToString();
             tbArticulo.Text = dgvArticulo.Rows[e.RowIndex].Cells[0].Value.ToString();
             tbDescrip.Text = dgvArticulo.Rows[e.RowIndex].Cells[1].Value.ToString();
             tbCosto.Text = dgvArticulo.Rows[e.RowIndex].Cells[3].Value.ToString();
@@ -163,6 +176,8 @@ namespace appSugerencias
             tbPresentacion.Text = dgvArticulo.Rows[e.RowIndex].Cells[9].Value.ToString();
             tbImpuesto.Text = dgvArticulo.Rows[e.RowIndex].Cells[10].Value.ToString();
             tbUnidad.Text = dgvArticulo.Rows[e.RowIndex].Cells[11].Value.ToString();
+            tbClaveSat.Text = dgvArticulo.Rows[e.RowIndex].Cells[12].Value.ToString();
+            tbDescripicionSat.Text = dgvArticulo.Rows[e.RowIndex].Cells[13].Value.ToString();
             //MessageBox.Show(dan.ToString()+ " + " + dabb.ToString());
         }
 
@@ -319,16 +334,25 @@ namespace appSugerencias
                 mdrart = cmdart.ExecuteReader();
 
 
-                if (mdrart.Read())
-                {
-                    comando= "UPDATE prods SET descrip=?descrip,costo_u=?costo_u,precio1=?precio1,precio2=?precio2,impuesto=?impuesto,linea=?linea,marca=?marca,fabricante=?fabricante,peso=?peso,unidad=?unidad,paraventa=?paraventa,invent=?invent   WHERE articulo=?articulo";
-                }
-                else
-                {
-                    comando = "INSERT INTO  prods (articulo,descrip,costo_u,precio1,precio2,impuesto,linea,marca,fabricante,peso,unidad,invent,paraventa) VALUES (?articulo,?descrip,?costo_u,?precio1,?precio2,?impuesto,?linea,?marca,?fabricante,?peso,?unidad,?invent,?paraventa) ";
-                }
+            //if (mdrart.Read())
+            //{
+            //    comando= "UPDATE prods SET descrip=?descrip,costo_u=?costo_u,precio1=?precio1,precio2=?precio2,impuesto=?impuesto,linea=?linea,marca=?marca,fabricante=?fabricante,peso=?peso,unidad=?unidad,paraventa=?paraventa,invent=?invent   WHERE articulo=?articulo";
+            //}
+            //else
+            //{
+            //    comando = "INSERT INTO  prods (articulo,descrip,costo_u,precio1,precio2,impuesto,linea,marca,fabricante,peso,unidad,invent,paraventa) VALUES (?articulo,?descrip,?costo_u,?precio1,?precio2,?impuesto,?linea,?marca,?fabricante,?peso,?unidad,?invent,?paraventa) ";
+            //}
 
-                mdrart.Close();
+            if (mdrart.Read())
+            {
+                comando = "UPDATE prods SET descrip=?descrip,costo_u=?costo_u,precio1=?precio1,precio2=?precio2,impuesto=?impuesto,linea=?linea,marca=?marca,fabricante=?fabricante,peso=?peso,unidad=?unidad,paraventa=?paraventa,invent=?invent,CLAVESAT=?clavesat,DESCRIPCIONSAT=?dessat   WHERE articulo=?articulo";
+            }
+            else
+            {
+                comando = "INSERT INTO  prods (articulo,descrip,costo_u,precio1,precio2,impuesto,linea,marca,fabricante,peso,unidad,invent,paraventa,CLAVESAT,DESCRIPCIONSAT) VALUES (?articulo,?descrip,?costo_u,?precio1,?precio2,?impuesto,?linea,?marca,?fabricante,?peso,?unidad,?invent,?paraventa,?clavesat,?dessat) ";
+            }
+
+            mdrart.Close();
 
                 MySqlCommand cmdoo = new MySqlCommand(comando, conex_guardar);
                 
@@ -344,8 +368,11 @@ namespace appSugerencias
                 cmdoo.Parameters.Add("?fabricante", MySqlDbType.VarChar).Value = tbFabricante.Text;
                 cmdoo.Parameters.Add("?peso", MySqlDbType.VarChar).Value = tbPresentacion.Text;
                 cmdoo.Parameters.Add("?unidad", MySqlDbType.VarChar).Value = tbUnidad.Text;
-                 cmdoo.Parameters.Add("?invent", MySqlDbType.VarChar).Value =1;
+                cmdoo.Parameters.Add("?invent", MySqlDbType.VarChar).Value =1;
                 cmdoo.Parameters.Add("?paraventa", MySqlDbType.VarChar).Value = 1;
+                cmdoo.Parameters.Add("?clavesat", MySqlDbType.VarChar).Value = tbClaveSat.Text;
+                cmdoo.Parameters.Add("?dessat", MySqlDbType.VarChar).Value = tbDescripicionSat.Text;
+               
                 MySqlDataReader mdrr;
                 mdrr = cmdoo.ExecuteReader();
                 mdrr.Close();
@@ -521,6 +548,7 @@ namespace appSugerencias
         public void CargarExcel()
         {
             string hoja = "Hoja1";
+            bool error = false;
             string pathconn = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + tbArchivo.Text + ";Extended Properties='Excel 12.0 Xml; HDR=YES;';";
             OleDbConnection conn = new OleDbConnection(pathconn);
             OleDbCommand oconn = new OleDbCommand("Select * from [" + hoja + "$]", conn);
@@ -531,44 +559,105 @@ namespace appSugerencias
             sda.Fill(data);
             dgvArticulos.DataSource = data;
 
+            //Eliminar celdas vacias del Excel
+            for (int i = data.Rows.Count - 1; i >= 0; i--)
+            {
+                if (data.Rows[i]["ARTICULO"].ToString() == string.Empty)
+                {
+                    data.Rows.RemoveAt(i);
+                }
+            }
+
+            foreach (DataRow row in data.Rows)
+            {
+                if (row["DESCRIP"].ToString() == string.Empty) { error = true; }
+                else if (row["COSTO_U"].ToString() == string.Empty) { error = true; }
+                else if (row["MAYOREO"].ToString() == string.Empty) { error = true; }
+                else if (row["MENUDEO"].ToString() == string.Empty) { error = true; }
+                else if (row["IMPUESTO"].ToString() == string.Empty) { error = true; }
+                else if (row["LINEA"].ToString() == string.Empty) { error = true; }
+                else if (row["MARCA"].ToString() == string.Empty) { error = true; }
+                else if (row["FABRICANTE"].ToString() == string.Empty) { error = true; }
+                else if (row["CLAVESAT"].ToString() == string.Empty) { error = true; }
+                //else if (row["DESCRIPCIONSAT"].ToString() == string.Empty) { error = true; }
+
+            }
+
+
+            dgvArticulos.DataSource = data;
+
+            if (error)
+            {
+                btExcel.Enabled = false;
+                MessageBox.Show("Faltan datos en la tabla");
+            }
+            if (dgvArticulos.Rows.Count < 1)
+            {
+                btExcel.Enabled = false;
+                MessageBox.Show("Tabla vacia");
+            }
+            else
+            {
+                btExcel.Enabled = true;
+            }
+        }
+
+        public string BuscarClaveSAT(MySqlConnection conex, string texto)
+        {
+            string decripcionSat = "";
+
+            MySqlCommand cmdr = new MySqlCommand("select Descripcion as descrip from c_claveprodserv where c_claveprodserv='" + texto + "'", conex);
+            MySqlDataReader mdrr;
+            mdrr = cmdr.ExecuteReader();
+            if (mdrr.Read())
+            {
+                decripcionSat = mdrr.GetString("descrip");
+                mdrr.Close();
+                return decripcionSat;
+            }
+            else
+            {
+                return decripcionSat;
+            }
+
+
 
         }
 
         public void cargarArticulos()
         {
-            string articulo, descripcion, linea, marca, fabricante, impuesto, unidad,comando;
+            string articulo, descripcion, linea, marca, fabricante, impuesto, unidad, claveSat, descripcionSat, unidadSat, descripUnidaSat, comando;
             double costo, mayoreo, menudeo;
+
+            unidad = "PZA";
+            unidadSat = "H87";
+            descripUnidaSat = "Pieza";
+
             for (int i = 0; i < dgvArticulos.Rows.Count; i++)
             {
                 if (string.IsNullOrEmpty(dgvArticulos[0, i].Value.ToString()))
                 {
-                    
+                    break;//Revisar esta chapuzada  
                 }
                 else
                 {
-                    articulo= dgvArticulos[0, i].Value.ToString();
-                    descripcion = dgvArticulos[1, i].Value.ToString();
+                    articulo = dgvArticulos[0, i].Value.ToString().Trim();
+                    descripcion = dgvArticulos[1, i].Value.ToString().ToUpper();
 
-                    costo = Convert.ToDouble( dgvArticulos[2, i].Value);
-                    mayoreo = Convert.ToDouble( dgvArticulos[3, i].Value);
-                    menudeo = Convert.ToDouble( dgvArticulos[4, i].Value);
+                    costo = Convert.ToDouble(dgvArticulos[2, i].Value);
+                    mayoreo = Convert.ToDouble(dgvArticulos[3, i].Value);
+                    menudeo = Convert.ToDouble(dgvArticulos[4, i].Value);
 
                     impuesto = dgvArticulos[5, i].Value.ToString();
-                    linea = dgvArticulos[6, i].Value.ToString();
-                    marca = dgvArticulos[7, i].Value.ToString();
-                    fabricante = dgvArticulos[8, i].Value.ToString();
-                    
-                    unidad = dgvArticulos[9, i].Value.ToString();
+                    linea = dgvArticulos[6, i].Value.ToString().ToUpper();
+                    marca = dgvArticulos[7, i].Value.ToString().ToUpper();
+                    fabricante = dgvArticulos[8, i].Value.ToString().ToUpper();
 
-                    //if (impuesto != "SYS" || impuesto != "sys")
-                    //{
-                    //    //mayoreo = mayoreo / IVA;
-                    //    //menudeo = menudeo / IVA;
-                    //    //costo = costo / IVA;
-                    //    mayoreo = mayoreo;
-                    //    menudeo = menudeo;
-                    //    costo = costo;
-                    //}
+                    //unidad = dgvArticulos[9, i].Value.ToString();
+                    claveSat = dgvArticulos[9, i].Value.ToString();
+                    //descripcionSat = dgvArticulos[10, i].Value.ToString();
+                    descripcionSat = BuscarClaveSAT(BDConexicon.ConectarSat(), claveSat);
+
 
 
                     if (impuesto.Equals("IVA") || impuesto.Equals("iva"))
@@ -588,11 +677,11 @@ namespace appSugerencias
 
                     if (mdrart.Read())
                     {
-                        comando = "UPDATE prods SET descrip=?descrip,costo_u=?costo_u,precio1=?precio1,precio2=?precio2,impuesto=?impuesto,linea=?linea,marca=?marca,fabricante=?fabricante,unidad=?unidad,paraventa=?paraventa,invent=?invent  WHERE articulo=?articulo";
+                        comando = "UPDATE prods SET descrip=?descrip,costo_u=?costo_u,precio1=?precio1,precio2=?precio2,impuesto=?impuesto,linea=?linea,marca=?marca,fabricante=?fabricante,unidad=?unidad,paraventa=?paraventa,invent=?invent,CLAVESAT=?clavesat,DESCRIPCIONSAT=?dessat,UNIDADSAT=?unisat,UNIDADDESSAT=?unissat  WHERE articulo=?articulo";
                     }
                     else
                     {
-                        comando = "INSERT INTO  prods (articulo,descrip,costo_u,precio1,precio2,impuesto,linea,marca,fabricante,unidad,invent,paraventa) VALUES (?articulo,?descrip,?costo_u,?precio1,?precio2,?impuesto,?linea,?marca,?fabricante,?unidad,?invent,?paraventa) ";
+                        comando = "INSERT INTO  prods (articulo,descrip,costo_u,precio1,precio2,impuesto,linea,marca,fabricante,unidad,invent,paraventa,CLAVESAT,DESCRIPCIONSAT,UNIDADSAT,UNIDADDESSAT) VALUES (?articulo,?descrip,?costo_u,?precio1,?precio2,?impuesto,?linea,?marca,?fabricante,?unidad,?invent,?paraventa,?clavesat,?dessat,?unisat,?unissat) ";
                     }
 
                     mdrart.Close();
@@ -607,15 +696,20 @@ namespace appSugerencias
                     cmdoo.Parameters.Add("?costo_u", MySqlDbType.VarChar).Value = costo.ToString();
                     cmdoo.Parameters.Add("?impuesto", MySqlDbType.VarChar).Value = impuesto;
                     cmdoo.Parameters.Add("?linea", MySqlDbType.VarChar).Value = linea;
-                    cmdoo.Parameters.Add("?marca", MySqlDbType.VarChar).Value =marca;
+                    cmdoo.Parameters.Add("?marca", MySqlDbType.VarChar).Value = marca;
                     cmdoo.Parameters.Add("?fabricante", MySqlDbType.VarChar).Value = fabricante;
                     //cmdoo.Parameters.Add("?peso", MySqlDbType.VarChar).Value = tbPresentacion.Text;
                     cmdoo.Parameters.Add("?unidad", MySqlDbType.VarChar).Value = unidad;
                     cmdoo.Parameters.Add("?paraventa", MySqlDbType.VarChar).Value = 1;
                     cmdoo.Parameters.Add("?invent", MySqlDbType.VarChar).Value = 1;
+                    cmdoo.Parameters.Add("?clavesat", MySqlDbType.VarChar).Value = claveSat;
+                    cmdoo.Parameters.Add("?dessat", MySqlDbType.VarChar).Value = descripcionSat;
+                    cmdoo.Parameters.Add("?unisat", MySqlDbType.VarChar).Value = unidadSat;
+                    cmdoo.Parameters.Add("?unissat", MySqlDbType.VarChar).Value = descripUnidaSat;
                     MySqlDataReader mdrr;
                     mdrr = cmdoo.ExecuteReader();
                     mdrr.Close();
+
 
 
                 }
@@ -770,6 +864,76 @@ namespace appSugerencias
         private void dgvArticulo_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            BuscarArticulo(BDConexicon.ConectarSat(), txtClaveSat.Text);
+        }
+
+        public void BuscarArticulo(MySqlConnection conex, string texto)
+        {
+            MySqlCommand cmd = new MySqlCommand("select c_claveprodserv as clave,Descripcion as descrip from c_claveprodserv where Descripcion like '%" + texto + "%'", conex);
+            MySqlDataAdapter adaptador = new MySqlDataAdapter(cmd);
+            System.Data.DataTable dt = new System.Data.DataTable();
+
+            adaptador.Fill(dt);
+            dgvArticulo.Rows.Clear();
+            dgvCatalogo.DataSource = dt;
+           
+            dgvCatalogo.Columns[1].AutoSizeMode=DataGridViewAutoSizeColumnMode.Fill;
+            conex.Close();
+
+
+        }
+
+        private void dgvCatalogo_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+
+                string cadenaConTabulador = "", clave, descripcion;
+                clave = dgvCatalogo.Rows[e.RowIndex].Cells[0].Value.ToString();
+                descripcion = dgvCatalogo.Rows[e.RowIndex].Cells[1].Value.ToString();
+                cadenaConTabulador = String.Format("{0}\t{1}", clave, descripcion);
+                string clipboard = dgvCatalogo.Rows[e.RowIndex].Cells[0].Value.ToString() + " " + dgvCatalogo.Rows[e.RowIndex].Cells[1].Value.ToString();
+
+                if (checkClaveSat.Checked)
+                {
+                    tbClaveSat.Text = clave;
+                    tbDescripicionSat.Text = descripcion;
+                }
+                lblClipCodigo.Text = clave;
+                lblClipDescripcion.Text = descripcion;
+                Clipboard.SetText(cadenaConTabulador);
+
+            }
+            catch (Exception er)
+            {
+
+            }
+        }
+
+        private void txtClaveSat_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                if (txtClaveSat.Text.Equals(""))
+                {
+                    MessageBox.Show("Ingresa una descripcion");
+                }
+                else
+                {
+                    BuscarArticulo(BDConexicon.ConectarSat(), txtClaveSat.Text);
+
+                }
+            }
+
+            if (e.KeyChar == Convert.ToChar(Keys.Space))
+            {
+                txtClaveSat.Text = "";
+                SendKeys.Send("{BACKSPACE}");
+            }
         }
     }
 

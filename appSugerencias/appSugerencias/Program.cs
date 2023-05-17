@@ -14,7 +14,7 @@ using appSugerencias.Gastos_Externos.Vistas;
 using appSugerencias.Gastos;
 using appSugerencias.Cajas.Cajeras.Vista;
 using appSugerencias.Cajas.Enc_Cajas.Vista;
-using appSugerencias.Piso_de_venta.Vista;
+using appSugerencias.Comisiones.Vista;
 
 namespace appSugerencias
 {
