@@ -28,35 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle46 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle47 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle48 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle49 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle50 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle51 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle52 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle53 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle54 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle55 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle56 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             this.DG_tabla = new System.Windows.Forms.DataGridView();
-            this.ARTICULO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DESCRIPCION = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PRECIO_MAY = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PRECIO_MEN = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EXVA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.F_ENTRADA_VA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EXRE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.F_ENTRADA_RE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EXVE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.F_ENTRADA_VE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EXCO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.F_ENTRADA_CO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EXPRE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.F_ENTRADA_PRE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BT_exportar = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -71,14 +55,24 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.LB_va = new System.Windows.Forms.Label();
             this.LB_re = new System.Windows.Forms.Label();
             this.LB_ve = new System.Windows.Forms.Label();
             this.LB_co = new System.Windows.Forms.Label();
-            this.LB_pre = new System.Windows.Forms.Label();
             this.LB_mensaje = new System.Windows.Forms.Label();
             this.LB_mensajeExp = new System.Windows.Forms.Label();
+            this.ARTICULO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DESCRIPCION = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PRECIO_MAY = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PRECIO_MEN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EXVA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.F_ENTRADA_VA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EXRE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.F_ENTRADA_RE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EXVE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.F_ENTRADA_VE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EXCO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.F_ENTRADA_CO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DG_tabla)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -103,121 +97,11 @@
             this.EXVE,
             this.F_ENTRADA_VE,
             this.EXCO,
-            this.F_ENTRADA_CO,
-            this.EXPRE,
-            this.F_ENTRADA_PRE});
+            this.F_ENTRADA_CO});
             this.DG_tabla.Location = new System.Drawing.Point(1, 142);
             this.DG_tabla.Name = "DG_tabla";
             this.DG_tabla.Size = new System.Drawing.Size(1483, 333);
             this.DG_tabla.TabIndex = 0;
-            // 
-            // ARTICULO
-            // 
-            dataGridViewCellStyle43.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.ARTICULO.DefaultCellStyle = dataGridViewCellStyle43;
-            this.ARTICULO.HeaderText = "ARTICULO";
-            this.ARTICULO.Name = "ARTICULO";
-            // 
-            // DESCRIPCION
-            // 
-            dataGridViewCellStyle44.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.DESCRIPCION.DefaultCellStyle = dataGridViewCellStyle44;
-            this.DESCRIPCION.HeaderText = "DESCRIPCION";
-            this.DESCRIPCION.Name = "DESCRIPCION";
-            // 
-            // PRECIO_MAY
-            // 
-            dataGridViewCellStyle45.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.PRECIO_MAY.DefaultCellStyle = dataGridViewCellStyle45;
-            this.PRECIO_MAY.HeaderText = "PRECIO MAY";
-            this.PRECIO_MAY.Name = "PRECIO_MAY";
-            // 
-            // PRECIO_MEN
-            // 
-            dataGridViewCellStyle46.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.PRECIO_MEN.DefaultCellStyle = dataGridViewCellStyle46;
-            this.PRECIO_MEN.HeaderText = "PRECIO MEN";
-            this.PRECIO_MEN.Name = "PRECIO_MEN";
-            // 
-            // EXVA
-            // 
-            dataGridViewCellStyle47.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle47.BackColor = System.Drawing.Color.ForestGreen;
-            this.EXVA.DefaultCellStyle = dataGridViewCellStyle47;
-            this.EXVA.HeaderText = "EX VA";
-            this.EXVA.Name = "EXVA";
-            // 
-            // F_ENTRADA_VA
-            // 
-            dataGridViewCellStyle48.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle48.BackColor = System.Drawing.Color.ForestGreen;
-            this.F_ENTRADA_VA.DefaultCellStyle = dataGridViewCellStyle48;
-            this.F_ENTRADA_VA.HeaderText = "ENTRADA";
-            this.F_ENTRADA_VA.Name = "F_ENTRADA_VA";
-            // 
-            // EXRE
-            // 
-            dataGridViewCellStyle49.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle49.BackColor = System.Drawing.Color.MediumTurquoise;
-            this.EXRE.DefaultCellStyle = dataGridViewCellStyle49;
-            this.EXRE.HeaderText = "EX RE";
-            this.EXRE.Name = "EXRE";
-            // 
-            // F_ENTRADA_RE
-            // 
-            dataGridViewCellStyle50.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle50.BackColor = System.Drawing.Color.MediumTurquoise;
-            this.F_ENTRADA_RE.DefaultCellStyle = dataGridViewCellStyle50;
-            this.F_ENTRADA_RE.HeaderText = "F_ENTRADA";
-            this.F_ENTRADA_RE.Name = "F_ENTRADA_RE";
-            // 
-            // EXVE
-            // 
-            dataGridViewCellStyle51.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle51.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.EXVE.DefaultCellStyle = dataGridViewCellStyle51;
-            this.EXVE.HeaderText = "EX VE";
-            this.EXVE.Name = "EXVE";
-            // 
-            // F_ENTRADA_VE
-            // 
-            dataGridViewCellStyle52.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle52.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.F_ENTRADA_VE.DefaultCellStyle = dataGridViewCellStyle52;
-            this.F_ENTRADA_VE.HeaderText = "F_ENTRADA";
-            this.F_ENTRADA_VE.Name = "F_ENTRADA_VE";
-            // 
-            // EXCO
-            // 
-            dataGridViewCellStyle53.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle53.BackColor = System.Drawing.Color.CadetBlue;
-            this.EXCO.DefaultCellStyle = dataGridViewCellStyle53;
-            this.EXCO.HeaderText = "EX CO";
-            this.EXCO.Name = "EXCO";
-            // 
-            // F_ENTRADA_CO
-            // 
-            dataGridViewCellStyle54.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle54.BackColor = System.Drawing.Color.CadetBlue;
-            this.F_ENTRADA_CO.DefaultCellStyle = dataGridViewCellStyle54;
-            this.F_ENTRADA_CO.HeaderText = "F_ENTRADA";
-            this.F_ENTRADA_CO.Name = "F_ENTRADA_CO";
-            // 
-            // EXPRE
-            // 
-            dataGridViewCellStyle55.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle55.BackColor = System.Drawing.Color.Orange;
-            this.EXPRE.DefaultCellStyle = dataGridViewCellStyle55;
-            this.EXPRE.HeaderText = "EX PRE";
-            this.EXPRE.Name = "EXPRE";
-            // 
-            // F_ENTRADA_PRE
-            // 
-            dataGridViewCellStyle56.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle56.BackColor = System.Drawing.Color.Orange;
-            this.F_ENTRADA_PRE.DefaultCellStyle = dataGridViewCellStyle56;
-            this.F_ENTRADA_PRE.HeaderText = "F_ENTRADA";
-            this.F_ENTRADA_PRE.Name = "F_ENTRADA_PRE";
             // 
             // BT_exportar
             // 
@@ -365,17 +249,6 @@
             this.label7.TabIndex = 15;
             this.label7.Text = "COLOSO";
             // 
-            // label8
-            // 
-            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(1280, 111);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(58, 13);
-            this.label8.TabIndex = 16;
-            this.label8.Text = "PREGOT";
-            // 
             // LB_va
             // 
             this.LB_va.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -412,15 +285,6 @@
             this.LB_co.Size = new System.Drawing.Size(0, 13);
             this.LB_co.TabIndex = 20;
             // 
-            // LB_pre
-            // 
-            this.LB_pre.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.LB_pre.AutoSize = true;
-            this.LB_pre.Location = new System.Drawing.Point(1356, 111);
-            this.LB_pre.Name = "LB_pre";
-            this.LB_pre.Size = new System.Drawing.Size(0, 13);
-            this.LB_pre.TabIndex = 21;
-            // 
             // LB_mensaje
             // 
             this.LB_mensaje.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -443,6 +307,98 @@
             this.LB_mensajeExp.TabIndex = 23;
             this.LB_mensajeExp.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
+            // ARTICULO
+            // 
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.ARTICULO.DefaultCellStyle = dataGridViewCellStyle13;
+            this.ARTICULO.HeaderText = "ARTICULO";
+            this.ARTICULO.Name = "ARTICULO";
+            // 
+            // DESCRIPCION
+            // 
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.DESCRIPCION.DefaultCellStyle = dataGridViewCellStyle14;
+            this.DESCRIPCION.HeaderText = "DESCRIPCION";
+            this.DESCRIPCION.Name = "DESCRIPCION";
+            // 
+            // PRECIO_MAY
+            // 
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.PRECIO_MAY.DefaultCellStyle = dataGridViewCellStyle15;
+            this.PRECIO_MAY.HeaderText = "PRECIO MAY";
+            this.PRECIO_MAY.Name = "PRECIO_MAY";
+            // 
+            // PRECIO_MEN
+            // 
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.PRECIO_MEN.DefaultCellStyle = dataGridViewCellStyle16;
+            this.PRECIO_MEN.HeaderText = "PRECIO MEN";
+            this.PRECIO_MEN.Name = "PRECIO_MEN";
+            // 
+            // EXVA
+            // 
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.ForestGreen;
+            this.EXVA.DefaultCellStyle = dataGridViewCellStyle17;
+            this.EXVA.HeaderText = "EX VA";
+            this.EXVA.Name = "EXVA";
+            // 
+            // F_ENTRADA_VA
+            // 
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.ForestGreen;
+            this.F_ENTRADA_VA.DefaultCellStyle = dataGridViewCellStyle18;
+            this.F_ENTRADA_VA.HeaderText = "ENTRADA";
+            this.F_ENTRADA_VA.Name = "F_ENTRADA_VA";
+            // 
+            // EXRE
+            // 
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle19.BackColor = System.Drawing.Color.MediumTurquoise;
+            this.EXRE.DefaultCellStyle = dataGridViewCellStyle19;
+            this.EXRE.HeaderText = "EX RE";
+            this.EXRE.Name = "EXRE";
+            // 
+            // F_ENTRADA_RE
+            // 
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle20.BackColor = System.Drawing.Color.MediumTurquoise;
+            this.F_ENTRADA_RE.DefaultCellStyle = dataGridViewCellStyle20;
+            this.F_ENTRADA_RE.HeaderText = "F_ENTRADA";
+            this.F_ENTRADA_RE.Name = "F_ENTRADA_RE";
+            // 
+            // EXVE
+            // 
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle21.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.EXVE.DefaultCellStyle = dataGridViewCellStyle21;
+            this.EXVE.HeaderText = "EX VE";
+            this.EXVE.Name = "EXVE";
+            // 
+            // F_ENTRADA_VE
+            // 
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle22.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.F_ENTRADA_VE.DefaultCellStyle = dataGridViewCellStyle22;
+            this.F_ENTRADA_VE.HeaderText = "F_ENTRADA";
+            this.F_ENTRADA_VE.Name = "F_ENTRADA_VE";
+            // 
+            // EXCO
+            // 
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle23.BackColor = System.Drawing.Color.CadetBlue;
+            this.EXCO.DefaultCellStyle = dataGridViewCellStyle23;
+            this.EXCO.HeaderText = "EX CO";
+            this.EXCO.Name = "EXCO";
+            // 
+            // F_ENTRADA_CO
+            // 
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle24.BackColor = System.Drawing.Color.CadetBlue;
+            this.F_ENTRADA_CO.DefaultCellStyle = dataGridViewCellStyle24;
+            this.F_ENTRADA_CO.HeaderText = "F_ENTRADA";
+            this.F_ENTRADA_CO.Name = "F_ENTRADA_CO";
+            // 
             // PorcentajeUnidadesVend
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -451,14 +407,12 @@
             this.ClientSize = new System.Drawing.Size(1486, 476);
             this.Controls.Add(this.LB_mensajeExp);
             this.Controls.Add(this.LB_mensaje);
-            this.Controls.Add(this.LB_pre);
             this.Controls.Add(this.LB_co);
             this.Controls.Add(this.BT_buscar);
             this.Controls.Add(this.LB_ve);
             this.Controls.Add(this.BT_exportar);
             this.Controls.Add(this.LB_re);
             this.Controls.Add(this.LB_va);
-            this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -496,12 +450,10 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label LB_va;
         private System.Windows.Forms.Label LB_re;
         private System.Windows.Forms.Label LB_ve;
         private System.Windows.Forms.Label LB_co;
-        private System.Windows.Forms.Label LB_pre;
         private System.Windows.Forms.Label LB_mensaje;
         private System.Windows.Forms.Label LB_mensajeExp;
         private System.Windows.Forms.DataGridViewTextBoxColumn ARTICULO;
@@ -516,7 +468,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn F_ENTRADA_VE;
         private System.Windows.Forms.DataGridViewTextBoxColumn EXCO;
         private System.Windows.Forms.DataGridViewTextBoxColumn F_ENTRADA_CO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EXPRE;
-        private System.Windows.Forms.DataGridViewTextBoxColumn F_ENTRADA_PRE;
     }
 }

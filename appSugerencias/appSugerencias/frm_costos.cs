@@ -45,7 +45,7 @@ namespace appSugerencias
             tienda.Add(new Item("RENA", "RENA"));
             tienda.Add(new Item("VELAZQUEZ", "DIEZ"));
             tienda.Add(new Item("COLOSO", "COLOSO"));
-            tienda.Add(new Item("PREGOT", "PREGOT"));
+          
 
             mes.Add(new Item("ENERO", "ENE"));
             mes.Add(new Item("FEBRERO", "FEB"));
@@ -77,9 +77,9 @@ namespace appSugerencias
             string IP = "";
             string BD;
             string tienda;
-#pragma warning disable CS0168 // La variable 'prefijotienda' se ha declarado pero nunca se usa
+
             string prefijotienda;
-#pragma warning restore CS0168 // La variable 'prefijotienda' se ha declarado pero nunca se usa
+
 
             tienda = cbTienda.SelectedValue.ToString();
 
@@ -100,10 +100,7 @@ namespace appSugerencias
             {
                 IP = "192.168.4.2";
             }
-            else if (tienda == "PREGOT")
-            {
-                IP = "192.168.6.2";
-            }
+          
 
             BD = tienda + " " + cbMeses.SelectedValue.ToString() + " " + cbYear.Text.ToString();
 
@@ -574,9 +571,9 @@ namespace appSugerencias
             string tienda;
             int flag = 0;
 
-#pragma warning disable CS0168 // La variable 'prefijotienda' se ha declarado pero nunca se usa
+
             string prefijotienda;
-#pragma warning restore CS0168 // La variable 'prefijotienda' se ha declarado pero nunca se usa
+
 
             tienda = cbTienda.SelectedValue.ToString();
 
@@ -597,10 +594,7 @@ namespace appSugerencias
             {
                 IP = "192.168.4.2";
             }
-            else if (tienda == "PREGOT")
-            {
-                IP = "192.168.6.2";
-            }
+           
 
             flag = defineMesActual();
 
@@ -634,9 +628,9 @@ namespace appSugerencias
             string tienda;
             //int flag = 0;
 
-#pragma warning disable CS0168 // La variable 'prefijotienda' se ha declarado pero nunca se usa
+
             string prefijotienda;
-#pragma warning restore CS0168 // La variable 'prefijotienda' se ha declarado pero nunca se usa
+
 
             tienda = cbTienda.SelectedValue.ToString();
 
@@ -657,10 +651,7 @@ namespace appSugerencias
             {
                 IP = "192.168.4.2";
             }
-            else if (tienda == "PREGOT")
-            {
-                IP = "192.168.6.2";
-            }
+           
 
             //flag = defineMesActual();
 

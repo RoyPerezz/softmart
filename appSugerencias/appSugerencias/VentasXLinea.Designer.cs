@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VentasXLinea));
-            this.dgvLineas = new System.Windows.Forms.DataGridView();
-            this.TIENDA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MES = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LINEA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CANTIDAD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.button1 = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -44,51 +44,19 @@
             this.BT_exportar = new System.Windows.Forms.Button();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.dgvLineas = new System.Windows.Forms.DataGridView();
+            this.CLAVE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DEPARTAMENTO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VALLARTA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RENA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VELAZQUEZ = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.COLOSO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLineas)).BeginInit();
             this.SuspendLayout();
             // 
-            // dgvLineas
-            // 
-            this.dgvLineas.AllowUserToAddRows = false;
-            this.dgvLineas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvLineas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.TIENDA,
-            this.MES,
-            this.LINEA,
-            this.CANTIDAD});
-            this.dgvLineas.Location = new System.Drawing.Point(27, 89);
-            this.dgvLineas.Name = "dgvLineas";
-            this.dgvLineas.Size = new System.Drawing.Size(636, 501);
-            this.dgvLineas.TabIndex = 56;
-            // 
-            // TIENDA
-            // 
-            this.TIENDA.HeaderText = "TIENDA";
-            this.TIENDA.Name = "TIENDA";
-            this.TIENDA.ReadOnly = true;
-            // 
-            // MES
-            // 
-            this.MES.HeaderText = "MES";
-            this.MES.Name = "MES";
-            this.MES.ReadOnly = true;
-            // 
-            // LINEA
-            // 
-            this.LINEA.HeaderText = "LINEA";
-            this.LINEA.Name = "LINEA";
-            this.LINEA.ReadOnly = true;
-            this.LINEA.Width = 250;
-            // 
-            // CANTIDAD
-            // 
-            this.CANTIDAD.HeaderText = "CANTIDAD";
-            this.CANTIDAD.Name = "CANTIDAD";
-            this.CANTIDAD.ReadOnly = true;
-            this.CANTIDAD.Width = 150;
-            // 
             // button1
             // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.BackColor = System.Drawing.Color.DodgerBlue;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
@@ -104,7 +72,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(262, 7);
+            this.label7.Location = new System.Drawing.Point(136, 9);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(41, 20);
             this.label7.TabIndex = 52;
@@ -114,7 +82,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(135, 7);
+            this.label6.Location = new System.Drawing.Point(9, 9);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(42, 20);
             this.label6.TabIndex = 51;
@@ -124,11 +92,12 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(8, 7);
+            this.label5.Location = new System.Drawing.Point(325, 9);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(63, 20);
             this.label5.TabIndex = 50;
             this.label5.Text = "Tienda";
+            this.label5.Visible = false;
             // 
             // cbTienda
             // 
@@ -139,18 +108,20 @@
             "VELAZQUEZ",
             "COLOSO",
             "PREGOT"});
-            this.cbTienda.Location = new System.Drawing.Point(12, 30);
+            this.cbTienda.Location = new System.Drawing.Point(394, 11);
             this.cbTienda.Name = "cbTienda";
             this.cbTienda.Size = new System.Drawing.Size(121, 21);
             this.cbTienda.TabIndex = 49;
+            this.cbTienda.Visible = false;
             // 
             // cbYear
             // 
             this.cbYear.FormattingEnabled = true;
-            this.cbYear.Location = new System.Drawing.Point(266, 30);
+            this.cbYear.Location = new System.Drawing.Point(140, 32);
             this.cbYear.Name = "cbYear";
             this.cbYear.Size = new System.Drawing.Size(74, 21);
             this.cbYear.TabIndex = 48;
+            this.cbYear.SelectedIndexChanged += new System.EventHandler(this.cbYear_SelectedIndexChanged);
             // 
             // cbMeses
             // 
@@ -168,21 +139,23 @@
             "OCTUBRE",
             "NOVIEMBRE",
             "DICIEMBRE"});
-            this.cbMeses.Location = new System.Drawing.Point(139, 30);
+            this.cbMeses.Location = new System.Drawing.Point(13, 32);
             this.cbMeses.Name = "cbMeses";
             this.cbMeses.Size = new System.Drawing.Size(121, 21);
             this.cbMeses.TabIndex = 47;
+            this.cbMeses.SelectedIndexChanged += new System.EventHandler(this.cbMeses_SelectedIndexChanged);
             // 
             // BT_exportar
             // 
+            this.BT_exportar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.BT_exportar.BackColor = System.Drawing.Color.DodgerBlue;
             this.BT_exportar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BT_exportar.ForeColor = System.Drawing.Color.White;
             this.BT_exportar.Image = ((System.Drawing.Image)(resources.GetObject("BT_exportar.Image")));
             this.BT_exportar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BT_exportar.Location = new System.Drawing.Point(551, 596);
+            this.BT_exportar.Location = new System.Drawing.Point(684, 15);
             this.BT_exportar.Name = "BT_exportar";
-            this.BT_exportar.Size = new System.Drawing.Size(112, 51);
+            this.BT_exportar.Size = new System.Drawing.Size(110, 47);
             this.BT_exportar.TabIndex = 57;
             this.BT_exportar.Text = "Exportar";
             this.BT_exportar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -191,25 +164,90 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(346, 30);
+            this.progressBar1.Location = new System.Drawing.Point(335, 32);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(180, 23);
             this.progressBar1.TabIndex = 59;
+            this.progressBar1.Visible = false;
             // 
             // backgroundWorker1
             // 
             this.backgroundWorker1.WorkerReportsProgress = true;
             this.backgroundWorker1.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker1_ProgressChanged);
             // 
+            // dgvLineas
+            // 
+            this.dgvLineas.AllowUserToAddRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Silver;
+            this.dgvLineas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvLineas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvLineas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvLineas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvLineas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.CLAVE,
+            this.DEPARTAMENTO,
+            this.VALLARTA,
+            this.RENA,
+            this.VELAZQUEZ,
+            this.COLOSO});
+            this.dgvLineas.Location = new System.Drawing.Point(12, 68);
+            this.dgvLineas.Name = "dgvLineas";
+            this.dgvLineas.Size = new System.Drawing.Size(782, 406);
+            this.dgvLineas.TabIndex = 60;
+            // 
+            // CLAVE
+            // 
+            this.CLAVE.HeaderText = "CLAVE LINEA";
+            this.CLAVE.Name = "CLAVE";
+            // 
+            // DEPARTAMENTO
+            // 
+            this.DEPARTAMENTO.HeaderText = "LINEA";
+            this.DEPARTAMENTO.Name = "DEPARTAMENTO";
+            this.DEPARTAMENTO.ReadOnly = true;
+            // 
+            // VALLARTA
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.VALLARTA.DefaultCellStyle = dataGridViewCellStyle2;
+            this.VALLARTA.HeaderText = "VALLARTA";
+            this.VALLARTA.Name = "VALLARTA";
+            this.VALLARTA.ReadOnly = true;
+            // 
+            // RENA
+            // 
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.RENA.DefaultCellStyle = dataGridViewCellStyle3;
+            this.RENA.HeaderText = "RENA";
+            this.RENA.Name = "RENA";
+            this.RENA.ReadOnly = true;
+            // 
+            // VELAZQUEZ
+            // 
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.VELAZQUEZ.DefaultCellStyle = dataGridViewCellStyle4;
+            this.VELAZQUEZ.HeaderText = "VELAZQUEZ";
+            this.VELAZQUEZ.Name = "VELAZQUEZ";
+            this.VELAZQUEZ.ReadOnly = true;
+            // 
+            // COLOSO
+            // 
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.COLOSO.DefaultCellStyle = dataGridViewCellStyle5;
+            this.COLOSO.HeaderText = "COLOSO";
+            this.COLOSO.Name = "COLOSO";
+            // 
             // VentasXLinea
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.ClientSize = new System.Drawing.Size(679, 652);
+            this.ClientSize = new System.Drawing.Size(807, 479);
+            this.Controls.Add(this.dgvLineas);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.BT_exportar);
-            this.Controls.Add(this.dgvLineas);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -228,11 +266,6 @@
 
         #endregion
         private System.Windows.Forms.Button BT_exportar;
-        private System.Windows.Forms.DataGridView dgvLineas;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TIENDA;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MES;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LINEA;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CANTIDAD;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
@@ -242,5 +275,12 @@
         private System.Windows.Forms.ComboBox cbMeses;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.DataGridView dgvLineas;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CLAVE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DEPARTAMENTO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn VALLARTA;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RENA;
+        private System.Windows.Forms.DataGridViewTextBoxColumn VELAZQUEZ;
+        private System.Windows.Forms.DataGridViewTextBoxColumn COLOSO;
     }
 }

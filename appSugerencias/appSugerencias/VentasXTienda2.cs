@@ -27,12 +27,11 @@ namespace appSugerencias
 
         public void Consulta()
         {
-#pragma warning disable CS0219 // La variable 'importeDiaTo' está asignada pero su valor nunca se usa
+
             double importeDiaVa, importeDiaRe, importeDiaVe, importeDiaCo, importeDiaPre, importeDiaTo;
-#pragma warning restore CS0219 // La variable 'importeDiaTo' está asignada pero su valor nunca se usa
-#pragma warning disable CS0168 // La variable 'Total' se ha declarado pero nunca se usa
+
             double totalVa, totalRe, totalCo, totalVe, totalPre, Total;
-#pragma warning restore CS0168 // La variable 'Total' se ha declarado pero nunca se usa
+
             int renglonNuevo = 0; ;
 
             importeDiaTo = 0;
@@ -245,52 +244,52 @@ namespace appSugerencias
                 MessageBox.Show("Coloso sin conexion Motivo : " +er.Message);
             }
 
-            try
-            {
-                Conex = BDConexicon.Papeleria1Open();
-                string comando = "SELECT ventas.F_EMISION AS 'Fecha', " +
-                    "SUM((partvta.precio * (partvta.cantidad - partvta.a01) * (1 - (partvta.descuento / 100)) * ventas.tipo_cam)) + SUM((partvta.precio * (partvta.cantidad - partvta.a01) * (1 - (partvta.descuento / 100)) * ventas.tipo_cam) * (partvta.impuesto / 100)) As 'Total' " +
-                    "FROM(partvta LEFT JOIN ventas ON ventas.VENTA = partvta.VENTA) INNER JOIN prods ON partvta.ARTICULO = prods.ARTICULO " +
-                    "WHERE ventas.ESTADO = 'CO' AND(ventas.TIPO_DOC = 'FAC' OR ventas.TIPO_DOC = 'DV' OR ventas.TIPO_DOC = 'REM') AND ventas.CIERRE = 0 " +
-                    "GROUP BY ventas.F_EMISION " +
-                    "ORDER BY ventas.F_EMISION";
+            //try
+            //{
+            //    Conex = BDConexicon.Papeleria1Open();
+            //    string comando = "SELECT ventas.F_EMISION AS 'Fecha', " +
+            //        "SUM((partvta.precio * (partvta.cantidad - partvta.a01) * (1 - (partvta.descuento / 100)) * ventas.tipo_cam)) + SUM((partvta.precio * (partvta.cantidad - partvta.a01) * (1 - (partvta.descuento / 100)) * ventas.tipo_cam) * (partvta.impuesto / 100)) As 'Total' " +
+            //        "FROM(partvta LEFT JOIN ventas ON ventas.VENTA = partvta.VENTA) INNER JOIN prods ON partvta.ARTICULO = prods.ARTICULO " +
+            //        "WHERE ventas.ESTADO = 'CO' AND(ventas.TIPO_DOC = 'FAC' OR ventas.TIPO_DOC = 'DV' OR ventas.TIPO_DOC = 'REM') AND ventas.CIERRE = 0 " +
+            //        "GROUP BY ventas.F_EMISION " +
+            //        "ORDER BY ventas.F_EMISION";
 
-                MySqlCommand cmdr = new MySqlCommand(comando, Conex);
+            //    MySqlCommand cmdr = new MySqlCommand(comando, Conex);
 
-                MySqlDataReader dr = cmdr.ExecuteReader();
-                int y = 0;
-                totalPre = 0;
-                while (dr.Read())
-                {
-                    importeDiaPre = Convert.ToDouble(dr["total"].ToString());
-                    fecha = Convert.ToDateTime(dr["fecha"].ToString());
-                    //LisPregot.Add(importeDiaPre);
-                    totalPre = totalPre + importeDiaPre;
-                    dgvVentas.Rows[y].Cells[8].Value = fecha.ToString("dd/MM/yyyy");
-                    dgvVentas.Rows[y].Cells[9].Value = importeDiaPre.ToString("C");
-                    y = y + 1;
+            //    MySqlDataReader dr = cmdr.ExecuteReader();
+            //    int y = 0;
+            //    totalPre = 0;
+            //    while (dr.Read())
+            //    {
+            //        importeDiaPre = Convert.ToDouble(dr["total"].ToString());
+            //        fecha = Convert.ToDateTime(dr["fecha"].ToString());
+            //        //LisPregot.Add(importeDiaPre);
+            //        totalPre = totalPre + importeDiaPre;
+            //        dgvVentas.Rows[y].Cells[8].Value = fecha.ToString("dd/MM/yyyy");
+            //        dgvVentas.Rows[y].Cells[9].Value = importeDiaPre.ToString("C");
+            //        y = y + 1;
 
 
 
-                }
-                dgvVentas.Rows[renglonNuevo].Cells[8].Value = "TOTAL";
-                dgvVentas.Rows[renglonNuevo].Cells[9].Value = totalPre.ToString("C");
-                //conectar.Close();
-                dr.Close();
-                //dgvVentas.Rows[y].Cells[5].Value = totalPre.ToString("C");
-                //LisPregot.Add(totalPre);
-            }
-            catch (Exception er)
-            {
-                //for (int i = 0; i < dgvVentas.Rows.Count; i++)
-                //{
+            //    }
+            //    dgvVentas.Rows[renglonNuevo].Cells[8].Value = "TOTAL";
+            //    dgvVentas.Rows[renglonNuevo].Cells[9].Value = totalPre.ToString("C");
+            //    //conectar.Close();
+            //    dr.Close();
+            //    //dgvVentas.Rows[y].Cells[5].Value = totalPre.ToString("C");
+            //    //LisPregot.Add(totalPre);
+            //}
+            //catch (Exception er)
+            //{
+            //    //for (int i = 0; i < dgvVentas.Rows.Count; i++)
+            //    //{
 
-                //    dgvVentas.Rows[i].Cells[5].Value = 0;
-                //    LisPregot.Add(0);
-                //}
-                //LisPregot.Add(0);
-                MessageBox.Show("Pregot sin conexion Motivo: " + er.Message);
-            }
+            //    //    dgvVentas.Rows[i].Cells[5].Value = 0;
+            //    //    LisPregot.Add(0);
+            //    //}
+            //    //LisPregot.Add(0);
+            //    MessageBox.Show("Pregot sin conexion Motivo: " + er.Message);
+            //}
 
 
 

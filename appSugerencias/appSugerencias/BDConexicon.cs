@@ -100,11 +100,7 @@ namespace appSugerencias
                 conexion = BDConexicon.ColosoOpen();
             }
 
-            if (sucursal.Equals("PREGOT"))
-            {
-                conexion = BDConexicon.Papeleria1Open();
-            }
-
+           
             return conexion;
         }
 

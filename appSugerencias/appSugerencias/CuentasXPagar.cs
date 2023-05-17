@@ -32,7 +32,7 @@ namespace appSugerencias
         DataTable DTRena = new DataTable();
         DataTable DTColoso = new DataTable();
         DataTable DTVelazquez = new DataTable();
-        DataTable DTPregot = new DataTable();
+        //DataTable DTPregot = new DataTable();
         DataTable DTBodega = new DataTable();
         DataTable master = new DataTable();
         DataTable pagos = new DataTable();
@@ -141,30 +141,30 @@ namespace appSugerencias
             }
         }
 
-        public void CuentasPendientesPRE(string proveedor)
-        {
-            // string consulta = "SELECT TE.CUENXPAG,CXP.COMPRA, TE.PROVEEDOR, TE.FECHA  AS FECHA, TE.TIPO_DOC, TE.NO_REFEREN, TE.CARGO_AB, TE.IMPORTE FROM CUENXPDET TE INNER JOIN CUENXPAG CXP  ON TE.CUENXPAG = CXP.CUENXPAG WHERE TE.PROVEEDOR ='" + proveedor + "'";
-            string consulta = "SELECT COMPRA, PROVEEDOR, FECHA, TIPO_DOC, NO_REFEREN, CARGO_AB, IMPORTE,OBSERV,COBRADOR FROM CUENXPDET WHERE PROVEEDOR ='" + proveedor + "'";
-            try
-            {
-                //DATOS DE PREGOT
-                MySqlConnection conPregot = BDConexicon.Papeleria1Open();
-                MySqlCommand cmdPRE = new MySqlCommand(consulta, conPregot);
-                MySqlDataAdapter adPRE = new MySqlDataAdapter(cmdPRE);
-                adPRE.Fill(DTPregot);
-                DataColumn col = new DataColumn();
-                col.ColumnName = "TIENDA";
-                col.DefaultValue = "PREGOT";
-                DTPregot.Columns.Add(col);
-                //LB_pregot.Text = "CONECTADO";
-            }
-#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
-            catch (Exception ex)
-#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
-            {
+//        public void CuentasPendientesPRE(string proveedor)
+//        {
+//            // string consulta = "SELECT TE.CUENXPAG,CXP.COMPRA, TE.PROVEEDOR, TE.FECHA  AS FECHA, TE.TIPO_DOC, TE.NO_REFEREN, TE.CARGO_AB, TE.IMPORTE FROM CUENXPDET TE INNER JOIN CUENXPAG CXP  ON TE.CUENXPAG = CXP.CUENXPAG WHERE TE.PROVEEDOR ='" + proveedor + "'";
+//            string consulta = "SELECT COMPRA, PROVEEDOR, FECHA, TIPO_DOC, NO_REFEREN, CARGO_AB, IMPORTE,OBSERV,COBRADOR FROM CUENXPDET WHERE PROVEEDOR ='" + proveedor + "'";
+//            try
+//            {
+//                //DATOS DE PREGOT
+//                MySqlConnection conPregot = BDConexicon.Papeleria1Open();
+//                MySqlCommand cmdPRE = new MySqlCommand(consulta, conPregot);
+//                MySqlDataAdapter adPRE = new MySqlDataAdapter(cmdPRE);
+//                adPRE.Fill(DTPregot);
+//                DataColumn col = new DataColumn();
+//                col.ColumnName = "TIENDA";
+//                col.DefaultValue = "PREGOT";
+//                DTPregot.Columns.Add(col);
+//                //LB_pregot.Text = "CONECTADO";
+//            }
+//#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
+//            catch (Exception ex)
+//#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
+//            {
 
-            }
-        }
+//            }
+//        }
 
         public void CuentasPendientesBO(string proveedor)
         {
@@ -222,7 +222,7 @@ namespace appSugerencias
             master.Merge(DTRena);
             master.Merge(DTVelazquez);
             master.Merge(DTColoso);      
-            master.Merge(DTPregot);
+            //master.Merge(DTPregot);
             
             //master.DefaultView.Sort = "FECHA";
             DataView vista = master.DefaultView;
@@ -455,23 +455,23 @@ namespace appSugerencias
             }
 
 
-            try
-            {
-                MySqlConnection pre = BDConexicon.Papeleria1Open();
-                if (pre.State == ConnectionState.Open)
-                {
-                    //LB_pregot.Text = "CONECTADO";
-                    LB_pre.ForeColor = Color.DarkGreen;
-                }
-            }
-#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
-            catch (Exception ex)
-#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
-            {
-                //LB_pregot.Text = "SIN CONEXIÓN";
-                LB_pre.ForeColor = Color.Red;
+            //try
+            //{
+            //    MySqlConnection pre = BDConexicon.Papeleria1Open();
+            //    if (pre.State == ConnectionState.Open)
+            //    {
+            //        //LB_pregot.Text = "CONECTADO";
+            //        LB_pre.ForeColor = Color.DarkGreen;
+            //    }
+            //}
 
-            }
+            //catch (Exception ex)
+
+            //{
+            //    //LB_pregot.Text = "SIN CONEXIÓN";
+            //    LB_pre.ForeColor = Color.Red;
+
+            //}
 
 
         }
@@ -506,7 +506,7 @@ namespace appSugerencias
             CHB_rena.Checked = true;
             CHB_velazquez.Checked = true;
             CHB_coloso.Checked = true;
-            CHB_pregot.Checked = true;
+            //CHB_pregot.Checked = true;
 
 
 
@@ -667,12 +667,8 @@ namespace appSugerencias
         string proveedor = "", id = "", compra = "";
         string importeComp = "";
         string sucursal = "";
-#pragma warning disable CS0414 // El campo 'CuentasXPagar.suc' está asignado pero su valor nunca se usa
-        string suc = "";
-#pragma warning restore CS0414 // El campo 'CuentasXPagar.suc' está asignado pero su valor nunca se usa
-#pragma warning disable CS0414 // El campo 'CuentasXPagar.compra2' está asignado pero su valor nunca se usa
-        string compra2 = "";
-#pragma warning restore CS0414 // El campo 'CuentasXPagar.compra2' está asignado pero su valor nunca se usa
+
+    
 
         //ventana para depositar de proveedor a proveedor
         private void button1_Click_1(object sender, EventArgs e)
@@ -724,7 +720,7 @@ namespace appSugerencias
                 DTRena.Clear();
                 DTColoso.Clear();
                 DTVelazquez.Clear();
-                DTPregot.Clear();
+                //DTPregot.Clear();
                 master.Clear();
                 ResetarComponentes();
                 ProbarConexiones();
@@ -761,12 +757,12 @@ namespace appSugerencias
                     valve = 1;
                 }
 
-                if (CHB_pregot.Checked)
-                {
-                    CuentasPendientesPRE(proveedor);
-                    valpre = 1;
+                //if (CHB_pregot.Checked)
+                //{
+                //    CuentasPendientesPRE(proveedor);
+                //    valpre = 1;
 
-                }
+                //}
 
                 EstadoCuenta();
                 //LIMPIAR DATATABLES
@@ -868,7 +864,7 @@ namespace appSugerencias
             LB_re.ForeColor = Color.Gray;
             LB_co.ForeColor = Color.Gray;
             LB_ve.ForeColor = Color.Gray;
-            LB_pre.ForeColor = Color.Gray;
+            //LB_pre.ForeColor = Color.Gray;
             DG_datos.Rows.Clear();
 
         }
@@ -881,7 +877,7 @@ namespace appSugerencias
             DTRena.Clear();
             DTColoso.Clear();
             DTVelazquez.Clear();
-            DTPregot.Clear();
+            //DTPregot.Clear();
             master.Clear();
             ResetarComponentes();
             ProbarConexiones();
@@ -918,12 +914,12 @@ namespace appSugerencias
                 valve = 1;
             }
 
-            if (CHB_pregot.Checked)
-            {
-                CuentasPendientesPRE(proveedor);
-                valpre = 1;
+            //if (CHB_pregot.Checked)
+            //{
+            //    CuentasPendientesPRE(proveedor);
+            //    valpre = 1;
 
-            }
+            //}
 
             EstadoCuenta();
             //LIMPIAR DATATABLES
@@ -976,7 +972,7 @@ namespace appSugerencias
             MySqlConnection conRe = BDConexicon.RenaOpen();
             MySqlConnection conVe = BDConexicon.VelazquezOpen();
             MySqlConnection conCo = BDConexicon.ColosoOpen();
-            MySqlConnection conPre = BDConexicon.Papeleria1Open();
+           // MySqlConnection conPre = BDConexicon.Papeleria1Open();
             MySqlConnection conBo = BDConexicon.BodegaOpen();
 
             if (ca.Equals("C"))
@@ -986,7 +982,9 @@ namespace appSugerencias
             else
             {
                 string query = "SELECT importe,fecha_pago,fecha_efe,tipo FROM rd_desglose_abonos WHERE idabono='" + idabono + "'";
+                //string query = "SELECT importe,fecha_pago,fecha_efe,tipo FROM rd_desglose_abonos WHERE compra='" + compra + "'";
                 string spei = "SELECT importe,fecha_pago,fecha_efe,tipo,banco,cuenta,clientebancario FROM rd_desglose_abonos WHERE idabono='" + idabono + "'";
+                //string spei = "SELECT importe,fecha_pago,fecha_efe,tipo,banco,cuenta,clientebancario FROM rd_desglose_abonos WHERE compra='" + compra + "'";
 
 
                 if (movimiento.Equals("SPE"))
@@ -1013,20 +1011,21 @@ namespace appSugerencias
                         }
                         conBo.Close();
                     }
-#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
+
                     catch (Exception ex)
-#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
+
                     {
 
 
                     }
+                   
 
 
 
                     // ############################## PAGOS DE VALLLARTA #############################################
                     try
                     {
-                        MySqlCommand cmdVa = new MySqlCommand(query, conVa);
+                        MySqlCommand cmdVa = new MySqlCommand(spei, conVa);
                         MySqlDataReader drVA = cmdVa.ExecuteReader();
                         if (drVA.HasRows)
                         {
@@ -1045,9 +1044,9 @@ namespace appSugerencias
                         }
                         conVa.Close();
                     }
-#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
+
                     catch (Exception ex)
-#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
+
                     {
 
 
@@ -1057,7 +1056,7 @@ namespace appSugerencias
                     // ############################## PAGOS DE RENA #############################################
                     try
                     {
-                        MySqlCommand cmdRe = new MySqlCommand(query, conRe);
+                        MySqlCommand cmdRe = new MySqlCommand(spei, conRe);
                         MySqlDataReader drRE = cmdRe.ExecuteReader();
                         if (drRE.HasRows)
                         {
@@ -1076,9 +1075,9 @@ namespace appSugerencias
                         }
                         conRe.Close();
                     }
-#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
+
                     catch (Exception ex)
-#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
+
                     {
 
 
@@ -1087,7 +1086,7 @@ namespace appSugerencias
                     // ############################## PAGOS DE VELAZQUEZ #############################################
                     try
                     {
-                        MySqlCommand cmdVe = new MySqlCommand(query, conVe);
+                        MySqlCommand cmdVe = new MySqlCommand(spei, conVe);
                         MySqlDataReader drVE = cmdVe.ExecuteReader();
                         if (drVE.HasRows)
                         {
@@ -1106,9 +1105,9 @@ namespace appSugerencias
                         }
                         conVe.Close();
                     }
-#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
+
                     catch (Exception ex)
-#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
+
                     {
 
 
@@ -1117,7 +1116,7 @@ namespace appSugerencias
                     // ############################## PAGOS DE COLOSO #############################################
                     try
                     {
-                        MySqlCommand cmdCo = new MySqlCommand(query, conCo);
+                        MySqlCommand cmdCo = new MySqlCommand(spei, conCo);
                         MySqlDataReader drCO = cmdCo.ExecuteReader();
                         if (drCO.HasRows)
                         {
@@ -1136,43 +1135,43 @@ namespace appSugerencias
                         }
                         conCo.Close();
                     }
-#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
+
                     catch (Exception ex)
-#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
+
                     {
 
 
                     }
 
                     // ############################## PAGOS DE PREGOT #############################################
-                    try
-                    {
-                        MySqlCommand cmdPre = new MySqlCommand(query, conPre);
-                        MySqlDataReader drPRE = cmdPre.ExecuteReader();
-                        if (drPRE.HasRows)
-                        {
-                            while (drPRE.Read())
-                            {
-                                pagos.Rows.Add(drPRE["importe"].ToString(), drPRE["fecha_pago"].ToString(), drPRE["fecha_efe"].ToString(), drPRE["tipo"].ToString(), drPRE["banco"].ToString(), drPRE["cuenta"].ToString(), drPRE["clientebancario"].ToString(), "PREGOT");
+                    //try
+                    //{
+                    //    MySqlCommand cmdPre = new MySqlCommand(query, conPre);
+                    //    MySqlDataReader drPRE = cmdPre.ExecuteReader();
+                    //    if (drPRE.HasRows)
+                    //    {
+                    //        while (drPRE.Read())
+                    //        {
+                    //            pagos.Rows.Add(drPRE["importe"].ToString(), drPRE["fecha_pago"].ToString(), drPRE["fecha_efe"].ToString(), drPRE["tipo"].ToString(), drPRE["banco"].ToString(), drPRE["cuenta"].ToString(), drPRE["clientebancario"].ToString(), "PREGOT");
 
-                            }
+                    //        }
 
-                            drPRE.Close();
+                    //        drPRE.Close();
 
-                        }
-                        else
-                        {
+                    //    }
+                    //    else
+                    //    {
 
-                        }
-                        conPre.Close();
-                    }
-#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
-                    catch (Exception ex)
-#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
-                    {
+                    //    }
+                    //    conPre.Close();
+                    //}
+
+                    //catch (Exception ex)
+
+                    //{
 
 
-                    }
+                    //}
                 }
                 else
                 {
@@ -1180,7 +1179,7 @@ namespace appSugerencias
                     //############################## PAGOS DE bodega #############################################
                     try
                     {
-                        MySqlCommand cmdBo = new MySqlCommand(spei, conBo);
+                        MySqlCommand cmdBo = new MySqlCommand(query, conBo);
                         MySqlDataReader drBO = cmdBo.ExecuteReader();
                         if (drBO.HasRows)
                         {
@@ -1199,9 +1198,9 @@ namespace appSugerencias
                         }
                         conBo.Close();
                     }
-#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
+
                     catch (Exception ex)
-#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
+
                     {
 
 
@@ -1292,9 +1291,9 @@ namespace appSugerencias
                         }
                         conVe.Close();
                     }
-#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
+
                     catch (Exception ex)
-#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
+
                     {
 
 
@@ -1322,43 +1321,43 @@ namespace appSugerencias
                         }
                         conCo.Close();
                     }
-#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
+
                     catch (Exception ex)
-#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
+
                     {
 
 
                     }
 
                     // ############################## PAGOS DE PREGOT #############################################
-                    try
-                    {
-                        MySqlCommand cmdPre = new MySqlCommand(query, conPre);
-                        MySqlDataReader drPRE = cmdPre.ExecuteReader();
-                        if (drPRE.HasRows)
-                        {
-                            while (drPRE.Read())
-                            {
-                                pagos.Rows.Add(drPRE["importe"].ToString(), drPRE["fecha_pago"].ToString(), drPRE["fecha_efe"].ToString(), drPRE["tipo"].ToString(), "", "", "", "PREGOT");
+                    //try
+                    //{
+                    //    MySqlCommand cmdPre = new MySqlCommand(query, conPre);
+                    //    MySqlDataReader drPRE = cmdPre.ExecuteReader();
+                    //    if (drPRE.HasRows)
+                    //    {
+                    //        while (drPRE.Read())
+                    //        {
+                    //            pagos.Rows.Add(drPRE["importe"].ToString(), drPRE["fecha_pago"].ToString(), drPRE["fecha_efe"].ToString(), drPRE["tipo"].ToString(), "", "", "", "PREGOT");
 
-                            }
+                    //        }
 
-                            drPRE.Close();
+                    //        drPRE.Close();
 
-                        }
-                        else
-                        {
+                    //    }
+                    //    else
+                    //    {
 
-                        }
-                        conPre.Close();
-                    }
-#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
-                    catch (Exception ex)
-#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
-                    {
+                    //    }
+                    //    conPre.Close();
+                    //}
+
+                    //catch (Exception ex)
+
+                    //{
 
 
-                    }
+                    //}
                 }
                 Desglose des = new Desglose(pagos, compra);
                 des.Show();
@@ -1381,7 +1380,7 @@ namespace appSugerencias
 
                 string prov = TB_proveedor.Text;
                 string nombre = CB_proveedor.SelectedItem.ToString();
-                Abonos ab = new Abonos(prov, nombre, saldo, usuario,valva,valre,valve,valco,valpre);
+                Abonos ab = new Abonos(prov, nombre, saldo, usuario,valva,valre,valve,valco);
                 ab.Show();
             }
             else

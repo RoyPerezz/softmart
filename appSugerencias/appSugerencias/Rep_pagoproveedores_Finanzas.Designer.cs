@@ -68,8 +68,7 @@
             "VALLARTA",
             "RENA",
             "VELAZQUEZ",
-            "COLOSO",
-            "PREGOT"});
+            "COLOSO"});
             this.CB_sucursal.Location = new System.Drawing.Point(12, 64);
             this.CB_sucursal.Name = "CB_sucursal";
             this.CB_sucursal.Size = new System.Drawing.Size(121, 21);

@@ -169,8 +169,7 @@
             "VALLARTA",
             "RENA",
             "VELAZQUEZ",
-            "COLOSO",
-            "PREGOT"});
+            "COLOSO"});
             this.CBTienda.Location = new System.Drawing.Point(147, 24);
             this.CBTienda.Margin = new System.Windows.Forms.Padding(2);
             this.CBTienda.Name = "CBTienda";
@@ -452,6 +451,7 @@
             this.lblPa.Size = new System.Drawing.Size(66, 13);
             this.lblPa.TabIndex = 51;
             this.lblPa.Text = "PAPELERIA";
+            this.lblPa.Visible = false;
             // 
             // lblPaId
             // 
@@ -461,6 +461,7 @@
             this.lblPaId.Size = new System.Drawing.Size(22, 13);
             this.lblPaId.TabIndex = 52;
             this.lblPaId.Text = "-----";
+            this.lblPaId.Visible = false;
             // 
             // lblPaImpor
             // 
@@ -470,6 +471,7 @@
             this.lblPaImpor.Size = new System.Drawing.Size(22, 13);
             this.lblPaImpor.TabIndex = 53;
             this.lblPaImpor.Text = "-----";
+            this.lblPaImpor.Visible = false;
             // 
             // lblPaPro
             // 
@@ -479,6 +481,7 @@
             this.lblPaPro.Size = new System.Drawing.Size(22, 13);
             this.lblPaPro.TabIndex = 54;
             this.lblPaPro.Text = "-----";
+            this.lblPaPro.Visible = false;
             // 
             // TB_orden
             // 

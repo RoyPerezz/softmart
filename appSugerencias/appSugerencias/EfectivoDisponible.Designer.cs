@@ -42,15 +42,11 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.LB_efecoloso = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.LB_efepregot = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.BT_efectivo = new System.Windows.Forms.Button();
             this.LB_va = new System.Windows.Forms.Label();
             this.LB_re = new System.Windows.Forms.Label();
             this.LB_ve = new System.Windows.Forms.Label();
             this.LB_co = new System.Windows.Forms.Label();
-            this.LB_pre = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.LB_total = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -58,7 +54,6 @@
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -215,39 +210,6 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "Coloso";
             // 
-            // panel5
-            // 
-            this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel5.BackColor = System.Drawing.Color.Goldenrod;
-            this.panel5.Controls.Add(this.LB_efepregot);
-            this.panel5.Controls.Add(this.label6);
-            this.panel5.Location = new System.Drawing.Point(257, 599);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(242, 100);
-            this.panel5.TabIndex = 6;
-            // 
-            // LB_efepregot
-            // 
-            this.LB_efepregot.AutoSize = true;
-            this.LB_efepregot.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LB_efepregot.ForeColor = System.Drawing.Color.White;
-            this.LB_efepregot.Location = new System.Drawing.Point(48, 61);
-            this.LB_efepregot.Name = "LB_efepregot";
-            this.LB_efepregot.Size = new System.Drawing.Size(0, 25);
-            this.LB_efepregot.TabIndex = 1;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(9, 9);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(62, 20);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Pregot";
-            // 
             // BT_efectivo
             // 
             this.BT_efectivo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -301,16 +263,6 @@
             this.LB_co.Size = new System.Drawing.Size(0, 13);
             this.LB_co.TabIndex = 10;
             // 
-            // LB_pre
-            // 
-            this.LB_pre.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.LB_pre.AutoSize = true;
-            this.LB_pre.Location = new System.Drawing.Point(339, 706);
-            this.LB_pre.Name = "LB_pre";
-            this.LB_pre.Size = new System.Drawing.Size(0, 13);
-            this.LB_pre.TabIndex = 11;
-            // 
             // panel6
             // 
             this.panel6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
@@ -352,13 +304,11 @@
             this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(748, 897);
             this.Controls.Add(this.panel6);
-            this.Controls.Add(this.LB_pre);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.LB_co);
             this.Controls.Add(this.LB_re);
             this.Controls.Add(this.LB_va);
             this.Controls.Add(this.BT_efectivo);
-            this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -375,8 +325,6 @@
             this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.ResumeLayout(false);
@@ -400,15 +348,11 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label LB_efecoloso;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Label LB_efepregot;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button BT_efectivo;
         private System.Windows.Forms.Label LB_va;
         private System.Windows.Forms.Label LB_re;
         private System.Windows.Forms.Label LB_ve;
         private System.Windows.Forms.Label LB_co;
-        private System.Windows.Forms.Label LB_pre;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label LB_total;
         private System.Windows.Forms.Label label2;

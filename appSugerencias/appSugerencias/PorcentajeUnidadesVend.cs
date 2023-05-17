@@ -1026,181 +1026,7 @@ namespace appSugerencias
             }
         }
 
-        ////BUSCA LOS ARTICULOS DE LA LINEA SELECCIONADA EN LA SUC. PREGOT
-        //public void BuscarPRE()
-        //{
-
-        //   pre.Rows.Clear();
-        //    listaPRE.Clear();
-        //    articulosPRE.Rows.Clear();
-
-        //    linea = CB_linea.SelectedItem.ToString();
-        //    inicio = DT_inicio.Value;
-        //    fin = DT_fin.Value;
-        //    try
-        //    {
-        //        //###################################  LLENA LA LISTA CON LOS ARTICULOS DE LA TIENDA VALLARTA DENTRO DE LA LINEA SELECCIONADA ############################################
-        //        string query = "SELECT ARTICULO FROM PRODS WHERE LINEA='" + linea + "'";
-        //        MySqlConnection conexion = BDConexicon.Papeleria1Open();
-        //        MySqlCommand comand = new MySqlCommand(query, conexion);
-        //        MySqlDataReader dread = comand.ExecuteReader();
-
-        //        while (dread.Read())
-        //        {
-        //            listaPRE.Add(dread["ARTICULO"].ToString());
-        //        }
-        //        dread.Close();
-        //        conexion.Close();
-        //        //#########################################################################################################################################################################
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        //MessageBox.Show("[ARTICULOS PREGOT] "+ex);
-        //        estadoPRE = "SIN CONEXION";
-                
-        //    }
-
-         
-           
-        //}
-
-        ////CALCULA LA EXISTENCIA EN EL RANGO DE FECHA SELECCIONADO, LAS UNIDADES VENDIDAS Y EL PORCENTAJE QUE ESO REPRESENTA POR CADA ARTICULO EN LA LINEA EN PREGOT
-        //public void SubBuscarPRE()
-        //{
-        //    int entradas = 0;
-        //    double salidas = 0;
-        //    string ent_sal = "";
-        //    string tipo_mov = "";
-        //    int cantidad = 0;
-        //    double existencia = 0;
-        //    int existenciaReal = 0;
-        //    double porcentaje = 0;
-        //    int cancelarEntrada = 0;
-        //    int cancelarSalida = 0;
-
-        //    double precio2 = 0;
-        //    double precio1 = 0;
-        //    double mayoreo = 0;
-        //    double menudeo = 0;
-
-        //    try
-        //    {
-        //        MySqlConnection conexion = BDConexicon.Papeleria1Open();
-
-        //        MySqlDataReader dr = null;
-        //        MySqlDataReader dr0 = null;
-
-        //        for (int i = 0; i < listaPRE.Count; i++)
-        //        {
-
-        //            MySqlCommand exist = new MySqlCommand("SELECT ENT_SAL,TIPO_MOVIM,CANTIDAD,EXISTENCIA FROM MOVSINV WHERE ARTICULO='" + listaPRE[i] + "' and F_MOVIM BETWEEN '" + inicio.ToString("yyyy-MM-dd") + "' AND '" + fin.ToString("yyyy-MM-dd") + "' LIMIT 1", conexion);
-        //            dr0 = exist.ExecuteReader();
-
-        //            while (dr0.Read())
-        //            {
-        //                existencia = Convert.ToInt32(dr0["EXISTENCIA"].ToString());
-        //                if (dr0["ENT_SAL"].ToString().Equals("E"))
-        //                {
-        //                    cancelarEntrada = Convert.ToInt32(dr0["CANTIDAD"].ToString());
-        //                }
-        //                if (dr0["ENT_SAL"].ToString().Equals("S") && dr0["TIPO_MOVIM"].ToString().Equals("TK"))
-        //                {
-        //                    cancelarSalida = Convert.ToInt32(dr0["CANTIDAD"].ToString());
-        //                }
-        //            }
-        //            dr0.Close();
-
-
-        //            MySqlCommand cmd = new MySqlCommand("SELECT mov.ARTICULO,p.DESCRIP,p.PRECIO1,p.PRECIO2,mov.ENT_SAL, mov.TIPO_MOVIM,mov.CANTIDAD,mov.EXISTENCIA " +
-        //           "FROM MOVSINV mov INNER JOIN PRODS p ON mov.ARTICULO=p.ARTICULO" +
-        //           " WHERE p.ARTICULO='" + listaPRE[i] + "' AND mov.F_MOVIM BETWEEN '" + inicio.ToString("yyyy-MM-dd") + "' AND '" + fin.ToString("yyyy-MM-dd") + "'", conexion);
-        //            dr = cmd.ExecuteReader();
-
-
-        //            while (dr.Read())
-        //            {
-
-        //                if (dr["ENT_SAL"].ToString().Equals("E") && dr["TIPO_MOVIM"].ToString() != "IF+")
-        //                {
-        //                    entradas += Convert.ToInt32(dr["CANTIDAD"].ToString());
-        //                    //existencia += Convert.ToInt32(dr["EXISTENCIA"].ToString());
-        //                    //existencia += entradas;
-        //                }
-
-        //                if (dr["ENT_SAL"].ToString().Equals("S") && dr["TIPO_MOVIM"].ToString() != "IF-")
-        //                {
-        //                    salidas += Convert.ToInt32(dr["CANTIDAD"].ToString());
-        //                }
-
-        //            }
-        //            existencia = existencia + entradas;
-        //            try
-        //            {
-        //                //existenciaReal = existencia - salidas;
-        //                existencia = existencia - cancelarEntrada;
-        //                salidas = salidas - cancelarSalida;
-        //                porcentaje = (salidas * 100) / existencia;
-        //            }
-        //            catch (Exception ex)
-        //            {
-
-
-        //            }
-
-        //            if (dr.HasRows)
-        //            {
-        //                if (porcentaje <= 10)
-        //                {
-        //                    precio2 = Convert.ToDouble(dr["PRECIO2"].ToString());
-        //                    precio1 = Convert.ToDouble(dr["PRECIO1"].ToString());
-
-        //                    mayoreo = precio2 + (precio2 * 0.16);
-        //                    menudeo = precio1 + (precio1 * 0.16);
-
-        //                    DataRow row = pre.NewRow();
-        //                    DataRow row2 = articulosPRE.NewRow();
-
-        //                    row["ARTICULO"] = dr["ARTICULO"].ToString();
-        //                    row["DESCRIPCION"] = dr["DESCRIP"].ToString();
-        //                    row["PRECIO MAYOREO"] = mayoreo;
-        //                    row["PRECIO MENUDEO"] = menudeo;
-        //                    row["EXISTENCIA"] = existencia;
-        //                    row["U. VENDIDAS"] = salidas;
-        //                    row["PORCENTAJE"] = porcentaje.ToString("N2");
-        //                    pre.Rows.Add(row);
-
-
-        //                    //row2["ARTICULO"] = dr["ARTICULO"].ToString();
-        //                    //row2["DESCRIPCION"] = dr["DESCRIP"].ToString();
-        //                    //row2["PRECIO MAYOREO"] = mayoreo;
-        //                    //row2["PRECIO MENUDEO"] = menudeo;
-        //                    //articulosPRE.Rows.Add(row2);
-
-        //                }
-        //            }
-        //            else
-        //            {
-
-        //            }
-
-        //            dr.Close();
-
-        //            existenciaReal = 0; existencia = 0; salidas = 0; porcentaje = 0; entradas = 0; cancelarEntrada = 0; cancelarSalida = 0;
-
-        //        }
-        //        estadoPRE = "CONECTADO";
-
-        //        conexion.Close();
-
-        //    }
-        //    catch (Exception ex)
-        //    {
-
-        //        //MessageBox.Show("[PORCENTAJE PREGOT] " + ex);
-        //        estadoPRE = "SIN CONEXION";
-        //    }
-        //}
-
+       
 
 
         private void BT_exportar_Click(object sender, EventArgs e)
@@ -1298,7 +1124,7 @@ namespace appSugerencias
             LB_re.Text = "";
             LB_ve.Text = "";
             LB_co.Text = "";
-            LB_pre.Text = "";
+      
             LB_mensajeExp.Text = "";
             LB_mensaje.Text = "";
             LB_mensaje.Text="BUSCANDO INFORMACIÓN EN LAS TIENDAS...";
@@ -1611,7 +1437,7 @@ namespace appSugerencias
 
                 DG_tabla.Rows.Add(item["ARTICULO"], item["DESCRIPCION"], item["PRECIO MAYOREO"], item["PRECIO MENUDEO"], item["EXVA"], item["ULTIMA ENTRADA VA"], item["EXRE"], item["ULTIMA ENTRADA RE"], item["EXVE"], item["ULTIMA ENTRADA VE"], item["EXCO"], item["ULTIMA ENTRADA CO"]);
 
-                LB_va.Text = estadoVA; LB_re.Text = estadoRE; LB_ve.Text = estadoVE; LB_co.Text = estadoCO; LB_pre.Text = estadoPRE;
+                LB_va.Text = estadoVA; LB_re.Text = estadoRE; LB_ve.Text = estadoVE; LB_co.Text = estadoCO; 
 
 
                 if (LB_va.Text.Equals("CONECTADO"))
@@ -1651,14 +1477,7 @@ namespace appSugerencias
                     LB_co.ForeColor = Color.Red;
                 }
 
-                if (LB_pre.Text.Equals("CONECTADO"))
-                {
-                    LB_pre.ForeColor = Color.Green;
-                }
-                else
-                {
-                    LB_pre.ForeColor = Color.Red;
-                }
+                
             }
 
 

@@ -63,8 +63,7 @@
             "VALLARTA",
             "RENA",
             "VELAZQUEZ",
-            "COLOSO",
-            "PREGOT"});
+            "COLOSO"});
             this.cbTienda.Location = new System.Drawing.Point(12, 43);
             this.cbTienda.Name = "cbTienda";
             this.cbTienda.Size = new System.Drawing.Size(121, 21);

@@ -28,10 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VentasXTienda2));
             this.dgvVentas = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.BT_exportar = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.FECHA_VA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.VALLARTA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FECHA_RENA = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -40,20 +43,16 @@
             this.VELAZQUEZ = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FECHA_COLOSO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.COLOSO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FECHA_PREGOT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PREGOT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label1 = new System.Windows.Forms.Label();
-            this.BT_exportar = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVentas)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvVentas
             // 
             this.dgvVentas.AllowUserToAddRows = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvVentas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvVentas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvVentas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvVentas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvVentas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.FECHA_VA,
@@ -63,87 +62,20 @@
             this.FECHA_VELAZQUEZ,
             this.VELAZQUEZ,
             this.FECHA_COLOSO,
-            this.COLOSO,
-            this.FECHA_PREGOT,
-            this.PREGOT});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvVentas.DefaultCellStyle = dataGridViewCellStyle4;
+            this.COLOSO});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvVentas.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvVentas.Location = new System.Drawing.Point(6, 102);
             this.dgvVentas.Name = "dgvVentas";
             this.dgvVentas.Size = new System.Drawing.Size(943, 476);
             this.dgvVentas.TabIndex = 0;
             this.dgvVentas.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvVentas_CellFormatting);
-            // 
-            // FECHA_VA
-            // 
-            this.FECHA_VA.HeaderText = "FECHA VALLARTA";
-            this.FECHA_VA.Name = "FECHA_VA";
-            this.FECHA_VA.ReadOnly = true;
-            this.FECHA_VA.Width = 80;
-            // 
-            // VALLARTA
-            // 
-            this.VALLARTA.HeaderText = "VALLARTA";
-            this.VALLARTA.Name = "VALLARTA";
-            this.VALLARTA.ReadOnly = true;
-            // 
-            // FECHA_RENA
-            // 
-            this.FECHA_RENA.HeaderText = "FECHA RENA";
-            this.FECHA_RENA.Name = "FECHA_RENA";
-            this.FECHA_RENA.ReadOnly = true;
-            this.FECHA_RENA.Width = 80;
-            // 
-            // RENA
-            // 
-            this.RENA.HeaderText = "RENA";
-            this.RENA.Name = "RENA";
-            this.RENA.ReadOnly = true;
-            // 
-            // FECHA_VELAZQUEZ
-            // 
-            this.FECHA_VELAZQUEZ.HeaderText = "FECHA VELAZQUEZ";
-            this.FECHA_VELAZQUEZ.Name = "FECHA_VELAZQUEZ";
-            this.FECHA_VELAZQUEZ.ReadOnly = true;
-            this.FECHA_VELAZQUEZ.Width = 80;
-            // 
-            // VELAZQUEZ
-            // 
-            this.VELAZQUEZ.HeaderText = "VELAZQUEZ";
-            this.VELAZQUEZ.Name = "VELAZQUEZ";
-            this.VELAZQUEZ.ReadOnly = true;
-            // 
-            // FECHA_COLOSO
-            // 
-            this.FECHA_COLOSO.HeaderText = "FECHA COLOSO";
-            this.FECHA_COLOSO.Name = "FECHA_COLOSO";
-            this.FECHA_COLOSO.ReadOnly = true;
-            this.FECHA_COLOSO.Width = 80;
-            // 
-            // COLOSO
-            // 
-            this.COLOSO.HeaderText = "COLOSO";
-            this.COLOSO.Name = "COLOSO";
-            this.COLOSO.ReadOnly = true;
-            // 
-            // FECHA_PREGOT
-            // 
-            this.FECHA_PREGOT.HeaderText = "FECHA PREGOT";
-            this.FECHA_PREGOT.Name = "FECHA_PREGOT";
-            this.FECHA_PREGOT.ReadOnly = true;
-            this.FECHA_PREGOT.Width = 80;
-            // 
-            // PREGOT
-            // 
-            this.PREGOT.HeaderText = "PREGOT";
-            this.PREGOT.Name = "PREGOT";
-            this.PREGOT.ReadOnly = true;
             // 
             // label1
             // 
@@ -184,6 +116,54 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
+            // FECHA_VA
+            // 
+            this.FECHA_VA.HeaderText = "FECHA VALLARTA";
+            this.FECHA_VA.Name = "FECHA_VA";
+            this.FECHA_VA.ReadOnly = true;
+            // 
+            // VALLARTA
+            // 
+            this.VALLARTA.HeaderText = "VALLARTA";
+            this.VALLARTA.Name = "VALLARTA";
+            this.VALLARTA.ReadOnly = true;
+            // 
+            // FECHA_RENA
+            // 
+            this.FECHA_RENA.HeaderText = "FECHA RENA";
+            this.FECHA_RENA.Name = "FECHA_RENA";
+            this.FECHA_RENA.ReadOnly = true;
+            // 
+            // RENA
+            // 
+            this.RENA.HeaderText = "RENA";
+            this.RENA.Name = "RENA";
+            this.RENA.ReadOnly = true;
+            // 
+            // FECHA_VELAZQUEZ
+            // 
+            this.FECHA_VELAZQUEZ.HeaderText = "FECHA VELAZQUEZ";
+            this.FECHA_VELAZQUEZ.Name = "FECHA_VELAZQUEZ";
+            this.FECHA_VELAZQUEZ.ReadOnly = true;
+            // 
+            // VELAZQUEZ
+            // 
+            this.VELAZQUEZ.HeaderText = "VELAZQUEZ";
+            this.VELAZQUEZ.Name = "VELAZQUEZ";
+            this.VELAZQUEZ.ReadOnly = true;
+            // 
+            // FECHA_COLOSO
+            // 
+            this.FECHA_COLOSO.HeaderText = "FECHA COLOSO";
+            this.FECHA_COLOSO.Name = "FECHA_COLOSO";
+            this.FECHA_COLOSO.ReadOnly = true;
+            // 
+            // COLOSO
+            // 
+            this.COLOSO.HeaderText = "COLOSO";
+            this.COLOSO.Name = "COLOSO";
+            this.COLOSO.ReadOnly = true;
+            // 
             // VentasXTienda2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -216,7 +196,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn VELAZQUEZ;
         private System.Windows.Forms.DataGridViewTextBoxColumn FECHA_COLOSO;
         private System.Windows.Forms.DataGridViewTextBoxColumn COLOSO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FECHA_PREGOT;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PREGOT;
     }
 }

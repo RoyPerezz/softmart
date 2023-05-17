@@ -29,18 +29,15 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.CHX_bd_pre = new System.Windows.Forms.CheckBox();
             this.CHX_bd_co = new System.Windows.Forms.CheckBox();
             this.CHX_bd_ve = new System.Windows.Forms.CheckBox();
             this.CHX_bd_re = new System.Windows.Forms.CheckBox();
             this.CHX_bd_va = new System.Windows.Forms.CheckBox();
-            this.TB_pagoPRE = new System.Windows.Forms.TextBox();
             this.TB_pagoCO = new System.Windows.Forms.TextBox();
             this.TB_pagoVE = new System.Windows.Forms.TextBox();
             this.TB_pagoRE = new System.Windows.Forms.TextBox();
             this.TB_pagoVA = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.CHK_pre = new System.Windows.Forms.CheckBox();
             this.CHK_ve = new System.Windows.Forms.CheckBox();
             this.CHK_co = new System.Windows.Forms.CheckBox();
             this.CHK_re = new System.Windows.Forms.CheckBox();
@@ -48,8 +45,6 @@
             this.CHK_mespasado = new System.Windows.Forms.CheckBox();
             this.DT_fecha = new System.Windows.Forms.DateTimePicker();
             this.BT_efectivo = new System.Windows.Forms.Button();
-            this.TB_efepregot = new System.Windows.Forms.TextBox();
-            this.LB_pre = new System.Windows.Forms.Label();
             this.TB_efecoloso = new System.Windows.Forms.TextBox();
             this.LB_ve = new System.Windows.Forms.Label();
             this.LB_co = new System.Windows.Forms.Label();
@@ -59,6 +54,7 @@
             this.TB_efevallarta = new System.Windows.Forms.TextBox();
             this.LB_va = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.TB_clavebanco = new System.Windows.Forms.TextBox();
             this.BT_ajuste = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.TB_referencia = new System.Windows.Forms.TextBox();
@@ -75,25 +71,21 @@
             this.label13 = new System.Windows.Forms.Label();
             this.CB_bancosOsmart = new System.Windows.Forms.ComboBox();
             this.CB_tienda = new System.Windows.Forms.ComboBox();
-            this.TB_clavebanco = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.CHX_bd_pre);
             this.groupBox1.Controls.Add(this.CHX_bd_co);
             this.groupBox1.Controls.Add(this.CHX_bd_ve);
             this.groupBox1.Controls.Add(this.CHX_bd_re);
             this.groupBox1.Controls.Add(this.CHX_bd_va);
-            this.groupBox1.Controls.Add(this.TB_pagoPRE);
             this.groupBox1.Controls.Add(this.TB_pagoCO);
             this.groupBox1.Controls.Add(this.TB_pagoVE);
             this.groupBox1.Controls.Add(this.TB_pagoRE);
             this.groupBox1.Controls.Add(this.TB_pagoVA);
             this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.CHK_pre);
             this.groupBox1.Controls.Add(this.CHK_ve);
             this.groupBox1.Controls.Add(this.CHK_co);
             this.groupBox1.Controls.Add(this.CHK_re);
@@ -101,8 +93,6 @@
             this.groupBox1.Controls.Add(this.CHK_mespasado);
             this.groupBox1.Controls.Add(this.DT_fecha);
             this.groupBox1.Controls.Add(this.BT_efectivo);
-            this.groupBox1.Controls.Add(this.TB_efepregot);
-            this.groupBox1.Controls.Add(this.LB_pre);
             this.groupBox1.Controls.Add(this.TB_efecoloso);
             this.groupBox1.Controls.Add(this.LB_ve);
             this.groupBox1.Controls.Add(this.LB_co);
@@ -118,19 +108,10 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "EFECTIVO DISPONIBLE";
             // 
-            // CHX_bd_pre
-            // 
-            this.CHX_bd_pre.AutoSize = true;
-            this.CHX_bd_pre.Location = new System.Drawing.Point(590, 76);
-            this.CHX_bd_pre.Name = "CHX_bd_pre";
-            this.CHX_bd_pre.Size = new System.Drawing.Size(15, 14);
-            this.CHX_bd_pre.TabIndex = 12;
-            this.CHX_bd_pre.UseVisualStyleBackColor = true;
-            // 
             // CHX_bd_co
             // 
             this.CHX_bd_co.AutoSize = true;
-            this.CHX_bd_co.Location = new System.Drawing.Point(452, 76);
+            this.CHX_bd_co.Location = new System.Drawing.Point(608, 76);
             this.CHX_bd_co.Name = "CHX_bd_co";
             this.CHX_bd_co.Size = new System.Drawing.Size(15, 14);
             this.CHX_bd_co.TabIndex = 11;
@@ -139,7 +120,7 @@
             // CHX_bd_ve
             // 
             this.CHX_bd_ve.AutoSize = true;
-            this.CHX_bd_ve.Location = new System.Drawing.Point(312, 76);
+            this.CHX_bd_ve.Location = new System.Drawing.Point(399, 76);
             this.CHX_bd_ve.Name = "CHX_bd_ve";
             this.CHX_bd_ve.Size = new System.Drawing.Size(15, 14);
             this.CHX_bd_ve.TabIndex = 10;
@@ -148,7 +129,7 @@
             // CHX_bd_re
             // 
             this.CHX_bd_re.AutoSize = true;
-            this.CHX_bd_re.Location = new System.Drawing.Point(173, 76);
+            this.CHX_bd_re.Location = new System.Drawing.Point(206, 76);
             this.CHX_bd_re.Name = "CHX_bd_re";
             this.CHX_bd_re.Size = new System.Drawing.Size(15, 14);
             this.CHX_bd_re.TabIndex = 9;
@@ -157,48 +138,41 @@
             // CHX_bd_va
             // 
             this.CHX_bd_va.AutoSize = true;
-            this.CHX_bd_va.Location = new System.Drawing.Point(30, 76);
+            this.CHX_bd_va.Location = new System.Drawing.Point(17, 75);
             this.CHX_bd_va.Name = "CHX_bd_va";
             this.CHX_bd_va.Size = new System.Drawing.Size(15, 14);
             this.CHX_bd_va.TabIndex = 8;
             this.CHX_bd_va.UseVisualStyleBackColor = true;
             // 
-            // TB_pagoPRE
-            // 
-            this.TB_pagoPRE.Location = new System.Drawing.Point(608, 124);
-            this.TB_pagoPRE.Name = "TB_pagoPRE";
-            this.TB_pagoPRE.Size = new System.Drawing.Size(100, 20);
-            this.TB_pagoPRE.TabIndex = 22;
-            // 
             // TB_pagoCO
             // 
-            this.TB_pagoCO.Location = new System.Drawing.Point(469, 124);
+            this.TB_pagoCO.Location = new System.Drawing.Point(610, 124);
             this.TB_pagoCO.Name = "TB_pagoCO";
-            this.TB_pagoCO.Size = new System.Drawing.Size(100, 20);
+            this.TB_pagoCO.Size = new System.Drawing.Size(115, 20);
             this.TB_pagoCO.TabIndex = 21;
             this.TB_pagoCO.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TB_pagoCO_KeyPress);
             // 
             // TB_pagoVE
             // 
-            this.TB_pagoVE.Location = new System.Drawing.Point(330, 124);
+            this.TB_pagoVE.Location = new System.Drawing.Point(399, 123);
             this.TB_pagoVE.Name = "TB_pagoVE";
-            this.TB_pagoVE.Size = new System.Drawing.Size(100, 20);
+            this.TB_pagoVE.Size = new System.Drawing.Size(121, 20);
             this.TB_pagoVE.TabIndex = 20;
             this.TB_pagoVE.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TB_pagoVE_KeyPress);
             // 
             // TB_pagoRE
             // 
-            this.TB_pagoRE.Location = new System.Drawing.Point(191, 124);
+            this.TB_pagoRE.Location = new System.Drawing.Point(206, 124);
             this.TB_pagoRE.Name = "TB_pagoRE";
-            this.TB_pagoRE.Size = new System.Drawing.Size(100, 20);
+            this.TB_pagoRE.Size = new System.Drawing.Size(121, 20);
             this.TB_pagoRE.TabIndex = 19;
             this.TB_pagoRE.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TB_pagoRE_KeyPress);
             // 
             // TB_pagoVA
             // 
-            this.TB_pagoVA.Location = new System.Drawing.Point(44, 124);
+            this.TB_pagoVA.Location = new System.Drawing.Point(17, 122);
             this.TB_pagoVA.Name = "TB_pagoVA";
-            this.TB_pagoVA.Size = new System.Drawing.Size(100, 20);
+            this.TB_pagoVA.Size = new System.Drawing.Size(117, 20);
             this.TB_pagoVA.TabIndex = 18;
             this.TB_pagoVA.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TB_pagoVA_KeyPress);
             // 
@@ -215,20 +189,10 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // CHK_pre
-            // 
-            this.CHK_pre.AutoSize = true;
-            this.CHK_pre.Location = new System.Drawing.Point(608, 100);
-            this.CHK_pre.Name = "CHK_pre";
-            this.CHK_pre.Size = new System.Drawing.Size(71, 17);
-            this.CHK_pre.TabIndex = 17;
-            this.CHK_pre.Text = "PREGOT";
-            this.CHK_pre.UseVisualStyleBackColor = true;
-            // 
             // CHK_ve
             // 
             this.CHK_ve.AutoSize = true;
-            this.CHK_ve.Location = new System.Drawing.Point(332, 100);
+            this.CHK_ve.Location = new System.Drawing.Point(399, 100);
             this.CHK_ve.Name = "CHK_ve";
             this.CHK_ve.Size = new System.Drawing.Size(90, 17);
             this.CHK_ve.TabIndex = 15;
@@ -238,7 +202,7 @@
             // CHK_co
             // 
             this.CHK_co.AutoSize = true;
-            this.CHK_co.Location = new System.Drawing.Point(469, 100);
+            this.CHK_co.Location = new System.Drawing.Point(610, 100);
             this.CHK_co.Name = "CHK_co";
             this.CHK_co.Size = new System.Drawing.Size(70, 17);
             this.CHK_co.TabIndex = 16;
@@ -248,7 +212,7 @@
             // CHK_re
             // 
             this.CHK_re.AutoSize = true;
-            this.CHK_re.Location = new System.Drawing.Point(191, 100);
+            this.CHK_re.Location = new System.Drawing.Point(206, 99);
             this.CHK_re.Name = "CHK_re";
             this.CHK_re.Size = new System.Drawing.Size(56, 17);
             this.CHK_re.TabIndex = 14;
@@ -258,7 +222,7 @@
             // CHK_va
             // 
             this.CHK_va.AutoSize = true;
-            this.CHK_va.Location = new System.Drawing.Point(53, 100);
+            this.CHK_va.Location = new System.Drawing.Point(17, 99);
             this.CHK_va.Name = "CHK_va";
             this.CHK_va.Size = new System.Drawing.Size(81, 17);
             this.CHK_va.TabIndex = 13;
@@ -295,26 +259,9 @@
             this.BT_efectivo.UseVisualStyleBackColor = false;
             this.BT_efectivo.Click += new System.EventHandler(this.BT_efectivo_Click);
             // 
-            // TB_efepregot
-            // 
-            this.TB_efepregot.Location = new System.Drawing.Point(608, 73);
-            this.TB_efepregot.Name = "TB_efepregot";
-            this.TB_efepregot.Size = new System.Drawing.Size(100, 20);
-            this.TB_efepregot.TabIndex = 5;
-            this.TB_efepregot.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // LB_pre
-            // 
-            this.LB_pre.AutoSize = true;
-            this.LB_pre.Location = new System.Drawing.Point(627, 57);
-            this.LB_pre.Name = "LB_pre";
-            this.LB_pre.Size = new System.Drawing.Size(52, 13);
-            this.LB_pre.TabIndex = 7;
-            this.LB_pre.Text = "PREGOT";
-            // 
             // TB_efecoloso
             // 
-            this.TB_efecoloso.Location = new System.Drawing.Point(469, 73);
+            this.TB_efecoloso.Location = new System.Drawing.Point(625, 73);
             this.TB_efecoloso.Name = "TB_efecoloso";
             this.TB_efecoloso.Size = new System.Drawing.Size(100, 20);
             this.TB_efecoloso.TabIndex = 4;
@@ -323,7 +270,7 @@
             // LB_ve
             // 
             this.LB_ve.AutoSize = true;
-            this.LB_ve.Location = new System.Drawing.Point(345, 57);
+            this.LB_ve.Location = new System.Drawing.Point(435, 57);
             this.LB_ve.Name = "LB_ve";
             this.LB_ve.Size = new System.Drawing.Size(71, 13);
             this.LB_ve.TabIndex = 5;
@@ -332,7 +279,7 @@
             // LB_co
             // 
             this.LB_co.AutoSize = true;
-            this.LB_co.Location = new System.Drawing.Point(488, 56);
+            this.LB_co.Location = new System.Drawing.Point(644, 56);
             this.LB_co.Name = "LB_co";
             this.LB_co.Size = new System.Drawing.Size(51, 13);
             this.LB_co.TabIndex = 6;
@@ -340,7 +287,7 @@
             // 
             // TB_efevelazquez
             // 
-            this.TB_efevelazquez.Location = new System.Drawing.Point(330, 73);
+            this.TB_efevelazquez.Location = new System.Drawing.Point(420, 73);
             this.TB_efevelazquez.Name = "TB_efevelazquez";
             this.TB_efevelazquez.Size = new System.Drawing.Size(100, 20);
             this.TB_efevelazquez.TabIndex = 0;
@@ -348,7 +295,7 @@
             // 
             // TB_eferena
             // 
-            this.TB_eferena.Location = new System.Drawing.Point(191, 73);
+            this.TB_eferena.Location = new System.Drawing.Point(227, 73);
             this.TB_eferena.Name = "TB_eferena";
             this.TB_eferena.Size = new System.Drawing.Size(100, 20);
             this.TB_eferena.TabIndex = 0;
@@ -357,7 +304,7 @@
             // LB_re
             // 
             this.LB_re.AutoSize = true;
-            this.LB_re.Location = new System.Drawing.Point(223, 57);
+            this.LB_re.Location = new System.Drawing.Point(259, 57);
             this.LB_re.Name = "LB_re";
             this.LB_re.Size = new System.Drawing.Size(37, 13);
             this.LB_re.TabIndex = 4;
@@ -365,7 +312,7 @@
             // 
             // TB_efevallarta
             // 
-            this.TB_efevallarta.Location = new System.Drawing.Point(47, 73);
+            this.TB_efevallarta.Location = new System.Drawing.Point(34, 72);
             this.TB_efevallarta.Name = "TB_efevallarta";
             this.TB_efevallarta.Size = new System.Drawing.Size(100, 20);
             this.TB_efevallarta.TabIndex = 0;
@@ -374,7 +321,7 @@
             // LB_va
             // 
             this.LB_va.AutoSize = true;
-            this.LB_va.Location = new System.Drawing.Point(66, 57);
+            this.LB_va.Location = new System.Drawing.Point(53, 56);
             this.LB_va.Name = "LB_va";
             this.LB_va.Size = new System.Drawing.Size(62, 13);
             this.LB_va.TabIndex = 3;
@@ -406,6 +353,14 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "RETIRO DE EFECTIVO PARA BANCOS";
             this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
+            // 
+            // TB_clavebanco
+            // 
+            this.TB_clavebanco.Location = new System.Drawing.Point(277, 52);
+            this.TB_clavebanco.Name = "TB_clavebanco";
+            this.TB_clavebanco.Size = new System.Drawing.Size(50, 20);
+            this.TB_clavebanco.TabIndex = 16;
+            this.TB_clavebanco.Visible = false;
             // 
             // BT_ajuste
             // 
@@ -557,21 +512,12 @@
             "VALLARTA",
             "RENA",
             "VELAZQUEZ",
-            "COLOSO",
-            "PREGOT"});
+            "COLOSO"});
             this.CB_tienda.Location = new System.Drawing.Point(92, 25);
             this.CB_tienda.Name = "CB_tienda";
             this.CB_tienda.Size = new System.Drawing.Size(148, 21);
             this.CB_tienda.TabIndex = 1;
             this.CB_tienda.SelectedIndexChanged += new System.EventHandler(this.CB_tienda_SelectedIndexChanged);
-            // 
-            // TB_clavebanco
-            // 
-            this.TB_clavebanco.Location = new System.Drawing.Point(277, 52);
-            this.TB_clavebanco.Name = "TB_clavebanco";
-            this.TB_clavebanco.Size = new System.Drawing.Size(50, 20);
-            this.TB_clavebanco.TabIndex = 16;
-            this.TB_clavebanco.Visible = false;
             // 
             // RetirarEfectivoTiendas
             // 
@@ -597,8 +543,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DateTimePicker DT_fecha;
         private System.Windows.Forms.Button BT_efectivo;
-        private System.Windows.Forms.TextBox TB_efepregot;
-        private System.Windows.Forms.Label LB_pre;
         private System.Windows.Forms.TextBox TB_efevelazquez;
         private System.Windows.Forms.Label LB_ve;
         private System.Windows.Forms.TextBox TB_efecoloso;
@@ -619,7 +563,6 @@
         private System.Windows.Forms.ComboBox CB_bancosOsmart;
         private System.Windows.Forms.ComboBox CB_tienda;
         private System.Windows.Forms.CheckBox CHK_mespasado;
-        private System.Windows.Forms.CheckBox CHK_pre;
         private System.Windows.Forms.CheckBox CHK_ve;
         private System.Windows.Forms.CheckBox CHK_co;
         private System.Windows.Forms.CheckBox CHK_re;
@@ -630,12 +573,10 @@
         private System.Windows.Forms.ComboBox CB_pagara;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox TB_referencia;
-        private System.Windows.Forms.TextBox TB_pagoPRE;
         private System.Windows.Forms.TextBox TB_pagoCO;
         private System.Windows.Forms.TextBox TB_pagoVE;
         private System.Windows.Forms.TextBox TB_pagoRE;
         private System.Windows.Forms.TextBox TB_pagoVA;
-        private System.Windows.Forms.CheckBox CHX_bd_pre;
         private System.Windows.Forms.CheckBox CHX_bd_co;
         private System.Windows.Forms.CheckBox CHX_bd_ve;
         private System.Windows.Forms.CheckBox CHX_bd_re;

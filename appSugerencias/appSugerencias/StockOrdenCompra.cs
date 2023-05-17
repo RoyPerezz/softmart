@@ -26,7 +26,7 @@ namespace appSugerencias
 
         #region VARIABLES
 
-        double costoXPaq = 0, cajasXPedir = 0, costoXPz = 0,total=0;
+        double costoXPaq = 0, cajasXPedir = 0, costoXPz = 0,total=0,costo_unitario=0;
         double ped_bo = 0, imp_bo = 0, ped_ce = 0;
         int exva = 0, max_ce = 0, maxva = 0, exre = 0, maxre = 0, exco = 0, maxco = 0, exve = 0, maxve = 0, cajaspedbo = 0, exce = 0;
         double totalbo = 0, totalce = 0, totalva = 0, totalre = 0, totalve = 0, totalco = 0;
@@ -209,9 +209,9 @@ namespace appSugerencias
             LB_totalre.Text = totalre.ToString("C2");
             LB_totalve.Text = totalve.ToString("C2");
             LB_totalco.Text = totalco.ToString("C2");
+            total = totalbo + totalce + totalva + totalre + totalve + totalco;
 
-
-
+            LB_total.Text = total.ToString("C2");
 
             MySqlDataReader dr = cmd.ExecuteReader();
             int exce = 0, exva = 0, exre = 0, exve = 0, exco = 0;
@@ -219,18 +219,18 @@ namespace appSugerencias
             {
 
                 //trae la existencia real del articulo 
-                exce = Existencia(dr["claveProducto"].ToString(), "BODEGA");
-                exva = Existencia(dr["claveProducto"].ToString(), "VALLARTA");
-                exre = Existencia(dr["claveProducto"].ToString(), "RENA");
-                exve = Existencia(dr["claveProducto"].ToString(), "VELAZQUEZ");
-                exco = Existencia(dr["claveProducto"].ToString(), "COLOSO");
+                //exce = Existencia(dr["claveProducto"].ToString(), "BODEGA");
+                //exva = Existencia(dr["claveProducto"].ToString(), "VALLARTA");
+                //exre = Existencia(dr["claveProducto"].ToString(), "RENA");
+                //exve = Existencia(dr["claveProducto"].ToString(), "VELAZQUEZ");
+                //exco = Existencia(dr["claveProducto"].ToString(), "COLOSO");
 
 
                 //se agregan los datos en el datagrid
                 DG_tabla.Rows.Add(dr["modelo"].ToString(), dr["claveProducto"].ToString(), dr["descripcion"].ToString(), dr["departamento"].ToString(), dr["pzxpedir"].ToString(), Convert.ToDouble(dr["cajasxpedir"].ToString()), dr["cajaspedbo"].ToString(),
                     dr["pzxcaja"].ToString(), dr["pzxpaq"].ToString(), Convert.ToDouble(dr["costoxpaq"].ToString()), Convert.ToDouble(dr["costoxpz"].ToString()), dr["ped_bo"].ToString(), Convert.ToDouble(dr["importe_bo"].ToString()), dr["max_ce"].ToString(), exce, dr["ped_ce"].ToString(), Convert.ToDouble(dr["importeCE"].ToString()), dr["max_va"].ToString()
-                    , exva, dr["ex_pasada_va"].ToString(), dr["ped_va"].ToString(), Convert.ToDouble(dr["importe_va"].ToString()), dr["max_re"].ToString(), exre, dr["ex_pasada_re"].ToString(), dr["ped_re"].ToString(), Convert.ToDouble(dr["importe_re"].ToString()), dr["max_ve"].ToString(), exve,
-                    dr["ex_pasada_ve"].ToString(), dr["ped_ve"].ToString(), Convert.ToDouble(dr["importe_ve"].ToString()), dr["max_co"].ToString(), exco, dr["ex_pasada_co"].ToString(), dr["ped_co"].ToString(), Convert.ToDouble(dr["importe_co"].ToString()), dr["idreg"].ToString());
+                    , dr["ex_va"].ToString(), dr["ex_pasada_va"].ToString(), dr["ped_va"].ToString(), Convert.ToDouble(dr["importe_va"].ToString()), dr["max_re"].ToString(), dr["ex_re"].ToString(), dr["ex_pasada_re"].ToString(), dr["ped_re"].ToString(), Convert.ToDouble(dr["importe_re"].ToString()), dr["max_ve"].ToString(), dr["ex_ve"].ToString(),
+                    dr["ex_pasada_ve"].ToString(), dr["ped_ve"].ToString(), Convert.ToDouble(dr["importe_ve"].ToString()), dr["max_co"].ToString(), dr["ex_co"].ToString(), dr["ex_pasada_co"].ToString(), dr["ped_co"].ToString(), Convert.ToDouble(dr["importe_co"].ToString()), dr["idreg"].ToString(),dr["costou"].ToString());
 
 
             }
@@ -250,6 +250,7 @@ namespace appSugerencias
             DG_tabla.Columns[26].DefaultCellStyle.Format = "C2";
             DG_tabla.Columns[31].DefaultCellStyle.Format = "C2";
             DG_tabla.Columns[36].DefaultCellStyle.Format = "C2";
+
             //Calcular();
             conexion.Close();
         }
@@ -277,7 +278,7 @@ namespace appSugerencias
                     }
                     else
                     {
-                        insertar.Parameters.AddWithValue("?modelo", DG_tabla.Rows[i].Cells[0].Value.ToString());
+                        insertar.Parameters.AddWithValue("?modelo", DG_tabla.Rows[i].Cells["MODELO"].Value.ToString());
                     }
 
 
@@ -287,7 +288,7 @@ namespace appSugerencias
                     }
                     else
                     {
-                        insertar.Parameters.AddWithValue("?claveProducto", DG_tabla.Rows[i].Cells[1].Value.ToString());
+                        insertar.Parameters.AddWithValue("?claveProducto", DG_tabla.Rows[i].Cells["CLAVE"].Value.ToString());
                     }
 
 
@@ -345,16 +346,22 @@ namespace appSugerencias
               "importe_va=" + importe_va + ",max_re=" + maxre + ",ex_re=" + exre + ",ex_pasada_re=" + ex_pasada_re + ",ped_re=" + ped_re + ",importe_re=" + importe_re + ",max_ve=" + maxve + ",ex_ve=" + exve + ",ex_pasada_ve=" + ex_pasada_ve + "," +
               "ped_ve=" + ped_ve + ",importe_ve=" + importe_ve + ",max_co=" + maxco + ",ex_co=" + exco + ",ex_pasada_co=" + ex_pasada_co + ",ped_co=" + ped_co + ",importe_co=" + importe_co + "";
 
+            double tbo = 0;
+            double tce = 0;
+            if (RB_cedis.Checked==true)
+            {
+                decimal valor = decimal.Parse(LB_totalbo.Text, NumberStyles.Currency, CultureInfo.GetCultureInfo("en-US"));
+                string totalbo = valor.ToString("G0");
+                tbo = Convert.ToDouble(totalbo);
 
+                decimal valor2 = decimal.Parse(LB_totalce.Text, NumberStyles.Currency, CultureInfo.GetCultureInfo("en-US"));
+                string totalce = valor2.ToString("G0");
+                tce = Convert.ToDouble(totalce);
+            }
+           
+          
 
-
-            decimal valor = decimal.Parse(LB_totalbo.Text, NumberStyles.Currency, CultureInfo.GetCultureInfo("en-US"));
-            string totalbo = valor.ToString("G0");
-            double tbo = Convert.ToDouble(totalbo);
-
-            decimal valor2 = decimal.Parse(LB_totalce.Text, NumberStyles.Currency, CultureInfo.GetCultureInfo("en-US"));
-            string totalce = valor2.ToString("G0");
-            double tce = Convert.ToDouble(totalce);
+            
 
             decimal valor3 = decimal.Parse(LB_totalva.Text, NumberStyles.Currency, CultureInfo.GetCultureInfo("en-US"));
             string totalva = valor3.ToString("G0");
@@ -385,58 +392,103 @@ namespace appSugerencias
             {
                 for (int i = 0; i < DG_tabla.Rows.Count; i++)
                 {
-
-                    //TOMAR LOS VALORES EN LA TABLA 
-                    modelo = Convert.ToString(DG_tabla.Rows[i].Cells[0].Value);
-                    claveProducto = Convert.ToString(DG_tabla.Rows[i].Cells[1].Value);
-                    descripcion = Convert.ToString(DG_tabla.Rows[i].Cells[2].Value);
-                    departamento = Convert.ToString(DG_tabla.Rows[i].Cells[3].Value);
-                    pzXPedir = Convert.ToInt32(DG_tabla.Rows[i].Cells[4].Value);
-                    cajasXPedir = Convert.ToDouble(DG_tabla.Rows[i].Cells[5].Value);
-                    cajaspedbo = Convert.ToInt32(DG_tabla.Rows[i].Cells[6].Value);
-                    pzXCaja = Convert.ToInt32(DG_tabla.Rows[i].Cells[7].Value);
-                    pzXPaq = Convert.ToInt32(DG_tabla.Rows[i].Cells[8].Value);
-                    costoXPaq = Convert.ToDouble(DG_tabla.Rows[i].Cells[9].Value);
-                    costoXPz = Convert.ToDouble(DG_tabla.Rows[i].Cells[10].Value);
-                    ped_bo = Convert.ToInt32(DG_tabla.Rows[i].Cells[11].Value);
-                    importe_bo = Convert.ToDouble(DG_tabla.Rows[i].Cells[12].Value);
-                    max_ce = Convert.ToInt32(DG_tabla.Rows[i].Cells[13].Value);
-                    exce = Convert.ToInt32(DG_tabla.Rows[i].Cells[14].Value);
-                    ped_ce = Convert.ToInt32(DG_tabla.Rows[i].Cells[15].Value);
-                    importe_ce = Convert.ToDouble(DG_tabla.Rows[i].Cells[16].Value);
-                    maxva = Convert.ToInt32(DG_tabla.Rows[i].Cells[17].Value);
-                    exva = Convert.ToInt32(DG_tabla.Rows[i].Cells[18].Value);
-                    ex_pasada_va = Convert.ToInt32(DG_tabla.Rows[i].Cells[19].Value);
-                    ped_va = Convert.ToInt32(DG_tabla.Rows[i].Cells[20].Value);
-                    importe_va = Convert.ToDouble(DG_tabla.Rows[i].Cells[21].Value);
-                    maxre = Convert.ToInt32(DG_tabla.Rows[i].Cells[22].Value);
-                    exre = Convert.ToInt32(DG_tabla.Rows[i].Cells[23].Value);
-                    ex_pasada_re = Convert.ToInt32(DG_tabla.Rows[i].Cells[24].Value);
-                    ped_re = Convert.ToInt32(DG_tabla.Rows[i].Cells[25].Value);
-                    importe_re = Convert.ToDouble(DG_tabla.Rows[i].Cells[26].Value);
-                    maxve = Convert.ToInt32(DG_tabla.Rows[i].Cells[27].Value);
-                    exve = Convert.ToInt32(DG_tabla.Rows[i].Cells[28].Value);
-                    ex_pasada_ve = Convert.ToInt32(DG_tabla.Rows[i].Cells[29].Value);
-                    ped_ve = Convert.ToInt32(DG_tabla.Rows[i].Cells[30].Value);
-                    importe_ve = Convert.ToDouble(DG_tabla.Rows[i].Cells[31].Value);
-                    maxco = Convert.ToInt32(DG_tabla.Rows[i].Cells[32].Value);
-                    exco = Convert.ToInt32(DG_tabla.Rows[i].Cells[33].Value);
-                    ex_pasada_co = Convert.ToInt32(DG_tabla.Rows[i].Cells[34].Value);
-                    ped_co = Convert.ToInt32(DG_tabla.Rows[i].Cells[35].Value);
-                    importe_co = Convert.ToDouble(DG_tabla.Rows[i].Cells[36].Value);
-                    id= Convert.ToInt32(DG_tabla.Rows[i].Cells[37].Value);
-
-                    //OPERACIONES
-
-                    if (tipo.Equals("BODEGA"))
+                    if (RB_cedis.Checked==true)
                     {
-                        pzXPedir = ped_bo;
+                        //TOMAR LOS VALORES EN LA TABLA 
+                        modelo = Convert.ToString(DG_tabla.Rows[i].Cells["MODELO"].Value);
+                        claveProducto = Convert.ToString(DG_tabla.Rows[i].Cells["CLAVE"].Value);
+                        descripcion = Convert.ToString(DG_tabla.Rows[i].Cells["DESCRIPCION"].Value);
+                        departamento = Convert.ToString(DG_tabla.Rows[i].Cells["DEPTO"].Value);
+                        pzXPedir = Convert.ToInt32(DG_tabla.Rows[i].Cells["PIEZAS"].Value);
+                        cajasXPedir = Convert.ToDouble(DG_tabla.Rows[i].Cells["CAJAS"].Value);
+                        cajaspedbo = Convert.ToInt32(DG_tabla.Rows[i].Cells["CAJAS_BOD"].Value);
+                        pzXCaja = Convert.ToInt32(DG_tabla.Rows[i].Cells["PZ_CAJA"].Value);
+                        pzXPaq = Convert.ToInt32(DG_tabla.Rows[i].Cells["PZ_PAQ"].Value);
+                        costoXPaq = Convert.ToDouble(DG_tabla.Rows[i].Cells["COSTO_PAQUETE"].Value);
+                        costoXPz = Convert.ToDouble(DG_tabla.Rows[i].Cells["COSTO_PIEZA"].Value);
+                        ped_bo = Convert.ToInt32(DG_tabla.Rows[i].Cells["PEDIDO_BOD"].Value);
+                        importe_bo = Convert.ToDouble(DG_tabla.Rows[i].Cells["IMPORTE_BOD"].Value);
+                        max_ce = Convert.ToInt32(DG_tabla.Rows[i].Cells["MAX_CE"].Value);
+                        exce = Convert.ToInt32(DG_tabla.Rows[i].Cells["EXT_CE"].Value);
+                        ped_ce = Convert.ToInt32(DG_tabla.Rows[i].Cells["PED_CE"].Value);
+                        importe_ce = Convert.ToDouble(DG_tabla.Rows[i].Cells["IMPORTE_CE"].Value);
+                        maxva = Convert.ToInt32(DG_tabla.Rows[i].Cells["MAX_VA"].Value);
+                        exva = Convert.ToInt32(DG_tabla.Rows[i].Cells["EXT_VA"].Value);
+                        ex_pasada_va = Convert.ToInt32(DG_tabla.Rows[i].Cells["EX_PASADA_VA"].Value);
+                        ped_va = Convert.ToInt32(DG_tabla.Rows[i].Cells["PEDIDO_VA"].Value);
+                        importe_va = Convert.ToDouble(DG_tabla.Rows[i].Cells["IMPORTE_VA"].Value);
+                        maxre = Convert.ToInt32(DG_tabla.Rows[i].Cells["MAX_RE"].Value);
+                        exre = Convert.ToInt32(DG_tabla.Rows[i].Cells["EXT_RE"].Value);
+                        ex_pasada_re = Convert.ToInt32(DG_tabla.Rows[i].Cells["EX_PASADA_RE"].Value);
+                        ped_re = Convert.ToInt32(DG_tabla.Rows[i].Cells["PEDIDO_RE"].Value);
+                        importe_re = Convert.ToDouble(DG_tabla.Rows[i].Cells["IMPORTE_RE"].Value);
+                        maxve = Convert.ToInt32(DG_tabla.Rows[i].Cells["MAX_VE"].Value);
+                        exve = Convert.ToInt32(DG_tabla.Rows[i].Cells["EXT_VE"].Value);
+                        ex_pasada_ve = Convert.ToInt32(DG_tabla.Rows[i].Cells["EX_PASADA_VE"].Value);
+                        ped_ve = Convert.ToInt32(DG_tabla.Rows[i].Cells["PEDIDO_VE"].Value);
+                        importe_ve = Convert.ToDouble(DG_tabla.Rows[i].Cells["IMPORTE_VE"].Value);
+                        maxco = Convert.ToInt32(DG_tabla.Rows[i].Cells["MAX_CO"].Value);
+                        exco = Convert.ToInt32(DG_tabla.Rows[i].Cells["EXT_CO"].Value);
+                        ex_pasada_co = Convert.ToInt32(DG_tabla.Rows[i].Cells["EX_PASADA_CO"].Value);
+                        ped_co = Convert.ToInt32(DG_tabla.Rows[i].Cells["PEDIDO_CO"].Value);
+                        importe_co = Convert.ToDouble(DG_tabla.Rows[i].Cells["IMPORTE_CO"].Value);
+                        id = Convert.ToInt32(DG_tabla.Rows[i].Cells["ID"].Value);
                     }
                     else
                     {
-                        pzXPedir = ped_va + ped_re + ped_ve + ped_co;
-
+                        // si es un estock de tiendas
+                        modelo = Convert.ToString(DG_tabla.Rows[i].Cells["MODELO"].Value);
+                        claveProducto = Convert.ToString(DG_tabla.Rows[i].Cells["CLAVE"].Value);
+                        descripcion = Convert.ToString(DG_tabla.Rows[i].Cells["DESCRIPCION"].Value);
+                        departamento = Convert.ToString(DG_tabla.Rows[i].Cells["DEPTO"].Value);
+                        //pzXPedir = Convert.ToInt32(DG_tabla.Rows[i].Cells["PIEZAS"].Value);
+                        //cajasXPedir = Convert.ToDouble(DG_tabla.Rows[i].Cells["CAJAS"].Value);
+                        //cajaspedbo = Convert.ToInt32(DG_tabla.Rows[i].Cells["CAJAS_BOD"].Value);
+                        pzXCaja = Convert.ToInt32(DG_tabla.Rows[i].Cells["PZ_CAJA"].Value);
+                        pzXPaq = Convert.ToInt32(DG_tabla.Rows[i].Cells["PZ_PAQ"].Value);
+                        costoXPaq = Convert.ToDouble(DG_tabla.Rows[i].Cells["COSTO_PAQUETE"].Value);
+                        costoXPz = Convert.ToDouble(DG_tabla.Rows[i].Cells["COSTO_PIEZA"].Value);
+                        //ped_bo = Convert.ToInt32(DG_tabla.Rows[i].Cells["PEDIDO_BOD"].Value);
+                        //importe_bo = Convert.ToDouble(DG_tabla.Rows[i].Cells["IMPORTE_BOD"].Value);
+                        //max_ce = Convert.ToInt32(DG_tabla.Rows[i].Cells["MAX_CE"].Value);
+                        //exce = Convert.ToInt32(DG_tabla.Rows[i].Cells["EXT_CE"].Value);
+                        //ped_ce = Convert.ToInt32(DG_tabla.Rows[i].Cells["PED_CE"].Value);
+                        //importe_ce = Convert.ToDouble(DG_tabla.Rows[i].Cells["IMPORTE_CE"].Value);
+                        maxva = Convert.ToInt32(DG_tabla.Rows[i].Cells["MAX_VA"].Value);
+                        exva = Convert.ToInt32(DG_tabla.Rows[i].Cells["EXT_VA"].Value);
+                        ex_pasada_va = Convert.ToInt32(DG_tabla.Rows[i].Cells["EX_PASADA_VA"].Value);
+                        ped_va = Convert.ToInt32(DG_tabla.Rows[i].Cells["PEDIDO_VA"].Value);
+                        importe_va = Convert.ToDouble(DG_tabla.Rows[i].Cells["IMPORTE_VA"].Value);
+                        maxre = Convert.ToInt32(DG_tabla.Rows[i].Cells["MAX_RE"].Value);
+                        exre = Convert.ToInt32(DG_tabla.Rows[i].Cells["EXT_RE"].Value);
+                        ex_pasada_re = Convert.ToInt32(DG_tabla.Rows[i].Cells["EX_PASADA_RE"].Value);
+                        ped_re = Convert.ToInt32(DG_tabla.Rows[i].Cells["PEDIDO_RE"].Value);
+                        importe_re = Convert.ToDouble(DG_tabla.Rows[i].Cells["IMPORTE_RE"].Value);
+                        maxve = Convert.ToInt32(DG_tabla.Rows[i].Cells["MAX_VE"].Value);
+                        exve = Convert.ToInt32(DG_tabla.Rows[i].Cells["EXT_VE"].Value);
+                        ex_pasada_ve = Convert.ToInt32(DG_tabla.Rows[i].Cells["EX_PASADA_VE"].Value);
+                        ped_ve = Convert.ToInt32(DG_tabla.Rows[i].Cells["PEDIDO_VE"].Value);
+                        importe_ve = Convert.ToDouble(DG_tabla.Rows[i].Cells["IMPORTE_VE"].Value);
+                        maxco = Convert.ToInt32(DG_tabla.Rows[i].Cells["MAX_CO"].Value);
+                        exco = Convert.ToInt32(DG_tabla.Rows[i].Cells["EXT_CO"].Value);
+                        ex_pasada_co = Convert.ToInt32(DG_tabla.Rows[i].Cells["EX_PASADA_CO"].Value);
+                        ped_co = Convert.ToInt32(DG_tabla.Rows[i].Cells["PEDIDO_CO"].Value);
+                        importe_co = Convert.ToDouble(DG_tabla.Rows[i].Cells["IMPORTE_CO"].Value);
+                        id = Convert.ToInt32(DG_tabla.Rows[i].Cells["ID"].Value);
                     }
+                   
+
+                    //OPERACIONES
+
+                    //if (tipo.Equals("BODEGA"))
+                    //{
+                    //    pzXPedir = ped_bo;
+                    //}
+                    //else
+                    //{
+                    //    pzXPedir = ped_va + ped_re + ped_ve + ped_co;
+
+                    //}
 
 
                     cajasXPedir = Convert.ToDouble(pzXPedir) / Convert.ToDouble(pzXCaja) / Convert.ToDouble(pzXPaq);
@@ -479,12 +531,27 @@ namespace appSugerencias
 
 
 
-                    cmd = new MySqlCommand("UPDATE rd_detalle_stock_compra SET modelo ='" + modelo + "', claveProducto='" + claveProducto + "', descripcion='" + descripcion + "',departamento='" + departamento + "'," +
-               "pzxpedir=" + pzXPedir + ",cajasxpedir=" + cajasXPedir + ", cajaspedbo=" + cajaspedbo + ",pzxcaja=" + pzXCaja + ",pzxpaq=" + pzXPaq + ",costoxpaq=" + costoXPaq + ",costoxpz=" + costoXPz + ",ped_bo=" + ped_bo + "," +
-               "importe_bo=" + importe_bo + ",max_ce=" + max_ce + ",ex_ce=" + exce + ",ped_ce=" + ped_ce + ",importeCE=" + importe_ce + ",max_va=" + maxva + ",ex_va=" + exva + ",ex_pasada_va=" + ex_pasada_va + ",ped_va=" + ped_va + "," +
-               "importe_va=" + importe_va + ",max_re=" + maxre + ",ex_re=" + exre + ",ex_pasada_re=" + ex_pasada_re + ",ped_re=" + ped_re + ",importe_re=" + importe_re + ",max_ve=" + maxve + ",ex_ve=" + exve + ",ex_pasada_ve=" + ex_pasada_ve + "," +
-               "ped_ve=" + ped_ve + ",importe_ve=" + importe_ve + ",max_co=" + maxco + ",ex_co=" + exco + ",ex_pasada_co=" + ex_pasada_co + ",ped_co=" + ped_co + ",importe_co=" + importe_co + " where fk_stock='"+TB_idstock.Text+"' and idreg="+id+"", conexion);
-                    cmd.ExecuteNonQuery();
+                    if (RB_cedis.Checked==true)
+                    {
+                        cmd = new MySqlCommand("UPDATE rd_detalle_stock_compra SET modelo ='" + modelo + "', claveProducto='" + claveProducto + "', descripcion='" + descripcion + "',departamento='" + departamento + "'," +
+                         "pzxpedir=" + pzXPedir + ",cajasxpedir=" + cajasXPedir + ", cajaspedbo=" + cajaspedbo + ",pzxcaja=" + pzXCaja + ",pzxpaq=" + pzXPaq + ",costoxpaq=" + costoXPaq + ",costoxpz=" + costoXPz + ",ped_bo=" + ped_bo + "," +
+                        "importe_bo=" + importe_bo + ",max_ce=" + max_ce + ",ex_ce=" + exce + ",ped_ce=" + ped_ce + ",importeCE=" + importe_ce + ",max_va=" + maxva + ",ex_va=" + exva + ",ex_pasada_va=" + ex_pasada_va + ",ped_va=" + ped_va + "," +
+                         "importe_va=" + importe_va + ",max_re=" + maxre + ",ex_re=" + exre + ",ex_pasada_re=" + ex_pasada_re + ",ped_re=" + ped_re + ",importe_re=" + importe_re + ",max_ve=" + maxve + ",ex_ve=" + exve + ",ex_pasada_ve=" + ex_pasada_ve + "," +
+                             "ped_ve=" + ped_ve + ",importe_ve=" + importe_ve + ",max_co=" + maxco + ",ex_co=" + exco + ",ex_pasada_co=" + ex_pasada_co + ",ped_co=" + ped_co + ",importe_co=" + importe_co + " where fk_stock='" + TB_idstock.Text + "' and idreg=" + id + "", conexion);
+                        cmd.ExecuteNonQuery();
+
+                    }
+                    else if(RB_tiendas.Checked==true)
+                    {
+                        cmd = new MySqlCommand("UPDATE rd_detalle_stock_compra SET modelo ='" + modelo + "', claveProducto='" + claveProducto + "', descripcion='" + descripcion + "',departamento='" + departamento + "'," +
+                         "pzxcaja=" + pzXCaja + ",pzxpaq=" + pzXPaq + ",costoxpaq=" + costoXPaq + ",costoxpz=" + costoXPz + "," +
+                        "max_va=" + maxva + ",ex_va=" + exva + ",ex_pasada_va=" + ex_pasada_va + ",ped_va=" + ped_va + "," +
+                         "importe_va=" + importe_va + ",max_re=" + maxre + ",ex_re=" + exre + ",ex_pasada_re=" + ex_pasada_re + ",ped_re=" + ped_re + ",importe_re=" + importe_re + ",max_ve=" + maxve + ",ex_ve=" + exve + ",ex_pasada_ve=" + ex_pasada_ve + "," +
+                             "ped_ve=" + ped_ve + ",importe_ve=" + importe_ve + ",max_co=" + maxco + ",ex_co=" + exco + ",ex_pasada_co=" + ex_pasada_co + ",ped_co=" + ped_co + ",importe_co=" + importe_co + " where fk_stock='" + TB_idstock.Text + "' and idreg=" + id + "", conexion);
+                        cmd.ExecuteNonQuery();
+                    }
+
+                
                 }
 
 
@@ -506,176 +573,45 @@ namespace appSugerencias
         {
             for (int i = 0; i < DG_tabla.RowCount; i++)
             {
-
+                costo_unitario = Convert.ToDouble(DG_tabla.Rows[i].Cells["COSTOU"].Value);
 
                 try
                 {
 
-                    //pedidoXCaja = Convert.ToInt32(DG_tabla.Rows[i].Cells[6].Value);
-                    //pzXCaja = Convert.ToInt32(DG_tabla.Rows[i].Cells[7].Value);
-                    //pzXPaq = Convert.ToInt32(DG_tabla.Rows[i].Cells[8].Value);
-                    //costoXPaq = Convert.ToDouble(DG_tabla.Rows[i].Cells[9].Value);
-
-
-
-
-                    //costoXPz = costoXPaq / pzXPaq;
-                    //DG_tabla.Rows[i].Cells[10].Value = costoXPz;
-
-
-                    //ped_bo = pedidoXCaja * pzXCaja;
-                    //DG_tabla.Rows[i].Cells[11].Value = ped_bo;
-
-                    //imp_bo = ped_bo * costoXPaq;
-                    //DG_tabla.Rows[i].Cells[12].Value = imp_bo;
-
-                    ////-----------CALCULAR EL PEDIDO DE CADA TIENDA----------------------------------------
-
-                    ////VALLARTA
-                    //exva = Convert.ToInt32(DG_tabla.Rows[i].Cells[18].Value);
-                    //maxva = Convert.ToInt32(DG_tabla.Rows[i].Cells[17].Value);
-
-                    //if (maxva == 0)
-                    //{
-                    //    DG_tabla.Rows[i].Cells[20].Value = 0;
-                    //}
-                    //else
-                    //{
-                    //    if (exva > (maxva / 2))
-                    //    {
-                    //        DG_tabla.Rows[i].Cells[20].Value = 0;
-                    //    }
-
-                    //    if (exva <= (maxva / 2))
-                    //    {
-                    //        DG_tabla.Rows[i].Cells[20].Value = maxva;
-                    //    }
-
-                    //    if (exva == 0)
-                    //    {
-                    //        DG_tabla.Rows[i].Cells[20].Value = maxva;
-                    //    }
-
-
-                    //}
-
-                    ////RENA
-                    //exre = Convert.ToInt32(DG_tabla.Rows[i].Cells[23].Value);
-                    //maxre = Convert.ToInt32(DG_tabla.Rows[i].Cells[22].Value);
-
-                    //if (maxre == 0)
-                    //{
-                    //    DG_tabla.Rows[i].Cells[23].Value = 0;
-                    //}
-                    //else
-                    //{
-                    //    if (exre > (maxre / 2))
-                    //    {
-                    //        DG_tabla.Rows[i].Cells[25].Value = 0;
-                    //    }
-
-                    //    if (exre <= (maxre / 2))
-                    //    {
-                    //        DG_tabla.Rows[i].Cells[25].Value = maxre;
-                    //    }
-
-                    //    if (exre == 0)
-                    //    {
-                    //        DG_tabla.Rows[i].Cells[25].Value = maxre;
-                    //    }
-
-
-                    //}
-
-
-                    ////VELAZQUEZ
-                    //exve = Convert.ToInt32(DG_tabla.Rows[i].Cells[28].Value);
-                    //maxve = Convert.ToInt32(DG_tabla.Rows[i].Cells[27].Value);
-
-                    //if (maxve == 0)
-                    //{
-                    //    DG_tabla.Rows[i].Cells[30].Value = 0;
-                    //}
-                    //else
-                    //{
-                    //    if (exve > (maxve / 2))
-                    //    {
-                    //        DG_tabla.Rows[i].Cells[30].Value = 0;
-                    //    }
-
-                    //    if (exve <= (maxve / 2))
-                    //    {
-                    //        DG_tabla.Rows[i].Cells[30].Value = maxve;
-                    //    }
-
-                    //    if (exve == 0)
-                    //    {
-                    //        DG_tabla.Rows[i].Cells[30].Value = maxve;
-                    //    }
-
-                    //}
-
-                    ////COLOSO
-                    //exco = Convert.ToInt32(DG_tabla.Rows[i].Cells[33].Value);
-                    //maxco = Convert.ToInt32(DG_tabla.Rows[i].Cells[32].Value);
-
-                    //if (maxco == 0)
-                    //{
-                    //    DG_tabla.Rows[i].Cells[35].Value = 0;
-                    //}
-                    //else
-                    //{
-                    //    if (exco > (maxco / 2))
-                    //    {
-                    //        DG_tabla.Rows[i].Cells[35].Value = 0;
-                    //    }
-
-                    //    if (exco <= (maxco / 2))
-                    //    {
-                    //        DG_tabla.Rows[i].Cells[35].Value = maxco;
-                    //    }
-
-                    //    if (exco == 0)
-                    //    {
-                    //        DG_tabla.Rows[i].Cells[35].Value = maxco;
-                    //    }
-
-
-                    //}
-
-
-
-                    ////------------------------------------------------------------------------------------
-
-
-
-                    ////------PIEZAS POR PEDIR--------------------------------------------------------------
-                    //ped_va = Convert.ToInt32(DG_tabla.Rows[i].Cells[20].Value);
-                    //ped_re = Convert.ToInt32(DG_tabla.Rows[i].Cells[25].Value);
-                    //ped_ve = Convert.ToInt32(DG_tabla.Rows[i].Cells[30].Value);
-                    //ped_co = Convert.ToInt32(DG_tabla.Rows[i].Cells[35].Value);
-                    //ped_bo = Convert.ToInt32(DG_tabla.Rows[i].Cells[11].Value);
+                  
 
                     if (RB_cedis.Checked == true)
                     {
-
-                        pedidoXCaja = Convert.ToInt32(DG_tabla.Rows[i].Cells[6].Value);
-                        pzXCaja = Convert.ToInt32(DG_tabla.Rows[i].Cells[7].Value);
-                        pzXPaq = Convert.ToInt32(DG_tabla.Rows[i].Cells[8].Value);
-                        costoXPaq = Convert.ToDouble(DG_tabla.Rows[i].Cells[9].Value);
-
+                       
+                        pedidoXCaja = Convert.ToInt32(DG_tabla.Rows[i].Cells["CAJAS_BOD"].Value);
+                        pzXCaja = Convert.ToInt32(DG_tabla.Rows[i].Cells["PZ_CAJA"].Value);
+                        pzXPaq = Convert.ToInt32(DG_tabla.Rows[i].Cells["PZ_PAQ"].Value);
 
 
+                        //costoXPaq = pzXPaq * costo_unitario;
 
+
+                        costoXPaq = Convert.ToDouble(DG_tabla.Rows[i].Cells["COSTO_PAQUETE"].Value);
+
+
+
+                        //costo piezas por paquete
+                        //DG_tabla.Rows[i].Cells[10].Value = costo_unitario * pzXPaq;
+                        DG_tabla.Rows[i].Cells[10].Value = costoXPaq / pzXPaq;
+
+                        //Costo por pieza
                         costoXPz = costoXPaq / pzXPaq;
-                        DG_tabla.Rows[i].Cells[10].Value = costoXPz;
+                        DG_tabla.Rows[i].Cells[11].Value = costoXPz;
 
 
+                        //pedido bodega
                         ped_bo = pedidoXCaja * pzXCaja;
-                        DG_tabla.Rows[i].Cells[11].Value = ped_bo;
+                        DG_tabla.Rows[i].Cells[12].Value = ped_bo;
 
+
+                        //importe d ebodega
                         imp_bo = ped_bo * costoXPaq;
-                        DG_tabla.Rows[i].Cells[12].Value = imp_bo;
+                        DG_tabla.Rows[i].Cells[13].Value = imp_bo;
 
                         //-----------CALCULAR EL PEDIDO DE CADA TIENDA----------------------------------------
 
@@ -864,22 +800,28 @@ namespace appSugerencias
                        
 
                         //pzXPedir = ped_va + ped_re + ped_ve + ped_co;
-                        pzXCaja = Convert.ToInt32(DG_tabla.Rows[i].Cells[7].Value);
-                        pzXPaq = Convert.ToInt32(DG_tabla.Rows[i].Cells[8].Value);
+                        pzXCaja = Convert.ToInt32(DG_tabla.Rows[i].Cells["PZ_CAJA"].Value);
+                        pzXPaq = Convert.ToInt32(DG_tabla.Rows[i].Cells["PZ_PAQ"].Value);
 
-                        costoXPaq = Convert.ToDouble(DG_tabla.Rows[i].Cells[9].Value);
+                       costoXPaq = Convert.ToDouble(DG_tabla.Rows[i].Cells["COSTO_PAQUETE"].Value);
+                        //costoXPaq = pzXPaq * costo_unitario; //calculando el costo por paquete
+                       // DG_tabla.Rows[i].Cells["COSTO_PAQUETE"].Value = costoXPaq;
 
-                        exva = Convert.ToInt32(DG_tabla.Rows[i].Cells[18].Value);
-                        maxva = Convert.ToInt32(DG_tabla.Rows[i].Cells[17].Value);
+                        //calculando costo por pieza
+                        costoXPz = costoXPaq / pzXPaq;
+                        DG_tabla.Rows[i].Cells["COSTO_PIEZA"].Value = costoXPz;
 
-                        exre = Convert.ToInt32(DG_tabla.Rows[i].Cells[23].Value);
-                        maxre = Convert.ToInt32(DG_tabla.Rows[i].Cells[22].Value);
+                        exva = Convert.ToInt32(DG_tabla.Rows[i].Cells["EXT_VA"].Value);
+                        maxva = Convert.ToInt32(DG_tabla.Rows[i].Cells["MAX_VA"].Value);
 
-                        exve = Convert.ToInt32(DG_tabla.Rows[i].Cells[28].Value);
-                        maxve = Convert.ToInt32(DG_tabla.Rows[i].Cells[27].Value);
+                        exre = Convert.ToInt32(DG_tabla.Rows[i].Cells["EXT_RE"].Value);
+                        maxre = Convert.ToInt32(DG_tabla.Rows[i].Cells["MAX_RE"].Value);
 
-                        exco = Convert.ToInt32(DG_tabla.Rows[i].Cells[33].Value);
-                        maxco = Convert.ToInt32(DG_tabla.Rows[i].Cells[32].Value);
+                        exve = Convert.ToInt32(DG_tabla.Rows[i].Cells["EXT_VE"].Value);
+                        maxve = Convert.ToInt32(DG_tabla.Rows[i].Cells["MAX_VE"].Value);
+
+                        exco = Convert.ToInt32(DG_tabla.Rows[i].Cells["EXT_CO"].Value);
+                        maxco = Convert.ToInt32(DG_tabla.Rows[i].Cells["MAX_CO"].Value);
 
 
                         //si es menor al 10% se pide el 150%
@@ -941,28 +883,28 @@ namespace appSugerencias
 
 
                         //pedido va
-                        DG_tabla.Rows[i].Cells[20].Value = ped_va;
+                        DG_tabla.Rows[i].Cells["PEDIDO_VA"].Value = ped_va;
 
                         //pedido rena
-                        DG_tabla.Rows[i].Cells[25].Value = ped_re;
+                        DG_tabla.Rows[i].Cells["PEDIDO_RE"].Value = ped_re;
 
                         //pedido velazquez
-                        DG_tabla.Rows[i].Cells[30].Value = ped_ve;
+                        DG_tabla.Rows[i].Cells["PEDIDO_VE"].Value = ped_ve;
 
                         //pedido coloso
-                        DG_tabla.Rows[i].Cells[35].Value = ped_co;
+                        DG_tabla.Rows[i].Cells["PEDIDO_CO"].Value = ped_co;
 
                         //importe vallarta
-                        DG_tabla.Rows[i].Cells[21].Value = ped_va*costoXPaq;
+                        DG_tabla.Rows[i].Cells["IMPORTE_VA"].Value = ped_va*costoXPaq;
 
                         //importe rena
-                        DG_tabla.Rows[i].Cells[26].Value = ped_re * costoXPaq;
+                        DG_tabla.Rows[i].Cells["IMPORTE_RE"].Value = ped_re * costoXPaq;
 
                         //importe velazquez
-                        DG_tabla.Rows[i].Cells[31].Value = ped_ve * costoXPaq;
+                        DG_tabla.Rows[i].Cells["IMPORTE_VE"].Value = ped_ve * costoXPaq;
 
                         //importe coloso
-                        DG_tabla.Rows[i].Cells[36].Value = ped_co * costoXPaq;
+                        DG_tabla.Rows[i].Cells["IMPORTE_CO"].Value = ped_co * costoXPaq;
 
 
 
@@ -973,22 +915,24 @@ namespace appSugerencias
                         totalve += Convert.ToDouble(DG_tabla.Rows[i].Cells[31].Value);
                         totalco += Convert.ToDouble(DG_tabla.Rows[i].Cells[36].Value);
 
-                        LB_totalbo.Text = totalbo.ToString("C2");
-                        LB_totalce.Text = totalce.ToString("C2");
+                        LB_totalbo.Text = 0.ToString("C2");
+                        LB_totalce.Text = 0.ToString("C2");
                         LB_totalva.Text = totalva.ToString("C2");
                         LB_totalre.Text = totalre.ToString("C2");
                         LB_totalve.Text = totalve.ToString("C2");
                         LB_totalco.Text = totalco.ToString("C2");
+                        total = totalva + totalre + totalve + totalco;
+                        LB_total.Text = total.ToString("C2");
                     }
-                    
-                        
 
-                        
 
-                    
 
 
                    
+
+
+
+
 
 
                     //DG_tabla.Rows[i].Cells[4].Value = pzXPedir;
@@ -1006,7 +950,7 @@ namespace appSugerencias
 
 
                     ////---------------------- IMPORTE CEDIS ------------------------------------------------
-                    
+
                     //DG_tabla.Rows[i].Cells[16].Value = Convert.ToDouble(DG_tabla.Rows[i].Cells[15].Value) * Convert.ToDouble(DG_tabla.Rows[i].Cells[9].Value);
                     ////-------------------------------------------------------------------------------------
 
@@ -1242,6 +1186,36 @@ namespace appSugerencias
             return maximo;
         }
 
+        private void RB_tiendas_CheckedChanged(object sender, EventArgs e)
+        {
+            DG_tabla.Columns["PIEZAS"].Visible = false;
+            DG_tabla.Columns["CAJAS"].Visible = false;
+            DG_tabla.Columns["CAJAS_BOD"].Visible = false;
+            DG_tabla.Columns["PEDIDO_BOD"].Visible = false;
+            DG_tabla.Columns["IMPORTE_BOD"].Visible = false;
+            DG_tabla.Columns["MAX_CE"].Visible = false; 
+            DG_tabla.Columns["EXT_CE"].Visible = false;
+            DG_tabla.Columns["PED_CE"].Visible = false;
+            DG_tabla.Columns["IMPORTE_CE"].Visible = false;
+            LB_totalbo.Text = "";
+            LB_totalce.Text = "";
+            total = totalva + totalre + totalve + totalco;
+            LB_total.Text = total.ToString("C2");
+        }
+
+        private void RB_cedis_CheckedChanged(object sender, EventArgs e)
+        {
+            DG_tabla.Columns["PIEZAS"].Visible = true;
+            DG_tabla.Columns["CAJAS"].Visible = true;
+            DG_tabla.Columns["CAJAS_BOD"].Visible = true;
+            DG_tabla.Columns["PEDIDO_BOD"].Visible = true;
+            DG_tabla.Columns["IMPORTE_BOD"].Visible = true;
+            DG_tabla.Columns["MAX_CE"].Visible = true;
+            DG_tabla.Columns["EXT_CE"].Visible = true;
+            DG_tabla.Columns["PED_CE"].Visible = true;
+            DG_tabla.Columns["IMPORTE_CE"].Visible = true;
+        }
+
         private void TB_articulo_TextChanged(object sender, EventArgs e)
         {
 
@@ -1249,18 +1223,26 @@ namespace appSugerencias
 
         private void BT_calculo_manual_Click(object sender, EventArgs e)
         {
-            int pedidoVa = 0,pedidoRe=0,pedidoVe=0,pedidoCo=0,pedidoCe=0;
+            int pedidoVa = 0,pedidoRe=0,pedidoVe=0,pedidoCo=0,pedidoCe=0, pzXPaq=0;
             double costoXPaq = 0;
 
             for (int i = 0; i < DG_tabla.Rows.Count; i++)
             {
+
+
+               
+
                 costoXPaq = Convert.ToDouble(DG_tabla.Rows[i].Cells[9].Value);
-                pedidoCe = Convert.ToInt32(DG_tabla.Rows[i].Cells[15].Value);
+                pzXPaq = Convert.ToInt32(DG_tabla.Rows[i].Cells["PZ_PAQ"].Value);
+               
+             
+                costoXPz = costoXPaq / pzXPaq;
+                DG_tabla.Rows[i].Cells["COSTO_PIEZA"].Value = costoXPz;
+
                 pedidoVa = Convert.ToInt32(DG_tabla.Rows[i].Cells[20].Value);
                 pedidoRe = Convert.ToInt32(DG_tabla.Rows[i].Cells[25].Value);
                 pedidoVe = Convert.ToInt32(DG_tabla.Rows[i].Cells[30].Value);
                 pedidoCo = Convert.ToInt32(DG_tabla.Rows[i].Cells[35].Value);
-
 
                 DG_tabla.Rows[i].Cells[16].Value = costoXPaq * pedidoCe;
                 DG_tabla.Rows[i].Cells[21].Value = costoXPaq * pedidoVa;
@@ -1269,7 +1251,18 @@ namespace appSugerencias
                 DG_tabla.Rows[i].Cells[36].Value = costoXPaq * pedidoCo;
 
 
-                totalce += Convert.ToDouble(DG_tabla.Rows[i].Cells[16].Value);
+
+                if (RB_cedis.Checked==true)
+                {
+                    pedidoCe = Convert.ToInt32(DG_tabla.Rows[i].Cells[15].Value);
+                    DG_tabla.Rows[i].Cells[16].Value = costoXPaq * pedidoCe;
+                    totalce += Convert.ToDouble(DG_tabla.Rows[i].Cells[16].Value);
+                }
+                else
+                {
+                    totalce = 0;
+                }
+                
                 totalva += Convert.ToDouble(DG_tabla.Rows[i].Cells[21].Value);
                 totalre += Convert.ToDouble(DG_tabla.Rows[i].Cells[26].Value);
                 totalve += Convert.ToDouble(DG_tabla.Rows[i].Cells[31].Value);
@@ -1277,11 +1270,12 @@ namespace appSugerencias
 
 
                 total = totalce + totalva + totalre + totalve + totalco;
-                LB_totalce.Text = totalva.ToString("C2");
+                LB_totalce.Text = totalce.ToString("C2");
                 LB_totalva.Text = totalva.ToString("C2");
                 LB_totalre.Text = totalre.ToString("C2");
                 LB_totalve.Text = totalve.ToString("C2");
                 LB_totalco.Text = totalco.ToString("C2");
+                LB_total.Text = total.ToString("C2");
             }
 
             pedidoXCaja = 0; pzXCaja = 0; pzXPaq = 0; pzXPedir = 0; ped_va = 0; ped_re = 0; ped_ve = 0; ped_co = 0;
@@ -1371,7 +1365,7 @@ namespace appSugerencias
                     maxRe = MaximoArticuloRE(TB_articulo.Text);
                     maxVe = MaximoArticuloVE(TB_articulo.Text);
                     maxCo = MaximoArticuloCO(TB_articulo.Text);
-                    DG_tabla.Rows.Add("", dr["articulo"].ToString(), dr["descrip"].ToString(), dr["linea"].ToString(), "0", "0", "0", pzCaja, 1, costo, "0", "0", "0", maxBo, existenciaBO, "0", "0", maxVa, existenciaVA, "0", "0", "0", maxRe, existenciaRE, "0", "0", "0", maxVe, existenciaVE, "0","0", "0", maxCo, existenciaCO, "0","0","0");
+                    DG_tabla.Rows.Add("", dr["articulo"].ToString(), dr["descrip"].ToString(), dr["linea"].ToString(), "0", "0", "0", pzCaja, 1,"0", costo, "0", "0", maxBo, existenciaBO, "0", "0", maxVa, existenciaVA, "0", "0", "0", maxRe, existenciaRE, "0", "0", "0", maxVe, existenciaVE, "0","0", "0", maxCo, existenciaCO, "0","0","0","0",costo);
                 }
                 dr.Close();
                 conexion.Close();
@@ -1383,7 +1377,9 @@ namespace appSugerencias
         {
             RB_cedis.Checked = true;
             DG_tabla.Columns.Add("ID","ID");
-            DG_tabla.Columns["ID"].Visible = false;
+            DG_tabla.Columns.Add("COSTOU", "COSTO UNITARIO");
+            DG_tabla.Columns["ID"].Visible = true;
+            DG_tabla.Columns["COSTOU"].Visible = true;
             //LLENA EL DATAGRID DE PROVEEDORES CON EL NOMBRE DE LOS PROVEEDORES
             Proveedor proveedores = new Proveedor();
             ArrayList lista = proveedores.Proveedores();
@@ -1464,12 +1460,12 @@ namespace appSugerencias
            
 
             //TAMAÑO DE CELDAS
-            DG_tabla.Columns["MODELO"].Width = 150 ;
-            DG_tabla.Columns["CLAVE"].Width = 150;
+            DG_tabla.Columns["MODELO"].Width = 110;
+            DG_tabla.Columns["CLAVE"].Width = 140;
             DG_tabla.Columns["DESCRIPCION"].Width = 300;
             DG_tabla.Columns["DEPTO"].Width = 120;
-            DG_tabla.Columns["PIEZAS"].Width = 60;
-            DG_tabla.Columns["CAJAS"].Width = 60;
+            DG_tabla.Columns["PIEZAS"].Width = 50;
+            DG_tabla.Columns["CAJAS"].Width = 50;
             DG_tabla.Columns["PEDIDO_BOD"].Width = 50;
             DG_tabla.Columns["MAX_CE"].Width = 50;
             DG_tabla.Columns["EXT_CE"].Width = 50;
@@ -1774,52 +1770,53 @@ namespace appSugerencias
                 {
                     MySqlCommand insertar = new MySqlCommand(insertarDetalle, conexion);
                     insertar.Parameters.AddWithValue("?fk_stock", idregStock);
-                    if (DG_tabla.Rows[i].Cells[0].Value.ToString().Equals(""))
+                    if (DG_tabla.Rows[i].Cells["MODELO"].Value.ToString().Equals(""))
                     {
                         insertar.Parameters.AddWithValue("?modelo", "");
                     }
                     else
                     {
-                        insertar.Parameters.AddWithValue("?modelo", DG_tabla.Rows[i].Cells[0].Value.ToString());
+                        insertar.Parameters.AddWithValue("?modelo", DG_tabla.Rows[i].Cells["MODELO"].Value.ToString());
                     }
 
-                    insertar.Parameters.AddWithValue("?claveProducto", DG_tabla.Rows[i].Cells[1].Value.ToString());
-                    insertar.Parameters.AddWithValue("?descripcion", DG_tabla.Rows[i].Cells[2].Value.ToString());
-                    insertar.Parameters.AddWithValue("?departamento", DG_tabla.Rows[i].Cells[3].Value.ToString());
-                    insertar.Parameters.AddWithValue("?pzxpedir", DG_tabla.Rows[i].Cells[4].Value);
-                    insertar.Parameters.AddWithValue("?cajasxpedir", DG_tabla.Rows[i].Cells[5].Value);
-                    insertar.Parameters.AddWithValue("?cajaspedbo", DG_tabla.Rows[i].Cells[6].Value);
-                    insertar.Parameters.AddWithValue("?pzxcaja", DG_tabla.Rows[i].Cells[7].Value);
-                    insertar.Parameters.AddWithValue("?pzxpaq", DG_tabla.Rows[i].Cells[8].Value);
-                    insertar.Parameters.AddWithValue("?costoxpaq", DG_tabla.Rows[i].Cells[9].Value);
-                    insertar.Parameters.AddWithValue("?costoxpz", DG_tabla.Rows[i].Cells[10].Value);
-                    insertar.Parameters.AddWithValue("?ped_bo", DG_tabla.Rows[i].Cells[11].Value);
-                    insertar.Parameters.AddWithValue("?importe_bo", DG_tabla.Rows[i].Cells[12].Value);
-                    insertar.Parameters.AddWithValue("?max_ce", DG_tabla.Rows[i].Cells[13].Value);
-                    insertar.Parameters.AddWithValue("?ex_ce", DG_tabla.Rows[i].Cells[14].Value);
-                    insertar.Parameters.AddWithValue("?ped_ce", DG_tabla.Rows[i].Cells[15].Value);
-                    insertar.Parameters.AddWithValue("?importeCE", DG_tabla.Rows[i].Cells[16].Value);
-                    insertar.Parameters.AddWithValue("?max_va", DG_tabla.Rows[i].Cells[17].Value);
-                    insertar.Parameters.AddWithValue("?ex_va", DG_tabla.Rows[i].Cells[18].Value);
-                    insertar.Parameters.AddWithValue("?ex_pasada_va", DG_tabla.Rows[i].Cells[19].Value);
-                    insertar.Parameters.AddWithValue("?ped_va", DG_tabla.Rows[i].Cells[20].Value);
-                    insertar.Parameters.AddWithValue("?importe_va", DG_tabla.Rows[i].Cells[21].Value);
-                    insertar.Parameters.AddWithValue("?max_re", DG_tabla.Rows[i].Cells[22].Value);
-                    insertar.Parameters.AddWithValue("?ex_re", DG_tabla.Rows[i].Cells[23].Value);
-                    insertar.Parameters.AddWithValue("?ex_pasada_re", DG_tabla.Rows[i].Cells[24].Value);
-                    insertar.Parameters.AddWithValue("?ped_re", DG_tabla.Rows[i].Cells[25].Value);
-                    insertar.Parameters.AddWithValue("?importe_re", DG_tabla.Rows[i].Cells[26].Value);
-                    insertar.Parameters.AddWithValue("?max_ve", DG_tabla.Rows[i].Cells[27].Value);
-                    insertar.Parameters.AddWithValue("?ex_ve", DG_tabla.Rows[i].Cells[28].Value);
-                    insertar.Parameters.AddWithValue("?ex_pasada_ve", DG_tabla.Rows[i].Cells[29].Value);
-                    insertar.Parameters.AddWithValue("?ped_ve", DG_tabla.Rows[i].Cells[30].Value);
-                    insertar.Parameters.AddWithValue("?importe_ve", DG_tabla.Rows[i].Cells[31].Value);
-                    insertar.Parameters.AddWithValue("?max_co", DG_tabla.Rows[i].Cells[32].Value);
-                    insertar.Parameters.AddWithValue("?ex_co", DG_tabla.Rows[i].Cells[33].Value);
-                    insertar.Parameters.AddWithValue("?ex_pasada_co", DG_tabla.Rows[i].Cells[34].Value);
-                    insertar.Parameters.AddWithValue("?ped_co", DG_tabla.Rows[i].Cells[35].Value);
-                    insertar.Parameters.AddWithValue("?importe_co", DG_tabla.Rows[i].Cells[36].Value);
+                    insertar.Parameters.AddWithValue("?claveProducto", DG_tabla.Rows[i].Cells["CLAVE"].Value.ToString());
+                    insertar.Parameters.AddWithValue("?descripcion", DG_tabla.Rows[i].Cells["DESCRIPCION"].Value.ToString());
+                    insertar.Parameters.AddWithValue("?departamento", DG_tabla.Rows[i].Cells["DEPTO"].Value.ToString());
+                    insertar.Parameters.AddWithValue("?pzxpedir", DG_tabla.Rows[i].Cells["PIEZAS"].Value);
+                    insertar.Parameters.AddWithValue("?cajasxpedir", DG_tabla.Rows[i].Cells["CAJAS"].Value);
+                    insertar.Parameters.AddWithValue("?cajaspedbo", DG_tabla.Rows[i].Cells["CAJAS_BOD"].Value);
+                    insertar.Parameters.AddWithValue("?pzxcaja", DG_tabla.Rows[i].Cells["PZ_CAJA"].Value);
+                    insertar.Parameters.AddWithValue("?pzxpaq", DG_tabla.Rows[i].Cells["PZ_PAQ"].Value);
+                    insertar.Parameters.AddWithValue("?costoxpaq", DG_tabla.Rows[i].Cells["COSTO_PAQUETE"].Value);
+                    insertar.Parameters.AddWithValue("?costoxpz", DG_tabla.Rows[i].Cells["COSTO_PIEZA"].Value);
+                    insertar.Parameters.AddWithValue("?ped_bo", DG_tabla.Rows[i].Cells["PEDIDO_BOD"].Value);
+                    insertar.Parameters.AddWithValue("?importe_bo", DG_tabla.Rows[i].Cells["IMPORTE_BOD"].Value);
+                    insertar.Parameters.AddWithValue("?max_ce", DG_tabla.Rows[i].Cells["MAX_CE"].Value);
+                    insertar.Parameters.AddWithValue("?ex_ce", DG_tabla.Rows[i].Cells["EXT_CE"].Value);
+                    insertar.Parameters.AddWithValue("?ped_ce", DG_tabla.Rows[i].Cells["PED_CE"].Value);
+                    insertar.Parameters.AddWithValue("?importeCE", DG_tabla.Rows[i].Cells["IMPORTE_CE"].Value);
+                    insertar.Parameters.AddWithValue("?max_va", DG_tabla.Rows[i].Cells["MAX_VA"].Value);
+                    insertar.Parameters.AddWithValue("?ex_va", DG_tabla.Rows[i].Cells["EXT_VA"].Value);
+                    insertar.Parameters.AddWithValue("?ex_pasada_va", DG_tabla.Rows[i].Cells["EX_PASADA_VA"].Value);
+                    insertar.Parameters.AddWithValue("?ped_va", DG_tabla.Rows[i].Cells["PEDIDO_VA"].Value);
+                    insertar.Parameters.AddWithValue("?importe_va", DG_tabla.Rows[i].Cells["IMPORTE_VA"].Value);
+                    insertar.Parameters.AddWithValue("?max_re", DG_tabla.Rows[i].Cells["MAX_RE"].Value);
+                    insertar.Parameters.AddWithValue("?ex_re", DG_tabla.Rows[i].Cells["EXT_RE"].Value);
+                    insertar.Parameters.AddWithValue("?ex_pasada_re", DG_tabla.Rows[i].Cells["EX_PASADA_RE"].Value);
+                    insertar.Parameters.AddWithValue("?ped_re", DG_tabla.Rows[i].Cells["PEDIDO_RE"].Value);
+                    insertar.Parameters.AddWithValue("?importe_re", DG_tabla.Rows[i].Cells["IMPORTE_RE"].Value);
+                    insertar.Parameters.AddWithValue("?max_ve", DG_tabla.Rows[i].Cells["MAX_VE"].Value);
+                    insertar.Parameters.AddWithValue("?ex_ve", DG_tabla.Rows[i].Cells["EXT_VE"].Value);
+                    insertar.Parameters.AddWithValue("?ex_pasada_ve", DG_tabla.Rows[i].Cells["EX_PASADA_VE"].Value);
+                    insertar.Parameters.AddWithValue("?ped_ve", DG_tabla.Rows[i].Cells["PEDIDO_VE"].Value);
+                    insertar.Parameters.AddWithValue("?importe_ve", DG_tabla.Rows[i].Cells["IMPORTE_VE"].Value);
+                    insertar.Parameters.AddWithValue("?max_co", DG_tabla.Rows[i].Cells["MAX_CO"].Value);
+                    insertar.Parameters.AddWithValue("?ex_co", DG_tabla.Rows[i].Cells["EXT_CO"].Value);
+                    insertar.Parameters.AddWithValue("?ex_pasada_co", DG_tabla.Rows[i].Cells["EX_PASADA_CO"].Value);
+                    insertar.Parameters.AddWithValue("?ped_co", DG_tabla.Rows[i].Cells["PEDIDO_CO"].Value);
+                    insertar.Parameters.AddWithValue("?importe_co", DG_tabla.Rows[i].Cells["IMPORTE_CO"].Value);
                     insertar.Parameters.AddWithValue("?oferta", 0);
+                    insertar.Parameters.AddWithValue("?costou", DG_tabla.Rows[i].Cells["COSTOU"].Value);
                     insertar.ExecuteNonQuery();
 
 
@@ -1916,60 +1913,61 @@ namespace appSugerencias
             {
 
 
-                string insertarDetalle = "INSERT INTO rd_detalle_stock_compra(fk_stock,modelo,claveProducto,descripcion,departamento,pzxpedir,cajasxpedir,cajaspedbo,pzxcaja,pzxpaq,costoxpaq,costoxpz,ped_bo,importe_bo,max_ce,ex_ce,ped_ce,importeCE,max_va,ex_va,ex_pasada_va,ped_va,importe_va,max_re,ex_re,ex_pasada_re,ped_re,importe_re,max_ve,ex_ve,ex_pasada_ve,ped_ve,importe_ve,max_co,ex_co,ex_pasada_co,ped_co,importe_co,oferta)" +
-                    "VALUES(?fk_stock,?modelo,?claveProducto,?descripcion,?departamento,?pzxpedir,?cajasxpedir,?cajaspedbo,?pzxcaja,?pzxpaq,?costoxpaq,?costoxpz,?ped_bo,?importe_bo,?max_ce,?ex_ce,?ped_ce,?importeCE,?max_va,?ex_va,?ex_pasada_va,?ped_va,?importe_va,?max_re,?ex_re,?ex_pasada_re,?ped_re,?importe_re,?max_ve,?ex_ve,?ex_pasada_ve,?ped_ve,?importe_ve,?max_co,?ex_co,?ex_pasada_co,?ped_co,?importe_co,?oferta)";
+                string insertarDetalle = "INSERT INTO rd_detalle_stock_compra(fk_stock,modelo,claveProducto,descripcion,departamento,pzxpedir,cajasxpedir,cajaspedbo,pzxcaja,pzxpaq,costoxpaq,costoxpz,ped_bo,importe_bo,max_ce,ex_ce,ped_ce,importeCE,max_va,ex_va,ex_pasada_va,ped_va,importe_va,max_re,ex_re,ex_pasada_re,ped_re,importe_re,max_ve,ex_ve,ex_pasada_ve,ped_ve,importe_ve,max_co,ex_co,ex_pasada_co,ped_co,importe_co,oferta,costou)" +
+                    "VALUES(?fk_stock,?modelo,?claveProducto,?descripcion,?departamento,?pzxpedir,?cajasxpedir,?cajaspedbo,?pzxcaja,?pzxpaq,?costoxpaq,?costoxpz,?ped_bo,?importe_bo,?max_ce,?ex_ce,?ped_ce,?importeCE,?max_va,?ex_va,?ex_pasada_va,?ped_va,?importe_va,?max_re,?ex_re,?ex_pasada_re,?ped_re,?importe_re,?max_ve,?ex_ve,?ex_pasada_ve,?ped_ve,?importe_ve,?max_co,?ex_co,?ex_pasada_co,?ped_co,?importe_co,?oferta,?costou)";
                 MySqlConnection conexion = BDConexicon.BodegaOpen();
 
                 for (int i = 0; i < DG_tabla.RowCount; i++)
                 {
                     MySqlCommand insertar = new MySqlCommand(insertarDetalle, conexion);
                     insertar.Parameters.AddWithValue("?fk_stock", idregStock);
-                    if (DG_tabla.Rows[i].Cells[0].Value.ToString().Equals(""))
+                    if (DG_tabla.Rows[i].Cells["MODELO"].Value.ToString().Equals(""))
                     {
                         insertar.Parameters.AddWithValue("?modelo", "");
                     }
                     else
                     {
-                        insertar.Parameters.AddWithValue("?modelo", DG_tabla.Rows[i].Cells[0].Value.ToString());
+                        insertar.Parameters.AddWithValue("?modelo", DG_tabla.Rows[i].Cells["MODELO"].Value.ToString());
                     }
                    
-                    insertar.Parameters.AddWithValue("?claveProducto", DG_tabla.Rows[i].Cells[1].Value.ToString());
-                    insertar.Parameters.AddWithValue("?descripcion", DG_tabla.Rows[i].Cells[2].Value.ToString());
-                    insertar.Parameters.AddWithValue("?departamento", DG_tabla.Rows[i].Cells[3].Value.ToString());
-                    insertar.Parameters.AddWithValue("?pzxpedir", DG_tabla.Rows[i].Cells[4].Value);
-                    insertar.Parameters.AddWithValue("?cajasxpedir", DG_tabla.Rows[i].Cells[5].Value);
-                    insertar.Parameters.AddWithValue("?cajaspedbo", DG_tabla.Rows[i].Cells[6].Value);
-                    insertar.Parameters.AddWithValue("?pzxcaja", DG_tabla.Rows[i].Cells[7].Value);
-                    insertar.Parameters.AddWithValue("?pzxpaq", DG_tabla.Rows[i].Cells[8].Value);
-                    insertar.Parameters.AddWithValue("?costoxpaq", DG_tabla.Rows[i].Cells[9].Value);
-                    insertar.Parameters.AddWithValue("?costoxpz", DG_tabla.Rows[i].Cells[10].Value);
-                    insertar.Parameters.AddWithValue("?ped_bo", DG_tabla.Rows[i].Cells[11].Value);
-                    insertar.Parameters.AddWithValue("?importe_bo", DG_tabla.Rows[i].Cells[12].Value);
-                    insertar.Parameters.AddWithValue("?max_ce", DG_tabla.Rows[i].Cells[13].Value);
-                    insertar.Parameters.AddWithValue("?ex_ce", DG_tabla.Rows[i].Cells[14].Value);
-                    insertar.Parameters.AddWithValue("?ped_ce", DG_tabla.Rows[i].Cells[15].Value);
-                    insertar.Parameters.AddWithValue("?importeCE", DG_tabla.Rows[i].Cells[16].Value);
-                    insertar.Parameters.AddWithValue("?max_va", DG_tabla.Rows[i].Cells[17].Value);
-                    insertar.Parameters.AddWithValue("?ex_va", DG_tabla.Rows[i].Cells[18].Value);
-                    insertar.Parameters.AddWithValue("?ex_pasada_va", DG_tabla.Rows[i].Cells[19].Value);
-                    insertar.Parameters.AddWithValue("?ped_va", DG_tabla.Rows[i].Cells[20].Value);
-                    insertar.Parameters.AddWithValue("?importe_va", DG_tabla.Rows[i].Cells[21].Value);
-                    insertar.Parameters.AddWithValue("?max_re", DG_tabla.Rows[i].Cells[22].Value);
-                    insertar.Parameters.AddWithValue("?ex_re", DG_tabla.Rows[i].Cells[23].Value);
-                    insertar.Parameters.AddWithValue("?ex_pasada_re", DG_tabla.Rows[i].Cells[24].Value);
-                    insertar.Parameters.AddWithValue("?ped_re", DG_tabla.Rows[i].Cells[25].Value);
-                    insertar.Parameters.AddWithValue("?importe_re", DG_tabla.Rows[i].Cells[26].Value);
-                    insertar.Parameters.AddWithValue("?max_ve", DG_tabla.Rows[i].Cells[27].Value);
-                    insertar.Parameters.AddWithValue("?ex_ve", DG_tabla.Rows[i].Cells[28].Value);
-                    insertar.Parameters.AddWithValue("?ex_pasada_ve", DG_tabla.Rows[i].Cells[29].Value);
-                    insertar.Parameters.AddWithValue("?ped_ve", DG_tabla.Rows[i].Cells[30].Value);
-                    insertar.Parameters.AddWithValue("?importe_ve", DG_tabla.Rows[i].Cells[31].Value);
-                    insertar.Parameters.AddWithValue("?max_co", DG_tabla.Rows[i].Cells[32].Value);
-                    insertar.Parameters.AddWithValue("?ex_co", DG_tabla.Rows[i].Cells[33].Value);
-                    insertar.Parameters.AddWithValue("?ex_pasada_co", DG_tabla.Rows[i].Cells[34].Value);
-                    insertar.Parameters.AddWithValue("?ped_co", DG_tabla.Rows[i].Cells[35].Value);
-                    insertar.Parameters.AddWithValue("?importe_co", DG_tabla.Rows[i].Cells[36].Value);
+                    insertar.Parameters.AddWithValue("?claveProducto", DG_tabla.Rows[i].Cells["CLAVE"].Value.ToString());
+                    insertar.Parameters.AddWithValue("?descripcion", DG_tabla.Rows[i].Cells["DESCRIPCION"].Value.ToString());
+                    insertar.Parameters.AddWithValue("?departamento", DG_tabla.Rows[i].Cells["DEPTO"].Value.ToString());
+                    insertar.Parameters.AddWithValue("?pzxpedir", DG_tabla.Rows[i].Cells["PIEZAS"].Value);
+                    insertar.Parameters.AddWithValue("?cajasxpedir", DG_tabla.Rows[i].Cells["CAJAS"].Value);
+                    insertar.Parameters.AddWithValue("?cajaspedbo", DG_tabla.Rows[i].Cells["CAJAS_BOD"].Value);
+                    insertar.Parameters.AddWithValue("?pzxcaja", DG_tabla.Rows[i].Cells["PZ_CAJA"].Value);
+                    insertar.Parameters.AddWithValue("?pzxpaq", DG_tabla.Rows[i].Cells["PZ_PAQ"].Value);
+                    insertar.Parameters.AddWithValue("?costoxpaq", DG_tabla.Rows[i].Cells["COSTO_PAQUETE"].Value);
+                    insertar.Parameters.AddWithValue("?costoxpz", DG_tabla.Rows[i].Cells["COSTO_PIEZA"].Value);
+                    insertar.Parameters.AddWithValue("?ped_bo", DG_tabla.Rows[i].Cells["PEDIDO_BOD"].Value);
+                    insertar.Parameters.AddWithValue("?importe_bo", DG_tabla.Rows[i].Cells["IMPORTE_BOD"].Value);
+                    insertar.Parameters.AddWithValue("?max_ce", DG_tabla.Rows[i].Cells["MAX_CE"].Value);
+                    insertar.Parameters.AddWithValue("?ex_ce", DG_tabla.Rows[i].Cells["EXT_CE"].Value);
+                    insertar.Parameters.AddWithValue("?ped_ce", DG_tabla.Rows[i].Cells["PED_CE"].Value);
+                    insertar.Parameters.AddWithValue("?importeCE", DG_tabla.Rows[i].Cells["IMPORTE_CE"].Value);
+                    insertar.Parameters.AddWithValue("?max_va", DG_tabla.Rows[i].Cells["MAX_VA"].Value);
+                    insertar.Parameters.AddWithValue("?ex_va", DG_tabla.Rows[i].Cells["EXT_VA"].Value);
+                    insertar.Parameters.AddWithValue("?ex_pasada_va", DG_tabla.Rows[i].Cells["EX_PASADA_VA"].Value);
+                    insertar.Parameters.AddWithValue("?ped_va", DG_tabla.Rows[i].Cells["PEDIDO_VA"].Value);
+                    insertar.Parameters.AddWithValue("?importe_va", DG_tabla.Rows[i].Cells["IMPORTE_VA"].Value);
+                    insertar.Parameters.AddWithValue("?max_re", DG_tabla.Rows[i].Cells["MAX_RE"].Value);
+                    insertar.Parameters.AddWithValue("?ex_re", DG_tabla.Rows[i].Cells["EXT_RE"].Value);
+                    insertar.Parameters.AddWithValue("?ex_pasada_re", DG_tabla.Rows[i].Cells["EX_PASADA_RE"].Value);
+                    insertar.Parameters.AddWithValue("?ped_re", DG_tabla.Rows[i].Cells["PEDIDO_RE"].Value);
+                    insertar.Parameters.AddWithValue("?importe_re", DG_tabla.Rows[i].Cells["IMPORTE_RE"].Value);
+                    insertar.Parameters.AddWithValue("?max_ve", DG_tabla.Rows[i].Cells["MAX_VE"].Value);
+                    insertar.Parameters.AddWithValue("?ex_ve", DG_tabla.Rows[i].Cells["EXT_VE"].Value);
+                    insertar.Parameters.AddWithValue("?ex_pasada_ve", DG_tabla.Rows[i].Cells["EX_PASADA_VE"].Value);
+                    insertar.Parameters.AddWithValue("?ped_ve", DG_tabla.Rows[i].Cells["PEDIDO_VE"].Value);
+                    insertar.Parameters.AddWithValue("?importe_ve", DG_tabla.Rows[i].Cells["IMPORTE_VE"].Value);
+                    insertar.Parameters.AddWithValue("?max_co", DG_tabla.Rows[i].Cells["MAX_CO"].Value);
+                    insertar.Parameters.AddWithValue("?ex_co", DG_tabla.Rows[i].Cells["EXT_CO"].Value);
+                    insertar.Parameters.AddWithValue("?ex_pasada_co", DG_tabla.Rows[i].Cells["EX_PASADA_CO"].Value);
+                    insertar.Parameters.AddWithValue("?ped_co", DG_tabla.Rows[i].Cells["PEDIDO_CO"].Value);
+                    insertar.Parameters.AddWithValue("?importe_co", DG_tabla.Rows[i].Cells["IMPORTE_CO"].Value);
                     insertar.Parameters.AddWithValue("?oferta",0);
+                    insertar.Parameters.AddWithValue("?costou", DG_tabla.Rows[i].Cells["COSTOU"].Value);
                     insertar.ExecuteNonQuery();
 
 

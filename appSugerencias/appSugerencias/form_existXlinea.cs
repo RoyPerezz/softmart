@@ -133,7 +133,7 @@ namespace appSugerencias
                 DataTable dtRena = new DataTable();
                 DataTable dtColoso = new DataTable();
                 DataTable dtVelazquez = new DataTable();
-                DataTable dtPregot = new DataTable();
+               
 
                 try
                 {
@@ -214,23 +214,7 @@ namespace appSugerencias
 
                 }
 
-                try
-                {
-
-
-                    conpregot = BDConexicon.Papeleria1Open();
-                    MySqlCommand cmdPregot = new MySqlCommand(comando, conpregot);
-                    MySqlDataAdapter adColoso = new MySqlDataAdapter(cmdPregot);
-                    adColoso.Fill(dtPregot);
-
-                }
-                catch (Exception)
-                {
-                    //LB_pregot.Text = "Sin Conexión";
-                    //LB_pregot.ForeColor = Color.Red;
-
-
-                }
+               
 
                 //Combinar los 5 DataTables en DataTable master1
 
@@ -238,7 +222,7 @@ namespace appSugerencias
                 .Union(dtVallarta.AsEnumerable())
                 .Union(dtRena.AsEnumerable())
                 .Union(dtVelazquez.AsEnumerable())
-                .Union(dtColoso.AsEnumerable()).Union(dtPregot.AsEnumerable()).Distinct(DataRowComparer.Default).CopyToDataTable<DataRow>();
+                .Union(dtColoso.AsEnumerable()).Distinct(DataRowComparer.Default).CopyToDataTable<DataRow>();
 
                 master = repetidos(master1, "articulo");//se llama al metodo repetidos para que elimine los regitros iguales
 
@@ -251,7 +235,7 @@ namespace appSugerencias
                 master.Columns.Add("RE", typeof(String));
                 master.Columns.Add("VL", typeof(String));
                 master.Columns.Add("CO", typeof(String));
-                master.Columns.Add("PM", typeof(String));
+             
 
                 master.Columns.Remove("existencia");
 
@@ -264,7 +248,7 @@ namespace appSugerencias
                 RecorreRena(dtRena);
                 RecorreVelazquez(dtVelazquez);
                 RecorreColoso(dtColoso);
-                RecorrerPregot(dtPregot);
+               
 
 
 
@@ -274,17 +258,17 @@ namespace appSugerencias
                 //dataTable.Columns["Qty"].SetOrdinal(0);
                 //dataTable.Columns["Unit"].SetOrdinal(1);
 
-                master.Columns["COSTO"].SetOrdinal(8);
-                master.Columns["MAY"].SetOrdinal(9);
-                master.Columns["MEN"].SetOrdinal(10);
-                master.Columns["IMPUESTO"].SetOrdinal(11);
+                master.Columns["COSTO"].SetOrdinal(7);
+                master.Columns["MAY"].SetOrdinal(8);
+                master.Columns["MEN"].SetOrdinal(9);
+                master.Columns["IMPUESTO"].SetOrdinal(10);
 
                 master.Columns["BO"].SetOrdinal(2);
                 master.Columns["VA"].SetOrdinal(3);
                 master.Columns["RE"].SetOrdinal(4);
                 master.Columns["VL"].SetOrdinal(5);
                 master.Columns["CO"].SetOrdinal(6);
-                master.Columns["PM"].SetOrdinal(7);
+               
 
 
                 
@@ -307,10 +291,9 @@ namespace appSugerencias
                 dgvLinea.Columns[6].Width = 40;
                 dgvLinea.Columns[6].HeaderText = "CO";
 
-                dgvLinea.Columns[7].Width = 40;
-                dgvLinea.Columns[7].HeaderText = "PM";
 
-                dgvLinea.Columns[11].Visible = false;
+
+                dgvLinea.Columns[10].Visible = false;
 
 
                 ajustaIVA();
@@ -359,15 +342,15 @@ namespace appSugerencias
                 concoloso.Close();
 
                 convelazquez.Close();
-                conpregot.Close();
+                
 
 
 
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
+                MessageBox.Show(""+ex);
             }
 
 
@@ -498,9 +481,9 @@ namespace appSugerencias
 
                 }
             }
-#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
+
             catch (Exception ex)
-#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
+
             {
 
 
@@ -541,40 +524,7 @@ namespace appSugerencias
 
         }
 
-        public void RecorrerPregot(DataTable DTpregot)
-        {
-            try
-            {
-                foreach (DataRow row in master.Rows)
-                {
-
-
-                    string valor = row["articulo"].ToString();
-
-                    foreach (DataRow row1 in DTpregot.Rows)
-                    {
-
-                        if (valor.Equals(row1["articulo"].ToString()))
-
-                        {
-
-                            row["PM"] = row1["existencia"].ToString();
-                        }
-
-                    }
-
-
-                }
-            }
-#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
-            catch (Exception ex)
-#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
-            {
-
-
-            }
-
-        }
+       
 
         //Este método auxiliar ayuda a eliminar los productos repetidos retornando un datatable de productos sin repetir
         public DataTable repetidos(DataTable dtData, string sColumnName)
@@ -621,24 +571,24 @@ namespace appSugerencias
             // MessageBox.Show(texto);
             for (i = 0; i < valor; i++)
             {
-                texto = dgvLinea.Rows[i].Cells[11].Value.ToString();
+                texto = dgvLinea.Rows[i].Cells[10].Value.ToString();
 
                 if (texto == "IVA")
                 {
-                    costo = Convert.ToDouble(dgvLinea.Rows[i].Cells[8].Value.ToString());
+                    costo = Convert.ToDouble(dgvLinea.Rows[i].Cells[7].Value.ToString());
                     costo = costo + (costo * 0.16);
                     aux = Convert.ToString(costo);
-                    dgvLinea.Rows[i].Cells[8].Value = costo;
+                    dgvLinea.Rows[i].Cells[7].Value = costo;
 
 
 
-                    mayoreo = Convert.ToDouble(dgvLinea.Rows[i].Cells[9].Value.ToString());
+                    mayoreo = Convert.ToDouble(dgvLinea.Rows[i].Cells["MAY"].Value.ToString());
                     mayoreo = mayoreo + (mayoreo * 0.16);
-                    dgvLinea.Rows[i].Cells[9].Value = mayoreo;
+                    dgvLinea.Rows[i].Cells[8].Value = mayoreo;
 
-                    menudeo = Convert.ToDouble(dgvLinea.Rows[i].Cells[10].Value.ToString());
+                    menudeo = Convert.ToDouble(dgvLinea.Rows[i].Cells["MEN"].Value.ToString());
                     menudeo = menudeo + (menudeo * 0.16);
-                    dgvLinea.Rows[i].Cells[10].Value = menudeo;
+                    dgvLinea.Rows[i].Cells[9].Value = menudeo;
 
                 }
 

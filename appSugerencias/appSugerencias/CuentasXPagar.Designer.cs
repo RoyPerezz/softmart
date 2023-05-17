@@ -242,11 +242,12 @@
             this.LB_pre.AutoSize = true;
             this.LB_pre.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LB_pre.ForeColor = System.Drawing.Color.Gray;
-            this.LB_pre.Location = new System.Drawing.Point(531, 12);
+            this.LB_pre.Location = new System.Drawing.Point(691, 60);
             this.LB_pre.Name = "LB_pre";
             this.LB_pre.Size = new System.Drawing.Size(58, 13);
             this.LB_pre.TabIndex = 15;
             this.LB_pre.Text = "PREGOT";
+            this.LB_pre.Visible = false;
             // 
             // BT_Buscar
             // 
@@ -290,7 +291,6 @@
             this.PN_conexiones.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.PN_conexiones.BackColor = System.Drawing.Color.White;
             this.PN_conexiones.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.PN_conexiones.Controls.Add(this.LB_pre);
             this.PN_conexiones.Controls.Add(this.LB_bo);
             this.PN_conexiones.Controls.Add(this.LB_va);
             this.PN_conexiones.Controls.Add(this.LB_re);
@@ -298,7 +298,7 @@
             this.PN_conexiones.Controls.Add(this.LB_ve);
             this.PN_conexiones.Location = new System.Drawing.Point(790, 42);
             this.PN_conexiones.Name = "PN_conexiones";
-            this.PN_conexiones.Size = new System.Drawing.Size(601, 43);
+            this.PN_conexiones.Size = new System.Drawing.Size(512, 43);
             this.PN_conexiones.TabIndex = 26;
             // 
             // IDPAGO
@@ -397,12 +397,13 @@
             // CHB_pregot
             // 
             this.CHB_pregot.AutoSize = true;
-            this.CHB_pregot.Location = new System.Drawing.Point(1334, 22);
+            this.CHB_pregot.Location = new System.Drawing.Point(692, 22);
             this.CHB_pregot.Name = "CHB_pregot";
             this.CHB_pregot.Size = new System.Drawing.Size(57, 17);
             this.CHB_pregot.TabIndex = 33;
             this.CHB_pregot.Text = "Pregot";
             this.CHB_pregot.UseVisualStyleBackColor = true;
+            this.CHB_pregot.Visible = false;
             // 
             // BT_buscar_compra
             // 
@@ -580,6 +581,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(1846, 696);
+            this.Controls.Add(this.LB_pre);
             this.Controls.Add(this.LB_saldo);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);

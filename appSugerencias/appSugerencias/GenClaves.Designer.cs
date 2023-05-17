@@ -52,8 +52,6 @@
             this.PB_proceso = new System.Windows.Forms.ProgressBar();
             this.Timer = new System.Windows.Forms.Timer(this.components);
             this.LB_mensaje = new System.Windows.Forms.Label();
-            this.TB_estatuspregot = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.BT_limpiar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DG_numeros)).BeginInit();
             this.SuspendLayout();
@@ -263,24 +261,6 @@
             this.LB_mensaje.Size = new System.Drawing.Size(0, 13);
             this.LB_mensaje.TabIndex = 25;
             // 
-            // TB_estatuspregot
-            // 
-            this.TB_estatuspregot.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TB_estatuspregot.Location = new System.Drawing.Point(197, 138);
-            this.TB_estatuspregot.Name = "TB_estatuspregot";
-            this.TB_estatuspregot.Size = new System.Drawing.Size(25, 24);
-            this.TB_estatuspregot.TabIndex = 27;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(224, 141);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(72, 18);
-            this.label1.TabIndex = 26;
-            this.label1.Text = "PREGOT";
-            // 
             // BT_limpiar
             // 
             this.BT_limpiar.BackColor = System.Drawing.Color.DodgerBlue;
@@ -301,8 +281,6 @@
             this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(459, 450);
             this.Controls.Add(this.BT_limpiar);
-            this.Controls.Add(this.TB_estatuspregot);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.LB_mensaje);
             this.Controls.Add(this.PB_proceso);
             this.Controls.Add(this.TB_estatusBodega);
@@ -358,8 +336,6 @@
         private System.Windows.Forms.ProgressBar PB_proceso;
         private System.Windows.Forms.Timer Timer;
         private System.Windows.Forms.Label LB_mensaje;
-        private System.Windows.Forms.TextBox TB_estatuspregot;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button BT_limpiar;
     }
 }

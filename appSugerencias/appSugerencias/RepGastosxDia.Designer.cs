@@ -31,13 +31,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.DG_reporte = new System.Windows.Forms.DataGridView();
-            this.DT_fecha = new System.Windows.Forms.DateTimePicker();
-            this.BT_aceptar = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.CHK_respaldo = new System.Windows.Forms.CheckBox();
-            this.CB_sucursal = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.BT_guardar = new System.Windows.Forms.Button();
             this.CLAVE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TIPO_GASTO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DESCRIPCION = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,6 +42,13 @@
             this.ESTACION = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NUMAUTORIZACION = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CHECK = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.DT_fecha = new System.Windows.Forms.DateTimePicker();
+            this.BT_aceptar = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.CHK_respaldo = new System.Windows.Forms.CheckBox();
+            this.CB_sucursal = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.BT_guardar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DG_reporte)).BeginInit();
             this.SuspendLayout();
             // 
@@ -80,90 +80,6 @@
             this.DG_reporte.Name = "DG_reporte";
             this.DG_reporte.Size = new System.Drawing.Size(896, 459);
             this.DG_reporte.TabIndex = 0;
-            // 
-            // DT_fecha
-            // 
-            this.DT_fecha.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.DT_fecha.Location = new System.Drawing.Point(487, 21);
-            this.DT_fecha.Name = "DT_fecha";
-            this.DT_fecha.Size = new System.Drawing.Size(200, 20);
-            this.DT_fecha.TabIndex = 1;
-            // 
-            // BT_aceptar
-            // 
-            this.BT_aceptar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BT_aceptar.BackColor = System.Drawing.Color.DodgerBlue;
-            this.BT_aceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BT_aceptar.ForeColor = System.Drawing.Color.White;
-            this.BT_aceptar.Location = new System.Drawing.Point(692, 9);
-            this.BT_aceptar.Name = "BT_aceptar";
-            this.BT_aceptar.Size = new System.Drawing.Size(101, 44);
-            this.BT_aceptar.TabIndex = 2;
-            this.BT_aceptar.Text = "Aceptar";
-            this.BT_aceptar.UseVisualStyleBackColor = false;
-            this.BT_aceptar.Click += new System.EventHandler(this.BT_aceptar_Click);
-            // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.BackColor = System.Drawing.Color.DodgerBlue;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(799, 9);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(101, 44);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Exportar";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // CHK_respaldo
-            // 
-            this.CHK_respaldo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.CHK_respaldo.AutoSize = true;
-            this.CHK_respaldo.Location = new System.Drawing.Point(389, 23);
-            this.CHK_respaldo.Name = "CHK_respaldo";
-            this.CHK_respaldo.Size = new System.Drawing.Size(95, 17);
-            this.CHK_respaldo.TabIndex = 4;
-            this.CHK_respaldo.Text = "Fecha Pasada";
-            this.CHK_respaldo.UseVisualStyleBackColor = true;
-            // 
-            // CB_sucursal
-            // 
-            this.CB_sucursal.FormattingEnabled = true;
-            this.CB_sucursal.Items.AddRange(new object[] {
-            "VALLARTA",
-            "RENA",
-            "VELAZQUEZ",
-            "COLOSO",
-            "PREGOT"});
-            this.CB_sucursal.Location = new System.Drawing.Point(4, 32);
-            this.CB_sucursal.Name = "CB_sucursal";
-            this.CB_sucursal.Size = new System.Drawing.Size(142, 21);
-            this.CB_sucursal.TabIndex = 5;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(1, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(48, 13);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Sucursal";
-            // 
-            // BT_guardar
-            // 
-            this.BT_guardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.BT_guardar.BackColor = System.Drawing.Color.DodgerBlue;
-            this.BT_guardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BT_guardar.ForeColor = System.Drawing.Color.White;
-            this.BT_guardar.Location = new System.Drawing.Point(799, 527);
-            this.BT_guardar.Name = "BT_guardar";
-            this.BT_guardar.Size = new System.Drawing.Size(101, 44);
-            this.BT_guardar.TabIndex = 7;
-            this.BT_guardar.Text = "Guardar";
-            this.BT_guardar.UseVisualStyleBackColor = false;
-            this.BT_guardar.Click += new System.EventHandler(this.BT_guardar_Click);
             // 
             // CLAVE
             // 
@@ -221,6 +137,89 @@
             // 
             this.CHECK.HeaderText = "CHECK";
             this.CHECK.Name = "CHECK";
+            // 
+            // DT_fecha
+            // 
+            this.DT_fecha.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.DT_fecha.Location = new System.Drawing.Point(487, 21);
+            this.DT_fecha.Name = "DT_fecha";
+            this.DT_fecha.Size = new System.Drawing.Size(200, 20);
+            this.DT_fecha.TabIndex = 1;
+            // 
+            // BT_aceptar
+            // 
+            this.BT_aceptar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BT_aceptar.BackColor = System.Drawing.Color.DodgerBlue;
+            this.BT_aceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_aceptar.ForeColor = System.Drawing.Color.White;
+            this.BT_aceptar.Location = new System.Drawing.Point(692, 9);
+            this.BT_aceptar.Name = "BT_aceptar";
+            this.BT_aceptar.Size = new System.Drawing.Size(101, 44);
+            this.BT_aceptar.TabIndex = 2;
+            this.BT_aceptar.Text = "Aceptar";
+            this.BT_aceptar.UseVisualStyleBackColor = false;
+            this.BT_aceptar.Click += new System.EventHandler(this.BT_aceptar_Click);
+            // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.BackColor = System.Drawing.Color.DodgerBlue;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(799, 9);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(101, 44);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Exportar";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // CHK_respaldo
+            // 
+            this.CHK_respaldo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.CHK_respaldo.AutoSize = true;
+            this.CHK_respaldo.Location = new System.Drawing.Point(389, 23);
+            this.CHK_respaldo.Name = "CHK_respaldo";
+            this.CHK_respaldo.Size = new System.Drawing.Size(95, 17);
+            this.CHK_respaldo.TabIndex = 4;
+            this.CHK_respaldo.Text = "Fecha Pasada";
+            this.CHK_respaldo.UseVisualStyleBackColor = true;
+            // 
+            // CB_sucursal
+            // 
+            this.CB_sucursal.FormattingEnabled = true;
+            this.CB_sucursal.Items.AddRange(new object[] {
+            "VALLARTA",
+            "RENA",
+            "VELAZQUEZ",
+            "COLOSO"});
+            this.CB_sucursal.Location = new System.Drawing.Point(4, 32);
+            this.CB_sucursal.Name = "CB_sucursal";
+            this.CB_sucursal.Size = new System.Drawing.Size(142, 21);
+            this.CB_sucursal.TabIndex = 5;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(1, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(48, 13);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Sucursal";
+            // 
+            // BT_guardar
+            // 
+            this.BT_guardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.BT_guardar.BackColor = System.Drawing.Color.DodgerBlue;
+            this.BT_guardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_guardar.ForeColor = System.Drawing.Color.White;
+            this.BT_guardar.Location = new System.Drawing.Point(799, 527);
+            this.BT_guardar.Name = "BT_guardar";
+            this.BT_guardar.Size = new System.Drawing.Size(101, 44);
+            this.BT_guardar.TabIndex = 7;
+            this.BT_guardar.Text = "Guardar";
+            this.BT_guardar.UseVisualStyleBackColor = false;
+            this.BT_guardar.Click += new System.EventHandler(this.BT_guardar_Click);
             // 
             // RepGastosxDia
             // 

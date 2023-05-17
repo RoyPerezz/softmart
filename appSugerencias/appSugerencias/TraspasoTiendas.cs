@@ -658,26 +658,26 @@ namespace appSugerencias
 
             }
 
-            else if (tienda == "PREGOT")
-            {
+//            else if (tienda == "PREGOT")
+//            {
 
-                try
-                {
-                    conex_traspasos = BDConexicon.Papeleria1Open();
-                    selectDatos();
-                    lblConexion.Text = "Conectado PA";
-                    lblConexion.ForeColor = Color.DarkGreen;
-                }
-#pragma warning disable CS0168 // La variable 'e' se ha declarado pero nunca se usa
-                catch (Exception e)
-#pragma warning restore CS0168 // La variable 'e' se ha declarado pero nunca se usa
-                {
-                    lblConexion.Text = "Sin Conexion PA";
-                    lblConexion.ForeColor = Color.Red;
-                    limpiarTraspaso();
-                }
+//                try
+//                {
+//                    conex_traspasos = BDConexicon.Papeleria1Open();
+//                    selectDatos();
+//                    lblConexion.Text = "Conectado PA";
+//                    lblConexion.ForeColor = Color.DarkGreen;
+//                }
+//#pragma warning disable CS0168 // La variable 'e' se ha declarado pero nunca se usa
+//                catch (Exception e)
+//#pragma warning restore CS0168 // La variable 'e' se ha declarado pero nunca se usa
+//                {
+//                    lblConexion.Text = "Sin Conexion PA";
+//                    lblConexion.ForeColor = Color.Red;
+//                    limpiarTraspaso();
+//                }
 
-            }
+//            }
 
         }
         //########## CIERRE ############
@@ -734,12 +734,12 @@ namespace appSugerencias
                 bajaTraspaso( );
                 conex_bajatraspaso.Close();
             }
-            else if (tienda == "PREGOT")
-            {
-                conex_bajatraspaso = BDConexicon.Papeleria1Open();
-                bajaTraspaso();
-                conex_bajatraspaso.Close();
-            }
+            //else if (tienda == "PREGOT")
+            //{
+            //    conex_bajatraspaso = BDConexicon.Papeleria1Open();
+            //    bajaTraspaso();
+            //    conex_bajatraspaso.Close();
+            //}
 
 
         }
@@ -781,12 +781,12 @@ namespace appSugerencias
                 conex_altatraspaso.Close();
             }
 
-            else if (tienda == "PREGOT")
-            {
-                conex_altatraspaso = BDConexicon.Papeleria1Open();
-                altaTraspaso();
-                conex_altatraspaso.Close();
-            }
+            //else if (tienda == "PREGOT")
+            //{
+            //    conex_altatraspaso = BDConexicon.Papeleria1Open();
+            //    altaTraspaso();
+            //    conex_altatraspaso.Close();
+            //}
 
 
         }
@@ -836,13 +836,13 @@ namespace appSugerencias
                     itemTraspaso(idTraspaso);
                     conex_datostraspaso.Close();
                 }
-                else if (cbTienda.Text == "PREGOT")
-                {
-                    conex_datostraspaso = BDConexicon.Papeleria1Open();
-                    selectDatosTraspaso(idTraspaso);
-                    itemTraspaso(idTraspaso);
-                    conex_datostraspaso.Close();
-                }
+                //else if (cbTienda.Text == "PREGOT")
+                //{
+                //    conex_datostraspaso = BDConexicon.Papeleria1Open();
+                //    selectDatosTraspaso(idTraspaso);
+                //    itemTraspaso(idTraspaso);
+                //    conex_datostraspaso.Close();
+                //}
             //SE USA
             //itemTraspaso(idTraspaso); 
             //}
@@ -940,19 +940,19 @@ namespace appSugerencias
                     flag = false;
                 }
             }
-            else if (tienda == "PREGOT")
-            {
-                try
-                {
-                    conex_prueba = BDConexicon.Papeleria1Open();
-                    conex_prueba.Close();
-                    flag = true;
-                }
-                catch
-                {
-                    flag = false;
-                }
-            }
+            //else if (tienda == "PREGOT")
+            //{
+            //    try
+            //    {
+            //        conex_prueba = BDConexicon.Papeleria1Open();
+            //        conex_prueba.Close();
+            //        flag = true;
+            //    }
+            //    catch
+            //    {
+            //        flag = false;
+            //    }
+            //}
 
             return flag;
         }
@@ -1251,12 +1251,12 @@ namespace appSugerencias
                 conex_cancelacion.Close();
             }
 
-            else if (tienda == "PREGOT")
-            {
-                conex_cancelacion = BDConexicon.Papeleria1Open();
-                CancelacionTraspaso();
-                conex_cancelacion.Close();
-            }
+            //else if (tienda == "PREGOT")
+            //{
+            //    conex_cancelacion = BDConexicon.Papeleria1Open();
+            //    CancelacionTraspaso();
+            //    conex_cancelacion.Close();
+            //}
 
 
         }

@@ -69,7 +69,7 @@ namespace appSugerencias
 
             try
             {
-                proveedor = DG_tabla.Rows[e.RowIndex].Cells[1].Value.ToString();
+               proveedor = DG_tabla.Rows[e.RowIndex].Cells[1].Value.ToString();
             }
 #pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             catch (Exception ex)

@@ -77,10 +77,7 @@ namespace appSugerencias
                 CB_sucursal.SelectedIndex = 3;
             }
 
-            if (suc.Equals("PREGOT"))
-            {
-                CB_sucursal.SelectedIndex = 4;
-            }
+           
 
             if (area.Equals("SISTEMAS")|| area.Equals("CXPAGAR")|| area.Equals("ADMON GRAL")|| area.Equals("SUPERVISIO") ||area.Equals("FINANZAS"))
             {
@@ -233,10 +230,7 @@ namespace appSugerencias
                     con = BDConexicon.RespaldoCO(mes,año);
                 }
 
-                if (sucursal.Equals("PREGOT"))
-                {
-                    con = BDConexicon.RespaldoPRE(mes,año);
-                }
+               
             }
             else
             {
@@ -260,10 +254,7 @@ namespace appSugerencias
                     con = BDConexicon.ColosoOpen();
                 }
 
-                if (sucursal.Equals("PREGOT"))
-                {
-                    con = BDConexicon.Papeleria1Open();
-                }
+               
             }
 
 

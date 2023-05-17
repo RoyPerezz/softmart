@@ -81,10 +81,6 @@ namespace appSugerencias
                 CB_sucursal.SelectedIndex = 4;
             }
 
-            if (suc.Equals("PREGOT"))
-            {
-                CB_sucursal.SelectedIndex = 5;
-            }
 
             string area = AreaTrabajo();
 
@@ -218,10 +214,7 @@ namespace appSugerencias
                         con = BDConexicon.RespaldoVE(mesRespaldo, año);
                     }
 
-                    if (tienda.Equals("PREGOT"))
-                    {
-                        con = BDConexicon.RespaldoPRE(mesRespaldo, año);
-                    }
+                   
 
                 }
                 else
@@ -249,10 +242,7 @@ namespace appSugerencias
                         con = BDConexicon.VelazquezOpen();
                     }
 
-                    if (tienda.Equals("PREGOT"))
-                    {
-                        con = BDConexicon.Papeleria1Open();
-                    }
+                   
 
                 }
 
