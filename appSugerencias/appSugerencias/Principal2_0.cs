@@ -14,7 +14,6 @@ using appSugerencias.Gastos.Vistas;
 using appSugerencias.Gastos_Externos.Modelo;
 using appSugerencias.Gastos_Externos.Vistas;
 using appSugerencias.GastosCedis.Vistas;
-using appSugerencias.Piso_de_venta.Vista;
 using appSugerencias.ReportesCCTV;
 using MySql.Data.MySqlClient;
 
@@ -3567,23 +3566,6 @@ namespace appSugerencias
 
         }
 
-        private void articulosConExistenciaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //se localiza el formulario buscandolo entre los forms abiertos
-            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is ReporteArticulosExistencia);
-
-            if (frm != null)
-            {
-                //si la instancia existe la pongo en primer plano
-                frm.BringToFront();
-                return;
-            }
-
-            //sino existe la instancia se crea una nueva
-            frm = new ReporteArticulosExistencia();
-            string modulo = frm.Name;
-            RegistrarAccesos(modulo);
-            frm.Show();
-        }
+        
     }
 }

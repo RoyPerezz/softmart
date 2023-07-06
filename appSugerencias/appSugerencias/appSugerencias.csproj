@@ -218,6 +218,47 @@
     <Compile Include="Cajas\Enc Cajas\Vista\RevisionIncidenciasEtiquetas.Designer.cs">
       <DependentUpon>RevisionIncidenciasEtiquetas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Comisiones\Controlador\CCajera.cs" />
+    <Compile Include="Comisiones\Controlador\CCalificacion.cs" />
+    <Compile Include="Comisiones\Controlador\CEmpleado.cs" />
+    <Compile Include="Comisiones\Controlador\CRol.cs" />
+    <Compile Include="Comisiones\Controlador\CTarea.cs" />
+    <Compile Include="Comisiones\Modelo\MCajera.cs" />
+    <Compile Include="Comisiones\Modelo\MCalificacion.cs" />
+    <Compile Include="Comisiones\Modelo\MEmpleados.cs" />
+    <Compile Include="Comisiones\Modelo\MRol.cs" />
+    <Compile Include="Comisiones\Modelo\MSesion.cs" />
+    <Compile Include="Comisiones\Modelo\MTarea.cs" />
+    <Compile Include="Comisiones\Vista\PrincipalComisiones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Comisiones\Vista\PrincipalComisiones.Designer.cs">
+      <DependentUpon>PrincipalComisiones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Comisiones\Vista\VCalificar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Comisiones\Vista\VCalificar.Designer.cs">
+      <DependentUpon>VCalificar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Comisiones\Vista\VEmpleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Comisiones\Vista\VEmpleados.Designer.cs">
+      <DependentUpon>VEmpleados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Comisiones\Vista\VRol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Comisiones\Vista\VRol.Designer.cs">
+      <DependentUpon>VRol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Comisiones\Vista\VTareas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Comisiones\Vista\VTareas.Designer.cs">
+      <DependentUpon>VTareas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Consec.cs" />
     <Compile Include="CorteZCaja1.cs">
       <SubType>Form</SubType>
@@ -560,8 +601,6 @@
     <Compile Include="ModificarDatosDev.Designer.cs">
       <DependentUpon>ModificarDatosDev.cs</DependentUpon>
     </Compile>
-    <Compile Include="Piso de venta\Controladores\PisoVentaController.cs" />
-    <Compile Include="Piso de venta\Modelo\Articulo.cs" />
     <Compile Include="Piso de venta\Vista\ReporteArticulosExistencia.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1518,6 +1557,21 @@
     <EmbeddedResource Include="Cajas\Enc Cajas\Vista\RevisionIncidenciasEtiquetas.resx">
       <DependentUpon>RevisionIncidenciasEtiquetas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Comisiones\Vista\PrincipalComisiones.resx">
+      <DependentUpon>PrincipalComisiones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Comisiones\Vista\VCalificar.resx">
+      <DependentUpon>VCalificar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Comisiones\Vista\VEmpleados.resx">
+      <DependentUpon>VEmpleados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Comisiones\Vista\VRol.resx">
+      <DependentUpon>VRol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Comisiones\Vista\VTareas.resx">
+      <DependentUpon>VTareas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CorteZCaja1.resx">
       <DependentUpon>CorteZCaja1.cs</DependentUpon>
     </EmbeddedResource>
@@ -2382,6 +2436,8 @@
     <Folder Include="bin\Release\" />
     <Folder Include="Cajas\Enc Cajas\Controlador\" />
     <Folder Include="Cuentas Bancarias\Vista\" />
+    <Folder Include="Piso de venta\Controladores\" />
+    <Folder Include="Piso de venta\Modelo\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

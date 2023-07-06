@@ -28,7 +28,23 @@ namespace appSugerencias
             Conex.Close();
 
         }
+        public static void rellenaSucursalEIP(MySqlConnection Conex, ComboBox combo)
+        {
+            combo.DataSource = null;
 
+
+            MySqlCommand cmd = new MySqlCommand("SELECT direccion_ip,descripcion  FROM rd_sucursales WHERE activo=1", Conex);
+            MySqlDataAdapter mysqladap = new MySqlDataAdapter(cmd);
+            DataTable dt1 = new DataTable();
+
+            mysqladap.Fill(dt1);
+
+            combo.ValueMember = "direccion_ip";
+            combo.DisplayMember = "descripcion";
+            combo.DataSource = dt1;
+            Conex.Close();
+
+        }
         public static void rellenaPatron(MySqlConnection Conex, ComboBox combo)
         {
             combo.DataSource = null;
