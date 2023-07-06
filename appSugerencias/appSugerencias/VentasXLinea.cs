@@ -199,6 +199,8 @@ namespace appSugerencias
             string lineaTabla = "";
             string lineaBD = "";
             string comando = "";
+            DateTime inicio = DT_inicio.Value;
+            DateTime fin = DT_fin.Value;
             try
             {
                 //for (int i = 0; i < dgvLineas.Rows.Count; i++)
@@ -218,7 +220,7 @@ namespace appSugerencias
                      "WHERE ventas.estado = 'CO' AND (ventas.tipo_doc = 'FAC' Or ventas.tipo_doc = 'DV' Or ventas.tipo_doc = 'REM') " +
                     "AND ventas.cierre = 0 and " +
                     "lineas.Linea IN ('MASCOTAS','FIESTA','ARTLIMPIEZA','BARBIE','BOLSA - FEB','CPAPE','COSVIP','COVID','NAV','BOLSA','PLY','BISUTE','BPLASTC','COSMET','HAL'," +
-                    "'JUGUET','MONTAB','MOSTRA','PAT','PELUCHE','PLASTIC','SER','SOMBRILLAS','MAY','FEB','ESCOLA','SYS','LLYMO','SALDOS','UNIFORMES','VITRINA') GROUP BY lineas.linea order by lineas.descrip";
+                    "'JUGUET','MONTAB','MOSTRA','PAT','PELUCHE','PLASTIC','SER','SOMBRILLAS','MAY','FEB','ESCOLA','SYS','LLYMO','SALDOS','UNIFORMES','VITRINA') and ventas.F_EMISION BETWEEN '"+inicio.ToString("yyyy-MM-dd")+"' and '"+fin.ToString("yyyy-MM-dd")+"' GROUP BY lineas.linea order by lineas.descrip";
                     MySqlCommand cmdr = new MySqlCommand(comando, con);
                     MySqlDataReader mdrr;
 
@@ -277,6 +279,8 @@ namespace appSugerencias
             string lineaTabla = "";
             string lineaBD = "";
             string comando = "";
+            DateTime inicio = DT_inicio.Value;
+            DateTime fin = DT_fin.Value;
             try
             {
                 //for (int i = 0; i < dgvLineas.Rows.Count; i++)
@@ -296,7 +300,7 @@ namespace appSugerencias
                  "WHERE ventas.estado = 'CO' AND (ventas.tipo_doc = 'FAC' Or ventas.tipo_doc = 'DV' Or ventas.tipo_doc = 'REM') " +
                 "AND ventas.cierre = 0 and " +
                 "lineas.Linea IN ('MASCOTAS','FIESTA','ARTLIMPIEZA','BARBIE','BOLSA - FEB','CPAPE','COSVIP','COVID','NAV','BOLSA','PLY','BISUTE','BPLASTC','COSMET','HAL'," +
-                "'JUGUET','MONTAB','MOSTRA','PAT','PELUCHE','PLASTIC','SER','SOMBRILLAS','MAY','FEB','ESCOLA','SYS','LLYMO','SALDOS','UNIFORMES','VITRINA') GROUP BY lineas.linea order by lineas.descrip";
+                "'JUGUET','MONTAB','MOSTRA','PAT','PELUCHE','PLASTIC','SER','SOMBRILLAS','MAY','FEB','ESCOLA','SYS','LLYMO','SALDOS','UNIFORMES','VITRINA')  and ventas.F_EMISION BETWEEN '" + inicio.ToString("yyyy-MM-dd") + "' and '" + fin.ToString("yyyy-MM-dd") + "' GROUP BY lineas.linea order by lineas.descrip";
                 MySqlCommand cmdr = new MySqlCommand(comando, con);
                 MySqlDataReader mdrr;
 
@@ -355,6 +359,8 @@ namespace appSugerencias
             string lineaTabla = "";
             string lineaBD = "";
             string comando = "";
+            DateTime inicio = DT_inicio.Value;
+            DateTime fin = DT_fin.Value;
             try
             {
                 //for (int i = 0; i < dgvLineas.Rows.Count; i++)
@@ -374,7 +380,7 @@ namespace appSugerencias
                  "WHERE ventas.estado = 'CO' AND (ventas.tipo_doc = 'FAC' Or ventas.tipo_doc = 'DV' Or ventas.tipo_doc = 'REM') " +
                 "AND ventas.cierre = 0 and " +
                 "lineas.Linea IN ('MASCOTAS','FIESTA','ARTLIMPIEZA','BARBIE','BOLSA - FEB','CPAPE','COSVIP','COVID','NAV','BOLSA','PLY','BISUTE','BPLASTC','COSMET','HAL'," +
-                "'JUGUET','MONTAB','MOSTRA','PAT','PELUCHE','PLASTIC','SER','SOMBRILLAS','MAY','FEB','ESCOLA','SYS','LLYMO','SALDOS','UNIFORMES','VITRINA') GROUP BY lineas.linea order by lineas.descrip";
+                "'JUGUET','MONTAB','MOSTRA','PAT','PELUCHE','PLASTIC','SER','SOMBRILLAS','MAY','FEB','ESCOLA','SYS','LLYMO','SALDOS','UNIFORMES','VITRINA')  and ventas.F_EMISION BETWEEN '" + inicio.ToString("yyyy-MM-dd") + "' and '" + fin.ToString("yyyy-MM-dd") + "' GROUP BY lineas.linea order by lineas.descrip";
                 MySqlCommand cmdr = new MySqlCommand(comando, con);
                 MySqlDataReader mdrr;
 
@@ -432,6 +438,8 @@ namespace appSugerencias
             string lineaTabla = "";
             string lineaBD = "";
             string comando = "";
+            DateTime inicio = DT_inicio.Value;
+            DateTime fin = DT_fin.Value;
             try
             {
                 //for (int i = 0; i < dgvLineas.Rows.Count; i++)
@@ -451,7 +459,7 @@ namespace appSugerencias
                  "WHERE ventas.estado = 'CO' AND (ventas.tipo_doc = 'FAC' Or ventas.tipo_doc = 'DV' Or ventas.tipo_doc = 'REM') " +
                 "AND ventas.cierre = 0 and " +
                 "lineas.Linea IN ('MASCOTAS','FIESTA','ARTLIMPIEZA','BARBIE','BOLSA - FEB','CPAPE','COSVIP','COVID','NAV','BOLSA','PLY','BISUTE','BPLASTC','COSMET','HAL'," +
-                "'JUGUET','MONTAB','MOSTRA','PAT','PELUCHE','PLASTIC','SER','SOMBRILLAS','MAY','FEB','ESCOLA','SYS','LLYMO','SALDOS','UNIFORMES','VITRINA') GROUP BY lineas.linea order by lineas.descrip";
+                "'JUGUET','MONTAB','MOSTRA','PAT','PELUCHE','PLASTIC','SER','SOMBRILLAS','MAY','FEB','ESCOLA','SYS','LLYMO','SALDOS','UNIFORMES','VITRINA')  and ventas.F_EMISION BETWEEN '" + inicio.ToString("yyyy-MM-dd") + "' and '" + fin.ToString("yyyy-MM-dd") + "' GROUP BY lineas.linea order by lineas.descrip";
                 MySqlCommand cmdr = new MySqlCommand(comando, con);
                 MySqlDataReader mdrr;
 
@@ -755,16 +763,26 @@ namespace appSugerencias
                 IP = "192.168.6.2";
             }
 
+            int numMes = DateTime.Now.Month;
+            int mesFecha = DT_inicio.Value.Month;
             flag = defineMesActual();
 
-            if (flag == 1)
+            //if (flag == 1)
+            if (numMes == mesFecha)
             {
                 BD = "MyBusinessDelta";
             }
             else
             {
-                BD = tienda + " " + cbMeses.SelectedValue.ToString() + " " + cbYear.Text.ToString();
-              
+                int m = DT_inicio.Value.Month;
+                int a = DT_inicio.Value.Year;
+                string mes = FormatoFecha.Mes(m);
+                
+                BD = tienda + " " + mes + " " + a;
+
+                //BD = tienda + " " + cbMeses.SelectedValue.ToString() + " " + cbYear.Text.ToString();
+
+
             }
 
 

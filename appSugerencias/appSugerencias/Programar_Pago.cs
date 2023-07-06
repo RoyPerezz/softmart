@@ -121,14 +121,15 @@ namespace appSugerencias
                     try
                     {
                         MySqlConnection conexion = BDConexicon.BodegaOpen();
-                        MySqlCommand cmd = new MySqlCommand("INSERT INTO rd_programar_pago(fecha_programada,fecha_venc,sucursal,proveedor,rfc,compra,enlace,banco,cuenta,clientebancario,tipo_pago,anticipado,patron,importe,iva,concepto,factura,usuario,estado,indicador)" +
-                            "VALUES(?fecha_programada,?fecha_venc,?sucursal,?proveedor,?rfc,?compra,?enlace,?banco,?cuenta,?clientebancario,?tipo_pago,?anticipado,?patron,?importe,?iva,?concepto,?factura,?usuario,?estado,?indicador)", conexion);
+                        MySqlCommand cmd = new MySqlCommand("INSERT INTO rd_programar_pago(fecha_programada,fecha_venc,sucursal,proveedor,nombre_prov,rfc,compra,enlace,banco,cuenta,clientebancario,tipo_pago,anticipado,patron,importe,iva,concepto,factura,usuario,estado,indicador)" +
+                            "VALUES(?fecha_programada,?fecha_venc,?sucursal,?proveedor,?nombre_prov,?rfc,?compra,?enlace,?banco,?cuenta,?clientebancario,?tipo_pago,?anticipado,?patron,?importe,?iva,?concepto,?factura,?usuario,?estado,?indicador)", conexion);
 
 
                         cmd.Parameters.AddWithValue("?fecha_programada", fecha.ToString("yyy-MM-dd"));
                         cmd.Parameters.AddWithValue("?fecha_venc", fecha_venc.ToString("yyy-MM-dd"));
                         cmd.Parameters.AddWithValue("?sucursal", CB_sucursal.SelectedItem.ToString());
                         cmd.Parameters.AddWithValue("?proveedor", TB_proveedor.Text);
+                        cmd.Parameters.AddWithValue("?nombre_prov", CB_proveedor.Text);
                         cmd.Parameters.AddWithValue("?rfc","");
                         cmd.Parameters.AddWithValue("?compra", CB_compra.SelectedItem.ToString());
                         cmd.Parameters.AddWithValue("?enlace", TB_enlace.Text);
@@ -163,14 +164,15 @@ namespace appSugerencias
                     try
                     {
                         MySqlConnection conexion = BDConexicon.BodegaOpen();
-                        MySqlCommand cmd = new MySqlCommand("INSERT INTO rd_programar_pago(fecha_programada,fecha_venc,sucursal,proveedor,rfc,compra,enlace,banco,cuenta,clientebancario,tipo_pago,anticipado,patron,importe,iva,concepto,factura,usuario,estado,indicador)" +
-                            "VALUES(?fecha_programada,?fecha_venc,?sucursal,?proveedor,?rfc,?compra,?enlace,?banco,?cuenta,?clientebancario,?tipo_pago,?anticipado,?patron,?importe,?iva,?concepto,?factura,?usuario,?estado,?indicador)", conexion);
+                        MySqlCommand cmd = new MySqlCommand("INSERT INTO rd_programar_pago(fecha_programada,fecha_venc,sucursal,proveedor,nombre_prov,rfc,compra,enlace,banco,cuenta,clientebancario,tipo_pago,anticipado,patron,importe,iva,concepto,factura,usuario,estado,indicador)" +
+                            "VALUES(?fecha_programada,?fecha_venc,?sucursal,?proveedor,?nombre_prov,?rfc,?compra,?enlace,?banco,?cuenta,?clientebancario,?tipo_pago,?anticipado,?patron,?importe,?iva,?concepto,?factura,?usuario,?estado,?indicador)", conexion);
 
 
                         cmd.Parameters.AddWithValue("?fecha_programada", fecha.ToString("yyy-MM-dd"));
                         cmd.Parameters.AddWithValue("?fecha_venc", fecha_venc.ToString("yyy-MM-dd"));
                         cmd.Parameters.AddWithValue("?sucursal", CB_sucursal.SelectedItem.ToString());
                         cmd.Parameters.AddWithValue("?proveedor", TB_proveedor.Text);
+                        cmd.Parameters.AddWithValue("?nombre_prov", CB_proveedor.Text);
                         cmd.Parameters.AddWithValue("?rfc","");
                         cmd.Parameters.AddWithValue("?compra", CB_compra.SelectedItem.ToString());
                         cmd.Parameters.AddWithValue("?enlace", TB_enlace.Text);
@@ -205,14 +207,15 @@ namespace appSugerencias
                     try
                     {
                         MySqlConnection conexion = BDConexicon.BodegaOpen();
-                        MySqlCommand cmd = new MySqlCommand("INSERT INTO rd_programar_pago(fecha_programada,fecha_venc,sucursal,proveedor,rfc,compra,enlace,banco,cuenta,clientebancario,tipo_pago,anticipado,patron,importe,iva,concepto,factura,usuario,estado,indicador)" +
-                            "VALUES(?fecha_programada,?fecha_venc,?sucursal,?proveedor,?rfc,?compra,?enlace,?banco,?cuenta,?clientebancario,?tipo_pago,?anticipado,?patron,?importe,?iva,?concepto,?factura,?usuario,?estado,?indicador)", conexion);
+                        MySqlCommand cmd = new MySqlCommand("INSERT INTO rd_programar_pago(fecha_programada,fecha_venc,sucursal,proveedor,nombre_prov,rfc,compra,enlace,banco,cuenta,clientebancario,tipo_pago,anticipado,patron,importe,iva,concepto,factura,usuario,estado,indicador)" +
+                            "VALUES(?fecha_programada,?fecha_venc,?sucursal,?proveedor,?nombre_prov,?rfc,?compra,?enlace,?banco,?cuenta,?clientebancario,?tipo_pago,?anticipado,?patron,?importe,?iva,?concepto,?factura,?usuario,?estado,?indicador)", conexion);
 
 
                         cmd.Parameters.AddWithValue("?fecha_programada", fecha.ToString("yyy-MM-dd"));
                         cmd.Parameters.AddWithValue("?fecha_venc", fecha_venc.ToString("yyy-MM-dd"));
                         cmd.Parameters.AddWithValue("?sucursal", CB_sucursal.SelectedItem.ToString());
                         cmd.Parameters.AddWithValue("?proveedor", TB_proveedor.Text);
+                        cmd.Parameters.AddWithValue("?nombre_prov", CB_proveedor.Text);
                         cmd.Parameters.AddWithValue("?rfc", TB_rfc.Text);
                         cmd.Parameters.AddWithValue("?compra", CB_compra.SelectedItem.ToString());
                         cmd.Parameters.AddWithValue("?enlace", TB_enlace.Text);
@@ -251,14 +254,15 @@ namespace appSugerencias
                     try
                     {
                         MySqlConnection conexion = BDConexicon.BodegaOpen();
-                        MySqlCommand cmd = new MySqlCommand("INSERT INTO rd_programar_pago(fecha_programada,fecha_venc,sucursal,proveedor,rfc,compra,enlace,banco,cuenta,clientebancario,tipo_pago,anticipado,patron,importe,iva,concepto,factura,usuario,estado,indicador)" +
-                            "VALUES(?fecha_programada,?fecha_venc,?sucursal,?proveedor,?rfc,?compra,?enlace,?banco,?cuenta,?clientebancario,?tipo_pago,?anticipado,?patron,?importe,?iva,?concepto,?factura,?usuario,?estado,?indicador)", conexion);
+                        MySqlCommand cmd = new MySqlCommand("INSERT INTO rd_programar_pago(fecha_programada,fecha_venc,sucursal,proveedor,nombre_prov,rfc,compra,enlace,banco,cuenta,clientebancario,tipo_pago,anticipado,patron,importe,iva,concepto,factura,usuario,estado,indicador)" +
+                            "VALUES(?fecha_programada,?fecha_venc,?sucursal,?proveedor,?nombre_prov,?rfc,?compra,?enlace,?banco,?cuenta,?clientebancario,?tipo_pago,?anticipado,?patron,?importe,?iva,?concepto,?factura,?usuario,?estado,?indicador)", conexion);
 
 
                         cmd.Parameters.AddWithValue("?fecha_programada", fecha.ToString("yyy-MM-dd"));
                         cmd.Parameters.AddWithValue("?fecha_venc", fecha_venc.ToString("yyy-MM-dd"));
                         cmd.Parameters.AddWithValue("?sucursal", CB_sucursal.SelectedItem.ToString());
                         cmd.Parameters.AddWithValue("?proveedor", TB_proveedorServ.Text);
+                        cmd.Parameters.AddWithValue("?nombre_prov", CB_proveedoresServicios.Text);
                         cmd.Parameters.AddWithValue("?rfc", "");
                         cmd.Parameters.AddWithValue("?compra", "");
                         cmd.Parameters.AddWithValue("?enlace", "");
@@ -292,14 +296,15 @@ namespace appSugerencias
                     try
                     {
                         MySqlConnection conexion = BDConexicon.BodegaOpen();
-                        MySqlCommand cmd = new MySqlCommand("INSERT INTO rd_programar_pago(fecha_programada,fecha_venc,sucursal,proveedor,rfc,compra,enlace,banco,cuenta,clientebancario,tipo_pago,patron,importe,iva,concepto,factura,usuario,estado,indicador)" +
-                            "VALUES(?fecha_programada,?fecha_venc,?sucursal,?proveedor,?rfc,?compra,?enlace,?banco,?cuenta,?clientebancario,?tipo_pago,?patron,?importe,?iva,?concepto,?factura,?usuario,?estado,?indicador)", conexion);
+                        MySqlCommand cmd = new MySqlCommand("INSERT INTO rd_programar_pago(fecha_programada,fecha_venc,sucursal,proveedor,nombre_prov,rfc,compra,enlace,banco,cuenta,clientebancario,tipo_pago,patron,importe,iva,concepto,factura,usuario,estado,indicador)" +
+                            "VALUES(?fecha_programada,?fecha_venc,?sucursal,?proveedor,?nombre_prov,?rfc,?compra,?enlace,?banco,?cuenta,?clientebancario,?tipo_pago,?patron,?importe,?iva,?concepto,?factura,?usuario,?estado,?indicador)", conexion);
 
 
                         cmd.Parameters.AddWithValue("?fecha_programada", fecha.ToString("yyy-MM-dd"));
                         cmd.Parameters.AddWithValue("?fecha_venc", fecha_venc.ToString("yyy-MM-dd"));
                         cmd.Parameters.AddWithValue("?sucursal", CB_sucursal.SelectedItem.ToString());
                         cmd.Parameters.AddWithValue("?proveedor", TB_proveedorServ.Text);
+                        cmd.Parameters.AddWithValue("?nombre_prov", CB_proveedoresServicios.Text);
                         cmd.Parameters.AddWithValue("?rfc", "");
                         cmd.Parameters.AddWithValue("?compra", "");
                         cmd.Parameters.AddWithValue("?enlace", "");
@@ -334,14 +339,15 @@ namespace appSugerencias
                     try
                     {
                         MySqlConnection conexion = BDConexicon.BodegaOpen();
-                        MySqlCommand cmd = new MySqlCommand("INSERT INTO rd_programar_pago(fecha_programada,fecha_venc,sucursal,proveedor,rfc,compra,enlace,banco,cuenta,clientebancario,tipo_pago,patron,importe,iva,concepto,factura,usuario,estado,indicador)" +
-                            "VALUES(?fecha_programada,?fecha_venc,?sucursal,?proveedor,?rfc,?compra,?enlace,?banco,?cuenta,?clientebancario,?tipo_pago,?patron,?importe,?iva,?concepto,?factura,?usuario,?estado,?indicador)", conexion);
+                        MySqlCommand cmd = new MySqlCommand("INSERT INTO rd_programar_pago(fecha_programada,fecha_venc,sucursal,proveedor,nombre_prov,rfc,compra,enlace,banco,cuenta,clientebancario,tipo_pago,patron,importe,iva,concepto,factura,usuario,estado,indicador)" +
+                            "VALUES(?fecha_programada,?fecha_venc,?sucursal,?proveedor,?nombre_prov,?rfc,?compra,?enlace,?banco,?cuenta,?clientebancario,?tipo_pago,?patron,?importe,?iva,?concepto,?factura,?usuario,?estado,?indicador)", conexion);
 
 
                         cmd.Parameters.AddWithValue("?fecha_programada", fecha.ToString("yyy-MM-dd"));
                         cmd.Parameters.AddWithValue("?fecha_venc", fecha_venc.ToString("yyy-MM-dd"));
                         cmd.Parameters.AddWithValue("?sucursal", CB_sucursal.SelectedItem.ToString());
                         cmd.Parameters.AddWithValue("?proveedor", TB_proveedorServ.Text);
+                        cmd.Parameters.AddWithValue("?nombre_prov", CB_proveedoresServicios.Text);
                         cmd.Parameters.AddWithValue("?rfc", TB_rfc.Text);
                         cmd.Parameters.AddWithValue("?compra", "");
                         cmd.Parameters.AddWithValue("?enlace", "");

@@ -57,23 +57,28 @@ namespace appSugerencias
             return nombre;
         }
 
+
+        public void PintarFilaBusqueda(int estado,int pagoParcial,int pagoAnticipado,int indicador)
+        {
+
+        }
         private void BT_aceptar_Click(object sender, EventArgs e)
         {
             dt.Rows.Clear();
             DG_tabla.Rows.Clear();
             DateTime inicio = DT_inicio.Value;
             DateTime fin = DT_fin.Value;
-
+            int numFila = 0;
             MySqlConnection conexion = BDConexicon.BodegaOpen();
             string nombre = "";
 
-            string todos = "SELECT idreg,fecha_programada,fecha_venc,sucursal,proveedor,rfc,compra,enlace,banco,cuenta,clientebancario,tipo_pago,anticipado,patron,importe,iva,concepto,factura,usuario,estado,indicador,pago_parcial,pago_anticipado FROM rd_programar_pago  WHERE fecha_programada between '" + inicio.ToString("yyyy-MM-dd") + "' and '" + fin.ToString("yyyy-MM-dd")+ "' order by idreg, fecha_programada";
+            string todos = "SELECT idreg,fecha_programada,fecha_venc,sucursal,proveedor,nombre_prov,rfc,compra,enlace,banco,cuenta,clientebancario,tipo_pago,anticipado,patron,importe,iva,concepto,factura,usuario,estado,indicador,pago_parcial,pago_anticipado FROM rd_programar_pago  WHERE fecha_programada between '" + inicio.ToString("yyyy-MM-dd") + "' and '" + fin.ToString("yyyy-MM-dd")+ "' order by idreg, fecha_programada";
            
-            string efectivo = "SELECT idreg,fecha_programada,fecha_venc,sucursal,proveedor,rfc,compra,enlace,banco,cuenta,clientebancario,tipo_pago,anticipado,patron,importe,iva,concepto,factura,usuario,estado,indicador,pago_parcial,pago_anticipado FROM rd_programar_pago  WHERE fecha_programada between '" + inicio.ToString("yyyy-MM-dd") + "' and '" + fin.ToString("yyyy-MM-dd") + "' AND tipo_pago='EFECTIVO' order by idreg, fecha_programada";
+            string efectivo = "SELECT idreg,fecha_programada,fecha_venc,sucursal,proveedor,nombre_prov,rfc,compra,enlace,banco,cuenta,clientebancario,tipo_pago,anticipado,patron,importe,iva,concepto,factura,usuario,estado,indicador,pago_parcial,pago_anticipado FROM rd_programar_pago  WHERE fecha_programada between '" + inicio.ToString("yyyy-MM-dd") + "' and '" + fin.ToString("yyyy-MM-dd") + "' AND tipo_pago='EFECTIVO' order by idreg, fecha_programada";
 
-            string deposito = "SELECT idreg,fecha_programada,fecha_venc,sucursal,proveedor,rfc,compra,enlace,banco,cuenta,clientebancario,tipo_pago,anticipado,patron,importe,iva,concepto,factura,usuario,estado,indicador,pago_parcial,pago_anticipado FROM rd_programar_pago  WHERE fecha_programada between '" + inicio.ToString("yyyy-MM-dd") + "' and '" + fin.ToString("yyyy-MM-dd") + "' AND tipo_pago='DEP/EFE' order by idreg, fecha_programada";
+            string deposito = "SELECT idreg,fecha_programada,fecha_venc,sucursal,proveedor,nombre_prov,rfc,compra,enlace,banco,cuenta,clientebancario,tipo_pago,anticipado,patron,importe,iva,concepto,factura,usuario,estado,indicador,pago_parcial,pago_anticipado FROM rd_programar_pago  WHERE fecha_programada between '" + inicio.ToString("yyyy-MM-dd") + "' and '" + fin.ToString("yyyy-MM-dd") + "' AND tipo_pago='DEP/EFE' order by idreg, fecha_programada";
 
-            string spei  = "SELECT idreg,fecha_programada,fecha_venc,sucursal,proveedor,rfc,compra,enlace,banco,cuenta,clientebancario,tipo_pago,anticipado,patron,importe,iva,concepto,factura,usuario,estado,indicador,pago_parcial,pago_anticipado FROM rd_programar_pago  WHERE fecha_programada between '" + inicio.ToString("yyyy-MM-dd") + "' and '" + fin.ToString("yyyy-MM-dd") + "' AND tipo_pago='SPEI' order by idreg, fecha_programada";
+            string spei  = "SELECT idreg,fecha_programada,fecha_venc,sucursal,proveedor,nombre_prov,rfc,compra,enlace,banco,cuenta,clientebancario,tipo_pago,anticipado,patron,importe,iva,concepto,factura,usuario,estado,indicador,pago_parcial,pago_anticipado FROM rd_programar_pago  WHERE fecha_programada between '" + inicio.ToString("yyyy-MM-dd") + "' and '" + fin.ToString("yyyy-MM-dd") + "' AND tipo_pago='SPEI' order by idreg, fecha_programada";
             if (RB_todos.Checked==true)
             {
                 MySqlCommand cmd = new MySqlCommand(todos, conexion);
@@ -89,16 +94,18 @@ namespace appSugerencias
                     int pagoParcial = Convert.ToInt32(dr["pago_parcial"].ToString());
                     int pagoAnticipado = Convert.ToInt32(dr["pago_anticipado"].ToString());
                     int indicador = Convert.ToInt32(dr["indicador"].ToString());
-                    string proveedor = dr["proveedor"].ToString();
+                    //string proveedor = dr["proveedor"].ToString();
+                    nombre = dr["nombre_prov"].ToString();
 
                     if (indicador == 0)
                     {
-                       nombre = NombreProveedor(proveedor);
+                        //nombre = NombreProveedor(proveedor);
+                        //nombre = "";
                     }
 
                     if (indicador == 1)
                     {
-                       nombre = NombreProveedorServ(proveedor);
+                       //nombre = NombreProveedorServ(proveedor);
                     }
 
                    
@@ -139,6 +146,21 @@ namespace appSugerencias
 
                     
                     DG_tabla.Rows.Add(dr["idreg"].ToString(), dr["fecha_programada"].ToString(), dr["fecha_venc"].ToString(), dr["sucursal"].ToString(), dr["banco"].ToString(), String.Format("{0:0.##}", importe.ToString("C")), String.Format("{0:0.##}", iva.ToString("C")), dr["clientebancario"].ToString(), dr["cuenta"].ToString(), dr["patron"].ToString(), nombre, dr["rfc"].ToString(), dr["compra"].ToString(), dr["concepto"].ToString(), dr["enlace"].ToString(), dr["factura"].ToString(), dr["tipo_pago"].ToString(), dr["anticipado"].ToString(), check.ThreeState, checkParcial.ThreeState,checkAnticipado.ThreeState);
+
+                    numFila = DG_tabla.Rows.Count-1;
+                    if (check.ThreeState == true && checkParcial.ThreeState == false && checkAnticipado.ThreeState == false)
+                    {
+                        DG_tabla.Rows[numFila].DefaultCellStyle.BackColor = Color.Yellow;
+                    }else if(check.ThreeState == false && checkParcial.ThreeState == true && checkAnticipado.ThreeState == false)
+                    {
+                        DG_tabla.Rows[numFila].DefaultCellStyle.BackColor = Color.Green;
+                    }else if(check.ThreeState == false && checkParcial.ThreeState == false && checkAnticipado.ThreeState == true)
+                    {
+                        DG_tabla.Rows[numFila].DefaultCellStyle.BackColor = Color.DodgerBlue;
+                    }else if (check.ThreeState == false && checkParcial.ThreeState == false && checkAnticipado.ThreeState == false)
+                    {
+                        DG_tabla.Rows[numFila].DefaultCellStyle.BackColor = Color.White;
+                    }
                 }
 
                 dr.Close();
@@ -159,16 +181,16 @@ namespace appSugerencias
                     int estado = Convert.ToInt32(dr["estado"].ToString());
                     int indicador = Convert.ToInt32(dr["indicador"].ToString());
                     string proveedor = dr["proveedor"].ToString();
+                    nombre = dr["nombre_prov"].ToString();
+                    //if (indicador == 0)
+                    //{
+                    //    nombre = NombreProveedor(proveedor);
+                    //}
 
-                    if (indicador == 0)
-                    {
-                        nombre = NombreProveedor(proveedor);
-                    }
-
-                    if (indicador == 1)
-                    {
-                        nombre = NombreProveedorServ(proveedor);
-                    }
+                    //if (indicador == 1)
+                    //{
+                    //    nombre = NombreProveedorServ(proveedor);
+                    //}
 
                     if (estado == 0)
                     {
@@ -205,6 +227,24 @@ namespace appSugerencias
                     double importe = Convert.ToDouble(dr["importe"].ToString());
                     double iva = Convert.ToDouble(dr["iva"].ToString());
                     DG_tabla.Rows.Add(dr["idreg"].ToString(), dr["fecha_programada"].ToString(), dr["fecha_venc"].ToString(), dr["sucursal"].ToString(), dr["banco"].ToString(), String.Format("{0:0.##}", importe.ToString("C")), String.Format("{0:0.##}", iva.ToString("C")), dr["clientebancario"].ToString(), dr["cuenta"].ToString(), dr["patron"].ToString(), nombre, dr["rfc"].ToString(), dr["compra"].ToString(), dr["concepto"].ToString(), dr["enlace"].ToString(), dr["factura"].ToString(), dr["tipo_pago"].ToString(), dr["anticipado"].ToString(), check.ThreeState, checkParcial.ThreeState, checkAnticipado.ThreeState);
+
+                    numFila = DG_tabla.Rows.Count - 1;
+                    if (check.ThreeState == true && checkParcial.ThreeState == false && checkAnticipado.ThreeState == false)
+                    {
+                        DG_tabla.Rows[numFila].DefaultCellStyle.BackColor = Color.Yellow;
+                    }
+                    else if (check.ThreeState == false && checkParcial.ThreeState == true && checkAnticipado.ThreeState == false)
+                    {
+                        DG_tabla.Rows[numFila].DefaultCellStyle.BackColor = Color.Green;
+                    }
+                    else if (check.ThreeState == false && checkParcial.ThreeState == false && checkAnticipado.ThreeState == true)
+                    {
+                        DG_tabla.Rows[numFila].DefaultCellStyle.BackColor = Color.DodgerBlue;
+                    }
+                    else if (check.ThreeState == false && checkParcial.ThreeState == false && checkAnticipado.ThreeState == false)
+                    {
+                        DG_tabla.Rows[numFila].DefaultCellStyle.BackColor = Color.White;
+                    }
                 }
 
                 dr.Close();
@@ -224,16 +264,16 @@ namespace appSugerencias
                     int estado = Convert.ToInt32(dr["estado"].ToString());
                     int indicador = Convert.ToInt32(dr["indicador"].ToString());
                     string proveedor = dr["proveedor"].ToString();
+                    nombre = dr["nombre_prov"].ToString();
+                    //if (indicador == 0)
+                    //{
+                    //    nombre = NombreProveedor(proveedor);
+                    //}
 
-                    if (indicador == 0)
-                    {
-                        nombre = NombreProveedor(proveedor);
-                    }
-
-                    if (indicador == 1)
-                    {
-                        nombre = NombreProveedorServ(proveedor);
-                    }
+                    //if (indicador == 1)
+                    //{
+                    //    nombre = NombreProveedorServ(proveedor);
+                    //}
 
                     if (estado == 0)
                     {
@@ -269,6 +309,23 @@ namespace appSugerencias
                     double importe = Convert.ToDouble(dr["importe"].ToString());
                     double iva = Convert.ToDouble(dr["iva"].ToString());
                     DG_tabla.Rows.Add(dr["idreg"].ToString(), dr["fecha_programada"].ToString(), dr["fecha_venc"].ToString(), dr["sucursal"].ToString(), dr["banco"].ToString(), String.Format("{0:0.##}", importe.ToString("C")), String.Format("{0:0.##}", iva.ToString("C")), dr["clientebancario"].ToString(), dr["cuenta"].ToString(), dr["patron"].ToString(), nombre, dr["rfc"].ToString(), dr["compra"].ToString(), dr["concepto"].ToString(), dr["enlace"].ToString(), dr["factura"].ToString(), dr["tipo_pago"].ToString(), dr["anticipado"].ToString(), check.ThreeState,checkParcial.ThreeState, checkAnticipado.ThreeState);
+                    numFila = DG_tabla.Rows.Count - 1;
+                    if (check.ThreeState == true && checkParcial.ThreeState == false && checkAnticipado.ThreeState == false)
+                    {
+                        DG_tabla.Rows[numFila].DefaultCellStyle.BackColor = Color.Yellow;
+                    }
+                    else if (check.ThreeState == false && checkParcial.ThreeState == true && checkAnticipado.ThreeState == false)
+                    {
+                        DG_tabla.Rows[numFila].DefaultCellStyle.BackColor = Color.Green;
+                    }
+                    else if (check.ThreeState == false && checkParcial.ThreeState == false && checkAnticipado.ThreeState == true)
+                    {
+                        DG_tabla.Rows[numFila].DefaultCellStyle.BackColor = Color.DodgerBlue;
+                    }
+                    else if (check.ThreeState == false && checkParcial.ThreeState == false && checkAnticipado.ThreeState == false)
+                    {
+                        DG_tabla.Rows[numFila].DefaultCellStyle.BackColor = Color.White;
+                    }
                 }
 
                 dr.Close();
@@ -288,16 +345,16 @@ namespace appSugerencias
                     int pagoAnticipado = Convert.ToInt32(dr["pago_anticipado"].ToString());
                     int indicador = Convert.ToInt32(dr["indicador"].ToString());
                     string proveedor = dr["proveedor"].ToString();
+                    nombre = dr["nombre_prov"].ToString();
+                    //if (indicador == 0)
+                    //{
+                    //    nombre = NombreProveedor(proveedor);
+                    //}
 
-                    if (indicador == 0)
-                    {
-                        nombre = NombreProveedor(proveedor);
-                    }
-
-                    if (indicador == 1)
-                    {
-                        nombre = NombreProveedorServ(proveedor);
-                    }
+                    //if (indicador == 1)
+                    //{
+                    //    nombre = NombreProveedorServ(proveedor);
+                    //}
 
                     if (estado == 0)
                     {
@@ -332,6 +389,24 @@ namespace appSugerencias
                     double importe = Convert.ToDouble(dr["importe"].ToString());
                     double iva = Convert.ToDouble(dr["iva"].ToString());
                     DG_tabla.Rows.Add(dr["idreg"].ToString(), dr["fecha_programada"].ToString(), dr["fecha_venc"].ToString(), dr["sucursal"].ToString(), dr["banco"].ToString(), String.Format("{0:0.##}", importe.ToString("C")), String.Format("{0:0.##}", iva.ToString("C")), dr["clientebancario"].ToString(), dr["cuenta"].ToString(), dr["patron"].ToString(), nombre, dr["rfc"].ToString(), dr["compra"].ToString(), dr["concepto"].ToString(), dr["enlace"].ToString(), dr["factura"].ToString(), dr["tipo_pago"].ToString(), dr["anticipado"].ToString(), check.ThreeState,checkParcial.ThreeState, checkAnticipado.ThreeState);
+
+                    numFila = DG_tabla.Rows.Count - 1;
+                    if (check.ThreeState == true && checkParcial.ThreeState == false && checkAnticipado.ThreeState == false)
+                    {
+                        DG_tabla.Rows[numFila].DefaultCellStyle.BackColor = Color.Yellow;
+                    }
+                    else if (check.ThreeState == false && checkParcial.ThreeState == true && checkAnticipado.ThreeState == false)
+                    {
+                        DG_tabla.Rows[numFila].DefaultCellStyle.BackColor = Color.Green;
+                    }
+                    else if (check.ThreeState == false && checkParcial.ThreeState == false && checkAnticipado.ThreeState == true)
+                    {
+                        DG_tabla.Rows[numFila].DefaultCellStyle.BackColor = Color.DodgerBlue;
+                    }
+                    else if (check.ThreeState == false && checkParcial.ThreeState == false && checkAnticipado.ThreeState == false)
+                    {
+                        DG_tabla.Rows[numFila].DefaultCellStyle.BackColor = Color.White;
+                    }
                 }
 
                 dr.Close();
@@ -340,7 +415,7 @@ namespace appSugerencias
            
             
             conexion.Close();
-            PintarFila();
+            //PintarFila();
         }
 
         
@@ -682,6 +757,68 @@ namespace appSugerencias
 
         private void BT_guardar_SPEI_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void Rep_pagosprogramados_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+
+
+           
+        }
+
+        private void CB_filtro_prov_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                dt.Rows.Clear();
+                for (int i = 0; i < DG_tabla.Rows.Count; i++)
+                {
+                    dt.Rows.Add(DG_tabla.Rows[i].Cells[0].Value, DG_tabla.Rows[i].Cells[1].Value, DG_tabla.Rows[i].Cells[2].Value, DG_tabla.Rows[i].Cells[3].Value, DG_tabla.Rows[i].Cells[4].Value, DG_tabla.Rows[i].Cells[5].Value, DG_tabla.Rows[i].Cells[6].Value, DG_tabla.Rows[i].Cells[7].Value, DG_tabla.Rows[i].Cells[8].Value, DG_tabla.Rows[i].Cells[9].Value, DG_tabla.Rows[i].Cells[10].Value, DG_tabla.Rows[i].Cells[11].Value, DG_tabla.Rows[i].Cells[12].Value, DG_tabla.Rows[i].Cells[13].Value, DG_tabla.Rows[i].Cells[14].Value, DG_tabla.Rows[i].Cells[15].Value, DG_tabla.Rows[i].Cells[16].Value, DG_tabla.Rows[i].Cells[17].Value, DG_tabla.Rows[i].Cells[18].Value, DG_tabla.Rows[i].Cells[19].Value, DG_tabla.Rows[i].Cells[20].Value);
+                }
+
+                DG_tabla.Rows.Clear();
+                DataView view = null;
+                string proveedor = CB_filtro_prov.SelectedItem.ToString();
+                view = dt.DefaultView;
+                view.RowFilter = string.Empty;
+                view.RowFilter = "PROVEEDOR='" + proveedor + "'";
+                //view.RowFilter = "PROVEEDOR='" + proveedor + "' AND ANTICIPADO =1";
+                //DG_tabla.DataSource = view;
+
+                DataGridViewCheckBoxCell check = new DataGridViewCheckBoxCell();
+                DataGridViewCheckBoxCell checkParcial = new DataGridViewCheckBoxCell();
+                DataGridViewCheckBoxCell checkAnticipado = new DataGridViewCheckBoxCell();
+                bool total = false, parcial = false, anticipado = false;
+
+                foreach (DataRowView row in view)
+                {
+                    total = Convert.ToBoolean(row["CHECK"]);
+                    parcial = Convert.ToBoolean(row["PARCIAL"]);
+                    anticipado = Convert.ToBoolean(row["PAGO ANTICIPADO"]);
+
+                    if (total == true)
+                    {
+                        check.ThreeState = true;
+                    }
+
+                    if (parcial == true)
+                    {
+                        checkParcial.ThreeState = true;
+                    }
+
+                    if (anticipado == true)
+                    {
+                        checkAnticipado.ThreeState = true;
+                    }
+
+                    DG_tabla.Rows.Add(row["ID"], row["FECHA"], row["FECHA VENCIMIENTO"], row["SUCURSAL"], row["BANCO"], row["IMPORTE"], row["IVA"], row["CLIENTE BANCARIO"], row["CUENTA BANCARIA"], row["CONTRIBUYENTE"], row["PROVEEDOR"], row["RFC"], row["NO COMPRA"], row["CONCEPTO"], row["ENLACE"], row["FACTURA"], row["TIPO PAGO"], row["ANTICIPADO"], check.ThreeState, checkParcial.ThreeState, checkAnticipado.ThreeState);
+                    check.ThreeState = false; checkParcial.ThreeState = false; checkAnticipado.ThreeState = false;
+                }
+
+                PintarFila();
+            }
 
         }
     }

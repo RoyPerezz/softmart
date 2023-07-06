@@ -1797,7 +1797,7 @@ namespace appSugerencias
 
                 MySqlConnection con = BDConexicon.ColosoOpen();
                 MySqlCommand desglose = new MySqlCommand("INSERT INTO rd_desglose_abonos(importe,fecha_pago,fecha_efe,compra,tipo,idabono,banco,cuenta,clientebancario) VALUES(?importe,?fecha_pago,?fecha_efe,?compra,?tipo,?idabono,?banco,?cuenta,?clientebancario)", con);
-                decimal digito = decimal.Parse(TB_pagoRE.Text, NumberStyles.Currency, CultureInfo.GetCultureInfo("en-US"));
+                decimal digito = decimal.Parse(TB_pagoCO.Text, NumberStyles.Currency, CultureInfo.GetCultureInfo("en-US"));
                 string cantidad = digito.ToString("G0");
                 desglose.Parameters.AddWithValue("?importe", Convert.ToDouble(cantidad));
                 desglose.Parameters.AddWithValue("?fecha_pago", fechActual.ToString("yyyy-MM-dd"));

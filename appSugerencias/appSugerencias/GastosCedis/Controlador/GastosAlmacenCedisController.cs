@@ -60,6 +60,7 @@ namespace appSugerencias.Gastos.Controlador
                     ConceptoGral = dr["concepto_gral"].ToString(),
                     ConceptoDetalle = dr["concepto_detalle"].ToString(),
                     DescripcionDetallada = dr["descripcion_detallada"].ToString(),
+                   
                     Importe = Convert.ToDouble(dr["importe"].ToString()),
                     Fecha = Convert.ToDateTime(dr["fecha"].ToString()),
                     FolioAprobacion = dr["folio_aprobacion"].ToString(),

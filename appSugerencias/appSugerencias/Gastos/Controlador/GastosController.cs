@@ -102,7 +102,7 @@ namespace appSugerencias.Gastos.Controlador
             //string query = "select flujo.CONCEPTO,conegre.DESCRIP,flujo.IMPORTE from flujo INNER JOIN conegre on flujo.CONCEPTO = conegre.CONCEPTO where flujo.ING_EG ='E' and flujo.CONCEPTO<>'CAM' WHERE FECHA='2022-07-19'";
 
             string query = "SELECT flujo.flujo,flujo.concepto,conegre.CONCEPTOGRAL, conegre.DESCRIP,flujo.IMPORTE,flujo.usuario ,flujo.ESTACION,flujo.FECHA FROM flujo INNER JOIN conegre ON flujo.CONCEPTO = conegre.CONCEPTO WHERE flujo.FECHA ='" + fecha.ToString("yyyy-MM-dd") + "' " +
-           "AND (flujo.CONCEPTO<>'CAM' AND flujo.CONCEPTO<>'Retir' AND flujo.CONCEPTO<>'RBAN' AND flujo.CONCEPTO<>'RPPP' AND flujo.CONCEPTO<>'CORTZ' AND flujo.CONCEPTO<>'TARJ'  AND flujo.CONCEPTO<>'ALBR' AND flujo.CONCEPTO<>'CGRAL' AND flujo.CONCEPTO<>'CGRAL'  AND flujo.CONCEPTO<>'CINO' AND flujo.CONCEPTO<>'FNZAS'" +
+           "AND (flujo.CONCEPTO<>'CAM' AND flujo.CONCEPTO<>'Retir' AND flujo.CONCEPTO<>'RBAN' AND flujo.CONCEPTO<>'RPPP' AND flujo.CONCEPTO<>'CORTZ' AND flujo.CONCEPTO<>'TARJ'  AND flujo.CONCEPTO<>'ALBR' AND flujo.CONCEPTO<>'CGRAL' AND flujo.CONCEPTO<>'CCDMX'  AND flujo.CONCEPTO<>'CINO' AND flujo.CONCEPTO<>'FNZAS'" +
            "AND flujo.CONCEPTO<>'ACCR' AND flujo.CONCEPTO<>'ACR' AND flujo.CONCEPTO<>'CCDIS')";
            MySqlCommand cmd = new MySqlCommand(query,con);
             List<Gasto> listaGastos = new List<Gasto>();

@@ -66,6 +66,9 @@ namespace appSugerencias.Gastos
 
             if (sucursal.Equals("FINANZAS"))
             {
+                DG_tabla.Columns[3].Visible = false;// columna revision 
+
+
                 List<GastoExterno> lista = GastoFinanzasController.ListaGastos(inicio, fin);
                 double total = 0;
                 if (lista.Count == 0)
@@ -76,7 +79,7 @@ namespace appSugerencias.Gastos
                 {
                     foreach (var item in lista)
                     {
-                        DG_tabla.Rows.Add(item.EstadoAprobacion, item.Id, "", "", item.Fecha.ToString("yyyy-MM-dd"), item.Importe, item.PersonaGeneraGasto, item.Descripcion, item.Concepto_gral, item.ConceptoDetalle, item.Folio, item.Foto1, item.Foto2, item.ComentarioAprobacion, item.NumAutorizacion);
+                        DG_tabla.Rows.Add(item.EstadoAprobacion, item.Id, "","" ,"", item.Fecha.ToString("yyyy-MM-dd"), item.Importe, item.PersonaGeneraGasto, item.Descripcion, item.Concepto_gral, item.ConceptoDetalle, item.Folio, item.Foto1, item.Foto2, item.ComentarioAprobacion, item.NumAutorizacion);
                         total += item.Importe;
                     }
 
@@ -94,6 +97,8 @@ namespace appSugerencias.Gastos
             }
             else if (sucursal.Equals("CEDIS"))
             {
+                DG_tabla.Columns[3].Visible = true;// columna revision 
+
                 List<GastoAlmacenCedis> lista = GastosAlmacenCedisController.BuscarGastos(inicio, fin);
 
                 double total = 0;
@@ -105,7 +110,7 @@ namespace appSugerencias.Gastos
                 {
                     foreach (var item in lista)
                     {
-                        DG_tabla.Rows.Add(item.EstadoAprobacion, item.Id, "", "", item.Fecha.ToString("yyyy-MM-dd"), item.Importe, item.Usuario, item.DescripcionDetallada, item.ConceptoGral, item.ConceptoDetalle, item.FolioSalida, item.Imagen1, item.Imagen2, item.ComSra, item.FolioAprobacion);
+                        DG_tabla.Rows.Add(item.EstadoAprobacion, item.Id, "",item.EstadoRevision, "", item.Fecha.ToString("yyyy-MM-dd"), item.Importe, item.Usuario, item.DescripcionDetallada, item.ConceptoGral, item.ConceptoDetalle, item.FolioSalida, item.Imagen1, item.Imagen2, item.ComSra, item.FolioAprobacion);
                         total += item.Importe;
                     }
 
@@ -291,6 +296,11 @@ namespace appSugerencias.Gastos
                 GastosXAprobar aprobar = new GastosXAprobar(CB_sucursal.Text);
                 aprobar.Show();
             }
+        }
+
+        private void AprobacionGastosGeneral_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

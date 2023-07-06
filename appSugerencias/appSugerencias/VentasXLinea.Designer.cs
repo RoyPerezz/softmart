@@ -51,6 +51,10 @@
             this.RENA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.VELAZQUEZ = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.COLOSO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DT_inicio = new System.Windows.Forms.DateTimePicker();
+            this.DT_fin = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLineas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,27 +76,29 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(136, 9);
+            this.label7.Location = new System.Drawing.Point(337, 9);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(41, 20);
             this.label7.TabIndex = 52;
             this.label7.Text = "Año";
+            this.label7.Visible = false;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(9, 9);
+            this.label6.Location = new System.Drawing.Point(299, 9);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(42, 20);
             this.label6.TabIndex = 51;
             this.label6.Text = "Mes";
+            this.label6.Visible = false;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(325, 9);
+            this.label5.Location = new System.Drawing.Point(456, 9);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(63, 20);
             this.label5.TabIndex = 50;
@@ -108,19 +114,20 @@
             "VELAZQUEZ",
             "COLOSO",
             "PREGOT"});
-            this.cbTienda.Location = new System.Drawing.Point(394, 11);
+            this.cbTienda.Location = new System.Drawing.Point(535, 11);
             this.cbTienda.Name = "cbTienda";
-            this.cbTienda.Size = new System.Drawing.Size(121, 21);
+            this.cbTienda.Size = new System.Drawing.Size(12, 21);
             this.cbTienda.TabIndex = 49;
             this.cbTienda.Visible = false;
             // 
             // cbYear
             // 
             this.cbYear.FormattingEnabled = true;
-            this.cbYear.Location = new System.Drawing.Point(140, 32);
+            this.cbYear.Location = new System.Drawing.Point(372, 11);
             this.cbYear.Name = "cbYear";
             this.cbYear.Size = new System.Drawing.Size(74, 21);
             this.cbYear.TabIndex = 48;
+            this.cbYear.Visible = false;
             this.cbYear.SelectedIndexChanged += new System.EventHandler(this.cbYear_SelectedIndexChanged);
             // 
             // cbMeses
@@ -139,10 +146,11 @@
             "OCTUBRE",
             "NOVIEMBRE",
             "DICIEMBRE"});
-            this.cbMeses.Location = new System.Drawing.Point(13, 32);
+            this.cbMeses.Location = new System.Drawing.Point(303, 32);
             this.cbMeses.Name = "cbMeses";
             this.cbMeses.Size = new System.Drawing.Size(121, 21);
             this.cbMeses.TabIndex = 47;
+            this.cbMeses.Visible = false;
             this.cbMeses.SelectedIndexChanged += new System.EventHandler(this.cbMeses_SelectedIndexChanged);
             // 
             // BT_exportar
@@ -164,9 +172,9 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(335, 32);
+            this.progressBar1.Location = new System.Drawing.Point(466, 32);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(180, 23);
+            this.progressBar1.Size = new System.Drawing.Size(71, 23);
             this.progressBar1.TabIndex = 59;
             this.progressBar1.Visible = false;
             // 
@@ -239,12 +247,48 @@
             this.COLOSO.HeaderText = "COLOSO";
             this.COLOSO.Name = "COLOSO";
             // 
+            // DT_inicio
+            // 
+            this.DT_inicio.Location = new System.Drawing.Point(50, 8);
+            this.DT_inicio.Name = "DT_inicio";
+            this.DT_inicio.Size = new System.Drawing.Size(200, 20);
+            this.DT_inicio.TabIndex = 61;
+            // 
+            // DT_fin
+            // 
+            this.DT_fin.Location = new System.Drawing.Point(50, 35);
+            this.DT_fin.Name = "DT_fin";
+            this.DT_fin.Size = new System.Drawing.Size(200, 20);
+            this.DT_fin.TabIndex = 62;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(15, 11);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(32, 13);
+            this.label1.TabIndex = 63;
+            this.label1.Text = "Inicio";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(25, 39);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(21, 13);
+            this.label2.TabIndex = 64;
+            this.label2.Text = "Fin";
+            // 
             // VentasXLinea
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(807, 479);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.DT_fin);
+            this.Controls.Add(this.DT_inicio);
             this.Controls.Add(this.dgvLineas);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.BT_exportar);
@@ -282,5 +326,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn RENA;
         private System.Windows.Forms.DataGridViewTextBoxColumn VELAZQUEZ;
         private System.Windows.Forms.DataGridViewTextBoxColumn COLOSO;
+        private System.Windows.Forms.DateTimePicker DT_inicio;
+        private System.Windows.Forms.DateTimePicker DT_fin;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }

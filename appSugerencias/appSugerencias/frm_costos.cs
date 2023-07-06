@@ -171,8 +171,8 @@ namespace appSugerencias
                 {
                      con = conectar();
                     comando = "SELECT  conegre.DESCRIP as DESCRIPCION, SUM(flujo.IMPORTE * flujo.tipo_cam) AS TOTAL FROM flujo INNER JOIN conegre ON flujo.concepto2 = conegre.CONCEPTO" +
-                    " WHERE flujo.concepto <> 'CAM' AND flujo.concepto <> 'APERA' AND flujo.concepto <> 'CORTZ' AND flujo.ing_eg = 'E' AND " +
-                    "flujo.concepto <> 'Retir' AND flujo.concepto <> 'CHEQ' AND flujo.concepto <> 'TARJ'  AND flujo.concepto <> 'DEV' AND flujo.concepto <> 'RPPP' AND flujo.concepto <> 'RBAN' AND flujo.concepto <> 'CINO' AND flujo.concepto <> 'CCDMX' AND flujo.concepto <> 'ALBR'  AND flujo.concepto <> 'ACCR' AND flujo.concepto <> 'CGRAL' AND flujo.concepto <> 'FNZAS' AND flujo.concepto <> 'ACR' GROUP BY flujo.concepto2 ORDER BY TOTAL DESC ";
+                    " WHERE flujo.concepto <> 'CAM' AND flujo.concepto <> 'CORTZ' AND flujo.ing_eg = 'E' AND " +
+                    "flujo.concepto <> 'Retir' AND flujo.concepto <> 'CHEQ' AND flujo.concepto <> 'TARJ'  AND flujo.concepto <> 'DEV' AND flujo.concepto<>'DEVCL' and flujo.concepto <> 'RPPP' AND flujo.concepto <> 'RBAN' AND flujo.concepto <> 'CINO' AND flujo.concepto <> 'CCDMX' AND flujo.concepto <> 'ALBR'  AND flujo.concepto <> 'ACCR' AND flujo.concepto <> 'CGRAL' AND flujo.concepto <> 'FNZAS' AND flujo.concepto <> 'ACR' GROUP BY flujo.concepto2 ORDER BY TOTAL DESC ";
 
                 }
                 else if (flag == 2)
@@ -233,8 +233,8 @@ namespace appSugerencias
 
                 //test();
                 string comando = "SELECT SUM(flujo.IMPORTE * flujo.tipo_cam) AS Importe FROM flujo INNER JOIN conegre ON flujo.concepto2 = conegre.CONCEPTO " +
-                    "WHERE flujo.concepto <> 'CAM' AND flujo.concepto <> 'APERA' AND flujo.concepto <> 'CORTZ' AND flujo.ing_eg = 'E' AND flujo.concepto <> 'Retir' AND " +
-                    "flujo.concepto <> 'CHEQ' AND flujo.concepto <> 'TARJ' AND flujo.concepto <> 'DEV' AND flujo.concepto <> 'RPPP' AND flujo.concepto <> 'RBAN' AND flujo.concepto <> 'CINO'" +
+                    "WHERE flujo.concepto <> 'CAM' AND flujo.concepto <> 'CORTZ' AND flujo.ing_eg = 'E' AND flujo.concepto <> 'Retir' AND " +
+                    "flujo.concepto <> 'CHEQ' AND flujo.concepto <> 'TARJ' AND flujo.concepto <> 'DEV' AND flujo.concepto <> 'DEVCL' AND flujo.concepto <> 'RPPP' AND flujo.concepto <> 'RBAN' AND flujo.concepto <> 'CINO'" +
                     " AND flujo.concepto <> 'CCDMX' AND flujo.concepto <> 'ALBR'  AND flujo.concepto <> 'ACCR' AND flujo.concepto <> 'CGRAL' AND flujo.concepto <> 'FNZAS' AND flujo.concepto <> 'ACR'";
 
                 MySqlCommand cmdr = new MySqlCommand(comando, con);

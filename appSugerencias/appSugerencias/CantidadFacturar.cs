@@ -871,9 +871,9 @@ namespace appSugerencias
               
                 int mes = fecha.Month;
                 int año = fecha.Year;
-#pragma warning disable CS0219 // La variable 'sucursal' está asignada pero su valor nunca se usa
+
                 string sucursal = "";
-#pragma warning restore CS0219 // La variable 'sucursal' está asignada pero su valor nunca se usa
+
                 
 
                 string m = Mes(mes);
@@ -1648,7 +1648,7 @@ namespace appSugerencias
                 ventaTotal = Convert.ToDouble(VentaTotal(Convert.ToDateTime(fechas.Rows[i]["FECHAS"].ToString())));
                 tarj = Convert.ToDouble(IngresoTarjetas(Convert.ToDateTime(fechas.Rows[i]["FECHAS"].ToString())));
                 facturacion = TotalFacturacion(Convert.ToDateTime(fechas.Rows[i]["FECHAS"].ToString()));
-                totalEfectivo = VentasEfectivo(Convert.ToDateTime(fechas.Rows[i]["FECHAS"].ToString()));
+                //totalEfectivo = VentasEfectivo(Convert.ToDateTime(fechas.Rows[i]["FECHAS"].ToString()));
                
                 facEfe = TotalFacEfe(facturasEfe);
                 if (fechaTabla == Convert.ToDateTime("2023-03-05"))

@@ -78,8 +78,8 @@ namespace appSugerencias
             DG_tabla.Columns["F_ENTRADA_CO"].Width = 50;
             //DG_tabla.Columns["PORCENTAJECO"].Width = 60;
 
-            DG_tabla.Columns["EXPRE"].Width = 60;
-            DG_tabla.Columns["F_ENTRADA_PRE"].Width = 50;
+            //DG_tabla.Columns["EXPRE"].Width = 60;
+            //DG_tabla.Columns["F_ENTRADA_PRE"].Width = 50;
             //DG_tabla.Columns["PORCENTAJEPRE"].Width = 60;
             //################################################################################################################################
 

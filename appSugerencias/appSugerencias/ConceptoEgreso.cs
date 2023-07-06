@@ -375,7 +375,7 @@ namespace appSugerencias
         //BOTON PARA ACTUALIZAR EL CONCEPTO DEL EGRESO/GASTO
         private void button1_Click(object sender, EventArgs e)
         {
-            if (TB_flujo.Text.Equals(""))
+            if (TB_flujo.Text.Equals("") || TB_concepto_gral.Text.Equals("")|| TB_concepto_detalle.Text.Equals(""))
             {
                 MessageBox.Show("Selecciona un egreso");
             }

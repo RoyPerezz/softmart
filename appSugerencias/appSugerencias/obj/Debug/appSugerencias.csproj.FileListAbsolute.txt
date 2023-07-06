@@ -2388,3 +2388,12 @@ C:\Users\Desarrollo\source\repos\softmart\appSugerencias\appSugerencias\obj\Debu
 C:\Users\Desarrollo\source\repos\softmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.Comisiones.Vista.VRol.resources
 C:\Users\Desarrollo\source\repos\softmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.Comisiones.Vista.VTareas.resources
 C:\Users\Desarrollo\source\repos\softmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.Comisiones.Vista.VCalificar.resources
+C:\Users\Roy Pérez\Documents\GitHub\softmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.Comisiones.Vista.PrincipalComisiones.resources
+C:\Users\Roy Pérez\Documents\GitHub\softmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.Comisiones.Vista.VCalificar.resources
+C:\Users\Roy Pérez\Documents\GitHub\softmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.Comisiones.Vista.VEmpleados.resources
+C:\Users\Roy Pérez\Documents\GitHub\softmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.Comisiones.Vista.VRol.resources
+C:\Users\Roy Pérez\Documents\GitHub\softmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.Comisiones.Vista.VTareas.resources
+C:\Users\Roy Pérez\Documents\GitHub\softmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.Stock_Compras.Vista.FormatoPedido.resources
+C:\Users\Roy Pérez\Documents\GitHub\softmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.Nombre_proveedor_pagos_programados.resources
+C:\Users\Roy Pérez\Documents\GitHub\softmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.Stock_Compras.Vista.ReporteGralAclaraciones.resources
+C:\Users\Roy Pérez\Documents\GitHub\softmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.CantFacturar.resources

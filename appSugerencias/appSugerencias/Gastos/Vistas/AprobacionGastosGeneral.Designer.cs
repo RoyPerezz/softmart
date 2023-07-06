@@ -39,6 +39,8 @@ namespace appSugerencias.Gastos
             this.BT_aprobar = new System.Windows.Forms.Button();
             this.BT_guardar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.CB_sucursal = new System.Windows.Forms.ComboBox();
             this.DT_inicio = new System.Windows.Forms.DateTimePicker();
             this.DT_fin = new System.Windows.Forms.DateTimePicker();
             this.BT_buscar = new System.Windows.Forms.Button();
@@ -48,9 +50,12 @@ namespace appSugerencias.Gastos
             this.LB_total = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.DG_tabla = new System.Windows.Forms.DataGridView();
+            this.BT_gastosXAprobar = new System.Windows.Forms.Button();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.ESTADO = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ENCCAJAS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.REVISION = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.USUARIO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FECHA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IMPORTE = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,10 +68,6 @@ namespace appSugerencias.Gastos
             this.FOTO2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.COMENTARIO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NUMAUTORIZACION = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BT_gastosXAprobar = new System.Windows.Forms.Button();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.CB_sucursal = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -125,6 +126,28 @@ namespace appSugerencias.Gastos
             this.groupBox1.TabIndex = 20;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Busqueda gastos";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(6, 23);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(163, 31);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "SUCURSAL";
+            // 
+            // CB_sucursal
+            // 
+            this.CB_sucursal.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CB_sucursal.FormattingEnabled = true;
+            this.CB_sucursal.Items.AddRange(new object[] {
+            "CEDIS",
+            "FINANZAS"});
+            this.CB_sucursal.Location = new System.Drawing.Point(175, 20);
+            this.CB_sucursal.Name = "CB_sucursal";
+            this.CB_sucursal.Size = new System.Drawing.Size(466, 39);
+            this.CB_sucursal.TabIndex = 3;
             // 
             // DT_inicio
             // 
@@ -232,6 +255,7 @@ namespace appSugerencias.Gastos
             this.ESTADO,
             this.ID,
             this.ENCCAJAS,
+            this.REVISION,
             this.USUARIO,
             this.FECHA,
             this.IMPORTE,
@@ -258,6 +282,31 @@ namespace appSugerencias.Gastos
             this.DG_tabla.TabIndex = 18;
             this.DG_tabla.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DG_tabla_CellContentDoubleClick);
             // 
+            // BT_gastosXAprobar
+            // 
+            this.BT_gastosXAprobar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BT_gastosXAprobar.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.BT_gastosXAprobar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_gastosXAprobar.ForeColor = System.Drawing.Color.White;
+            this.BT_gastosXAprobar.Location = new System.Drawing.Point(76, 50);
+            this.BT_gastosXAprobar.Name = "BT_gastosXAprobar";
+            this.BT_gastosXAprobar.Size = new System.Drawing.Size(129, 55);
+            this.BT_gastosXAprobar.TabIndex = 5;
+            this.BT_gastosXAprobar.Text = "Gastos por Aprobar";
+            this.BT_gastosXAprobar.UseVisualStyleBackColor = false;
+            this.BT_gastosXAprobar.Click += new System.EventHandler(this.BT_gastosXAprobar_Click);
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox4.Controls.Add(this.BT_gastosXAprobar);
+            this.groupBox4.Location = new System.Drawing.Point(969, 2);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(270, 148);
+            this.groupBox4.TabIndex = 22;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Revisar gastos pendientes";
+            // 
             // ESTADO
             // 
             this.ESTADO.HeaderText = "ESTADO";
@@ -281,6 +330,11 @@ namespace appSugerencias.Gastos
             this.ENCCAJAS.HeaderText = "ENC CAJAS";
             this.ENCCAJAS.Name = "ENCCAJAS";
             this.ENCCAJAS.Visible = false;
+            // 
+            // REVISION
+            // 
+            this.REVISION.HeaderText = "REVISION";
+            this.REVISION.Name = "REVISION";
             // 
             // USUARIO
             // 
@@ -353,53 +407,6 @@ namespace appSugerencias.Gastos
             this.NUMAUTORIZACION.HeaderText = "NUM AUTORIZACION";
             this.NUMAUTORIZACION.Name = "NUMAUTORIZACION";
             // 
-            // BT_gastosXAprobar
-            // 
-            this.BT_gastosXAprobar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BT_gastosXAprobar.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.BT_gastosXAprobar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BT_gastosXAprobar.ForeColor = System.Drawing.Color.White;
-            this.BT_gastosXAprobar.Location = new System.Drawing.Point(76, 50);
-            this.BT_gastosXAprobar.Name = "BT_gastosXAprobar";
-            this.BT_gastosXAprobar.Size = new System.Drawing.Size(129, 55);
-            this.BT_gastosXAprobar.TabIndex = 5;
-            this.BT_gastosXAprobar.Text = "Gastos por Aprobar";
-            this.BT_gastosXAprobar.UseVisualStyleBackColor = false;
-            this.BT_gastosXAprobar.Click += new System.EventHandler(this.BT_gastosXAprobar_Click);
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox4.Controls.Add(this.BT_gastosXAprobar);
-            this.groupBox4.Location = new System.Drawing.Point(969, 2);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(270, 148);
-            this.groupBox4.TabIndex = 22;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Revisar gastos pendientes";
-            // 
-            // CB_sucursal
-            // 
-            this.CB_sucursal.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CB_sucursal.FormattingEnabled = true;
-            this.CB_sucursal.Items.AddRange(new object[] {
-            "CEDIS",
-            "FINANZAS"});
-            this.CB_sucursal.Location = new System.Drawing.Point(175, 20);
-            this.CB_sucursal.Name = "CB_sucursal";
-            this.CB_sucursal.Size = new System.Drawing.Size(466, 39);
-            this.CB_sucursal.TabIndex = 3;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(6, 23);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(163, 31);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "SUCURSAL";
-            // 
             // AprobacionGastosGeneral
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -413,6 +420,7 @@ namespace appSugerencias.Gastos
             this.Controls.Add(this.DG_tabla);
             this.Name = "AprobacionGastosGeneral";
             this.Text = "AprobaciónGastosGeneral";
+            this.Load += new System.EventHandler(this.AprobacionGastosGeneral_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -441,9 +449,13 @@ namespace appSugerencias.Gastos
         private System.Windows.Forms.DataGridView DG_tabla;
         private System.Windows.Forms.Button BT_aprobar;
         private System.Windows.Forms.Button BT_gastosXAprobar;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox CB_sucursal;
         private System.Windows.Forms.DataGridViewComboBoxColumn ESTADO;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ENCCAJAS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn REVISION;
         private System.Windows.Forms.DataGridViewTextBoxColumn USUARIO;
         private System.Windows.Forms.DataGridViewTextBoxColumn FECHA;
         private System.Windows.Forms.DataGridViewTextBoxColumn IMPORTE;
@@ -456,8 +468,5 @@ namespace appSugerencias.Gastos
         private System.Windows.Forms.DataGridViewTextBoxColumn FOTO2;
         private System.Windows.Forms.DataGridViewTextBoxColumn COMENTARIO;
         private System.Windows.Forms.DataGridViewTextBoxColumn NUMAUTORIZACION;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox CB_sucursal;
     }
 }

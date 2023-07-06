@@ -3566,6 +3566,9 @@ namespace appSugerencias
 
         }
 
-        
+        private void micelaniaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

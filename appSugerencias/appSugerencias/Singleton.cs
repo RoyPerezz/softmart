@@ -9,7 +9,7 @@ namespace appSugerencias
     {
         private static Singleton instancia;
         private string sucursal;
-
+        private string  NomReporte;
         public static Singleton obtenerInstancia()
         {
             if (instancia == null )
@@ -35,6 +35,17 @@ namespace appSugerencias
             return sucursal;
         }
 
+
+        
+        public void NombreReporte(string reporte)
+        {
+             NomReporte = reporte;
+        }
+
+        public string GetNombreReporte()
+        {
+            return NomReporte;
+        }
       
     }
 }
