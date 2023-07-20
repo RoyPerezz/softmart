@@ -784,26 +784,26 @@ namespace appSugerencias
 
             }
 
-            else if (tienda == "PREGOT")
-            {
+//            else if (tienda == "PREGOT")
+//            {
 
-                try
-                {
-                    conex_traspasos = BDConexicon.Papeleria1Open();
-                    selectDatos();
-                    lblConexion.Text = "Conectado PA";
-                    lblConexion.ForeColor = Color.DarkGreen;
-                }
-#pragma warning disable CS0168 // La variable 'e' se ha declarado pero nunca se usa
-                catch (Exception e)
-#pragma warning restore CS0168 // La variable 'e' se ha declarado pero nunca se usa
-                {
-                    lblConexion.Text = "Sin Conexion PA";
-                    lblConexion.ForeColor = Color.Red;
-                    limpiarTraspaso();
-                }
+//                try
+//                {
+//                    conex_traspasos = BDConexicon.Papeleria1Open();
+//                    selectDatos();
+//                    lblConexion.Text = "Conectado PA";
+//                    lblConexion.ForeColor = Color.DarkGreen;
+//                }
+//#pragma warning disable CS0168 // La variable 'e' se ha declarado pero nunca se usa
+//                catch (Exception e)
+//#pragma warning restore CS0168 // La variable 'e' se ha declarado pero nunca se usa
+//                {
+//                    lblConexion.Text = "Sin Conexion PA";
+//                    lblConexion.ForeColor = Color.Red;
+//                    limpiarTraspaso();
+//                }
 
-            }
+//            }
 
         }
         //########## CIERRE ############

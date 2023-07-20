@@ -465,18 +465,18 @@ namespace appSugerencias
                         }
                     }
 
-                if (CBTienda.SelectedItem.Equals("PREGOT"))
-                {
+                //if (CBTienda.SelectedItem.Equals("PREGOT"))
+                //{
 
-                    if (string.IsNullOrEmpty(DGCompra[14, i].Value.ToString()))
-                    {
-                        existenciaCompra = 0;
-                    }
-                    else
-                    {
-                        existenciaCompra = Convert.ToInt32(DGCompra[14, i].Value);
-                    }
-                }
+                //    if (string.IsNullOrEmpty(DGCompra[14, i].Value.ToString()))
+                //    {
+                //        existenciaCompra = 0;
+                //    }
+                //    else
+                //    {
+                //        existenciaCompra = Convert.ToInt32(DGCompra[14, i].Value);
+                //    }
+                //}
 
                 if (string.IsNullOrEmpty(DGCompra[6, i].Value.ToString()))
                     {
@@ -681,16 +681,16 @@ namespace appSugerencias
 
                 }
 
-                if (CBTienda.SelectedItem.Equals("PREGOT"))
-                {
-                    lblPaId.Text = "-----";
-                    lblPaImpor.Text = "-----";
-                    lblPaPro.Text = "-----";
-                    lblPaId.Text = idCompra.ToString();
-                    lblPaImpor.Text = TotalCompra.ToString();
-                    lblPaPro.Text = CBFabricante.Text;
+                //if (CBTienda.SelectedItem.Equals("PREGOT"))
+                //{
+                //    lblPaId.Text = "-----";
+                //    lblPaImpor.Text = "-----";
+                //    lblPaPro.Text = "-----";
+                //    lblPaId.Text = idCompra.ToString();
+                //    lblPaImpor.Text = TotalCompra.ToString();
+                //    lblPaPro.Text = CBFabricante.Text;
 
-                }
+                //}
 
             MessageBox.Show("Compra Registrada" + Environment.NewLine + "No. Compra: " + idCompra + Environment.NewLine + "Importe: " + TotalCompra);
 

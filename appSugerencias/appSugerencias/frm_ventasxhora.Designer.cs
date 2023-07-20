@@ -52,6 +52,36 @@
             this.cbTienda = new System.Windows.Forms.ComboBox();
             this.button2 = new System.Windows.Forms.Button();
             this.dgvHoras = new System.Windows.Forms.DataGridView();
+            this.TIENDA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.F_Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Hora_70_73 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Hora_73_80 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Hora_8_830 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Hora_83_90 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Hora_90_93 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Hora_93_10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Hora_10_1030 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Hora_1030_11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Hora_11_1130 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Hora_1130_12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Hora_12_1230 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Hora_1230_13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Hora_13_1330 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Hora_1330_14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Hora_14_1430 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Hora_1430_15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Hora_15_1530 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Hora_1530_16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Hora_16_1630 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Hora_1630_17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Hora_17_1730 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Hora_1730_18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Hora_18_1830 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Hora_1830_19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Hora_19_1930 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Hora_1930_20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Hora_20_2030 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Hora_2030_2100 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BT_exportar = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -113,36 +143,6 @@
             this.lbl1530_16 = new System.Windows.Forms.Label();
             this.lbl20_2030 = new System.Windows.Forms.Label();
             this.lbl2030_21 = new System.Windows.Forms.Label();
-            this.TIENDA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.F_Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Hora_70_73 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Hora_73_80 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Hora_8_830 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Hora_83_90 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Hora_90_93 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Hora_93_10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Hora_10_1030 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Hora_1030_11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Hora_11_1130 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Hora_1130_12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Hora_12_1230 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Hora_1230_13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Hora_13_1330 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Hora_1330_14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Hora_14_1430 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Hora_1430_15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Hora_15_1530 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Hora_1530_16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Hora_16_1630 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Hora_1630_17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Hora_17_1730 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Hora_1730_18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Hora_18_1830 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Hora_1830_19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Hora_19_1930 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Hora_1930_20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Hora_20_2030 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Hora_2030_2100 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHoras)).BeginInit();
             this.SuspendLayout();
             // 
@@ -195,8 +195,7 @@
             "VALLARTA",
             "RENA",
             "VELAZQUEZ",
-            "COLOSO",
-            "PREGOT"});
+            "COLOSO"});
             this.cbTienda.Location = new System.Drawing.Point(12, 47);
             this.cbTienda.Name = "cbTienda";
             this.cbTienda.Size = new System.Drawing.Size(121, 21);
@@ -254,6 +253,186 @@
             this.dgvHoras.Name = "dgvHoras";
             this.dgvHoras.Size = new System.Drawing.Size(1265, 368);
             this.dgvHoras.TabIndex = 13;
+            // 
+            // TIENDA
+            // 
+            this.TIENDA.HeaderText = "TIENDA";
+            this.TIENDA.Name = "TIENDA";
+            this.TIENDA.ReadOnly = true;
+            // 
+            // F_Fecha
+            // 
+            this.F_Fecha.HeaderText = "FECHA";
+            this.F_Fecha.Name = "F_Fecha";
+            this.F_Fecha.Width = 70;
+            // 
+            // Hora_70_73
+            // 
+            this.Hora_70_73.HeaderText = "07:00-07:30";
+            this.Hora_70_73.Name = "Hora_70_73";
+            this.Hora_70_73.Width = 70;
+            // 
+            // Hora_73_80
+            // 
+            this.Hora_73_80.HeaderText = "07:30-08:00";
+            this.Hora_73_80.Name = "Hora_73_80";
+            this.Hora_73_80.Width = 70;
+            // 
+            // Hora_8_830
+            // 
+            this.Hora_8_830.HeaderText = "08:00-08:30";
+            this.Hora_8_830.Name = "Hora_8_830";
+            this.Hora_8_830.Width = 70;
+            // 
+            // Hora_83_90
+            // 
+            this.Hora_83_90.HeaderText = "08:30-09:00";
+            this.Hora_83_90.Name = "Hora_83_90";
+            this.Hora_83_90.Width = 70;
+            // 
+            // Hora_90_93
+            // 
+            this.Hora_90_93.HeaderText = "09:00-09:30";
+            this.Hora_90_93.Name = "Hora_90_93";
+            this.Hora_90_93.Width = 70;
+            // 
+            // Hora_93_10
+            // 
+            this.Hora_93_10.HeaderText = "09:30-10:00";
+            this.Hora_93_10.Name = "Hora_93_10";
+            this.Hora_93_10.Width = 70;
+            // 
+            // Hora_10_1030
+            // 
+            this.Hora_10_1030.HeaderText = "10:00-10:30";
+            this.Hora_10_1030.Name = "Hora_10_1030";
+            this.Hora_10_1030.Width = 70;
+            // 
+            // Hora_1030_11
+            // 
+            this.Hora_1030_11.HeaderText = "10:30-11:00";
+            this.Hora_1030_11.Name = "Hora_1030_11";
+            this.Hora_1030_11.Width = 70;
+            // 
+            // Hora_11_1130
+            // 
+            this.Hora_11_1130.HeaderText = "11:00-11:30";
+            this.Hora_11_1130.Name = "Hora_11_1130";
+            this.Hora_11_1130.Width = 70;
+            // 
+            // Hora_1130_12
+            // 
+            this.Hora_1130_12.HeaderText = "11:30-12:00";
+            this.Hora_1130_12.Name = "Hora_1130_12";
+            this.Hora_1130_12.Width = 70;
+            // 
+            // Hora_12_1230
+            // 
+            this.Hora_12_1230.HeaderText = "12:00-12:30";
+            this.Hora_12_1230.Name = "Hora_12_1230";
+            this.Hora_12_1230.Width = 70;
+            // 
+            // Hora_1230_13
+            // 
+            this.Hora_1230_13.HeaderText = "12:30-13:00";
+            this.Hora_1230_13.Name = "Hora_1230_13";
+            this.Hora_1230_13.Width = 70;
+            // 
+            // Hora_13_1330
+            // 
+            this.Hora_13_1330.HeaderText = "13:00-13:30";
+            this.Hora_13_1330.Name = "Hora_13_1330";
+            this.Hora_13_1330.Width = 70;
+            // 
+            // Hora_1330_14
+            // 
+            this.Hora_1330_14.HeaderText = "13:30-14:00";
+            this.Hora_1330_14.Name = "Hora_1330_14";
+            this.Hora_1330_14.Width = 70;
+            // 
+            // Hora_14_1430
+            // 
+            this.Hora_14_1430.HeaderText = "14:00-14:30";
+            this.Hora_14_1430.Name = "Hora_14_1430";
+            this.Hora_14_1430.Width = 70;
+            // 
+            // Hora_1430_15
+            // 
+            this.Hora_1430_15.HeaderText = "14:30-15:00";
+            this.Hora_1430_15.Name = "Hora_1430_15";
+            this.Hora_1430_15.Width = 70;
+            // 
+            // Hora_15_1530
+            // 
+            this.Hora_15_1530.HeaderText = "15:00-15:30";
+            this.Hora_15_1530.Name = "Hora_15_1530";
+            this.Hora_15_1530.Width = 70;
+            // 
+            // Hora_1530_16
+            // 
+            this.Hora_1530_16.HeaderText = "15:30-16:00";
+            this.Hora_1530_16.Name = "Hora_1530_16";
+            this.Hora_1530_16.Width = 70;
+            // 
+            // Hora_16_1630
+            // 
+            this.Hora_16_1630.HeaderText = "16:00-16:30";
+            this.Hora_16_1630.Name = "Hora_16_1630";
+            this.Hora_16_1630.Width = 70;
+            // 
+            // Hora_1630_17
+            // 
+            this.Hora_1630_17.HeaderText = "16:30-17:00";
+            this.Hora_1630_17.Name = "Hora_1630_17";
+            this.Hora_1630_17.Width = 70;
+            // 
+            // Hora_17_1730
+            // 
+            this.Hora_17_1730.HeaderText = "17:00-17:30";
+            this.Hora_17_1730.Name = "Hora_17_1730";
+            this.Hora_17_1730.Width = 70;
+            // 
+            // Hora_1730_18
+            // 
+            this.Hora_1730_18.HeaderText = "17:30-18:00";
+            this.Hora_1730_18.Name = "Hora_1730_18";
+            this.Hora_1730_18.Width = 70;
+            // 
+            // Hora_18_1830
+            // 
+            this.Hora_18_1830.HeaderText = "18:00-18:30";
+            this.Hora_18_1830.Name = "Hora_18_1830";
+            this.Hora_18_1830.Width = 70;
+            // 
+            // Hora_1830_19
+            // 
+            this.Hora_1830_19.HeaderText = "18:30-19:00";
+            this.Hora_1830_19.Name = "Hora_1830_19";
+            this.Hora_1830_19.Width = 70;
+            // 
+            // Hora_19_1930
+            // 
+            this.Hora_19_1930.HeaderText = "19:00-19:30";
+            this.Hora_19_1930.Name = "Hora_19_1930";
+            this.Hora_19_1930.Width = 70;
+            // 
+            // Hora_1930_20
+            // 
+            this.Hora_1930_20.HeaderText = "19:30-20:00";
+            this.Hora_1930_20.Name = "Hora_1930_20";
+            this.Hora_1930_20.Width = 70;
+            // 
+            // Hora_20_2030
+            // 
+            this.Hora_20_2030.HeaderText = "20:00-20:30";
+            this.Hora_20_2030.Name = "Hora_20_2030";
+            this.Hora_20_2030.Width = 70;
+            // 
+            // Hora_2030_2100
+            // 
+            this.Hora_2030_2100.HeaderText = "20:30-21:00";
+            this.Hora_2030_2100.Name = "Hora_2030_2100";
+            this.Hora_2030_2100.Width = 70;
             // 
             // BT_exportar
             // 
@@ -866,186 +1045,6 @@
             this.lbl2030_21.Size = new System.Drawing.Size(19, 13);
             this.lbl2030_21.TabIndex = 75;
             this.lbl2030_21.Text = "---";
-            // 
-            // TIENDA
-            // 
-            this.TIENDA.HeaderText = "TIENDA";
-            this.TIENDA.Name = "TIENDA";
-            this.TIENDA.ReadOnly = true;
-            // 
-            // F_Fecha
-            // 
-            this.F_Fecha.HeaderText = "FECHA";
-            this.F_Fecha.Name = "F_Fecha";
-            this.F_Fecha.Width = 70;
-            // 
-            // Hora_70_73
-            // 
-            this.Hora_70_73.HeaderText = "07:00-07:30";
-            this.Hora_70_73.Name = "Hora_70_73";
-            this.Hora_70_73.Width = 70;
-            // 
-            // Hora_73_80
-            // 
-            this.Hora_73_80.HeaderText = "07:30-08:00";
-            this.Hora_73_80.Name = "Hora_73_80";
-            this.Hora_73_80.Width = 70;
-            // 
-            // Hora_8_830
-            // 
-            this.Hora_8_830.HeaderText = "08:00-08:30";
-            this.Hora_8_830.Name = "Hora_8_830";
-            this.Hora_8_830.Width = 70;
-            // 
-            // Hora_83_90
-            // 
-            this.Hora_83_90.HeaderText = "08:30-09:00";
-            this.Hora_83_90.Name = "Hora_83_90";
-            this.Hora_83_90.Width = 70;
-            // 
-            // Hora_90_93
-            // 
-            this.Hora_90_93.HeaderText = "09:00-09:30";
-            this.Hora_90_93.Name = "Hora_90_93";
-            this.Hora_90_93.Width = 70;
-            // 
-            // Hora_93_10
-            // 
-            this.Hora_93_10.HeaderText = "09:30-10:00";
-            this.Hora_93_10.Name = "Hora_93_10";
-            this.Hora_93_10.Width = 70;
-            // 
-            // Hora_10_1030
-            // 
-            this.Hora_10_1030.HeaderText = "10:00-10:30";
-            this.Hora_10_1030.Name = "Hora_10_1030";
-            this.Hora_10_1030.Width = 70;
-            // 
-            // Hora_1030_11
-            // 
-            this.Hora_1030_11.HeaderText = "10:30-11:00";
-            this.Hora_1030_11.Name = "Hora_1030_11";
-            this.Hora_1030_11.Width = 70;
-            // 
-            // Hora_11_1130
-            // 
-            this.Hora_11_1130.HeaderText = "11:00-11:30";
-            this.Hora_11_1130.Name = "Hora_11_1130";
-            this.Hora_11_1130.Width = 70;
-            // 
-            // Hora_1130_12
-            // 
-            this.Hora_1130_12.HeaderText = "11:30-12:00";
-            this.Hora_1130_12.Name = "Hora_1130_12";
-            this.Hora_1130_12.Width = 70;
-            // 
-            // Hora_12_1230
-            // 
-            this.Hora_12_1230.HeaderText = "12:00-12:30";
-            this.Hora_12_1230.Name = "Hora_12_1230";
-            this.Hora_12_1230.Width = 70;
-            // 
-            // Hora_1230_13
-            // 
-            this.Hora_1230_13.HeaderText = "12:30-13:00";
-            this.Hora_1230_13.Name = "Hora_1230_13";
-            this.Hora_1230_13.Width = 70;
-            // 
-            // Hora_13_1330
-            // 
-            this.Hora_13_1330.HeaderText = "13:00-13:30";
-            this.Hora_13_1330.Name = "Hora_13_1330";
-            this.Hora_13_1330.Width = 70;
-            // 
-            // Hora_1330_14
-            // 
-            this.Hora_1330_14.HeaderText = "13:30-14:00";
-            this.Hora_1330_14.Name = "Hora_1330_14";
-            this.Hora_1330_14.Width = 70;
-            // 
-            // Hora_14_1430
-            // 
-            this.Hora_14_1430.HeaderText = "14:00-14:30";
-            this.Hora_14_1430.Name = "Hora_14_1430";
-            this.Hora_14_1430.Width = 70;
-            // 
-            // Hora_1430_15
-            // 
-            this.Hora_1430_15.HeaderText = "14:30-15:00";
-            this.Hora_1430_15.Name = "Hora_1430_15";
-            this.Hora_1430_15.Width = 70;
-            // 
-            // Hora_15_1530
-            // 
-            this.Hora_15_1530.HeaderText = "15:00-15:30";
-            this.Hora_15_1530.Name = "Hora_15_1530";
-            this.Hora_15_1530.Width = 70;
-            // 
-            // Hora_1530_16
-            // 
-            this.Hora_1530_16.HeaderText = "15:30-16:00";
-            this.Hora_1530_16.Name = "Hora_1530_16";
-            this.Hora_1530_16.Width = 70;
-            // 
-            // Hora_16_1630
-            // 
-            this.Hora_16_1630.HeaderText = "16:00-16:30";
-            this.Hora_16_1630.Name = "Hora_16_1630";
-            this.Hora_16_1630.Width = 70;
-            // 
-            // Hora_1630_17
-            // 
-            this.Hora_1630_17.HeaderText = "16:30-17:00";
-            this.Hora_1630_17.Name = "Hora_1630_17";
-            this.Hora_1630_17.Width = 70;
-            // 
-            // Hora_17_1730
-            // 
-            this.Hora_17_1730.HeaderText = "17:00-17:30";
-            this.Hora_17_1730.Name = "Hora_17_1730";
-            this.Hora_17_1730.Width = 70;
-            // 
-            // Hora_1730_18
-            // 
-            this.Hora_1730_18.HeaderText = "17:30-18:00";
-            this.Hora_1730_18.Name = "Hora_1730_18";
-            this.Hora_1730_18.Width = 70;
-            // 
-            // Hora_18_1830
-            // 
-            this.Hora_18_1830.HeaderText = "18:00-18:30";
-            this.Hora_18_1830.Name = "Hora_18_1830";
-            this.Hora_18_1830.Width = 70;
-            // 
-            // Hora_1830_19
-            // 
-            this.Hora_1830_19.HeaderText = "18:30-19:00";
-            this.Hora_1830_19.Name = "Hora_1830_19";
-            this.Hora_1830_19.Width = 70;
-            // 
-            // Hora_19_1930
-            // 
-            this.Hora_19_1930.HeaderText = "19:00-19:30";
-            this.Hora_19_1930.Name = "Hora_19_1930";
-            this.Hora_19_1930.Width = 70;
-            // 
-            // Hora_1930_20
-            // 
-            this.Hora_1930_20.HeaderText = "19:30-20:00";
-            this.Hora_1930_20.Name = "Hora_1930_20";
-            this.Hora_1930_20.Width = 70;
-            // 
-            // Hora_20_2030
-            // 
-            this.Hora_20_2030.HeaderText = "20:00-20:30";
-            this.Hora_20_2030.Name = "Hora_20_2030";
-            this.Hora_20_2030.Width = 70;
-            // 
-            // Hora_2030_2100
-            // 
-            this.Hora_2030_2100.HeaderText = "20:30-21:00";
-            this.Hora_2030_2100.Name = "Hora_2030_2100";
-            this.Hora_2030_2100.Width = 70;
             // 
             // frm_ventasxhora
             // 

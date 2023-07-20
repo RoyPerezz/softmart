@@ -40,12 +40,12 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.chkBCalificaxSemana = new System.Windows.Forms.CheckBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btCancelar = new System.Windows.Forms.Button();
             this.btGuardar = new System.Windows.Forms.Button();
             this.tbRol = new System.Windows.Forms.TextBox();
-            this.btCancelar = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.chkBCalificaxSemana = new System.Windows.Forms.CheckBox();
             this.eprError = new System.Windows.Forms.ErrorProvider(this.components);
             this.Buscar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRoles)).BeginInit();
@@ -56,6 +56,7 @@
             // 
             // Buscar
             // 
+            this.Buscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Buscar.Controls.Add(this.btBuscar);
             this.Buscar.Controls.Add(this.tbBuscar);
             this.Buscar.Location = new System.Drawing.Point(686, 99);
@@ -89,6 +90,9 @@
             // 
             // dgvRoles
             // 
+            this.dgvRoles.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvRoles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRoles.Location = new System.Drawing.Point(12, 98);
             this.dgvRoles.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -99,6 +103,7 @@
             // 
             // Acciones
             // 
+            this.Acciones.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Acciones.Controls.Add(this.btEliminar);
             this.Acciones.Controls.Add(this.btModificar);
             this.Acciones.Controls.Add(this.btNuevo);
@@ -110,6 +115,7 @@
             this.Acciones.TabIndex = 3;
             this.Acciones.TabStop = false;
             this.Acciones.Text = "Acciones";
+            this.Acciones.Enter += new System.EventHandler(this.Acciones_Enter);
             // 
             // btEliminar
             // 
@@ -165,6 +171,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.chkBCalificaxSemana);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
@@ -179,6 +186,45 @@
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Agregar/Editar";
+            // 
+            // chkBCalificaxSemana
+            // 
+            this.chkBCalificaxSemana.AutoSize = true;
+            this.chkBCalificaxSemana.Location = new System.Drawing.Point(10, 130);
+            this.chkBCalificaxSemana.Name = "chkBCalificaxSemana";
+            this.chkBCalificaxSemana.Size = new System.Drawing.Size(71, 24);
+            this.chkBCalificaxSemana.TabIndex = 7;
+            this.chkBCalificaxSemana.Text = "Activo";
+            this.chkBCalificaxSemana.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 106);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(231, 20);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Este Rol se califica por semana";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 37);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(92, 20);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Descripción";
+            // 
+            // btCancelar
+            // 
+            this.btCancelar.Location = new System.Drawing.Point(231, 165);
+            this.btCancelar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btCancelar.Name = "btCancelar";
+            this.btCancelar.Size = new System.Drawing.Size(108, 38);
+            this.btCancelar.TabIndex = 4;
+            this.btCancelar.Text = "Cancelar";
+            this.btCancelar.UseVisualStyleBackColor = true;
+            this.btCancelar.Click += new System.EventHandler(this.btCancelar_Click);
             // 
             // btGuardar
             // 
@@ -199,45 +245,6 @@
             this.tbRol.Name = "tbRol";
             this.tbRol.Size = new System.Drawing.Size(280, 24);
             this.tbRol.TabIndex = 0;
-            // 
-            // btCancelar
-            // 
-            this.btCancelar.Location = new System.Drawing.Point(231, 165);
-            this.btCancelar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btCancelar.Name = "btCancelar";
-            this.btCancelar.Size = new System.Drawing.Size(108, 38);
-            this.btCancelar.TabIndex = 4;
-            this.btCancelar.Text = "Cancelar";
-            this.btCancelar.UseVisualStyleBackColor = true;
-            this.btCancelar.Click += new System.EventHandler(this.btCancelar_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 37);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 20);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Descripción";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 106);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(231, 20);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Este Rol se califica por semana";
-            // 
-            // chkBCalificaxSemana
-            // 
-            this.chkBCalificaxSemana.AutoSize = true;
-            this.chkBCalificaxSemana.Location = new System.Drawing.Point(10, 130);
-            this.chkBCalificaxSemana.Name = "chkBCalificaxSemana";
-            this.chkBCalificaxSemana.Size = new System.Drawing.Size(71, 24);
-            this.chkBCalificaxSemana.TabIndex = 7;
-            this.chkBCalificaxSemana.Text = "Activo";
-            this.chkBCalificaxSemana.UseVisualStyleBackColor = true;
             // 
             // eprError
             // 

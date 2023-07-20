@@ -28,10 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VentasXTienda2));
             this.dgvVentas = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.BT_exportar = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.FECHA_VA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.VALLARTA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FECHA_RENA = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,18 +45,18 @@
             this.COLOSO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FECHA_PREGOT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PREGOT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label1 = new System.Windows.Forms.Label();
-            this.BT_exportar = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVentas)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvVentas
             // 
             this.dgvVentas.AllowUserToAddRows = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvVentas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvVentas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvVentas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvVentas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvVentas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.FECHA_VA,
@@ -66,19 +69,60 @@
             this.COLOSO,
             this.FECHA_PREGOT,
             this.PREGOT});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvVentas.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvVentas.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvVentas.Location = new System.Drawing.Point(6, 102);
             this.dgvVentas.Name = "dgvVentas";
-            this.dgvVentas.Size = new System.Drawing.Size(943, 476);
+            this.dgvVentas.Size = new System.Drawing.Size(762, 476);
             this.dgvVentas.TabIndex = 0;
             this.dgvVentas.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvVentas_CellFormatting);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(12, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(303, 16);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Reporte de Ventas  de  Sucursales por Dia";
+            // 
+            // BT_exportar
+            // 
+            this.BT_exportar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BT_exportar.BackColor = System.Drawing.Color.DodgerBlue;
+            this.BT_exportar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_exportar.ForeColor = System.Drawing.Color.White;
+            this.BT_exportar.Image = ((System.Drawing.Image)(resources.GetObject("BT_exportar.Image")));
+            this.BT_exportar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BT_exportar.Location = new System.Drawing.Point(656, 34);
+            this.BT_exportar.Name = "BT_exportar";
+            this.BT_exportar.Size = new System.Drawing.Size(112, 51);
+            this.BT_exportar.TabIndex = 5;
+            this.BT_exportar.Text = "Exportar";
+            this.BT_exportar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BT_exportar.UseVisualStyleBackColor = false;
+            this.BT_exportar.Click += new System.EventHandler(this.BT_exportar_Click);
+            // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.BackColor = System.Drawing.Color.DodgerBlue;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(538, 34);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(112, 51);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Actualizar";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // FECHA_VA
             // 
@@ -137,6 +181,7 @@
             this.FECHA_PREGOT.HeaderText = "FECHA PREGOT";
             this.FECHA_PREGOT.Name = "FECHA_PREGOT";
             this.FECHA_PREGOT.ReadOnly = true;
+            this.FECHA_PREGOT.Visible = false;
             this.FECHA_PREGOT.Width = 80;
             // 
             // PREGOT
@@ -144,52 +189,14 @@
             this.PREGOT.HeaderText = "PREGOT";
             this.PREGOT.Name = "PREGOT";
             this.PREGOT.ReadOnly = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(304, 16);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Reporte de Ventas  de  Sucursales por Dia";
-            // 
-            // BT_exportar
-            // 
-            this.BT_exportar.BackColor = System.Drawing.Color.DodgerBlue;
-            this.BT_exportar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BT_exportar.ForeColor = System.Drawing.Color.White;
-            this.BT_exportar.Image = ((System.Drawing.Image)(resources.GetObject("BT_exportar.Image")));
-            this.BT_exportar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BT_exportar.Location = new System.Drawing.Point(837, 36);
-            this.BT_exportar.Name = "BT_exportar";
-            this.BT_exportar.Size = new System.Drawing.Size(112, 51);
-            this.BT_exportar.TabIndex = 5;
-            this.BT_exportar.Text = "Exportar";
-            this.BT_exportar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BT_exportar.UseVisualStyleBackColor = false;
-            this.BT_exportar.Click += new System.EventHandler(this.BT_exportar_Click);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.DodgerBlue;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(685, 36);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(112, 51);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Actualizar";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.PREGOT.Visible = false;
             // 
             // VentasXTienda2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.ClientSize = new System.Drawing.Size(964, 599);
+            this.ClientSize = new System.Drawing.Size(779, 599);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.BT_exportar);
             this.Controls.Add(this.label1);

@@ -29,26 +29,25 @@
         private void InitializeComponent()
         {
             this.PanelSideMenu = new System.Windows.Forms.Panel();
-            this.panelLogo = new System.Windows.Forms.Panel();
-            this.btnEmpleado = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.panelContenedor = new System.Windows.Forms.Panel();
-            this.cbSucursales = new System.Windows.Forms.ComboBox();
-            this.btConectar = new System.Windows.Forms.Button();
-            this.lblStatus = new System.Windows.Forms.Label();
             this.lblSucursal = new System.Windows.Forms.Label();
+            this.lblStatus = new System.Windows.Forms.Label();
+            this.btConectar = new System.Windows.Forms.Button();
+            this.cbSucursales = new System.Windows.Forms.ComboBox();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.btnEmpleado = new System.Windows.Forms.Button();
+            this.panelLogo = new System.Windows.Forms.Panel();
+            this.panelContenedor = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.PanelSideMenu.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // PanelSideMenu
             // 
             this.PanelSideMenu.AutoScroll = true;
-            this.PanelSideMenu.Controls.Add(this.lblSucursal);
-            this.PanelSideMenu.Controls.Add(this.lblStatus);
-            this.PanelSideMenu.Controls.Add(this.btConectar);
-            this.PanelSideMenu.Controls.Add(this.cbSucursales);
+            this.PanelSideMenu.Controls.Add(this.groupBox1);
             this.PanelSideMenu.Controls.Add(this.button4);
             this.PanelSideMenu.Controls.Add(this.button3);
             this.PanelSideMenu.Controls.Add(this.button2);
@@ -60,64 +59,41 @@
             this.PanelSideMenu.Size = new System.Drawing.Size(250, 624);
             this.PanelSideMenu.TabIndex = 0;
             // 
-            // panelLogo
+            // lblSucursal
             // 
-            this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelLogo.Location = new System.Drawing.Point(0, 0);
-            this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(250, 100);
-            this.panelLogo.TabIndex = 0;
+            this.lblSucursal.AutoSize = true;
+            this.lblSucursal.Location = new System.Drawing.Point(3, 66);
+            this.lblSucursal.Name = "lblSucursal";
+            this.lblSucursal.Size = new System.Drawing.Size(78, 17);
+            this.lblSucursal.TabIndex = 7;
+            this.lblSucursal.Text = "Sucursales";
             // 
-            // btnEmpleado
+            // lblStatus
             // 
-            this.btnEmpleado.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnEmpleado.FlatAppearance.BorderSize = 0;
-            this.btnEmpleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEmpleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEmpleado.ForeColor = System.Drawing.Color.Black;
-            this.btnEmpleado.Location = new System.Drawing.Point(0, 100);
-            this.btnEmpleado.Name = "btnEmpleado";
-            this.btnEmpleado.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnEmpleado.Size = new System.Drawing.Size(250, 45);
-            this.btnEmpleado.TabIndex = 1;
-            this.btnEmpleado.Text = "Empleados";
-            this.btnEmpleado.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEmpleado.UseVisualStyleBackColor = true;
-            this.btnEmpleado.Click += new System.EventHandler(this.button1_Click);
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.Location = new System.Drawing.Point(3, 49);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(48, 17);
+            this.lblStatus.TabIndex = 6;
+            this.lblStatus.Text = "Status";
             // 
-            // button2
+            // btConectar
             // 
-            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.Black;
-            this.button2.Location = new System.Drawing.Point(0, 145);
-            this.button2.Name = "button2";
-            this.button2.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.button2.Size = new System.Drawing.Size(250, 45);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Roles";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btConectar.Location = new System.Drawing.Point(6, 94);
+            this.btConectar.Name = "btConectar";
+            this.btConectar.Size = new System.Drawing.Size(75, 23);
+            this.btConectar.TabIndex = 2;
+            this.btConectar.Text = "Conectar";
+            this.btConectar.UseVisualStyleBackColor = true;
+            this.btConectar.Click += new System.EventHandler(this.btConectar_Click);
             // 
-            // button3
+            // cbSucursales
             // 
-            this.button3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.Black;
-            this.button3.Location = new System.Drawing.Point(0, 190);
-            this.button3.Name = "button3";
-            this.button3.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.button3.Size = new System.Drawing.Size(250, 45);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Tareas";
-            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.cbSucursales.FormattingEnabled = true;
+            this.cbSucursales.Location = new System.Drawing.Point(6, 22);
+            this.cbSucursales.Name = "cbSucursales";
+            this.cbSucursales.Size = new System.Drawing.Size(182, 24);
+            this.cbSucursales.TabIndex = 5;
             // 
             // button4
             // 
@@ -136,6 +112,65 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
+            // button3
+            // 
+            this.button3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.Color.Black;
+            this.button3.Location = new System.Drawing.Point(0, 190);
+            this.button3.Name = "button3";
+            this.button3.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.button3.Size = new System.Drawing.Size(250, 45);
+            this.button3.TabIndex = 3;
+            this.button3.Text = "Tareas";
+            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button2
+            // 
+            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.Black;
+            this.button2.Location = new System.Drawing.Point(0, 145);
+            this.button2.Name = "button2";
+            this.button2.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.button2.Size = new System.Drawing.Size(250, 45);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "Roles";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // btnEmpleado
+            // 
+            this.btnEmpleado.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnEmpleado.FlatAppearance.BorderSize = 0;
+            this.btnEmpleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEmpleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEmpleado.ForeColor = System.Drawing.Color.Black;
+            this.btnEmpleado.Location = new System.Drawing.Point(0, 100);
+            this.btnEmpleado.Name = "btnEmpleado";
+            this.btnEmpleado.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnEmpleado.Size = new System.Drawing.Size(250, 45);
+            this.btnEmpleado.TabIndex = 1;
+            this.btnEmpleado.Text = "Empleados";
+            this.btnEmpleado.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEmpleado.UseVisualStyleBackColor = true;
+            this.btnEmpleado.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // panelLogo
+            // 
+            this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelLogo.Location = new System.Drawing.Point(0, 0);
+            this.panelLogo.Name = "panelLogo";
+            this.panelLogo.Size = new System.Drawing.Size(250, 100);
+            this.panelLogo.TabIndex = 0;
+            // 
             // panelContenedor
             // 
             this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -144,41 +179,20 @@
             this.panelContenedor.Size = new System.Drawing.Size(1056, 624);
             this.panelContenedor.TabIndex = 1;
             // 
-            // cbSucursales
+            // groupBox1
             // 
-            this.cbSucursales.FormattingEnabled = true;
-            this.cbSucursales.Location = new System.Drawing.Point(28, 508);
-            this.cbSucursales.Name = "cbSucursales";
-            this.cbSucursales.Size = new System.Drawing.Size(182, 24);
-            this.cbSucursales.TabIndex = 5;
-            // 
-            // btConectar
-            // 
-            this.btConectar.Location = new System.Drawing.Point(28, 580);
-            this.btConectar.Name = "btConectar";
-            this.btConectar.Size = new System.Drawing.Size(75, 23);
-            this.btConectar.TabIndex = 2;
-            this.btConectar.Text = "Conectar";
-            this.btConectar.UseVisualStyleBackColor = true;
-            this.btConectar.Click += new System.EventHandler(this.btConectar_Click);
-            // 
-            // lblStatus
-            // 
-            this.lblStatus.AutoSize = true;
-            this.lblStatus.Location = new System.Drawing.Point(25, 535);
-            this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(48, 17);
-            this.lblStatus.TabIndex = 6;
-            this.lblStatus.Text = "Status";
-            // 
-            // lblSucursal
-            // 
-            this.lblSucursal.AutoSize = true;
-            this.lblSucursal.Location = new System.Drawing.Point(25, 552);
-            this.lblSucursal.Name = "lblSucursal";
-            this.lblSucursal.Size = new System.Drawing.Size(78, 17);
-            this.lblSucursal.TabIndex = 7;
-            this.lblSucursal.Text = "Sucursales";
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.cbSucursales);
+            this.groupBox1.Controls.Add(this.lblSucursal);
+            this.groupBox1.Controls.Add(this.btConectar);
+            this.groupBox1.Controls.Add(this.lblStatus);
+            this.groupBox1.Location = new System.Drawing.Point(12, 476);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(216, 136);
+            this.groupBox1.TabIndex = 8;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "groupBox1";
             // 
             // PrincipalComisiones
             // 
@@ -188,12 +202,13 @@
             this.Controls.Add(this.panelContenedor);
             this.Controls.Add(this.PanelSideMenu);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "PrincipalComisiones";
             this.Text = "PrincipalComisiones";
             this.Load += new System.EventHandler(this.PrincipalComisiones_Load);
             this.PanelSideMenu.ResumeLayout(false);
-            this.PanelSideMenu.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -211,5 +226,6 @@
         private System.Windows.Forms.Button btConectar;
         private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.Label lblSucursal;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

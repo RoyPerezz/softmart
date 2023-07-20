@@ -36,6 +36,9 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.nudTopeSemanal = new System.Windows.Forms.NumericUpDown();
+            this.label3 = new System.Windows.Forms.Label();
+            this.nudTopeDiario = new System.Windows.Forms.NumericUpDown();
             this.lblTopeSemanal = new System.Windows.Forms.Label();
             this.btCancelar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -44,26 +47,24 @@
             this.btGuardar = new System.Windows.Forms.Button();
             this.tbDescripcion = new System.Windows.Forms.TextBox();
             this.dgvTareas = new System.Windows.Forms.DataGridView();
+            this.Eliminar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btBuscar = new System.Windows.Forms.Button();
             this.cbRol = new System.Windows.Forms.ComboBox();
-            this.nudTopeDiario = new System.Windows.Forms.NumericUpDown();
-            this.label3 = new System.Windows.Forms.Label();
+            this.btBuscar = new System.Windows.Forms.Button();
             this.cbxEliminar = new System.Windows.Forms.CheckBox();
             this.eprError = new System.Windows.Forms.ErrorProvider(this.components);
-            this.nudTopeSemanal = new System.Windows.Forms.NumericUpDown();
-            this.Eliminar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Acciones.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudTopeSemanal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudTopeDiario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTareas)).BeginInit();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudTopeDiario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eprError)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudTopeSemanal)).BeginInit();
             this.SuspendLayout();
             // 
             // Acciones
             // 
+            this.Acciones.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Acciones.Controls.Add(this.btEliminar);
             this.Acciones.Controls.Add(this.btModificar);
             this.Acciones.Controls.Add(this.btNuevo);
@@ -127,6 +128,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.nudTopeSemanal);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.nudTopeDiario);
@@ -144,6 +146,40 @@
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Agregar/Editar";
+            // 
+            // nudTopeSemanal
+            // 
+            this.nudTopeSemanal.Location = new System.Drawing.Point(11, 267);
+            this.nudTopeSemanal.Maximum = new decimal(new int[] {
+            2000,
+            0,
+            0,
+            0});
+            this.nudTopeSemanal.Name = "nudTopeSemanal";
+            this.nudTopeSemanal.Size = new System.Drawing.Size(71, 26);
+            this.nudTopeSemanal.TabIndex = 14;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(0, 181);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(90, 20);
+            this.label3.TabIndex = 13;
+            this.label3.Text = "Tope Diario";
+            // 
+            // nudTopeDiario
+            // 
+            this.nudTopeDiario.Location = new System.Drawing.Point(11, 211);
+            this.nudTopeDiario.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.nudTopeDiario.Name = "nudTopeDiario";
+            this.nudTopeDiario.Size = new System.Drawing.Size(71, 26);
+            this.nudTopeDiario.TabIndex = 12;
+            this.nudTopeDiario.ValueChanged += new System.EventHandler(this.nudTopeDiario_ValueChanged);
             // 
             // lblTopeSemanal
             // 
@@ -215,6 +251,9 @@
             // dgvTareas
             // 
             this.dgvTareas.AllowUserToAddRows = false;
+            this.dgvTareas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvTareas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTareas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Eliminar});
@@ -224,8 +263,14 @@
             this.dgvTareas.TabIndex = 12;
             this.dgvTareas.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvTareas_MouseDoubleClick);
             // 
+            // Eliminar
+            // 
+            this.Eliminar.HeaderText = "Eliminar";
+            this.Eliminar.Name = "Eliminar";
+            // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.cbRol);
             this.groupBox2.Controls.Add(this.btBuscar);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -235,6 +280,15 @@
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Seleccionar Rol";
+            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
+            // 
+            // cbRol
+            // 
+            this.cbRol.FormattingEnabled = true;
+            this.cbRol.Location = new System.Drawing.Point(6, 26);
+            this.cbRol.Name = "cbRol";
+            this.cbRol.Size = new System.Drawing.Size(221, 28);
+            this.cbRol.TabIndex = 3;
             // 
             // btBuscar
             // 
@@ -245,36 +299,6 @@
             this.btBuscar.Text = "Consultar";
             this.btBuscar.UseVisualStyleBackColor = true;
             this.btBuscar.Click += new System.EventHandler(this.btBuscar_Click);
-            // 
-            // cbRol
-            // 
-            this.cbRol.FormattingEnabled = true;
-            this.cbRol.Location = new System.Drawing.Point(6, 26);
-            this.cbRol.Name = "cbRol";
-            this.cbRol.Size = new System.Drawing.Size(221, 28);
-            this.cbRol.TabIndex = 3;
-            // 
-            // nudTopeDiario
-            // 
-            this.nudTopeDiario.Location = new System.Drawing.Point(11, 211);
-            this.nudTopeDiario.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.nudTopeDiario.Name = "nudTopeDiario";
-            this.nudTopeDiario.Size = new System.Drawing.Size(71, 26);
-            this.nudTopeDiario.TabIndex = 12;
-            this.nudTopeDiario.ValueChanged += new System.EventHandler(this.nudTopeDiario_ValueChanged);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(0, 181);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(90, 20);
-            this.label3.TabIndex = 13;
-            this.label3.Text = "Tope Diario";
             // 
             // cbxEliminar
             // 
@@ -291,23 +315,6 @@
             // 
             this.eprError.ContainerControl = this;
             // 
-            // nudTopeSemanal
-            // 
-            this.nudTopeSemanal.Location = new System.Drawing.Point(11, 267);
-            this.nudTopeSemanal.Maximum = new decimal(new int[] {
-            2000,
-            0,
-            0,
-            0});
-            this.nudTopeSemanal.Name = "nudTopeSemanal";
-            this.nudTopeSemanal.Size = new System.Drawing.Size(71, 26);
-            this.nudTopeSemanal.TabIndex = 14;
-            // 
-            // Eliminar
-            // 
-            this.Eliminar.HeaderText = "Eliminar";
-            this.Eliminar.Name = "Eliminar";
-            // 
             // VTareas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -321,18 +328,18 @@
             this.Controls.Add(this.dgvTareas);
             this.Controls.Add(this.Acciones);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "VTareas";
             this.Text = "VTareas";
             this.Load += new System.EventHandler(this.VTareas_Load);
             this.Acciones.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudTopeSemanal)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudTopeDiario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTareas)).EndInit();
             this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.nudTopeDiario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eprError)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudTopeSemanal)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

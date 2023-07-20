@@ -302,5 +302,10 @@ namespace appSugerencias.Comisiones.Vista
         {
           nudTopeSemanal.Value= TopeSemanal(Convert.ToInt32(nudTopeDiario.Value));
         }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

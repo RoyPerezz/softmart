@@ -255,49 +255,49 @@ namespace appSugerencias
                 MessageBox.Show("Coloso sin conexion");
             }
 
-            try
-            {
-                conpregot = BDConexicon.Papeleria1Open();
-                string comando = "SELECT ventas.F_EMISION AS 'Fecha', " +
-                    "SUM((partvta.precio * (partvta.cantidad - partvta.a01) * (1 - (partvta.descuento / 100)) * ventas.tipo_cam)) + SUM((partvta.precio * (partvta.cantidad - partvta.a01) * (1 - (partvta.descuento / 100)) * ventas.tipo_cam) * (partvta.impuesto / 100)) As 'Total' " +
-                    "FROM(partvta LEFT JOIN ventas ON ventas.VENTA = partvta.VENTA) INNER JOIN prods ON partvta.ARTICULO = prods.ARTICULO " +
-                    "WHERE ventas.ESTADO = 'CO' AND(ventas.TIPO_DOC = 'FAC' OR ventas.TIPO_DOC = 'DV' OR ventas.TIPO_DOC = 'REM') AND ventas.CIERRE = 0 " +
-                    "GROUP BY ventas.F_EMISION " +
-                    "ORDER BY ventas.F_EMISION";
+            //try
+            //{
+            //    conpregot = BDConexicon.Papeleria1Open();
+            //    string comando = "SELECT ventas.F_EMISION AS 'Fecha', " +
+            //        "SUM((partvta.precio * (partvta.cantidad - partvta.a01) * (1 - (partvta.descuento / 100)) * ventas.tipo_cam)) + SUM((partvta.precio * (partvta.cantidad - partvta.a01) * (1 - (partvta.descuento / 100)) * ventas.tipo_cam) * (partvta.impuesto / 100)) As 'Total' " +
+            //        "FROM(partvta LEFT JOIN ventas ON ventas.VENTA = partvta.VENTA) INNER JOIN prods ON partvta.ARTICULO = prods.ARTICULO " +
+            //        "WHERE ventas.ESTADO = 'CO' AND(ventas.TIPO_DOC = 'FAC' OR ventas.TIPO_DOC = 'DV' OR ventas.TIPO_DOC = 'REM') AND ventas.CIERRE = 0 " +
+            //        "GROUP BY ventas.F_EMISION " +
+            //        "ORDER BY ventas.F_EMISION";
 
-                MySqlCommand cmdr = new MySqlCommand(comando, conpregot);
+            //    MySqlCommand cmdr = new MySqlCommand(comando, conpregot);
 
-                MySqlDataReader dr = cmdr.ExecuteReader();
-                int y = 0;
-                totalPre = 0;
-                while (dr.Read())
-                {
-                    importeDiaPre = Convert.ToDouble(dr["total"].ToString());
-                    LisPregot.Add(importeDiaPre);
-                    totalPre = totalPre + importeDiaPre;
+            //    MySqlDataReader dr = cmdr.ExecuteReader();
+            //    int y = 0;
+            //    totalPre = 0;
+            //    while (dr.Read())
+            //    {
+            //        importeDiaPre = Convert.ToDouble(dr["total"].ToString());
+            //        LisPregot.Add(importeDiaPre);
+            //        totalPre = totalPre + importeDiaPre;
 
-                    dgvVentas.Rows[y].Cells[5].Value = importeDiaPre.ToString("C");
-                    y = y + 1;
+            //        dgvVentas.Rows[y].Cells[5].Value = importeDiaPre.ToString("C");
+            //        y = y + 1;
 
 
 
-                }
-                //conectar.Close();
-                dr.Close();
-                dgvVentas.Rows[y].Cells[5].Value = totalPre.ToString("C");
-                LisPregot.Add(totalPre);
-            }
-            catch (Exception)
-            {
-                for (int i = 0; i < dgvVentas.Rows.Count; i++)
-                {
+            //    }
+            //    //conectar.Close();
+            //    dr.Close();
+            //    dgvVentas.Rows[y].Cells[5].Value = totalPre.ToString("C");
+            //    LisPregot.Add(totalPre);
+            //}
+            //catch (Exception)
+            //{
+            //    for (int i = 0; i < dgvVentas.Rows.Count; i++)
+            //    {
 
-                    dgvVentas.Rows[i].Cells[5].Value = 0;
-                    LisPregot.Add(0);
-                }
-                LisPregot.Add(0);
-                MessageBox.Show("Pregot sin conexion");
-            }
+            //        dgvVentas.Rows[i].Cells[5].Value = 0;
+            //        LisPregot.Add(0);
+            //    }
+            //    LisPregot.Add(0);
+            //    MessageBox.Show("Pregot sin conexion");
+            //}
 
            
 

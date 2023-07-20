@@ -99,7 +99,7 @@ namespace appSugerencias
             tienda.Add(new Item("RENA", "RENA"));
             tienda.Add(new Item("VELAZQUEZ", "DIEZ"));
             tienda.Add(new Item("COLOSO", "COLOSO"));
-            tienda.Add(new Item("PREGOT", "PREGOT"));
+            //tienda.Add(new Item("PREGOT", "PREGOT"));
 
             mes.Add(new Item("ENERO", "ENE"));
             mes.Add(new Item("FEBRERO", "FEB"));
@@ -302,10 +302,10 @@ namespace appSugerencias
             {
                 IP = "192.168.4.2";
             }
-            else if (tienda == "PREGOT")
-            {
-                IP = "192.168.6.2";
-            }
+            //else if (tienda == "PREGOT")
+            //{
+            //    IP = "192.168.6.2";
+            //}
 
             flag = defineMesActual();
 
@@ -362,10 +362,10 @@ namespace appSugerencias
             {
                 IP = "192.168.4.2";
             }
-            else if (tienda == "PREGOT")
-            {
-                IP = "192.168.6.2";
-            }
+            //else if (tienda == "PREGOT")
+            //{
+            //    IP = "192.168.6.2";
+            //}
 
             //flag = defineMesActual();
 
