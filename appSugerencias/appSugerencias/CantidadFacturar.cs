@@ -266,7 +266,7 @@ namespace appSugerencias
             MySqlConnection con = null;
             string areaTrabajo = "";
             areaTrabajo = AreaTrabajo();
-            if (areaTrabajo.Equals("SISTEMAS") || areaTrabajo.Equals("CXPAGAR") || areaTrabajo.Equals("ADMON GRAL") || areaTrabajo.Equals("CONTAB") || areaTrabajo.Equals("SOPORTE"))
+            if (areaTrabajo.Equals("SISTEMAS") || areaTrabajo.Equals("CXPAGAR") || areaTrabajo.Equals("ADMON GRAL") || areaTrabajo.Equals("CONTAB") || areaTrabajo.Equals("SOPORTE") || areaTrabajo.Equals("FINANZAS"))
             {
                 con = BDConexicon.ConexionSucursal(SucursalSeleccionada());
             }
@@ -731,7 +731,7 @@ namespace appSugerencias
             }
             else
             {
-                if (areaTrabajo.Equals("SISTEMAS") || areaTrabajo.Equals("CXPAGAR") || areaTrabajo.Equals("ADMON GRAL") || areaTrabajo.Equals("CONTAB") || areaTrabajo.Equals("SOPORTE"))
+                if (areaTrabajo.Equals("SISTEMAS") || areaTrabajo.Equals("CXPAGAR") || areaTrabajo.Equals("ADMON GRAL") || areaTrabajo.Equals("CONTAB") || areaTrabajo.Equals("SOPORTE") || areaTrabajo.Equals("FINANZAS"))
                 {
                     con = BDConexicon.ConexionSucursal(sucursalSeleccionada);
                 }
@@ -871,9 +871,9 @@ namespace appSugerencias
               
                 int mes = fecha.Month;
                 int año = fecha.Year;
-#pragma warning disable CS0219 // La variable 'sucursal' está asignada pero su valor nunca se usa
+
                 string sucursal = "";
-#pragma warning restore CS0219 // La variable 'sucursal' está asignada pero su valor nunca se usa
+
                 
 
                 string m = Mes(mes);
@@ -1025,7 +1025,7 @@ namespace appSugerencias
             MySqlConnection con = null;
             string areaTrabajo = "";
             areaTrabajo = AreaTrabajo();
-            if (areaTrabajo.Equals("SISTEMAS") || areaTrabajo.Equals("CXPAGAR") || areaTrabajo.Equals("ADMON GRAL") || areaTrabajo.Equals("CONTAB") || areaTrabajo.Equals("SOPORTE"))
+            if (areaTrabajo.Equals("SISTEMAS") || areaTrabajo.Equals("CXPAGAR") || areaTrabajo.Equals("ADMON GRAL") || areaTrabajo.Equals("CONTAB") || areaTrabajo.Equals("SOPORTE") || areaTrabajo.Equals("FINANZAS"))
             {
                 con = BDConexicon.ConexionSucursal(sucursalSeleccionada);
             }
@@ -1169,7 +1169,7 @@ namespace appSugerencias
             MySqlConnection con = null;
             string areaTrabajo = "";
             areaTrabajo = AreaTrabajo();
-            if (areaTrabajo.Equals("SISTEMAS") || areaTrabajo.Equals("CXPAGAR") || areaTrabajo.Equals("ADMON GRAL") || areaTrabajo.Equals("CONTAB") || areaTrabajo.Equals("SOPORTE"))
+            if (areaTrabajo.Equals("SISTEMAS") || areaTrabajo.Equals("CXPAGAR") || areaTrabajo.Equals("ADMON GRAL") || areaTrabajo.Equals("CONTAB") || areaTrabajo.Equals("SOPORTE") || areaTrabajo.Equals("FINANZAS"))
             {
                 con = BDConexicon.ConexionSucursal(sucursalSeleccionada);
             }
@@ -1245,7 +1245,7 @@ namespace appSugerencias
             MySqlConnection con = null;
             string areaTrabajo = "";
             areaTrabajo = AreaTrabajo();
-            if (areaTrabajo.Equals("SISTEMAS") || areaTrabajo.Equals("CXPAGAR") || areaTrabajo.Equals("ADMON GRAL") || areaTrabajo.Equals("CONTAB") || areaTrabajo.Equals("SOPORTE"))
+            if (areaTrabajo.Equals("SISTEMAS") || areaTrabajo.Equals("CXPAGAR") || areaTrabajo.Equals("ADMON GRAL") || areaTrabajo.Equals("CONTAB") || areaTrabajo.Equals("SOPORTE") || areaTrabajo.Equals("FINANZAS"))
             {
                 con = BDConexicon.ConexionSucursal(sucursalSeleccionada);
             }
@@ -1300,7 +1300,7 @@ namespace appSugerencias
             MySqlConnection con = null;
             string areaTrabajo = "";
             areaTrabajo = AreaTrabajo();
-            if (areaTrabajo.Equals("SISTEMAS") || areaTrabajo.Equals("CXPAGAR") || areaTrabajo.Equals("ADMON GRAL") || areaTrabajo.Equals("CONTAB") || areaTrabajo.Equals("SOPORTE"))
+            if (areaTrabajo.Equals("SISTEMAS") || areaTrabajo.Equals("CXPAGAR") || areaTrabajo.Equals("ADMON GRAL") || areaTrabajo.Equals("CONTAB") || areaTrabajo.Equals("SOPORTE") || areaTrabajo.Equals("FINANZAS"))
             {
 
                 if (CBX_mes_anterior.Checked == true)
@@ -1354,7 +1354,7 @@ namespace appSugerencias
             MySqlConnection con = null;
             string areaTrabajo = "";
             areaTrabajo = AreaTrabajo();
-            if (areaTrabajo.Equals("SISTEMAS") || areaTrabajo.Equals("CXPAGAR") || areaTrabajo.Equals("ADMON GRAL") || areaTrabajo.Equals("CONTAB") || areaTrabajo.Equals("SOPORTE"))
+            if (areaTrabajo.Equals("SISTEMAS") || areaTrabajo.Equals("CXPAGAR") || areaTrabajo.Equals("ADMON GRAL") || areaTrabajo.Equals("CONTAB") || areaTrabajo.Equals("SOPORTE") || areaTrabajo.Equals("FINANZAS"))
             {
                 con = BDConexicon.ConexionSucursal(sucursalSeleccionada);
             }
@@ -1392,7 +1392,7 @@ namespace appSugerencias
             areaTrabajo = AreaTrabajo();
             string empresa = "";
 
-            if (areaTrabajo.Equals("SISTEMAS") || areaTrabajo.Equals("CXPAGAR") || areaTrabajo.Equals("ADMON GRAL"))
+            if (areaTrabajo.Equals("SISTEMAS") || areaTrabajo.Equals("CXPAGAR") || areaTrabajo.Equals("ADMON GRAL") || areaTrabajo.Equals("FINANZAS"))
             {
 
 
@@ -1549,14 +1549,14 @@ namespace appSugerencias
 
             string sucursalSeleccionada = SucursalSeleccionada();
             double ventaTotal = 0;
-#pragma warning disable CS0219 // La variable 'depVentanilla' está asignada pero su valor nunca se usa
+
             double depVentanilla = 0;
-#pragma warning restore CS0219 // La variable 'depVentanilla' está asignada pero su valor nunca se usa
+
             double depCliente = 0;
             double tarj = 0;
-#pragma warning disable CS0219 // La variable 'pana' está asignada pero su valor nunca se usa
+
             double pana = 0;
-#pragma warning restore CS0219 // La variable 'pana' está asignada pero su valor nunca se usa
+
             double facturacion = 0;
             DataTable fechas = new DataTable();
             fechas.Columns.Add("FECHAS",typeof(string));
@@ -1564,7 +1564,7 @@ namespace appSugerencias
            string areaTrabajo = "";
             areaTrabajo = AreaTrabajo();
             string empresa = "";
-            if (areaTrabajo.Equals("SISTEMAS") || areaTrabajo.Equals("CXPAGAR") || areaTrabajo.Equals("ADMON GRAL") || areaTrabajo.Equals("SOPORTE"))
+            if (areaTrabajo.Equals("SISTEMAS") || areaTrabajo.Equals("CXPAGAR") || areaTrabajo.Equals("ADMON GRAL") || areaTrabajo.Equals("SOPORTE") || areaTrabajo.Equals("FINANZAS"))
             {
 
 
@@ -1648,7 +1648,7 @@ namespace appSugerencias
                 ventaTotal = Convert.ToDouble(VentaTotal(Convert.ToDateTime(fechas.Rows[i]["FECHAS"].ToString())));
                 tarj = Convert.ToDouble(IngresoTarjetas(Convert.ToDateTime(fechas.Rows[i]["FECHAS"].ToString())));
                 facturacion = TotalFacturacion(Convert.ToDateTime(fechas.Rows[i]["FECHAS"].ToString()));
-                totalEfectivo = VentasEfectivo(Convert.ToDateTime(fechas.Rows[i]["FECHAS"].ToString()));
+                //totalEfectivo = VentasEfectivo(Convert.ToDateTime(fechas.Rows[i]["FECHAS"].ToString()));
                
                 facEfe = TotalFacEfe(facturasEfe);
                 if (fechaTabla == Convert.ToDateTime("2023-03-05"))
@@ -1738,7 +1738,7 @@ namespace appSugerencias
 
 
 
-            if (area.Equals("SISTEMAS")|| area.Equals("CXPAGAR") || area.Equals("ADMON GRAL") || areaTrabajo.Equals("SOPORTE"))
+            if (area.Equals("SISTEMAS")|| area.Equals("CXPAGAR") || area.Equals("ADMON GRAL") || areaTrabajo.Equals("SOPORTE") || areaTrabajo.Equals("FINANZAS"))
             {
                 DG_tabla.Columns[2].ReadOnly = false;
             }else
@@ -1771,7 +1771,7 @@ namespace appSugerencias
             MySqlConnection con = null;
             string areaTrabajo = "";
             areaTrabajo = AreaTrabajo();
-            if (areaTrabajo.Equals("SISTEMAS") || areaTrabajo.Equals("CXPAGAR") || areaTrabajo.Equals("ADMON GRAL") || areaTrabajo.Equals("CONTAB") || areaTrabajo.Equals("SOPORTE"))
+            if (areaTrabajo.Equals("SISTEMAS") || areaTrabajo.Equals("CXPAGAR") || areaTrabajo.Equals("ADMON GRAL") || areaTrabajo.Equals("CONTAB") || areaTrabajo.Equals("SOPORTE") || areaTrabajo.Equals("FINANZAS"))
             {
                 con = BDConexicon.ConexionSucursal(sucursalSeleccionada);
             }
@@ -1808,7 +1808,7 @@ namespace appSugerencias
             string areaTrabajo = "";
             areaTrabajo = AreaTrabajo();
             string empresa = "";
-            if (areaTrabajo.Equals("SISTEMAS") || areaTrabajo.Equals("CXPAGAR") || areaTrabajo.Equals("ADMON GRAL") || areaTrabajo.Equals("CONTAB") || areaTrabajo.Equals("SOPORTE"))
+            if (areaTrabajo.Equals("SISTEMAS") || areaTrabajo.Equals("CXPAGAR") || areaTrabajo.Equals("ADMON GRAL") || areaTrabajo.Equals("CONTAB") || areaTrabajo.Equals("SOPORTE") || areaTrabajo.Equals("FINANZAS"))
             {
 
 
@@ -2001,7 +2001,7 @@ namespace appSugerencias
             }
             dr.Close();
 
-            if (area.Equals("SISTEMAS") || area.Equals("CXPAGAR") || area.Equals("ADMON GRAL") ||area.Equals("CONTAB") || area.Equals("SOPORTE"))
+            if (area.Equals("SISTEMAS") || area.Equals("CXPAGAR") || area.Equals("ADMON GRAL") ||area.Equals("CONTAB") || area.Equals("SOPORTE") || area.Equals("FINANZAS"))
             {
                 //CB_sucursal.Visible = true;
                 //CB_sucursal.Items.Add("VALLARTA");

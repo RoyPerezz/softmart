@@ -239,10 +239,27 @@ namespace appSugerencias.Gastos.Vistas
                 };
                 try
                 {
-                    TipoGastosController.RegistroEgreso(egreso);
-                    ImprimirEgreso();
-                    Limpiar();
-                    MessageBox.Show("Se ha registrado el egreso correctamente");
+
+
+                    if (CB_conceptoGral.Text.Equals(""))
+                    {
+                        MessageBox.Show("Selecciona un concepto general");
+                    }else if(CB_conceptoDetalle.Text.Equals(""))
+                    {
+                        MessageBox.Show("Selecciona un concepto detalle");
+                    }else if(TB_importe.Text.Equals(""))
+                    {
+                        MessageBox.Show("Captura un importe para el gasto");
+                    }
+                    else
+                    {
+                        TipoGastosController.RegistroEgreso(egreso);
+                        ImprimirEgreso();
+                        Limpiar();
+                        MessageBox.Show("Se ha registrado el egreso correctamente");
+                    }
+                    
+                    
                     
                 }
                 catch (Exception ex)

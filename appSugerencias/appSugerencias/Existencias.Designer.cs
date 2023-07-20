@@ -42,7 +42,6 @@
             this.LB_velazquez = new System.Windows.Forms.Label();
             this.panelOfertas = new System.Windows.Forms.GroupBox();
             this.lblPre = new System.Windows.Forms.Label();
-            this.cBoxPre = new System.Windows.Forms.CheckBox();
             this.lblCo = new System.Windows.Forms.Label();
             this.lblVe = new System.Windows.Forms.Label();
             this.lblRe = new System.Windows.Forms.Label();
@@ -63,8 +62,6 @@
             this.Lb_bodega = new System.Windows.Forms.Label();
             this.TB_bodega = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.LB_PME_pregot = new System.Windows.Forms.Label();
-            this.LB_PM_pregot = new System.Windows.Forms.Label();
             this.LB_PME_coloso = new System.Windows.Forms.Label();
             this.LB_PM_coloso = new System.Windows.Forms.Label();
             this.LB_PME_velazquez = new System.Windows.Forms.Label();
@@ -76,8 +73,6 @@
             this.LB_PME_bodega = new System.Windows.Forms.Label();
             this.LB_PM_bodega = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.LB_pre_linea = new System.Windows.Forms.Label();
-            this.CKB_Pregot = new System.Windows.Forms.CheckBox();
             this.LB_co_linea = new System.Windows.Forms.Label();
             this.CKB_Coloso = new System.Windows.Forms.CheckBox();
             this.LB_ve_linea = new System.Windows.Forms.Label();
@@ -88,14 +83,11 @@
             this.CKB_Vallarta = new System.Windows.Forms.CheckBox();
             this.LB_bo_linea = new System.Windows.Forms.Label();
             this.CKB_Bodega = new System.Windows.Forms.CheckBox();
-            this.LB_prov_pregot = new System.Windows.Forms.Label();
             this.LB_prov_coloso = new System.Windows.Forms.Label();
             this.LB_prov_velazquez = new System.Windows.Forms.Label();
             this.LB_prov_rena = new System.Windows.Forms.Label();
             this.LB_prov_vallarta = new System.Windows.Forms.Label();
             this.LB_prov_bodega = new System.Windows.Forms.Label();
-            this.TB_pregot = new System.Windows.Forms.TextBox();
-            this.LB_pregot = new System.Windows.Forms.Label();
             this.BT_limpiar = new System.Windows.Forms.Button();
             this.LB_fabricante = new System.Windows.Forms.Label();
             this.LB_costo = new System.Windows.Forms.Label();
@@ -110,8 +102,6 @@
             this.panelPrecio = new System.Windows.Forms.GroupBox();
             this.LBBoPre = new System.Windows.Forms.Label();
             this.cBoxBo = new System.Windows.Forms.CheckBox();
-            this.lblPre2 = new System.Windows.Forms.Label();
-            this.cBoxPre2 = new System.Windows.Forms.CheckBox();
             this.lblCoPre = new System.Windows.Forms.Label();
             this.lblVePre = new System.Windows.Forms.Label();
             this.lblRePre = new System.Windows.Forms.Label();
@@ -246,7 +236,6 @@
             // panelOfertas
             // 
             this.panelOfertas.Controls.Add(this.lblPre);
-            this.panelOfertas.Controls.Add(this.cBoxPre);
             this.panelOfertas.Controls.Add(this.lblCo);
             this.panelOfertas.Controls.Add(this.lblVe);
             this.panelOfertas.Controls.Add(this.lblRe);
@@ -281,16 +270,6 @@
             this.lblPre.Name = "lblPre";
             this.lblPre.Size = new System.Drawing.Size(0, 16);
             this.lblPre.TabIndex = 18;
-            // 
-            // cBoxPre
-            // 
-            this.cBoxPre.AutoSize = true;
-            this.cBoxPre.Location = new System.Drawing.Point(286, 49);
-            this.cBoxPre.Name = "cBoxPre";
-            this.cBoxPre.Size = new System.Drawing.Size(57, 17);
-            this.cBoxPre.TabIndex = 17;
-            this.cBoxPre.Text = "Pregot";
-            this.cBoxPre.UseVisualStyleBackColor = true;
             // 
             // lblCo
             // 
@@ -479,8 +458,6 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.LB_PME_pregot);
-            this.groupBox2.Controls.Add(this.LB_PM_pregot);
             this.groupBox2.Controls.Add(this.LB_PME_coloso);
             this.groupBox2.Controls.Add(this.LB_PM_coloso);
             this.groupBox2.Controls.Add(this.LB_PME_velazquez);
@@ -492,8 +469,6 @@
             this.groupBox2.Controls.Add(this.LB_PME_bodega);
             this.groupBox2.Controls.Add(this.LB_PM_bodega);
             this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.LB_pre_linea);
-            this.groupBox2.Controls.Add(this.CKB_Pregot);
             this.groupBox2.Controls.Add(this.LB_co_linea);
             this.groupBox2.Controls.Add(this.CKB_Coloso);
             this.groupBox2.Controls.Add(this.LB_ve_linea);
@@ -504,14 +479,11 @@
             this.groupBox2.Controls.Add(this.CKB_Vallarta);
             this.groupBox2.Controls.Add(this.LB_bo_linea);
             this.groupBox2.Controls.Add(this.CKB_Bodega);
-            this.groupBox2.Controls.Add(this.LB_prov_pregot);
             this.groupBox2.Controls.Add(this.LB_prov_coloso);
             this.groupBox2.Controls.Add(this.LB_prov_velazquez);
             this.groupBox2.Controls.Add(this.LB_prov_rena);
             this.groupBox2.Controls.Add(this.LB_prov_vallarta);
             this.groupBox2.Controls.Add(this.LB_prov_bodega);
-            this.groupBox2.Controls.Add(this.TB_pregot);
-            this.groupBox2.Controls.Add(this.LB_pregot);
             this.groupBox2.Controls.Add(this.BT_limpiar);
             this.groupBox2.Controls.Add(this.LB_fabricante);
             this.groupBox2.Controls.Add(this.LB_costo);
@@ -543,22 +515,6 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Existencias";
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter_2);
-            // 
-            // LB_PME_pregot
-            // 
-            this.LB_PME_pregot.AutoSize = true;
-            this.LB_PME_pregot.Location = new System.Drawing.Point(620, 501);
-            this.LB_PME_pregot.Name = "LB_PME_pregot";
-            this.LB_PME_pregot.Size = new System.Drawing.Size(0, 13);
-            this.LB_PME_pregot.TabIndex = 55;
-            // 
-            // LB_PM_pregot
-            // 
-            this.LB_PM_pregot.AutoSize = true;
-            this.LB_PM_pregot.Location = new System.Drawing.Point(495, 501);
-            this.LB_PM_pregot.Name = "LB_PM_pregot";
-            this.LB_PM_pregot.Size = new System.Drawing.Size(0, 13);
-            this.LB_PM_pregot.TabIndex = 54;
             // 
             // LB_PME_coloso
             // 
@@ -651,24 +607,6 @@
             this.label2.Text = "ESTADO           PROVEEDOR             LINEA              P. MAYOREO             " +
     "P. MENUDEO ";
             // 
-            // LB_pre_linea
-            // 
-            this.LB_pre_linea.AutoSize = true;
-            this.LB_pre_linea.Location = new System.Drawing.Point(377, 501);
-            this.LB_pre_linea.Name = "LB_pre_linea";
-            this.LB_pre_linea.Size = new System.Drawing.Size(0, 13);
-            this.LB_pre_linea.TabIndex = 38;
-            // 
-            // CKB_Pregot
-            // 
-            this.CKB_Pregot.AutoSize = true;
-            this.CKB_Pregot.Location = new System.Drawing.Point(11, 499);
-            this.CKB_Pregot.Name = "CKB_Pregot";
-            this.CKB_Pregot.Size = new System.Drawing.Size(57, 17);
-            this.CKB_Pregot.TabIndex = 38;
-            this.CKB_Pregot.Text = "Pregot";
-            this.CKB_Pregot.UseVisualStyleBackColor = true;
-            // 
             // LB_co_linea
             // 
             this.LB_co_linea.AutoSize = true;
@@ -759,14 +697,6 @@
             this.CKB_Bodega.Text = "Bodega";
             this.CKB_Bodega.UseVisualStyleBackColor = true;
             // 
-            // LB_prov_pregot
-            // 
-            this.LB_prov_pregot.AutoSize = true;
-            this.LB_prov_pregot.Location = new System.Drawing.Point(233, 501);
-            this.LB_prov_pregot.Name = "LB_prov_pregot";
-            this.LB_prov_pregot.Size = new System.Drawing.Size(0, 13);
-            this.LB_prov_pregot.TabIndex = 34;
-            // 
             // LB_prov_coloso
             // 
             this.LB_prov_coloso.AutoSize = true;
@@ -806,25 +736,6 @@
             this.LB_prov_bodega.Name = "LB_prov_bodega";
             this.LB_prov_bodega.Size = new System.Drawing.Size(0, 13);
             this.LB_prov_bodega.TabIndex = 33;
-            // 
-            // TB_pregot
-            // 
-            this.TB_pregot.Enabled = false;
-            this.TB_pregot.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TB_pregot.Location = new System.Drawing.Point(89, 496);
-            this.TB_pregot.Name = "TB_pregot";
-            this.TB_pregot.Size = new System.Drawing.Size(49, 22);
-            this.TB_pregot.TabIndex = 31;
-            // 
-            // LB_pregot
-            // 
-            this.LB_pregot.AutoSize = true;
-            this.LB_pregot.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LB_pregot.ForeColor = System.Drawing.Color.DarkGreen;
-            this.LB_pregot.Location = new System.Drawing.Point(147, 501);
-            this.LB_pregot.Name = "LB_pregot";
-            this.LB_pregot.Size = new System.Drawing.Size(0, 13);
-            this.LB_pregot.TabIndex = 32;
             // 
             // BT_limpiar
             // 
@@ -945,8 +856,6 @@
             // 
             this.panelPrecio.Controls.Add(this.LBBoPre);
             this.panelPrecio.Controls.Add(this.cBoxBo);
-            this.panelPrecio.Controls.Add(this.lblPre2);
-            this.panelPrecio.Controls.Add(this.cBoxPre2);
             this.panelPrecio.Controls.Add(this.lblCoPre);
             this.panelPrecio.Controls.Add(this.lblVePre);
             this.panelPrecio.Controls.Add(this.lblRePre);
@@ -974,7 +883,7 @@
             this.LBBoPre.AutoSize = true;
             this.LBBoPre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LBBoPre.ForeColor = System.Drawing.Color.DarkGreen;
-            this.LBBoPre.Location = new System.Drawing.Point(38, 105);
+            this.LBBoPre.Location = new System.Drawing.Point(311, 62);
             this.LBBoPre.Name = "LBBoPre";
             this.LBBoPre.Size = new System.Drawing.Size(0, 16);
             this.LBBoPre.TabIndex = 45;
@@ -982,32 +891,12 @@
             // cBoxBo
             // 
             this.cBoxBo.AutoSize = true;
-            this.cBoxBo.Location = new System.Drawing.Point(13, 87);
+            this.cBoxBo.Location = new System.Drawing.Point(286, 43);
             this.cBoxBo.Name = "cBoxBo";
             this.cBoxBo.Size = new System.Drawing.Size(63, 17);
             this.cBoxBo.TabIndex = 44;
             this.cBoxBo.Text = "Bodega";
             this.cBoxBo.UseVisualStyleBackColor = true;
-            // 
-            // lblPre2
-            // 
-            this.lblPre2.AutoSize = true;
-            this.lblPre2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPre2.ForeColor = System.Drawing.Color.DarkGreen;
-            this.lblPre2.Location = new System.Drawing.Point(291, 63);
-            this.lblPre2.Name = "lblPre2";
-            this.lblPre2.Size = new System.Drawing.Size(0, 16);
-            this.lblPre2.TabIndex = 43;
-            // 
-            // cBoxPre2
-            // 
-            this.cBoxPre2.AutoSize = true;
-            this.cBoxPre2.Location = new System.Drawing.Point(285, 43);
-            this.cBoxPre2.Name = "cBoxPre2";
-            this.cBoxPre2.Size = new System.Drawing.Size(57, 17);
-            this.cBoxPre2.TabIndex = 42;
-            this.cBoxPre2.Text = "Pregot";
-            this.cBoxPre2.UseVisualStyleBackColor = true;
             // 
             // lblCoPre
             // 
@@ -1237,25 +1126,17 @@
         private System.Windows.Forms.Label lblCoPre;
         private System.Windows.Forms.Label lblVePre;
         private System.Windows.Forms.Label lblRePre;
-        private System.Windows.Forms.TextBox TB_pregot;
-        private System.Windows.Forms.Label LB_pregot;
         private System.Windows.Forms.Label lblPre;
-        private System.Windows.Forms.CheckBox cBoxPre;
-        private System.Windows.Forms.Label lblPre2;
-        private System.Windows.Forms.CheckBox cBoxPre2;
-        private System.Windows.Forms.Label LB_prov_pregot;
         private System.Windows.Forms.Label LB_prov_coloso;
         private System.Windows.Forms.Label LB_prov_velazquez;
         private System.Windows.Forms.Label LB_prov_rena;
         private System.Windows.Forms.Label LB_prov_vallarta;
         private System.Windows.Forms.Label LB_prov_bodega;
-        private System.Windows.Forms.CheckBox CKB_Pregot;
         private System.Windows.Forms.CheckBox CKB_Coloso;
         private System.Windows.Forms.CheckBox CKB_Velazquez;
         private System.Windows.Forms.CheckBox CKB_Rena;
         private System.Windows.Forms.CheckBox CKB_Vallarta;
         private System.Windows.Forms.CheckBox CKB_Bodega;
-        private System.Windows.Forms.Label LB_pre_linea;
         private System.Windows.Forms.Label LB_co_linea;
         private System.Windows.Forms.Label LB_ve_linea;
         private System.Windows.Forms.Label LB_re_linea;
@@ -1264,8 +1145,6 @@
         private System.Windows.Forms.CheckBox cBoxBo;
         private System.Windows.Forms.Label LBBoPre;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label LB_PME_pregot;
-        private System.Windows.Forms.Label LB_PM_pregot;
         private System.Windows.Forms.Label LB_PME_coloso;
         private System.Windows.Forms.Label LB_PM_coloso;
         private System.Windows.Forms.Label LB_PME_velazquez;

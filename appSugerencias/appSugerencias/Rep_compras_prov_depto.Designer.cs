@@ -47,7 +47,17 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
             this.DG_tabla = new System.Windows.Forms.DataGridView();
+            this.CB_sucursal = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.BT_buscar = new System.Windows.Forms.Button();
+            this.DT_inicio = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.DT_fin = new System.Windows.Forms.DateTimePicker();
+            this.BT_exportar = new System.Windows.Forms.Button();
             this.ID_PROV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PROVEEEDOR = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FIESTA = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -68,15 +78,9 @@
             this.ESCOLAR = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.COVID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FEB14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MAYO10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MASCOTAS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TOTAL = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CB_sucursal = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.BT_buscar = new System.Windows.Forms.Button();
-            this.DT_inicio = new System.Windows.Forms.DateTimePicker();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.DT_fin = new System.Windows.Forms.DateTimePicker();
-            this.BT_exportar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DG_tabla)).BeginInit();
             this.SuspendLayout();
             // 
@@ -108,11 +112,94 @@
             this.ESCOLAR,
             this.COVID,
             this.FEB14,
+            this.MAYO10,
+            this.MASCOTAS,
             this.TOTAL});
             this.DG_tabla.Location = new System.Drawing.Point(-4, 104);
             this.DG_tabla.Name = "DG_tabla";
             this.DG_tabla.Size = new System.Drawing.Size(1437, 326);
             this.DG_tabla.TabIndex = 0;
+            // 
+            // CB_sucursal
+            // 
+            this.CB_sucursal.FormattingEnabled = true;
+            this.CB_sucursal.Items.AddRange(new object[] {
+            "BODEGA",
+            "VALLARTA",
+            "RENA",
+            "VELAZQUEZ",
+            "COLOSO"});
+            this.CB_sucursal.Location = new System.Drawing.Point(80, 23);
+            this.CB_sucursal.Name = "CB_sucursal";
+            this.CB_sucursal.Size = new System.Drawing.Size(121, 21);
+            this.CB_sucursal.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(9, 26);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(65, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "SUCURSAL";
+            // 
+            // BT_buscar
+            // 
+            this.BT_buscar.BackColor = System.Drawing.Color.DodgerBlue;
+            this.BT_buscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_buscar.ForeColor = System.Drawing.Color.White;
+            this.BT_buscar.Location = new System.Drawing.Point(507, 12);
+            this.BT_buscar.Name = "BT_buscar";
+            this.BT_buscar.Size = new System.Drawing.Size(110, 55);
+            this.BT_buscar.TabIndex = 5;
+            this.BT_buscar.Text = "BUSCAR";
+            this.BT_buscar.UseVisualStyleBackColor = false;
+            this.BT_buscar.Click += new System.EventHandler(this.BT_buscar_Click);
+            // 
+            // DT_inicio
+            // 
+            this.DT_inicio.Location = new System.Drawing.Point(286, 12);
+            this.DT_inicio.Name = "DT_inicio";
+            this.DT_inicio.Size = new System.Drawing.Size(200, 20);
+            this.DT_inicio.TabIndex = 6;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(241, 15);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(39, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "INICIO";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(241, 50);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(24, 13);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "FIN";
+            // 
+            // DT_fin
+            // 
+            this.DT_fin.Location = new System.Drawing.Point(286, 47);
+            this.DT_fin.Name = "DT_fin";
+            this.DT_fin.Size = new System.Drawing.Size(200, 20);
+            this.DT_fin.TabIndex = 8;
+            // 
+            // BT_exportar
+            // 
+            this.BT_exportar.BackColor = System.Drawing.Color.DodgerBlue;
+            this.BT_exportar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_exportar.ForeColor = System.Drawing.Color.White;
+            this.BT_exportar.Location = new System.Drawing.Point(637, 12);
+            this.BT_exportar.Name = "BT_exportar";
+            this.BT_exportar.Size = new System.Drawing.Size(110, 55);
+            this.BT_exportar.TabIndex = 10;
+            this.BT_exportar.Text = "EXPORTAR";
+            this.BT_exportar.UseVisualStyleBackColor = false;
+            this.BT_exportar.Click += new System.EventHandler(this.BT_exportar_Click);
             // 
             // ID_PROV
             // 
@@ -268,94 +355,29 @@
             this.FEB14.HeaderText = "14 DE FEB";
             this.FEB14.Name = "FEB14";
             // 
+            // MAYO10
+            // 
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MAYO10.DefaultCellStyle = dataGridViewCellStyle19;
+            this.MAYO10.HeaderText = "10 MAYO";
+            this.MAYO10.Name = "MAYO10";
+            // 
+            // MASCOTAS
+            // 
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MASCOTAS.DefaultCellStyle = dataGridViewCellStyle20;
+            this.MASCOTAS.HeaderText = "MASCOTAS";
+            this.MASCOTAS.Name = "MASCOTAS";
+            // 
             // TOTAL
             // 
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TOTAL.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TOTAL.DefaultCellStyle = dataGridViewCellStyle21;
             this.TOTAL.HeaderText = "TOTAL";
             this.TOTAL.Name = "TOTAL";
-            // 
-            // CB_sucursal
-            // 
-            this.CB_sucursal.FormattingEnabled = true;
-            this.CB_sucursal.Items.AddRange(new object[] {
-            "BODEGA",
-            "VALLARTA",
-            "RENA",
-            "VELAZQUEZ",
-            "COLOSO"});
-            this.CB_sucursal.Location = new System.Drawing.Point(80, 23);
-            this.CB_sucursal.Name = "CB_sucursal";
-            this.CB_sucursal.Size = new System.Drawing.Size(121, 21);
-            this.CB_sucursal.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 26);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "SUCURSAL";
-            // 
-            // BT_buscar
-            // 
-            this.BT_buscar.BackColor = System.Drawing.Color.DodgerBlue;
-            this.BT_buscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BT_buscar.ForeColor = System.Drawing.Color.White;
-            this.BT_buscar.Location = new System.Drawing.Point(507, 12);
-            this.BT_buscar.Name = "BT_buscar";
-            this.BT_buscar.Size = new System.Drawing.Size(110, 55);
-            this.BT_buscar.TabIndex = 5;
-            this.BT_buscar.Text = "BUSCAR";
-            this.BT_buscar.UseVisualStyleBackColor = false;
-            this.BT_buscar.Click += new System.EventHandler(this.BT_buscar_Click);
-            // 
-            // DT_inicio
-            // 
-            this.DT_inicio.Location = new System.Drawing.Point(286, 12);
-            this.DT_inicio.Name = "DT_inicio";
-            this.DT_inicio.Size = new System.Drawing.Size(200, 20);
-            this.DT_inicio.TabIndex = 6;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(241, 15);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(39, 13);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "INICIO";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(241, 50);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(24, 13);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "FIN";
-            // 
-            // DT_fin
-            // 
-            this.DT_fin.Location = new System.Drawing.Point(286, 47);
-            this.DT_fin.Name = "DT_fin";
-            this.DT_fin.Size = new System.Drawing.Size(200, 20);
-            this.DT_fin.TabIndex = 8;
-            // 
-            // BT_exportar
-            // 
-            this.BT_exportar.BackColor = System.Drawing.Color.DodgerBlue;
-            this.BT_exportar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BT_exportar.ForeColor = System.Drawing.Color.White;
-            this.BT_exportar.Location = new System.Drawing.Point(637, 12);
-            this.BT_exportar.Name = "BT_exportar";
-            this.BT_exportar.Size = new System.Drawing.Size(110, 55);
-            this.BT_exportar.TabIndex = 10;
-            this.BT_exportar.Text = "EXPORTAR";
-            this.BT_exportar.UseVisualStyleBackColor = false;
-            this.BT_exportar.Click += new System.EventHandler(this.BT_exportar_Click);
             // 
             // Rep_compras_prov_depto
             // 
@@ -391,6 +413,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DateTimePicker DT_fin;
+        private System.Windows.Forms.Button BT_exportar;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID_PROV;
         private System.Windows.Forms.DataGridViewTextBoxColumn PROVEEEDOR;
         private System.Windows.Forms.DataGridViewTextBoxColumn FIESTA;
@@ -411,7 +434,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ESCOLAR;
         private System.Windows.Forms.DataGridViewTextBoxColumn COVID;
         private System.Windows.Forms.DataGridViewTextBoxColumn FEB14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MAYO10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MASCOTAS;
         private System.Windows.Forms.DataGridViewTextBoxColumn TOTAL;
-        private System.Windows.Forms.Button BT_exportar;
     }
 }

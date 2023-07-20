@@ -219,6 +219,14 @@
     <Compile Include="Cajas\Enc Cajas\Vista\RevisionIncidenciasEtiquetas.Designer.cs">
       <DependentUpon>RevisionIncidenciasEtiquetas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Facturacion\Controlador\FacturacionController.cs" />
+    <Compile Include="Facturacion\Modelo\CantidadFacturar.cs" />
+    <Compile Include="Facturacion\Vista\CantFacturar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Facturacion\Vista\CantFacturar.Designer.cs">
+      <DependentUpon>CantFacturar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Comisiones\Controlador\CCajera.cs" />
     <Compile Include="Comisiones\Controlador\CCalificacion.cs" />
     <Compile Include="Comisiones\Controlador\CEmpleado.cs" />
@@ -481,6 +489,12 @@
     </Compile>
     <Compile Include="Gastos\Vistas\ResumenGastos.Designer.cs">
       <DependentUpon>ResumenGastos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Nombre_proveedor_pagos_programados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Nombre_proveedor_pagos_programados.Designer.cs">
+      <DependentUpon>Nombre_proveedor_pagos_programados.cs</DependentUpon>
     </Compile>
     <Compile Include="OrdenStockCompra.cs">
       <SubType>Form</SubType>
@@ -1389,16 +1403,30 @@
     </Compile>
     <Compile Include="Singleton.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="Stock Compras\Controlador\StockController.cs" />
+    <Compile Include="Stock Compras\Modelo\Pedido.cs" />
+    <Compile Include="Stock Compras\Vista\FormatoPedido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Stock Compras\Vista\FormatoPedido.Designer.cs">
+      <DependentUpon>FormatoPedido.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Stock Compras\Vista\ReporteGralAclaraciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Stock Compras\Vista\ReporteGralAclaraciones.Designer.cs">
+      <DependentUpon>ReporteGralAclaraciones.cs</DependentUpon>
+    </Compile>
     <Compile Include="StockLineaProv.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="StockLineaProv.Designer.cs">
       <DependentUpon>StockLineaProv.cs</DependentUpon>
     </Compile>
-    <Compile Include="StockOrdenCompra.cs">
+    <Compile Include="Stock Compras\Vista\StockOrdenCompra.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="StockOrdenCompra.Designer.cs">
+    <Compile Include="Stock Compras\Vista\StockOrdenCompra.Designer.cs">
       <DependentUpon>StockOrdenCompra.cs</DependentUpon>
     </Compile>
     <Compile Include="Sucursales.cs" />
@@ -1558,6 +1586,9 @@
     <EmbeddedResource Include="Cajas\Enc Cajas\Vista\RevisionIncidenciasEtiquetas.resx">
       <DependentUpon>RevisionIncidenciasEtiquetas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion\Vista\CantFacturar.resx">
+      <DependentUpon>CantFacturar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Comisiones\Vista\PrincipalComisiones.resx">
       <DependentUpon>PrincipalComisiones.cs</DependentUpon>
     </EmbeddedResource>
@@ -1674,6 +1705,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Gastos\Vistas\ResumenGastos.resx">
       <DependentUpon>ResumenGastos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Nombre_proveedor_pagos_programados.resx">
+      <DependentUpon>Nombre_proveedor_pagos_programados.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OrdenStockCompra.resx">
       <DependentUpon>OrdenStockCompra.cs</DependentUpon>
@@ -2156,10 +2190,16 @@
     <EmbeddedResource Include="Rp_pagocomisiones.resx">
       <DependentUpon>Rp_pagocomisiones.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Stock Compras\Vista\FormatoPedido.resx">
+      <DependentUpon>FormatoPedido.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Stock Compras\Vista\ReporteGralAclaraciones.resx">
+      <DependentUpon>ReporteGralAclaraciones.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="StockLineaProv.resx">
       <DependentUpon>StockLineaProv.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="StockOrdenCompra.resx">
+    <EmbeddedResource Include="Stock Compras\Vista\StockOrdenCompra.resx">
       <DependentUpon>StockOrdenCompra.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sugerencias.resx">

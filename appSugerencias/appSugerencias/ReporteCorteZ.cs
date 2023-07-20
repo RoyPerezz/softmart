@@ -343,13 +343,9 @@ namespace appSugerencias
 
             try
             {
-#pragma warning disable CS0219 // La variable 'mes' está asignada pero su valor nunca se usa
-#pragma warning disable CS0219 // La variable 'nombre' está asignada pero su valor nunca se usa
-#pragma warning disable CS0219 // La variable 'año' está asignada pero su valor nunca se usa
+
                 string mes = "", año = "", nombre = "";
-#pragma warning restore CS0219 // La variable 'año' está asignada pero su valor nunca se usa
-#pragma warning restore CS0219 // La variable 'nombre' está asignada pero su valor nunca se usa
-#pragma warning restore CS0219 // La variable 'mes' está asignada pero su valor nunca se usa
+
                 string sucursal = CB_sucursal.SelectedItem.ToString();
                 //if (RB_mes.Checked == true)
                 //{

@@ -109,10 +109,7 @@ namespace appSugerencias
                 con = BDConexicon.VelazquezOpen();
             }
 
-            if (sucursal.Equals("PREGOT"))
-            {
-                con = BDConexicon.Papeleria1Open();
-            }
+          
             return con;
         }
 
@@ -245,23 +242,7 @@ namespace appSugerencias
                     MessageBox.Show("Error" + ex.Message);
                 }
             }
-            else if (cbTienda.Text == "PREGOT")
-            {
-                try
-                { 
-                con = BDConexicon.Papeleria1Open();
-                guardaDatos();
-                    if (CB_bancosOsmart.SelectedItem.ToString().Equals("ACREEDOR"))
-                    {
-                        GuardarPagoAcreedor(con);
-                    }
-                    con.Close();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error" + ex.Message);
-                }
-            }
+            
 
             tbImporte.Text = "";
             tbObservaciones.Text = "";

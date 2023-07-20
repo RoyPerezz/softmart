@@ -1,5 +1,6 @@
 ﻿using appSugerencias.Gastos_Externos.Controlador;
 using appSugerencias.Gastos_Externos.Modelo;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -65,9 +66,57 @@ namespace appSugerencias.Gastos_Externos.Vistas
 
 
         }
-        private void ReporteGastosFinanzas_Gerencia_Load_1(object sender, EventArgs e)
+
+
+        public double CalcularSaldoCuenta(string banco,string cuenta)
         {
 
+            double saldo = 0;
+
+            try
+            {
+
+                MySqlConnection con = BDConexicon.BodegaOpen();
+                MySqlCommand cmd = new MySqlCommand("SELECT tienda,suc_pago,mov,ie,pagara,fecha,cantidad,ref_gastoexterno,suc_pago " +
+                    "FROM rd_historial_saldobancos " +
+                    "WHERE  banco='" + banco + "' and cuenta='" +cuenta+ "' ORDER BY FECHA", con);
+
+                MySqlDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+
+                    double cantidad = Convert.ToDouble(dr["cantidad"].ToString());
+                    if (dr["ie"].ToString().Equals("I"))
+                    {
+                        saldo += cantidad;
+                       // DG_tabla.Rows.Add(dr["mov"].ToString(), dr["pagara"].ToString(), dr["fecha"].ToString(), dr["ref_gastoexterno"].ToString(), dr["suc_pago"].ToString(), cantidad, "", saldo, dr["tienda"].ToString(), dr["suc_pago"].ToString());
+                    }
+
+                    if (dr["ie"].ToString().Equals("E"))
+                    {
+
+                        saldo -= cantidad;
+                        //DG_tabla.Rows.Add(dr["mov"].ToString(), dr["pagara"].ToString(), dr["fecha"].ToString(), dr["ref_gastoexterno"].ToString(), dr["suc_pago"].ToString(), "", cantidad, saldo, dr["tienda"].ToString(), dr["suc_pago"].ToString());
+                        
+                    }
+                }
+
+                dr.Close();
+                con.Close();
+
+                
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("ERROR EN ESTADO DE CUENTA DE CUENTAS OSMART: " + ex);
+            }
+            return saldo;
+        }
+        private void ReporteGastosFinanzas_Gerencia_Load_1(object sender, EventArgs e)
+        {
+            LB_saldo_finanzas.Text =  CalcularSaldoCuenta("FINANZAS", "ENVIO").ToString("C2");
         }
 
         private void BT_buscar_Click_1(object sender, EventArgs e)
@@ -186,6 +235,12 @@ namespace appSugerencias.Gastos_Externos.Vistas
            
 
             excel.Visible = true;
+        }
+
+        private void BT_abrir_Click(object sender, EventArgs e)
+        {
+            Rep_cuentas_osmart rep = new Rep_cuentas_osmart("INOCENCIO");
+            rep.Show();
         }
     }
 }

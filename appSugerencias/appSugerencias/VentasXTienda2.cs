@@ -27,12 +27,11 @@ namespace appSugerencias
 
         public void Consulta()
         {
-#pragma warning disable CS0219 // La variable 'importeDiaTo' está asignada pero su valor nunca se usa
+
             double importeDiaVa, importeDiaRe, importeDiaVe, importeDiaCo, importeDiaPre, importeDiaTo;
-#pragma warning restore CS0219 // La variable 'importeDiaTo' está asignada pero su valor nunca se usa
-#pragma warning disable CS0168 // La variable 'Total' se ha declarado pero nunca se usa
+
             double totalVa, totalRe, totalCo, totalVe, totalPre, Total;
-#pragma warning restore CS0168 // La variable 'Total' se ha declarado pero nunca se usa
+
             int renglonNuevo = 0; ;
 
             importeDiaTo = 0;

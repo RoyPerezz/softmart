@@ -508,7 +508,7 @@ namespace appSugerencias
             CHX_bd_re.Checked = true;
             CHX_bd_ve.Checked = true;
             CHX_bd_co.Checked = true;
-            CHX_bd_pre.Checked = true;
+            
         }
 
         private void groupBox3_Enter(object sender, EventArgs e)
@@ -1535,7 +1535,7 @@ namespace appSugerencias
 
 
             TB_pagoVA.Text = "";TB_pagoRE.Text = "";TB_pagoCO.Text = "";TB_pagoVE.Text = "";/*TB_pagoPRE.Text = ""*/;
-            CHK_va.Checked = false;CHK_re.Checked = false;CHK_ve.Checked = false;CHK_co.Checked = false;CHK_pre.Checked = false;
+            CHK_va.Checked = false;CHK_re.Checked = false;CHK_ve.Checked = false;CHK_co.Checked = false;
             tiendaOrigen = "";
             /*CB_tienda.SelectedIndex = 0;CB_bancosOsmart.SelectedIndex = 0; CB_cuentasOsmart.SelectedIndex = 0; CB_pagara.SelectedIndex = -1;*/TB_abono.Text = "";
             MessageBox.Show("SE HA REALIZADO EL PASO DE EFECTIVO A LA CUENTA");

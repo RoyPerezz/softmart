@@ -136,9 +136,9 @@ namespace appSugerencias
                 LB_estado_va.Text = "CONECTADO";
                 LB_estado_va.ForeColor = Color.Green;
             }
-#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
+
             catch (Exception ex)
-#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
+
             {
                 LB_estado_va.Text = "SIN CONEXION";
                 LB_estado_va.ForeColor = Color.Red;

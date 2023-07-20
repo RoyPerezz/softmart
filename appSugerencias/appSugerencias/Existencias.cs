@@ -330,59 +330,59 @@ namespace appSugerencias
            
         }
 
-        public void Pregot()
-        {
-            try
-            {
-                MySqlConnection con = BDConexicon.Papeleria1Open();
-            MySqlCommand cmd = new MySqlCommand("select existencia,linea,precio1,precio2,fabricante,impuesto from prods where articulo='" + TB_articulo.Text + "'", con);
-            MySqlDataReader rd = cmd.ExecuteReader();
+    //    public void Pregot()
+    //    {
+    //        try
+    //        {
+    //            MySqlConnection con = BDConexicon.Papeleria1Open();
+    //        MySqlCommand cmd = new MySqlCommand("select existencia,linea,precio1,precio2,fabricante,impuesto from prods where articulo='" + TB_articulo.Text + "'", con);
+    //        MySqlDataReader rd = cmd.ExecuteReader();
 
-                double precio1 = 0, precio2 = 0;
+    //            double precio1 = 0, precio2 = 0;
 
-            if (rd.Read())
-            {
-                TB_pregot.Text = rd["existencia"].ToString();
-                LB_prov_pregot.Text = rd["fabricante"].ToString();
-                LB_pre_linea.Text = rd["linea"].ToString();
-                LB_pregot.Text = "Conectado";
-                    if (rd["impuesto"].ToString().Equals("SYS") || rd["impuesto"].ToString().Equals("sys"))
-                    {
-                        precio1 = Convert.ToDouble(rd["precio1"].ToString());
-                        precio2 = Convert.ToDouble(rd["precio2"].ToString());
-                        LB_PM_pregot.Text = precio2.ToString("C2");
-                        LB_PME_pregot.Text = precio1.ToString("C2");
-                    }
-                    else
-                    {
-                        precio1 = Convert.ToDouble(rd["precio1"].ToString());
-                        precio2 = Convert.ToDouble(rd["precio2"].ToString());
+    //        if (rd.Read())
+    //        {
+    //            TB_pregot.Text = rd["existencia"].ToString();
+    //            LB_prov_pregot.Text = rd["fabricante"].ToString();
+    //            LB_pre_linea.Text = rd["linea"].ToString();
+    //            LB_pregot.Text = "Conectado";
+    //                if (rd["impuesto"].ToString().Equals("SYS") || rd["impuesto"].ToString().Equals("sys"))
+    //                {
+    //                    precio1 = Convert.ToDouble(rd["precio1"].ToString());
+    //                    precio2 = Convert.ToDouble(rd["precio2"].ToString());
+    //                    LB_PM_pregot.Text = precio2.ToString("C2");
+    //                    LB_PME_pregot.Text = precio1.ToString("C2");
+    //                }
+    //                else
+    //                {
+    //                    precio1 = Convert.ToDouble(rd["precio1"].ToString());
+    //                    precio2 = Convert.ToDouble(rd["precio2"].ToString());
 
-                        precio1 += precio1 * 0.16;
-                        precio2 += precio2 * 0.16;
-                        LB_PM_pregot.Text = Convert.ToString(precio2.ToString("C"));
-                        LB_PME_pregot.Text = Convert.ToString(precio1.ToString("C"));
-                    }
+    //                    precio1 += precio1 * 0.16;
+    //                    precio2 += precio2 * 0.16;
+    //                    LB_PM_pregot.Text = Convert.ToString(precio2.ToString("C"));
+    //                    LB_PME_pregot.Text = Convert.ToString(precio1.ToString("C"));
+    //                }
 
-                    LB_pregot.ForeColor = Color.DarkGreen;
-            }
-            else
-            {
-                LB_pregot.Text = "No existe";
-                LB_pregot.ForeColor = Color.Red;
-            }
+    //                LB_pregot.ForeColor = Color.DarkGreen;
+    //        }
+    //        else
+    //        {
+    //            //LB_pregot.Text = "No existe";
+    //            //LB_pregot.ForeColor = Color.Red;
+    //        }
 
-            rd.Close();
-            con.Close();
+    //        rd.Close();
+    //        con.Close();
 
-#pragma warning disable CS0168 // La variable 'e' se ha declarado pero nunca se usa
-        }catch (Exception e)
-#pragma warning restore CS0168 // La variable 'e' se ha declarado pero nunca se usa
-            {
-                LB_pregot.Text = "Sin conexion";
-                LB_pregot.ForeColor = Color.Red;
-            }
-    }
+
+    //    }catch (Exception e)
+
+    //        {
+    //            //LB_pregot.Text = "Sin conexion";
+    //            //LB_pregot.ForeColor = Color.Red;
+    //        }
+    //}
 
 
         public void DatosProducto()
@@ -478,7 +478,7 @@ namespace appSugerencias
                 lblVaPre.Text = "";
                 lblRePre.Text = "";
                 lblVePre.Text = "";
-                lblCoPre.Text = "";
+                //lblCoPre.Text = "";
 
                 DatosProducto();
 
@@ -507,10 +507,10 @@ namespace appSugerencias
                     Coloso();
                 }
 
-                if (CKB_Pregot.Checked == true)
-                {
-                    Pregot();
-                }
+                //if (CKB_Pregot.Checked == true)
+                //{
+                //    Pregot();
+                //}
                 
 
 
@@ -772,54 +772,54 @@ namespace appSugerencias
         }
 
 
-        public void PregotOferta()
-        {
+//        public void PregotOferta()
+//        {
 
-            MySqlConnection con = BDConexicon.Papeleria1Open();
-            try
-            {
-                DateTime Finicio = dt_Inicio.Value;
-                DateTime Ffin = dt_Fin.Value;
+//            MySqlConnection con = BDConexicon.Papeleria1Open();
+//            try
+//            {
+//                DateTime Finicio = dt_Inicio.Value;
+//                DateTime Ffin = dt_Fin.Value;
 
-                string inicio = getDate(Finicio);
-                string fin = getDate(Ffin);
+//                string inicio = getDate(Finicio);
+//                string fin = getDate(Ffin);
 
 
 
-                MySqlCommand cmdoo = new MySqlCommand("UPDATE prods SET oferta=1  WHERE articulo=?articulo", con);
-                cmdoo.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = TB_articulo.Text;
-                MySqlDataReader mdrr;
-                mdrr = cmdoo.ExecuteReader();
-                mdrr.Close();
+//                MySqlCommand cmdoo = new MySqlCommand("UPDATE prods SET oferta=1  WHERE articulo=?articulo", con);
+//                cmdoo.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = TB_articulo.Text;
+//                MySqlDataReader mdrr;
+//                mdrr = cmdoo.ExecuteReader();
+//                mdrr.Close();
 
-                MySqlCommand cmdo = new MySqlCommand("DELETE FROM ofertas WHERE articulo=?articulo", con);
-                cmdo.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = TB_articulo.Text;
-                MySqlDataReader mdr;
-                mdr = cmdo.ExecuteReader();
-                mdr.Close();
+//                MySqlCommand cmdo = new MySqlCommand("DELETE FROM ofertas WHERE articulo=?articulo", con);
+//                cmdo.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = TB_articulo.Text;
+//                MySqlDataReader mdr;
+//                mdr = cmdo.ExecuteReader();
+//                mdr.Close();
 
-                MySqlCommand cmd = new MySqlCommand("INSERT INTO ofertas(articulo,fechainicial,fechafinal,porporcentaje,porcentaje) VALUES(?articulo,?fechainicial,?fechafinal,?porporcentaje,?porcentaje)", con);
-                cmd.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = TB_articulo.Text;
-                cmd.Parameters.Add("?fechainicial", MySqlDbType.VarChar).Value = inicio;
-                cmd.Parameters.Add("?fechafinal", MySqlDbType.VarChar).Value = fin;
-                cmd.Parameters.Add("?porporcentaje", MySqlDbType.Int16).Value = 1;
-                cmd.Parameters.Add("?porcentaje", MySqlDbType.Float).Value = (float)Convert.ToDouble(tbporcentaje.Text);
-                cmd.ExecuteNonQuery();
+//                MySqlCommand cmd = new MySqlCommand("INSERT INTO ofertas(articulo,fechainicial,fechafinal,porporcentaje,porcentaje) VALUES(?articulo,?fechainicial,?fechafinal,?porporcentaje,?porcentaje)", con);
+//                cmd.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = TB_articulo.Text;
+//                cmd.Parameters.Add("?fechainicial", MySqlDbType.VarChar).Value = inicio;
+//                cmd.Parameters.Add("?fechafinal", MySqlDbType.VarChar).Value = fin;
+//                cmd.Parameters.Add("?porporcentaje", MySqlDbType.Int16).Value = 1;
+//                cmd.Parameters.Add("?porcentaje", MySqlDbType.Float).Value = (float)Convert.ToDouble(tbporcentaje.Text);
+//                cmd.ExecuteNonQuery();
 
-                //limpiarOferta();
+//                //limpiarOferta();
 
-                lblPre.Text = "OK";
-                //MessageBox.Show("Los datos se Guardaron");
-            }
-#pragma warning disable CS0168 // La variable 'e' se ha declarado pero nunca se usa
-            catch (Exception e)
-#pragma warning restore CS0168 // La variable 'e' se ha declarado pero nunca se usa
-            {
-                lblPre.Text = "N/A";
-                lblPre.ForeColor = Color.Red;
-            }
-            con.Close();
-        }
+//                lblPre.Text = "OK";
+//                //MessageBox.Show("Los datos se Guardaron");
+//            }
+//#pragma warning disable CS0168 // La variable 'e' se ha declarado pero nunca se usa
+//            catch (Exception e)
+//#pragma warning restore CS0168 // La variable 'e' se ha declarado pero nunca se usa
+//            {
+//                lblPre.Text = "N/A";
+//                lblPre.ForeColor = Color.Red;
+//            }
+//            con.Close();
+//        }
 
         public void limpiarPrecio()
         {
@@ -828,7 +828,7 @@ namespace appSugerencias
             cBoxRePrecio.Checked = false;
             cBoxVePrecio.Checked = false;
             cBoxCoPrecio.Checked = false;
-            cBoxPre2.Checked = false;
+            //cBoxPre2.Checked = false;
 
             tbPrecio1.Text = "";
             tbPrecio2.Text = "";
@@ -841,7 +841,7 @@ namespace appSugerencias
             cBoxRe.Checked = false;
             cBoxVe.Checked = false;
             cBoxCo.Checked = false;
-            cBoxPre.Checked = false;
+            //cBoxPre.Checked = false;
             tbporcentaje.Text = "";
         }
 
@@ -903,7 +903,7 @@ namespace appSugerencias
             CKB_Rena.Checked = true;
             CKB_Coloso.Checked = true;
             CKB_Velazquez.Checked = true;
-            CKB_Pregot.Checked = true;
+            //CKB_Pregot.Checked = true;
 
             //ocultar componentes
            
@@ -917,14 +917,14 @@ namespace appSugerencias
                 LB_PM_rena.Visible = true;
                 LB_PM_coloso.Visible = true;
                 LB_PM_velazquez.Visible = true;
-                LB_PM_pregot.Visible = true;
+                //LB_PM_pregot.Visible = true;
 
                 LB_PME_bodega.Visible = true;
                 LB_PME_vallarta.Visible = true;
                 LB_PME_rena.Visible = true;
                 LB_PME_velazquez.Visible = true;
                 LB_PME_coloso.Visible = true;
-                LB_PME_pregot.Visible = true;
+                //LB_PME_pregot.Visible = true;
 
                 if (area.Equals("COMPRAS") || area.Equals("ADMON GRAL") || area.Equals("SISTEMAS"))
                 {
@@ -1243,14 +1243,14 @@ namespace appSugerencias
             TB_rena.Text = "";
             TB_vallarta.Text = "";
             TB_velazquez.Text = "";
-            TB_pregot.Text = "";
+            //TB_pregot.Text = "";
 
             Lb_bodega.Text = "";
             LB_rena.Text = "";
             LB_coloso.Text = "";
             LB_vallarta.Text = "";
             LB_velazquez.Text = "";
-            LB_pregot.Text = "";
+            //LB_pregot.Text = "";
         }
 
         private void BT_limpiar_Click(object sender, EventArgs e)
@@ -1282,7 +1282,7 @@ namespace appSugerencias
 
         private void AplicaOferta_Click_3(object sender, EventArgs e)
         {
-            if (cBoxVa.Checked == false & cBoxRe.Checked == false & cBoxVe.Checked == false & cBoxCo.Checked == false & cBoxPre.Checked==false)
+            if (cBoxVa.Checked == false & cBoxRe.Checked == false & cBoxVe.Checked == false & cBoxCo.Checked == false )
             {
                 MessageBox.Show("Selecciona una Tienda para aplicar la Oferta");
             }
@@ -1356,23 +1356,23 @@ namespace appSugerencias
                     //MessageBox.Show("Coloso");
                 }
             }
-            if (cBoxPre.Checked)
-            {
-                if (string.IsNullOrEmpty(TB_articulo.Text))
-                {
-                    MessageBox.Show("Inserta Codigo de Articulo");
+            //if (cBoxPre.Checked)
+            //{
+            //    if (string.IsNullOrEmpty(TB_articulo.Text))
+            //    {
+            //        MessageBox.Show("Inserta Codigo de Articulo");
 
-                }
-                else if (string.IsNullOrEmpty(tbporcentaje.Text))
-                {
-                    MessageBox.Show("Inserta Porcentaje de Descuento");
-                }
-                else
-                {
-                    PregotOferta();
-                    //MessageBox.Show("Coloso");
-                }
-            }
+            //    }
+            //    else if (string.IsNullOrEmpty(tbporcentaje.Text))
+            //    {
+            //        MessageBox.Show("Inserta Porcentaje de Descuento");
+            //    }
+            //    else
+            //    {
+            //        PregotOferta();
+            //        //MessageBox.Show("Coloso");
+            //    }
+            //}
             else
             {
                 limpiarOferta();
@@ -1384,7 +1384,7 @@ namespace appSugerencias
             // APLICACION DE PRECIO
             
 
-            if (cBoxVaPrecio.Checked == false & cBoxRePrecio.Checked == false & cBoxVePrecio.Checked == false & cBoxCoPrecio.Checked == false &cBoxPre2.Checked==false & cBoxBo.Checked == false)
+            if (cBoxVaPrecio.Checked == false & cBoxRePrecio.Checked == false & cBoxVePrecio.Checked == false & cBoxCoPrecio.Checked == false & cBoxBo.Checked == false)
             {
                 MessageBox.Show("Selecciona una Tienda para aplicar la Oferta");
             }
@@ -1474,26 +1474,26 @@ namespace appSugerencias
                     //MessageBox.Show("Coloso");
                 }
             }
-            if (cBoxPre2.Checked)
-            {
-                if (string.IsNullOrEmpty(TB_articulo.Text))
-                {
-                    MessageBox.Show("Inserta Codigo de Articulo");
+            //if (cBoxPre2.Checked)
+            //{
+            //    if (string.IsNullOrEmpty(TB_articulo.Text))
+            //    {
+            //        MessageBox.Show("Inserta Codigo de Articulo");
 
-                }
-                else if (string.IsNullOrEmpty(tbPrecio1.Text))
-                {
-                    MessageBox.Show("Inserta Precio Menudeo");
-                }
-                else if (string.IsNullOrEmpty(tbPrecio2.Text))
-                {
-                    MessageBox.Show("Inserta Precio Mayoreo");
-                }
-                {
-                    PregotPrecio();
-                    //MessageBox.Show("Coloso");
-                }
-            }
+            //    }
+            //    else if (string.IsNullOrEmpty(tbPrecio1.Text))
+            //    {
+            //        MessageBox.Show("Inserta Precio Menudeo");
+            //    }
+            //    else if (string.IsNullOrEmpty(tbPrecio2.Text))
+            //    {
+            //        MessageBox.Show("Inserta Precio Mayoreo");
+            //    }
+            //    {
+            //        PregotPrecio();
+            //        //MessageBox.Show("Coloso");
+            //    }
+            //}
 
             if (cBoxBo.Checked)
             {
@@ -1670,42 +1670,42 @@ namespace appSugerencias
         }
 
 
-        public void PregotPrecio()
-        {
+//        public void PregotPrecio()
+//        {
 
-            MySqlConnection con=null;            
+//            MySqlConnection con=null;            
                 
-            try
-            {
-               con = BDConexicon.Papeleria1Open();
-                double Precio1 = Convert.ToDouble(tbPrecio1.Text);
-                double Precio2 = Convert.ToDouble(tbPrecio2.Text);
-                Precio1 = Precio1 / 1.16;
-                Precio2 = Precio2 / 1.16;
+//            try
+//            {
+//               con = BDConexicon.Papeleria1Open();
+//                double Precio1 = Convert.ToDouble(tbPrecio1.Text);
+//                double Precio2 = Convert.ToDouble(tbPrecio2.Text);
+//                Precio1 = Precio1 / 1.16;
+//                Precio2 = Precio2 / 1.16;
 
 
-                MySqlCommand cmdoo = new MySqlCommand("UPDATE prods SET precio1=?precio1,precio2=?precio2  WHERE articulo=?articulo", con);
-                cmdoo.Parameters.Add("?precio1", MySqlDbType.VarChar).Value = Precio1;
-                cmdoo.Parameters.Add("?precio2", MySqlDbType.VarChar).Value = Precio2;
-                cmdoo.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = TB_articulo.Text;
-                MySqlDataReader mdrr;
-                mdrr = cmdoo.ExecuteReader();
-                mdrr.Close();
+//                MySqlCommand cmdoo = new MySqlCommand("UPDATE prods SET precio1=?precio1,precio2=?precio2  WHERE articulo=?articulo", con);
+//                cmdoo.Parameters.Add("?precio1", MySqlDbType.VarChar).Value = Precio1;
+//                cmdoo.Parameters.Add("?precio2", MySqlDbType.VarChar).Value = Precio2;
+//                cmdoo.Parameters.Add("?articulo", MySqlDbType.VarChar).Value = TB_articulo.Text;
+//                MySqlDataReader mdrr;
+//                mdrr = cmdoo.ExecuteReader();
+//                mdrr.Close();
 
 
-                lblPre2.Text = "OK";
-                lblPre2.ForeColor = Color.DarkGreen;
+//                lblPre2.Text = "OK";
+//                lblPre2.ForeColor = Color.DarkGreen;
 
-            }
-#pragma warning disable CS0168 // La variable 'e' se ha declarado pero nunca se usa
-            catch (Exception e)
-#pragma warning restore CS0168 // La variable 'e' se ha declarado pero nunca se usa
-            {
-                lblPre2.Text = "N/A";
-                lblPre2.ForeColor = Color.Red;
-            }
-            con.Close();
-        }
+//            }
+//#pragma warning disable CS0168 // La variable 'e' se ha declarado pero nunca se usa
+//            catch (Exception e)
+//#pragma warning restore CS0168 // La variable 'e' se ha declarado pero nunca se usa
+//            {
+//                lblPre2.Text = "N/A";
+//                lblPre2.ForeColor = Color.Red;
+//            }
+//            con.Close();
+//        }
 
 
         private void BodegaPrecio()
@@ -1754,7 +1754,7 @@ namespace appSugerencias
                 cBoxRePrecio.Checked = true;
                 cBoxVePrecio.Checked = true;
                 cBoxCoPrecio.Checked = true;
-                cBoxPre2.Checked = true;
+                //cBoxPre2.Checked = true;
                 cBoxBo.Checked = true;
             }
             else if (!cBoxTodasPrecio.Checked)
@@ -1763,7 +1763,7 @@ namespace appSugerencias
                 cBoxRePrecio.Checked = false;
                 cBoxVePrecio.Checked = false;
                 cBoxCoPrecio.Checked = false;
-                cBoxPre2.Checked = false;
+                //cBoxPre2.Checked = false;
                 cBoxBo.Checked = false;
             }
         }
@@ -1776,7 +1776,7 @@ namespace appSugerencias
                 cBoxRe.Checked = true;
                 cBoxVe.Checked = true;
                 cBoxCo.Checked = true;
-                cBoxPre.Checked = true;
+                //cBoxPre.Checked = true;
             }
             else if (!cBoxTodas.Checked)
             {
@@ -1784,7 +1784,7 @@ namespace appSugerencias
                 cBoxRe.Checked = false;
                 cBoxVe.Checked = false;
                 cBoxCo.Checked = false;
-                cBoxPre.Checked = false;
+                //cBoxPre.Checked = false;
 
             }
         }
@@ -1799,18 +1799,18 @@ namespace appSugerencias
             lblRe.Text = "";
             lblVe.Text = "";
             lblCo.Text = "";
-            lblPre.Text = "";
+            //lblPre.Text = "";
 
             lblVaPre.Text = "";
             lblRePre.Text = "";
             lblVePre.Text = "";
             lblCoPre.Text = "";
-            lblPre2.Text = "";
+            //lblPre2.Text = "";
             LBBoPre.Text = "";
 
             LB_prov_bodega.Text = "";
             LB_prov_coloso.Text = "";
-            LB_prov_pregot.Text = "";
+            //LB_prov_pregot.Text = "";
             LB_prov_rena.Text = "";
             LB_prov_vallarta.Text = "";
             LB_prov_velazquez.Text = "";
@@ -1820,7 +1820,7 @@ namespace appSugerencias
             LB_re_linea.Text = "";
             LB_ve_linea.Text = "";
             LB_co_linea.Text = "";
-            LB_pre_linea.Text = "";
+            //LB_pre_linea.Text = "";
         }
 
         private void TB_articulo_KeyPress(object sender, KeyPressEventArgs e)
@@ -1839,13 +1839,13 @@ namespace appSugerencias
                     lblRe.Text = "";
                     lblVe.Text = "";
                     lblCo.Text = "";
-                    lblPre.Text = "";
+                    //lblPre.Text = "";
 
                     lblVaPre.Text = "";
                     lblRePre.Text = "";
                     lblVePre.Text = "";
                     lblCoPre.Text = "";
-                    lblPre2.Text = "";
+                    //lblPre2.Text = "";
                     LBBoPre.Text = "";
 
                     DatosProducto();
@@ -1874,10 +1874,10 @@ namespace appSugerencias
                         Coloso();
                     }
 
-                    if (CKB_Pregot.Checked == true)
-                    {
-                        Pregot();
-                    }
+                    //if (CKB_Pregot.Checked == true)
+                    //{
+                    //    Pregot();
+                    //}
                   
 
 
@@ -1894,19 +1894,19 @@ namespace appSugerencias
                 lblRe.Text = "";
                 lblVe.Text = "";
                 lblCo.Text = "";
-                lblPre.Text = "";
+                //lblPre.Text = "";
 
                 lblVaPre.Text = "";
                 lblRePre.Text = "";
                 lblVePre.Text = "";
                 lblCoPre.Text = "";
-                lblPre2.Text = "";
+                //lblPre2.Text = "";
                 LBBoPre.Text = "";
 
 
                 LB_prov_bodega.Text = "";
                 LB_prov_coloso.Text = "";
-                LB_prov_pregot.Text = "";
+                //LB_prov_pregot.Text = "";
                 LB_prov_rena.Text = "";
                 LB_prov_vallarta.Text = "";
                 LB_prov_velazquez.Text = "";
@@ -1916,7 +1916,7 @@ namespace appSugerencias
                 LB_re_linea.Text = "";
                 LB_ve_linea.Text = "";
                 LB_co_linea.Text = "";
-                LB_pre_linea.Text = "";
+                //LB_pre_linea.Text = "";
 
                 TB_articulo.Focus();
                 TB_articulo.SelectAll();

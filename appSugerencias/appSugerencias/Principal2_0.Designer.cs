@@ -1555,8 +1555,9 @@
             this.capturaAsistenciaToolStripMenuItem,
             this.multiKardexToolStripMenuItem});
             this.micelaniaToolStripMenuItem.Name = "micelaniaToolStripMenuItem";
-            this.micelaniaToolStripMenuItem.Size = new System.Drawing.Size(76, 20);
-            this.micelaniaToolStripMenuItem.Text = "Miscelania";
+            this.micelaniaToolStripMenuItem.Size = new System.Drawing.Size(80, 20);
+            this.micelaniaToolStripMenuItem.Text = "Miscelanea";
+            this.micelaniaToolStripMenuItem.Click += new System.EventHandler(this.micelaniaToolStripMenuItem_Click);
             // 
             // existenciasToolStripMenuItem
             // 

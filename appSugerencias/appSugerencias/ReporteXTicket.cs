@@ -293,9 +293,9 @@ namespace appSugerencias
 
             try
             {
-#pragma warning disable CS0219 // La variable 'año' está asignada pero su valor nunca se usa
+
                 string mes = "", año = "", nombre = "";
-#pragma warning restore CS0219 // La variable 'año' está asignada pero su valor nunca se usa
+
                 DateTime inicio = DT_inicio.Value;
                 DateTime finFecha = DT_fin.Value;
                 string sucursal = CB_sucursal.SelectedItem.ToString();

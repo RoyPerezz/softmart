@@ -32,14 +32,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.DG_tabla = new System.Windows.Forms.DataGridView();
-            this.BT_Aceptar = new System.Windows.Forms.Button();
-            this.DT_inicio = new System.Windows.Forms.DateTimePicker();
-            this.DT_fin = new System.Windows.Forms.DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.CB_sucursal = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.BT_revisado = new System.Windows.Forms.Button();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PROVEEDOR = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IMPORTE = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,6 +40,14 @@
             this.FECHA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TIENDA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CHECK = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.BT_Aceptar = new System.Windows.Forms.Button();
+            this.DT_inicio = new System.Windows.Forms.DateTimePicker();
+            this.DT_fin = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.CB_sucursal = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.BT_revisado = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DG_tabla)).BeginInit();
             this.SuspendLayout();
             // 
@@ -84,6 +84,47 @@
             this.DG_tabla.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.DG_tabla.Size = new System.Drawing.Size(1093, 326);
             this.DG_tabla.TabIndex = 0;
+            // 
+            // ID
+            // 
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.Visible = false;
+            // 
+            // PROVEEDOR
+            // 
+            this.PROVEEDOR.HeaderText = "PROVEEDOR";
+            this.PROVEEDOR.Name = "PROVEEDOR";
+            // 
+            // IMPORTE
+            // 
+            this.IMPORTE.HeaderText = "IMPORTE";
+            this.IMPORTE.Name = "IMPORTE";
+            // 
+            // REFERENCIA
+            // 
+            this.REFERENCIA.HeaderText = "REFERENCIA";
+            this.REFERENCIA.Name = "REFERENCIA";
+            // 
+            // REALIZÓ
+            // 
+            this.REALIZÓ.HeaderText = "REALIZÓ";
+            this.REALIZÓ.Name = "REALIZÓ";
+            // 
+            // FECHA
+            // 
+            this.FECHA.HeaderText = "FECHA";
+            this.FECHA.Name = "FECHA";
+            // 
+            // TIENDA
+            // 
+            this.TIENDA.HeaderText = "TIENDA";
+            this.TIENDA.Name = "TIENDA";
+            // 
+            // CHECK
+            // 
+            this.CHECK.HeaderText = "CHECK";
+            this.CHECK.Name = "CHECK";
             // 
             // BT_Aceptar
             // 
@@ -143,8 +184,7 @@
             "VALLARTA",
             "RENA",
             "VELAZQUEZ",
-            "COLOSO",
-            "PREGOT"});
+            "COLOSO"});
             this.CB_sucursal.Location = new System.Drawing.Point(96, 46);
             this.CB_sucursal.Name = "CB_sucursal";
             this.CB_sucursal.Size = new System.Drawing.Size(157, 28);
@@ -172,47 +212,6 @@
             this.BT_revisado.Text = "REVISADO";
             this.BT_revisado.UseVisualStyleBackColor = false;
             this.BT_revisado.Click += new System.EventHandler(this.BT_revisado_Click);
-            // 
-            // ID
-            // 
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.Visible = false;
-            // 
-            // PROVEEDOR
-            // 
-            this.PROVEEDOR.HeaderText = "PROVEEDOR";
-            this.PROVEEDOR.Name = "PROVEEDOR";
-            // 
-            // IMPORTE
-            // 
-            this.IMPORTE.HeaderText = "IMPORTE";
-            this.IMPORTE.Name = "IMPORTE";
-            // 
-            // REFERENCIA
-            // 
-            this.REFERENCIA.HeaderText = "REFERENCIA";
-            this.REFERENCIA.Name = "REFERENCIA";
-            // 
-            // REALIZÓ
-            // 
-            this.REALIZÓ.HeaderText = "REALIZÓ";
-            this.REALIZÓ.Name = "REALIZÓ";
-            // 
-            // FECHA
-            // 
-            this.FECHA.HeaderText = "FECHA";
-            this.FECHA.Name = "FECHA";
-            // 
-            // TIENDA
-            // 
-            this.TIENDA.HeaderText = "TIENDA";
-            this.TIENDA.Name = "TIENDA";
-            // 
-            // CHECK
-            // 
-            this.CHECK.HeaderText = "CHECK";
-            this.CHECK.Name = "CHECK";
             // 
             // Pagos_efe_enc_cajas
             // 

@@ -15,6 +15,7 @@ using appSugerencias.Gastos;
 using appSugerencias.Cajas.Cajeras.Vista;
 using appSugerencias.Cajas.Enc_Cajas.Vista;
 using appSugerencias.Comisiones.Vista;
+using appSugerencias.Stock_Compras.Vista;
 
 namespace appSugerencias
 {

@@ -471,6 +471,7 @@
             this.CB_filtro_prov.Name = "CB_filtro_prov";
             this.CB_filtro_prov.Size = new System.Drawing.Size(311, 21);
             this.CB_filtro_prov.TabIndex = 21;
+            this.CB_filtro_prov.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CB_filtro_prov_KeyPress);
             // 
             // RB_prov
             // 
@@ -529,6 +530,7 @@
             this.Name = "Rep_pagosprogramados";
             this.Text = "Reporte de Solitud de Pagos";
             this.Load += new System.EventHandler(this.Rep_pagosprogramados_Load);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Rep_pagosprogramados_KeyPress);
             ((System.ComponentModel.ISupportInitialize)(this.DG_tabla)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

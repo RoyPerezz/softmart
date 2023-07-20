@@ -1811,36 +1811,51 @@ namespace appSugerencias
 
     public partial class HeaderFooter : PdfPageEventHelper
     {
-        
+
 
         public override void OnEndPage(PdfWriter writer, Document document)
         {
             Singleton s = Singleton.obtenerInstancia();
             string sucursal = s.getNombreTienda();
+            string nombreReporte = s.GetNombreReporte();
 
-
-      
+            PdfPTable tbHeader = new PdfPTable(1);
 
             //base.OnEndPage(writer, document);
-
-
+           
+           
+           
             DateTime fecha = DateTime.Today;
-            PdfPTable tbHeader = new PdfPTable(1);
+            
             tbHeader.TotalWidth = document.PageSize.Width - document.LeftMargin - document.RightMargin;
             tbHeader.DefaultCell.Border = 0;
 
             tbHeader.AddCell(new Paragraph());
+            PdfPCell _cell;
+            if (nombreReporte.Equals(""))
+            {
+                _cell = new PdfPCell(new Paragraph("RESUMEN DE CUENTAS POR PAGAR AL DIA " + fecha.ToString("dd/MM/yyyy                    ") + sucursal));
+                _cell.Border = 0;
+                _cell.PaddingTop = 10;
+                _cell.PaddingBottom = 10;
+            }
+            else
+            {
+                _cell = new PdfPCell(new Phrase("Orden de pedido", FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 14, BaseColor.WHITE)));
+                _cell.BackgroundColor = BaseColor.LIGHT_GRAY;
+                _cell.PaddingBottom = 5;
+                _cell.PaddingLeft = 5;
+                _cell.Border = 0;
 
-
-            PdfPCell _cell = new PdfPCell(new Paragraph("RESUMEN DE CUENTAS POR PAGAR AL DIA " + fecha.ToString("dd/MM/yyyy                    ")+  sucursal));
+                _cell.HorizontalAlignment = Element.ALIGN_LEFT;
+            }
            
-            _cell.Border = 0;
-            _cell.PaddingTop = 10;
-            _cell.PaddingBottom = 10;
-         
+
+           
+
             tbHeader.AddCell(_cell);
 
-           
+
             tbHeader.AddCell(new Paragraph());
 
 
@@ -1852,7 +1867,7 @@ namespace appSugerencias
 
             PdfPCell cell = new PdfPCell(new Paragraph());
             tbFooter.AddCell(cell);
-           
+
             cell = new PdfPCell(new Paragraph("Pagina " + writer.PageNumber));
             cell.HorizontalAlignment = Element.ALIGN_RIGHT;
             cell.Border = 0;

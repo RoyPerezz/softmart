@@ -31,25 +31,20 @@
             this.label1 = new System.Windows.Forms.Label();
             this.TB_proveedor = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.CHX_bd_pre = new System.Windows.Forms.CheckBox();
             this.CHX_bd_co = new System.Windows.Forms.CheckBox();
             this.CHX_bd_ve = new System.Windows.Forms.CheckBox();
             this.CHX_bd_re = new System.Windows.Forms.CheckBox();
             this.CHX_bd_va = new System.Windows.Forms.CheckBox();
-            this.TB_pagoPRE = new System.Windows.Forms.TextBox();
             this.TB_pagoCO = new System.Windows.Forms.TextBox();
             this.TB_pagoVE = new System.Windows.Forms.TextBox();
             this.TB_pagoRE = new System.Windows.Forms.TextBox();
             this.TB_pagoVA = new System.Windows.Forms.TextBox();
-            this.CHK_pre = new System.Windows.Forms.CheckBox();
             this.CHK_ve = new System.Windows.Forms.CheckBox();
             this.CHK_co = new System.Windows.Forms.CheckBox();
             this.CHK_re = new System.Windows.Forms.CheckBox();
             this.CHK_va = new System.Windows.Forms.CheckBox();
             this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.TB_efepregot = new System.Windows.Forms.TextBox();
-            this.LB_pre = new System.Windows.Forms.Label();
             this.TB_efevelazquez = new System.Windows.Forms.TextBox();
             this.LB_ve = new System.Windows.Forms.Label();
             this.TB_eferena = new System.Windows.Forms.TextBox();
@@ -127,25 +122,20 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.CHX_bd_pre);
             this.groupBox1.Controls.Add(this.CHX_bd_co);
             this.groupBox1.Controls.Add(this.CHX_bd_ve);
             this.groupBox1.Controls.Add(this.CHX_bd_re);
             this.groupBox1.Controls.Add(this.CHX_bd_va);
-            this.groupBox1.Controls.Add(this.TB_pagoPRE);
             this.groupBox1.Controls.Add(this.TB_pagoCO);
             this.groupBox1.Controls.Add(this.TB_pagoVE);
             this.groupBox1.Controls.Add(this.TB_pagoRE);
             this.groupBox1.Controls.Add(this.TB_pagoVA);
-            this.groupBox1.Controls.Add(this.CHK_pre);
             this.groupBox1.Controls.Add(this.CHK_ve);
             this.groupBox1.Controls.Add(this.CHK_co);
             this.groupBox1.Controls.Add(this.CHK_re);
             this.groupBox1.Controls.Add(this.CHK_va);
             this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.TB_efepregot);
-            this.groupBox1.Controls.Add(this.LB_pre);
             this.groupBox1.Controls.Add(this.TB_efevelazquez);
             this.groupBox1.Controls.Add(this.LB_ve);
             this.groupBox1.Controls.Add(this.TB_eferena);
@@ -161,19 +151,10 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "EFECTIVO EN TIENDAS";
             // 
-            // CHX_bd_pre
-            // 
-            this.CHX_bd_pre.AutoSize = true;
-            this.CHX_bd_pre.Location = new System.Drawing.Point(468, 45);
-            this.CHX_bd_pre.Name = "CHX_bd_pre";
-            this.CHX_bd_pre.Size = new System.Drawing.Size(15, 14);
-            this.CHX_bd_pre.TabIndex = 10;
-            this.CHX_bd_pre.UseVisualStyleBackColor = true;
-            // 
             // CHX_bd_co
             // 
             this.CHX_bd_co.AutoSize = true;
-            this.CHX_bd_co.Location = new System.Drawing.Point(352, 44);
+            this.CHX_bd_co.Location = new System.Drawing.Point(468, 44);
             this.CHX_bd_co.Name = "CHX_bd_co";
             this.CHX_bd_co.Size = new System.Drawing.Size(15, 14);
             this.CHX_bd_co.TabIndex = 9;
@@ -182,7 +163,7 @@
             // CHX_bd_ve
             // 
             this.CHX_bd_ve.AutoSize = true;
-            this.CHX_bd_ve.Location = new System.Drawing.Point(237, 46);
+            this.CHX_bd_ve.Location = new System.Drawing.Point(307, 46);
             this.CHX_bd_ve.Name = "CHX_bd_ve";
             this.CHX_bd_ve.Size = new System.Drawing.Size(15, 14);
             this.CHX_bd_ve.TabIndex = 8;
@@ -191,7 +172,7 @@
             // CHX_bd_re
             // 
             this.CHX_bd_re.AutoSize = true;
-            this.CHX_bd_re.Location = new System.Drawing.Point(121, 44);
+            this.CHX_bd_re.Location = new System.Drawing.Point(164, 44);
             this.CHX_bd_re.Name = "CHX_bd_re";
             this.CHX_bd_re.Size = new System.Drawing.Size(15, 14);
             this.CHX_bd_re.TabIndex = 7;
@@ -206,59 +187,42 @@
             this.CHX_bd_va.TabIndex = 6;
             this.CHX_bd_va.UseVisualStyleBackColor = true;
             // 
-            // TB_pagoPRE
-            // 
-            this.TB_pagoPRE.Location = new System.Drawing.Point(483, 90);
-            this.TB_pagoPRE.Name = "TB_pagoPRE";
-            this.TB_pagoPRE.Size = new System.Drawing.Size(77, 20);
-            this.TB_pagoPRE.TabIndex = 20;
-            // 
             // TB_pagoCO
             // 
-            this.TB_pagoCO.Location = new System.Drawing.Point(365, 90);
+            this.TB_pagoCO.Location = new System.Drawing.Point(468, 90);
             this.TB_pagoCO.Name = "TB_pagoCO";
-            this.TB_pagoCO.Size = new System.Drawing.Size(77, 20);
+            this.TB_pagoCO.Size = new System.Drawing.Size(92, 20);
             this.TB_pagoCO.TabIndex = 19;
             this.TB_pagoCO.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TB_pagoCO_KeyPress);
             // 
             // TB_pagoVE
             // 
-            this.TB_pagoVE.Location = new System.Drawing.Point(252, 90);
+            this.TB_pagoVE.Location = new System.Drawing.Point(307, 90);
             this.TB_pagoVE.Name = "TB_pagoVE";
-            this.TB_pagoVE.Size = new System.Drawing.Size(76, 20);
+            this.TB_pagoVE.Size = new System.Drawing.Size(92, 20);
             this.TB_pagoVE.TabIndex = 18;
             this.TB_pagoVE.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TB_pagoVE_KeyPress);
             // 
             // TB_pagoRE
             // 
-            this.TB_pagoRE.Location = new System.Drawing.Point(137, 90);
+            this.TB_pagoRE.Location = new System.Drawing.Point(164, 90);
             this.TB_pagoRE.Name = "TB_pagoRE";
-            this.TB_pagoRE.Size = new System.Drawing.Size(76, 20);
+            this.TB_pagoRE.Size = new System.Drawing.Size(91, 20);
             this.TB_pagoRE.TabIndex = 17;
             this.TB_pagoRE.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TB_pagoRE_KeyPress);
             // 
             // TB_pagoVA
             // 
-            this.TB_pagoVA.Location = new System.Drawing.Point(29, 90);
+            this.TB_pagoVA.Location = new System.Drawing.Point(14, 90);
             this.TB_pagoVA.Name = "TB_pagoVA";
-            this.TB_pagoVA.Size = new System.Drawing.Size(76, 20);
+            this.TB_pagoVA.Size = new System.Drawing.Size(92, 20);
             this.TB_pagoVA.TabIndex = 16;
             this.TB_pagoVA.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TB_pagoVA_KeyPress);
-            // 
-            // CHK_pre
-            // 
-            this.CHK_pre.AutoSize = true;
-            this.CHK_pre.Location = new System.Drawing.Point(483, 67);
-            this.CHK_pre.Name = "CHK_pre";
-            this.CHK_pre.Size = new System.Drawing.Size(71, 17);
-            this.CHK_pre.TabIndex = 15;
-            this.CHK_pre.Text = "PREGOT";
-            this.CHK_pre.UseVisualStyleBackColor = true;
             // 
             // CHK_ve
             // 
             this.CHK_ve.AutoSize = true;
-            this.CHK_ve.Location = new System.Drawing.Point(252, 68);
+            this.CHK_ve.Location = new System.Drawing.Point(306, 68);
             this.CHK_ve.Name = "CHK_ve";
             this.CHK_ve.Size = new System.Drawing.Size(90, 17);
             this.CHK_ve.TabIndex = 13;
@@ -268,7 +232,7 @@
             // CHK_co
             // 
             this.CHK_co.AutoSize = true;
-            this.CHK_co.Location = new System.Drawing.Point(367, 67);
+            this.CHK_co.Location = new System.Drawing.Point(468, 67);
             this.CHK_co.Name = "CHK_co";
             this.CHK_co.Size = new System.Drawing.Size(70, 17);
             this.CHK_co.TabIndex = 14;
@@ -278,7 +242,7 @@
             // CHK_re
             // 
             this.CHK_re.AutoSize = true;
-            this.CHK_re.Location = new System.Drawing.Point(136, 67);
+            this.CHK_re.Location = new System.Drawing.Point(164, 68);
             this.CHK_re.Name = "CHK_re";
             this.CHK_re.Size = new System.Drawing.Size(56, 17);
             this.CHK_re.TabIndex = 12;
@@ -288,7 +252,7 @@
             // CHK_va
             // 
             this.CHK_va.AutoSize = true;
-            this.CHK_va.Location = new System.Drawing.Point(29, 67);
+            this.CHK_va.Location = new System.Drawing.Point(14, 67);
             this.CHK_va.Name = "CHK_va";
             this.CHK_va.Size = new System.Drawing.Size(81, 17);
             this.CHK_va.TabIndex = 11;
@@ -321,26 +285,9 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // TB_efepregot
-            // 
-            this.TB_efepregot.Location = new System.Drawing.Point(483, 41);
-            this.TB_efepregot.Name = "TB_efepregot";
-            this.TB_efepregot.Size = new System.Drawing.Size(77, 20);
-            this.TB_efepregot.TabIndex = 9;
-            this.TB_efepregot.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // LB_pre
-            // 
-            this.LB_pre.AutoSize = true;
-            this.LB_pre.Location = new System.Drawing.Point(491, 25);
-            this.LB_pre.Name = "LB_pre";
-            this.LB_pre.Size = new System.Drawing.Size(52, 13);
-            this.LB_pre.TabIndex = 5;
-            this.LB_pre.Text = "PREGOT";
-            // 
             // TB_efevelazquez
             // 
-            this.TB_efevelazquez.Location = new System.Drawing.Point(252, 42);
+            this.TB_efevelazquez.Location = new System.Drawing.Point(322, 42);
             this.TB_efevelazquez.Name = "TB_efevelazquez";
             this.TB_efevelazquez.Size = new System.Drawing.Size(77, 20);
             this.TB_efevelazquez.TabIndex = 9;
@@ -349,7 +296,7 @@
             // LB_ve
             // 
             this.LB_ve.AutoSize = true;
-            this.LB_ve.Location = new System.Drawing.Point(255, 26);
+            this.LB_ve.Location = new System.Drawing.Point(325, 26);
             this.LB_ve.Name = "LB_ve";
             this.LB_ve.Size = new System.Drawing.Size(71, 13);
             this.LB_ve.TabIndex = 3;
@@ -357,7 +304,7 @@
             // 
             // TB_eferena
             // 
-            this.TB_eferena.Location = new System.Drawing.Point(136, 41);
+            this.TB_eferena.Location = new System.Drawing.Point(179, 41);
             this.TB_eferena.Name = "TB_eferena";
             this.TB_eferena.Size = new System.Drawing.Size(77, 20);
             this.TB_eferena.TabIndex = 9;
@@ -366,7 +313,7 @@
             // LB_re
             // 
             this.LB_re.AutoSize = true;
-            this.LB_re.Location = new System.Drawing.Point(155, 25);
+            this.LB_re.Location = new System.Drawing.Point(198, 25);
             this.LB_re.Name = "LB_re";
             this.LB_re.Size = new System.Drawing.Size(37, 13);
             this.LB_re.TabIndex = 2;
@@ -382,7 +329,7 @@
             // 
             // TB_efecoloso
             // 
-            this.TB_efecoloso.Location = new System.Drawing.Point(367, 41);
+            this.TB_efecoloso.Location = new System.Drawing.Point(483, 41);
             this.TB_efecoloso.Name = "TB_efecoloso";
             this.TB_efecoloso.Size = new System.Drawing.Size(77, 20);
             this.TB_efecoloso.TabIndex = 9;
@@ -400,7 +347,7 @@
             // LB_co
             // 
             this.LB_co.AutoSize = true;
-            this.LB_co.Location = new System.Drawing.Point(379, 25);
+            this.LB_co.Location = new System.Drawing.Point(495, 25);
             this.LB_co.Name = "LB_co";
             this.LB_co.Size = new System.Drawing.Size(51, 13);
             this.LB_co.TabIndex = 4;
@@ -927,8 +874,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox TB_proveedor;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox TB_efepregot;
-        private System.Windows.Forms.Label LB_pre;
         private System.Windows.Forms.TextBox TB_efevelazquez;
         private System.Windows.Forms.Label LB_ve;
         private System.Windows.Forms.TextBox TB_efecoloso;
@@ -955,7 +900,6 @@
         private System.Windows.Forms.ComboBox CB_cxpag;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox CB_sucursal;
-        private System.Windows.Forms.CheckBox CHK_pre;
         private System.Windows.Forms.CheckBox CHK_ve;
         private System.Windows.Forms.CheckBox CHK_co;
         private System.Windows.Forms.CheckBox CHK_re;
@@ -976,7 +920,6 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox TB_cxp;
-        private System.Windows.Forms.TextBox TB_pagoPRE;
         private System.Windows.Forms.TextBox TB_pagoCO;
         private System.Windows.Forms.TextBox TB_pagoVE;
         private System.Windows.Forms.TextBox TB_pagoRE;
@@ -992,7 +935,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox TB_abono;
         private System.Windows.Forms.Label LB_va;
-        private System.Windows.Forms.CheckBox CHX_bd_pre;
         private System.Windows.Forms.CheckBox CHX_bd_co;
         private System.Windows.Forms.CheckBox CHX_bd_ve;
         private System.Windows.Forms.CheckBox CHX_bd_re;

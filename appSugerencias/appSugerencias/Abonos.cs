@@ -49,7 +49,7 @@ namespace appSugerencias
         int va = 0, re = 0, ve = 0, co = 0, pre = 0;
 
 
-        public Abonos(string proveedor, string nombre, double saldo,string usuario,int va,int re,int ve,int co,int pre)
+        public Abonos(string proveedor, string nombre, double saldo,string usuario,int va,int re,int ve,int co)
         {
             InitializeComponent();
             this.proveedor = proveedor;
@@ -60,8 +60,8 @@ namespace appSugerencias
             this.re = re;
             this.ve = ve;
             this.co = co;
-            this.pre = pre;
-            estadoChecks(va, re, ve, co, pre);
+          
+            estadoChecks(va, re, ve, co);
         }
 
         public void Bancos()
@@ -231,10 +231,10 @@ namespace appSugerencias
                 con = BDConexicon.VelazquezOpen();
             }
 
-            if (tienda.Equals("PREGOT"))
-            {
-                con = BDConexicon.Papeleria1Open();
-            }
+            //if (tienda.Equals("PREGOT"))
+            //{
+            //    con = BDConexicon.Papeleria1Open();
+            //}
 
             return con;
         }
@@ -336,10 +336,10 @@ namespace appSugerencias
                         con = BDConexicon.RespaldoVE(mesRespaldo,año);
                     }
 
-                    if (sucursal.Equals("PREGOT"))
-                    {
-                        con = BDConexicon.RespaldoPRE(mesRespaldo,año);
-                    }
+                    //if (sucursal.Equals("PREGOT"))
+                    //{
+                    //    con = BDConexicon.RespaldoPRE(mesRespaldo,año);
+                    //}
 
                     MySqlCommand cmd = new MySqlCommand("SELECT Consec FROM CONSEC WHERE Dato ='flujo'", con);
                     MySqlDataReader dr = cmd.ExecuteReader();
@@ -378,10 +378,10 @@ namespace appSugerencias
                         con = BDConexicon.VelazquezOpen();
                     }
 
-                    if (sucursal.Equals("PREGOT"))
-                    {
-                        con = BDConexicon.Papeleria1Open();
-                    }
+                    //if (sucursal.Equals("PREGOT"))
+                    //{
+                    //    con = BDConexicon.Papeleria1Open();
+                    //}
 
                     MySqlCommand cmd = new MySqlCommand("SELECT Consec FROM CONSEC WHERE Dato ='flujo'", con);
                     MySqlDataReader dr = cmd.ExecuteReader();
@@ -456,7 +456,7 @@ namespace appSugerencias
                 try
                 {
                     MySqlConnection bo = BDConexicon.BodegaOpen();
-                    double cantidad = Convert.ToDouble(TB_abono.Text);
+                    double cantidad = Convert.ToDouble(abono);
                    
                     MySqlCommand spei = new MySqlCommand("INSERT INTO rd_historial_saldobancos(tienda,mov,ie,banco,cuenta,pagara,cantidad,fecha,hora) VALUES(?tienda,?mov,?ie,?banco,?cuenta,?pagara,?cantidad,?fecha,?hora) ", bo);
                     spei.Parameters.AddWithValue("?tienda", CB_sucursal.SelectedItem.ToString());
@@ -575,7 +575,7 @@ namespace appSugerencias
                 }
 
 
-                //actualizar consecutivo id abono para desglose abono
+ //-------------- //actualizar consecutivo id abono para desglose abono
                 try
                 {
                     int id = Convert.ToInt32(idAbono);
@@ -848,9 +848,9 @@ namespace appSugerencias
                     else// SI EL TIPO DE PAGO ES DEPOSITO/EFECTIVO O EFECTIVO
                     {
 
-#pragma warning disable CS0219 // La variable 'flujo' está asignada pero su valor nunca se usa
-                        int flujo = 0;
-#pragma warning restore CS0219 // La variable 'flujo' está asignada pero su valor nunca se usa
+
+                 
+
                         //ABONOS CON EFECTIVO DE TIENDAS
                         //INSERTAR ABONO EN TABLA FLUJO
 
@@ -967,21 +967,21 @@ namespace appSugerencias
                             desglose.ExecuteNonQuery();
 
 
-                            //actualizar consecutivo id abono para desglose abono
-                            //try
-                            //{
-                            //    int id = Convert.ToInt32(idAbono);
-                            //    id++;
-                            //    MySqlConnection bodega = BDConexicon.BodegaOpen();
-                            //    MySqlCommand actualizaIDabono = new MySqlCommand("UPDATE consec SET Consec=" + id + " WHERE Dato='consecAbono'", bodega);
-                            //    actualizaIDabono.ExecuteNonQuery();
-                            //    bodega.Close();
-                            //}
-                            //catch (Exception ex)
-                            //{
+//-------------------------         // actualizar consecutivo id abono para desglose abono
+                            try
+                            {
+                                int id = Convert.ToInt32(idAbono);
+                                id++;
+                                MySqlConnection bodega = BDConexicon.BodegaOpen();
+                                MySqlCommand actualizaIDabono = new MySqlCommand("UPDATE consec SET Consec=" + id + " WHERE Dato='consecAbono'", bodega);
+                                actualizaIDabono.ExecuteNonQuery();
+                                bodega.Close();
+                            }
+                            catch (Exception ex)
+                            {
 
-                            //    MessageBox.Show("[SPEI] Error al actualizar el consecutivo de consecAbono de tabla consec: " + ex);
-                            //}
+                                MessageBox.Show("[SPEI] Error al actualizar el consecutivo de consecAbono de tabla consec: " + ex);
+                            }
                         }
 
 
@@ -1068,7 +1068,7 @@ namespace appSugerencias
             TB_pagoRE.Text = "";
             TB_pagoCO.Text = "";
             TB_pagoVE.Text = "";
-            TB_pagoPRE.Text = "";
+            //TB_pagoPRE.Text = "";
 
             TB_referencia.Text = "";
             TB_abono.Text = "";
@@ -1081,7 +1081,7 @@ namespace appSugerencias
             CHK_re.Checked = false;
             CHK_co.Checked = false;
             CHK_ve.Checked = false;
-            CHK_pre.Checked = false;
+            //CHK_pre.Checked = false;
 
             MessageBox.Show("ABONO APLICADO");
            
@@ -1153,16 +1153,16 @@ namespace appSugerencias
             string re = "";
             string co = "";
             string ve = "";
-#pragma warning disable CS0219 // La variable 'pre' está asignada pero su valor nunca se usa
+
             string pre = "";
-#pragma warning restore CS0219 // La variable 'pre' está asignada pero su valor nunca se usa
+
             double efeva = 0;
             double efere = 0;
             double efeco = 0;
             double efeve = 0;
-#pragma warning disable CS0219 // La variable 'efepre' está asignada pero su valor nunca se usa
+
             double efepre = 0;
-#pragma warning restore CS0219 // La variable 'efepre' está asignada pero su valor nunca se usa
+
 
             //QUITO EL FORMATO DE MONEDA DE LAS CAJAS DE TEXTO DEL EFECTIVO DISPONIBLE EN TIENDAS
             try
@@ -1191,9 +1191,9 @@ namespace appSugerencias
                 //efepre = Convert.ToDouble(pre);
 
             }
-#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
+
             catch (Exception ex)
-#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
+
             {
 
                 MessageBox.Show("CALCULA EL EFECTIVO QUE HAY DISPONIBLE EN LAS TIENDAS");
@@ -1361,8 +1361,15 @@ namespace appSugerencias
                 desglose.Parameters.AddWithValue("?clientebancario", TB_anombrede.Text);
                 desglose.ExecuteNonQuery();
 
-              
-              
+
+                int id = Convert.ToInt32(idabono);
+                id++;
+                MySqlConnection bodega = BDConexicon.BodegaOpen();
+                MySqlCommand actualizaIDabono = new MySqlCommand("UPDATE consec SET Consec=" + id + " WHERE Dato='consecAbono'", bodega);
+                actualizaIDabono.ExecuteNonQuery();
+                bodega.Close();
+
+
                 if (TB_proveedor.Text.Equals("000001"))
                 {
                     MySqlCommand reporte = new MySqlCommand("INSERT INTO rd_rep_pagoproveedores(nombreprov,pagarA,monto,banco,cuenta,fecha,fecha_efe,tienda,compra,tipo_pago,referencia,idabono)VALUES(?nombreprov,?pagarA,?monto,?banco,?cuenta,?fecha,?fecha_efe,?tienda,?compra,?tipo_pago,?referencia,?idabono)", con);
@@ -1491,12 +1498,7 @@ namespace appSugerencias
                 }
                
 
-                //int id = Convert.ToInt32(idabono);
-                //id++;
-                //MySqlConnection bodega = BDConexicon.BodegaOpen();
-                //MySqlCommand actualizaIDabono = new MySqlCommand("UPDATE consec SET Consec=" + id + " WHERE Dato='consecAbono'", bodega);
-                //actualizaIDabono.ExecuteNonQuery();
-                //bodega.Close();
+               
 
                 DateTime fechActual = DateTime.Now;
                 if (TB_proveedor.Text.Equals("000001"))
@@ -1537,15 +1539,17 @@ namespace appSugerencias
                     }
                 }
                 con.Close();
+
+                int id = Convert.ToInt32(idabono);
+                id++;
+                MySqlConnection bodega = BDConexicon.BodegaOpen();
+                MySqlCommand actualizaIDabono = new MySqlCommand("UPDATE consec SET Consec=" + id + " WHERE Dato='consecAbono'", bodega);
+                actualizaIDabono.ExecuteNonQuery();
+                bodega.Close();
             }
 
 
-            int id = Convert.ToInt32(idabono);
-            id++;
-            MySqlConnection bodega = BDConexicon.BodegaOpen();
-            MySqlCommand actualizaIDabono = new MySqlCommand("UPDATE consec SET Consec=" + id + " WHERE Dato='consecAbono'", bodega);
-            actualizaIDabono.ExecuteNonQuery();
-            bodega.Close();
+          
 
             return consecutivoFlujo;
         }
@@ -1793,7 +1797,7 @@ namespace appSugerencias
 
                 MySqlConnection con = BDConexicon.ColosoOpen();
                 MySqlCommand desglose = new MySqlCommand("INSERT INTO rd_desglose_abonos(importe,fecha_pago,fecha_efe,compra,tipo,idabono,banco,cuenta,clientebancario) VALUES(?importe,?fecha_pago,?fecha_efe,?compra,?tipo,?idabono,?banco,?cuenta,?clientebancario)", con);
-                decimal digito = decimal.Parse(TB_pagoRE.Text, NumberStyles.Currency, CultureInfo.GetCultureInfo("en-US"));
+                decimal digito = decimal.Parse(TB_pagoCO.Text, NumberStyles.Currency, CultureInfo.GetCultureInfo("en-US"));
                 string cantidad = digito.ToString("G0");
                 desglose.Parameters.AddWithValue("?importe", Convert.ToDouble(cantidad));
                 desglose.Parameters.AddWithValue("?fecha_pago", fechActual.ToString("yyyy-MM-dd"));
@@ -1806,9 +1810,14 @@ namespace appSugerencias
                 desglose.Parameters.AddWithValue("?clientebancario", TB_anombrede.Text);
                 desglose.ExecuteNonQuery();
 
+                int id = Convert.ToInt32(idabono);
+                id++;
+                MySqlConnection bodega = BDConexicon.BodegaOpen();
+                MySqlCommand actualizaIDabono = new MySqlCommand("UPDATE consec SET Consec=" + id + " WHERE Dato='consecAbono'", bodega);
+                actualizaIDabono.ExecuteNonQuery();
+                bodega.Close();
 
-               
-               
+
                 if (TB_proveedor.Text.Equals("000001"))
                 {
                     MySqlCommand reporte = new MySqlCommand("INSERT INTO rd_rep_pagoproveedores(nombreprov,pagarA,monto,banco,cuenta,fecha,fecha_efe,tienda,compra,tipo_pago,referencia,idabono)VALUES(?nombreprov,?pagarA,?monto,?banco,?cuenta,?fecha,?fecha_efe,?tienda,?compra,?tipo_pago,?referencia,?idabono)", con);
@@ -2003,8 +2012,15 @@ namespace appSugerencias
                 desglose.Parameters.AddWithValue("?clientebancario", TB_anombrede.Text);
                 desglose.ExecuteNonQuery();
 
-                
-               
+                int id = Convert.ToInt32(idabono);
+                id++;
+                MySqlConnection bodega = BDConexicon.BodegaOpen();
+                MySqlCommand actualizaIDabono = new MySqlCommand("UPDATE consec SET Consec=" + id + " WHERE Dato='consecAbono'", bodega);
+                actualizaIDabono.ExecuteNonQuery();
+                bodega.Close();
+
+
+
                 if (TB_proveedor.Text.Equals("000001"))
                 {
                     MySqlCommand reporte = new MySqlCommand("INSERT INTO rd_rep_pagoproveedores(nombreprov,pagarA,monto,banco,cuenta,fecha,fecha_efe,tienda,compra,tipo_pago,referencia,idabono)VALUES(?nombreprov,?pagarA,?monto,?banco,?cuenta,?fecha,?fecha_efe,?tienda,?compra,?tipo_pago,?referencia,?idabono)", con);
@@ -2522,33 +2538,33 @@ namespace appSugerencias
                 con.Close();
             }
 
-            if (sucursal.Equals("PREGOT"))
-            {
+            //if (sucursal.Equals("PREGOT"))
+            //{
                 
 
-                try
-                {
-                    con = BDConexicon.Papeleria1Open();
-                    MySqlCommand cmd = new MySqlCommand("SELECT COMPRA FROM cuenxpag WHERE PROVEEDOR ='" + TB_proveedor.Text + "'", con);
-                    MySqlDataReader dr = cmd.ExecuteReader();
+            //    try
+            //    {
+            //        con = BDConexicon.Papeleria1Open();
+            //        MySqlCommand cmd = new MySqlCommand("SELECT COMPRA FROM cuenxpag WHERE PROVEEDOR ='" + TB_proveedor.Text + "'", con);
+            //        MySqlDataReader dr = cmd.ExecuteReader();
 
-                    while (dr.Read())
-                    {
-                        CB_cxpag.Items.Add(dr["COMPRA"].ToString());
+            //        while (dr.Read())
+            //        {
+            //            CB_cxpag.Items.Add(dr["COMPRA"].ToString());
                       
-                    }
-                    dr.Close();
-                }
-                catch (Exception ex)
-                {
+            //        }
+            //        dr.Close();
+            //    }
+            //    catch (Exception ex)
+            //    {
 
-                    MessageBox.Show("ERROR de conexión: " + ex);
-                }
+            //        MessageBox.Show("ERROR de conexión: " + ex);
+            //    }
 
                
 
-                con.Close();
-            }
+            //    con.Close();
+            //}
 
 
         }
@@ -2735,31 +2751,31 @@ namespace appSugerencias
                 con.Close();
             }
 
-            if (sucursal.Equals("PREGOT"))
-            {
-                try
-                {
-                    con = BDConexicon.Papeleria1Open();
-                    MySqlCommand cmd = new MySqlCommand("SELECT CUENXPAG,SALDO FROM cuenxpag WHERE COMPRA ='" + CB_cxpag.SelectedItem.ToString() + "' AND PROVEEDOR ='" + TB_proveedor.Text + "'", con);
-                    MySqlDataReader dr = cmd.ExecuteReader();
+            //if (sucursal.Equals("PREGOT"))
+            //{
+            //    try
+            //    {
+            //        con = BDConexicon.Papeleria1Open();
+            //        MySqlCommand cmd = new MySqlCommand("SELECT CUENXPAG,SALDO FROM cuenxpag WHERE COMPRA ='" + CB_cxpag.SelectedItem.ToString() + "' AND PROVEEDOR ='" + TB_proveedor.Text + "'", con);
+            //        MySqlDataReader dr = cmd.ExecuteReader();
 
-                    while (dr.Read())
-                    {
-                        TB_cxp.Text = dr["CUENXPAG"].ToString();
-                        saldocompra = Convert.ToDouble(dr["SALDO"].ToString());
-                        //TB_saldocompra.Text = String.Format("{0:0.##}", saldocompra.ToString("C"));
-                    }
-                    dr.Close();
-                    saldocompra = CalcularSaldoCompra("PREGOT");
-                    TB_saldocompra.Text = String.Format("{0:0.##}", saldocompra.ToString("C"));
-                }
-                catch (Exception ex)
-                {
+            //        while (dr.Read())
+            //        {
+            //            TB_cxp.Text = dr["CUENXPAG"].ToString();
+            //            saldocompra = Convert.ToDouble(dr["SALDO"].ToString());
+            //            //TB_saldocompra.Text = String.Format("{0:0.##}", saldocompra.ToString("C"));
+            //        }
+            //        dr.Close();
+            //        saldocompra = CalcularSaldoCompra("PREGOT");
+            //        TB_saldocompra.Text = String.Format("{0:0.##}", saldocompra.ToString("C"));
+            //    }
+            //    catch (Exception ex)
+            //    {
 
-                    MessageBox.Show("ERROR de conexión: " + ex);
-                }
-                con.Close();
-            }
+            //        MessageBox.Show("ERROR de conexión: " + ex);
+            //    }
+            //    con.Close();
+            //}
 
 
         }
@@ -3159,7 +3175,7 @@ namespace appSugerencias
             TB_pagoRE.Text = "";
             TB_pagoCO.Text = "";
             TB_pagoVE.Text = "";
-            TB_pagoPRE.Text = "";
+           
 
             TB_referencia.Text = "";
             TB_abono.Text = "";
@@ -3172,7 +3188,7 @@ namespace appSugerencias
             CHK_re.Checked = false;
             CHK_co.Checked = false;
             CHK_ve.Checked = false;
-            CHK_pre.Checked = false;
+       
 
             conexion.Close();
             auditoria();
@@ -3286,16 +3302,14 @@ namespace appSugerencias
                 string re = "";
                 string co = "";
                 string ve = "";
-#pragma warning disable CS0219 // La variable 'pre' está asignada pero su valor nunca se usa
-                string pre = "";
-#pragma warning restore CS0219 // La variable 'pre' está asignada pero su valor nunca se usa
+
                 double efeva = 0;
                 double efere = 0;
                 double efeco = 0;
                 double efeve = 0;
-#pragma warning disable CS0219 // La variable 'efepre' está asignada pero su valor nunca se usa
+
                 double efepre = 0;
-#pragma warning restore CS0219 // La variable 'efepre' está asignada pero su valor nunca se usa
+
 
                 //QUITO EL FORMATO DE MONEDA DE LAS CAJAS DE TEXTO DEL EFECTIVO DISPONIBLE EN TIENDAS
                 try
@@ -3946,7 +3960,7 @@ namespace appSugerencias
             TB_eferena.Text = "";
             TB_efecoloso.Text = "";
             TB_efevelazquez.Text = "";
-            TB_efepregot.Text = "";
+            //TB_efepregot.Text = "";
             try
             {
 
@@ -4039,14 +4053,14 @@ namespace appSugerencias
             TB_pagoRE.Text = "";
             TB_pagoCO.Text = "";
             TB_pagoVE.Text = "";
-            TB_pagoPRE.Text = "";
+            //TB_pagoPRE.Text = "";
             TB_abono.Text = "";
             TB_abonoaplicado.Text = "";
             CHK_va.Checked = false;
             CHK_re.Checked = false;
             CHK_co.Checked = false;
             CHK_ve.Checked = false;
-            CHK_pre.Checked = false;
+            //CHK_pre.Checked = false;
 
             Traerefectivo();
 
@@ -4331,9 +4345,9 @@ namespace appSugerencias
                     //}
                     dr.Close();
                 }
-#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
+
                 catch (Exception ex)
-#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
+
                 {
 
                     LB_co.ForeColor = Color.Red;
@@ -4384,9 +4398,9 @@ namespace appSugerencias
                     //}
                     dr.Close();
                 }
-#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
+
                 catch (Exception ex)
-#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
+
                 {
 
                     LB_co.ForeColor = Color.Red;
@@ -4448,9 +4462,9 @@ namespace appSugerencias
                     //}
                     dr.Close();
                 }
-#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
+
                 catch (Exception ex)
-#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
+
                 {
 
                     LB_ve.ForeColor = Color.Red;
@@ -4501,9 +4515,9 @@ namespace appSugerencias
                     //}
                     dr.Close();
                 }
-#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
+
                 catch (Exception ex)
-#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
+
                 {
 
                     LB_ve.ForeColor = Color.Red;
@@ -4736,7 +4750,7 @@ namespace appSugerencias
 
         }
 
-        public void estadoChecks(int va,int re,int ve,int co,int pre)
+        public void estadoChecks(int va,int re,int ve,int co)
         {
 
             
@@ -4780,14 +4794,14 @@ namespace appSugerencias
             }
 
 
-            if (pre == 1)
-            {
-                CHX_bd_pre.Checked = true;
-            }
-            else
-            {
-                CHX_bd_pre.Checked = false;
-            }
+            //if (pre == 1)
+            //{
+            //    CHX_bd_pre.Checked = true;
+            //}
+            //else
+            //{
+            //    CHX_bd_pre.Checked = false;
+            //}
         }
 
         public void auditoria()

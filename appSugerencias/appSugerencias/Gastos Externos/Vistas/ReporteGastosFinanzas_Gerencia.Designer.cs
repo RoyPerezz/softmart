@@ -30,6 +30,14 @@ namespace appSugerencias.Gastos_Externos.Vistas
         private void InitializeComponent()
         {
             this.DG_tabla = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CONCEPTOGRAL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CONCEPTODETALLE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DESCRIPCION = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IMPORTE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FOLIO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FECHA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CHECK = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BT_excel = new System.Windows.Forms.Button();
@@ -41,19 +49,18 @@ namespace appSugerencias.Gastos_Externos.Vistas
             this.BT_buscar = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.BT_guardar = new System.Windows.Forms.Button();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CONCEPTOGRAL = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CONCEPTODETALLE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DESCRIPCION = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IMPORTE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FOLIO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FECHA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CHECK = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.BT_abrir = new System.Windows.Forms.Button();
+            this.LB_saldo_finanzas = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DG_tabla)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // DG_tabla
@@ -75,14 +82,55 @@ namespace appSugerencias.Gastos_Externos.Vistas
             this.CHECK});
             this.DG_tabla.Location = new System.Drawing.Point(-1, 156);
             this.DG_tabla.Name = "DG_tabla";
-            this.DG_tabla.Size = new System.Drawing.Size(1024, 359);
+            this.DG_tabla.Size = new System.Drawing.Size(1271, 359);
             this.DG_tabla.TabIndex = 0;
+            // 
+            // ID
+            // 
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.Visible = false;
+            // 
+            // CONCEPTOGRAL
+            // 
+            this.CONCEPTOGRAL.HeaderText = "CONCEPTO GENERAL";
+            this.CONCEPTOGRAL.Name = "CONCEPTOGRAL";
+            // 
+            // CONCEPTODETALLE
+            // 
+            this.CONCEPTODETALLE.HeaderText = "CONCEPTO DETALLE";
+            this.CONCEPTODETALLE.Name = "CONCEPTODETALLE";
+            // 
+            // DESCRIPCION
+            // 
+            this.DESCRIPCION.HeaderText = "DESCRIPCION";
+            this.DESCRIPCION.Name = "DESCRIPCION";
+            // 
+            // IMPORTE
+            // 
+            this.IMPORTE.HeaderText = "IMPORTE";
+            this.IMPORTE.Name = "IMPORTE";
+            // 
+            // FOLIO
+            // 
+            this.FOLIO.HeaderText = "FOLIO";
+            this.FOLIO.Name = "FOLIO";
+            // 
+            // FECHA
+            // 
+            this.FECHA.HeaderText = "FECHA";
+            this.FECHA.Name = "FECHA";
+            // 
+            // CHECK
+            // 
+            this.CHECK.HeaderText = "CHECK";
+            this.CHECK.Name = "CHECK";
             // 
             // groupBox3
             // 
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.panel1);
-            this.groupBox3.Location = new System.Drawing.Point(734, 2);
+            this.groupBox3.Location = new System.Drawing.Point(981, 2);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(291, 148);
             this.groupBox3.TabIndex = 15;
@@ -195,51 +243,66 @@ namespace appSugerencias.Gastos_Externos.Vistas
             this.BT_guardar.UseVisualStyleBackColor = false;
             this.BT_guardar.Click += new System.EventHandler(this.BT_guardar_Click_1);
             // 
-            // ID
+            // groupBox4
             // 
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.Visible = false;
+            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox4.Controls.Add(this.panel2);
+            this.groupBox4.Location = new System.Drawing.Point(684, 2);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(291, 148);
+            this.groupBox4.TabIndex = 16;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Saldo Finanzas";
             // 
-            // CONCEPTOGRAL
+            // panel2
             // 
-            this.CONCEPTOGRAL.HeaderText = "CONCEPTO GENERAL";
-            this.CONCEPTOGRAL.Name = "CONCEPTOGRAL";
+            this.panel2.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.panel2.Controls.Add(this.BT_abrir);
+            this.panel2.Controls.Add(this.LB_saldo_finanzas);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Location = new System.Drawing.Point(6, 19);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(279, 123);
+            this.panel2.TabIndex = 0;
             // 
-            // CONCEPTODETALLE
+            // BT_abrir
             // 
-            this.CONCEPTODETALLE.HeaderText = "CONCEPTO DETALLE";
-            this.CONCEPTODETALLE.Name = "CONCEPTODETALLE";
+            this.BT_abrir.BackColor = System.Drawing.Color.Green;
+            this.BT_abrir.ForeColor = System.Drawing.Color.White;
+            this.BT_abrir.Location = new System.Drawing.Point(135, 4);
+            this.BT_abrir.Name = "BT_abrir";
+            this.BT_abrir.Size = new System.Drawing.Size(141, 38);
+            this.BT_abrir.TabIndex = 11;
+            this.BT_abrir.Text = "Abrir estado de cuenta";
+            this.BT_abrir.UseVisualStyleBackColor = false;
+            this.BT_abrir.Click += new System.EventHandler(this.BT_abrir_Click);
             // 
-            // DESCRIPCION
+            // LB_saldo_finanzas
             // 
-            this.DESCRIPCION.HeaderText = "DESCRIPCION";
-            this.DESCRIPCION.Name = "DESCRIPCION";
+            this.LB_saldo_finanzas.AutoSize = true;
+            this.LB_saldo_finanzas.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LB_saldo_finanzas.ForeColor = System.Drawing.Color.White;
+            this.LB_saldo_finanzas.Location = new System.Drawing.Point(55, 61);
+            this.LB_saldo_finanzas.Name = "LB_saldo_finanzas";
+            this.LB_saldo_finanzas.Size = new System.Drawing.Size(0, 29);
+            this.LB_saldo_finanzas.TabIndex = 12;
             // 
-            // IMPORTE
+            // label2
             // 
-            this.IMPORTE.HeaderText = "IMPORTE";
-            this.IMPORTE.Name = "IMPORTE";
-            // 
-            // FOLIO
-            // 
-            this.FOLIO.HeaderText = "FOLIO";
-            this.FOLIO.Name = "FOLIO";
-            // 
-            // FECHA
-            // 
-            this.FECHA.HeaderText = "FECHA";
-            this.FECHA.Name = "FECHA";
-            // 
-            // CHECK
-            // 
-            this.CHECK.HeaderText = "CHECK";
-            this.CHECK.Name = "CHECK";
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(13, 23);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(78, 24);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "SALDO";
             // 
             // ReporteGastosFinanzas_Gerencia
             // 
             this.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.ClientSize = new System.Drawing.Size(1025, 514);
+            this.ClientSize = new System.Drawing.Size(1272, 514);
+            this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox3);
@@ -252,6 +315,9 @@ namespace appSugerencias.Gastos_Externos.Vistas
             this.panel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -280,5 +346,10 @@ namespace appSugerencias.Gastos_Externos.Vistas
         private System.Windows.Forms.DataGridViewTextBoxColumn FOLIO;
         private System.Windows.Forms.DataGridViewTextBoxColumn FECHA;
         private System.Windows.Forms.DataGridViewCheckBoxColumn CHECK;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button BT_abrir;
+        private System.Windows.Forms.Label LB_saldo_finanzas;
+        private System.Windows.Forms.Label label2;
     }
 }

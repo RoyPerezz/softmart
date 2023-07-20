@@ -1,4 +1,5 @@
 ﻿using appSugerencias.Gastos.Controlador;
+using appSugerencias.Gastos.Modelo;
 using appSugerencias.Gastos.Vistas;
 using appSugerencias.Gastos_Externos.Controlador;
 using appSugerencias.Gastos_Externos.Modelo;
@@ -54,52 +55,93 @@ namespace appSugerencias.Gastos
             }
 
         }
-        public void BuscarGastos()
+        public void BuscarGastos(string sucursal)
         {
+
+            LB_total.Text = "";
             DG_tabla.Rows.Clear();
             DG_tabla.RowTemplate.Height = 30;
             DateTime inicio = DT_inicio.Value;
             DateTime fin = DT_fin.Value;
-            List<GastoExterno> lista = GastoFinanzasController.ListaGastos(inicio, fin);
-            double total = 0;
 
-            if (lista.Count==0)
+            if (sucursal.Equals("FINANZAS"))
             {
-                MessageBox.Show("No hay gastos en el rango de fecha seleccionado");
-            }
-            else
-            {
-                foreach (var item in lista)
+                DG_tabla.Columns[3].Visible = false;// columna revision 
+
+
+                List<GastoExterno> lista = GastoFinanzasController.ListaGastos(inicio, fin);
+                double total = 0;
+                if (lista.Count == 0)
                 {
-                    DG_tabla.Rows.Add(item.EstadoAprobacion, item.Id, "", "", item.Fecha.ToString("yyyy-MM-dd"), item.Importe, item.PersonaGeneraGasto, item.Descripcion, item.Concepto_gral, item.ConceptoDetalle, item.Folio, item.Foto1, item.Foto2, item.ComentarioAprobacion, item.NumAutorizacion);
-                    total += item.Importe;
+                    MessageBox.Show("No hay gastos en el rango de fecha seleccionado");
+                }
+                else
+                {
+                    foreach (var item in lista)
+                    {
+                        DG_tabla.Rows.Add(item.EstadoAprobacion, item.Id, "","" ,"", item.Fecha.ToString("yyyy-MM-dd"), item.Importe, item.PersonaGeneraGasto, item.Descripcion, item.Concepto_gral, item.ConceptoDetalle, item.Folio, item.Foto1, item.Foto2, item.ComentarioAprobacion, item.NumAutorizacion);
+                        total += item.Importe;
+                    }
+
+                    LB_total.Text = total.ToString("C2");
+                    total = 0;
+                    PintarFila();
+                    DG_tabla.Columns["IMPORTE"].DefaultCellStyle.Format = "C2";
+
+                    lista.Clear();
+
+
+                    DG_tabla.Columns["PERSONA"].Visible = true;
                 }
 
-                LB_total.Text = total.ToString("C2");
-                total = 0;
-                PintarFila();
-                DG_tabla.Columns["IMPORTE"].DefaultCellStyle.Format = "C2";
-
-                lista.Clear();
-
-
-                DG_tabla.Columns["ESTADO"].Width = 145;
-                DG_tabla.Columns["FECHA"].Width = 90;
-                DG_tabla.Columns["IMPORTE"].Width = 100;
-                DG_tabla.Columns["PERSONA"].Width = 200;
-                DG_tabla.Columns["CONCEPTOGRAL"].Width = 150;
-                DG_tabla.Columns["CONCEPTODETALLE"].Width = 150;
-                DG_tabla.Columns["DESCRIPCION"].Width = 260;
-                DG_tabla.Columns["FOLIO"].Width = 130;
-                DG_tabla.Columns["COMENTARIO"].Width = 250;
-                DG_tabla.Columns["NUMAUTORIZACION"].Width = 120;
             }
+            else if (sucursal.Equals("CEDIS"))
+            {
+                DG_tabla.Columns[3].Visible = true;// columna revision 
+
+                List<GastoAlmacenCedis> lista = GastosAlmacenCedisController.BuscarGastos(inicio, fin);
+
+                double total = 0;
+                if (lista.Count == 0)
+                {
+                    MessageBox.Show("No hay gastos en el rango de fecha seleccionado");
+                }
+                else
+                {
+                    foreach (var item in lista)
+                    {
+                        DG_tabla.Rows.Add(item.EstadoAprobacion, item.Id, "",item.EstadoRevision, "", item.Fecha.ToString("yyyy-MM-dd"), item.Importe, item.Usuario, item.DescripcionDetallada, item.ConceptoGral, item.ConceptoDetalle, item.FolioSalida, item.Imagen1, item.Imagen2, item.ComSra, item.FolioAprobacion);
+                        total += item.Importe;
+                    }
+
+                    LB_total.Text = total.ToString("C2");
+                    total = 0;
+                    PintarFila();
+                    DG_tabla.Columns["IMPORTE"].DefaultCellStyle.Format = "C2";
+
+                    lista.Clear();
+
+                    DG_tabla.Columns["PERSONA"].Visible = false;
+                }
+
+            }
+            DG_tabla.Columns["ESTADO"].Width = 145;
+            DG_tabla.Columns["FECHA"].Width = 90;
+            DG_tabla.Columns["IMPORTE"].Width = 100;
+            DG_tabla.Columns["PERSONA"].Width = 200;
+            DG_tabla.Columns["CONCEPTOGRAL"].Width = 150;
+            DG_tabla.Columns["CONCEPTODETALLE"].Width = 150;
+            DG_tabla.Columns["DESCRIPCION"].Width = 260;
+            DG_tabla.Columns["FOLIO"].Width = 130;
+            DG_tabla.Columns["COMENTARIO"].Width = 250;
+            DG_tabla.Columns["NUMAUTORIZACION"].Width = 120;
+
 
 
         }
         private void BT_buscar_Click(object sender, EventArgs e)
         {
-            BuscarGastos();
+            BuscarGastos(CB_sucursal.Text);
 
 
         }
@@ -128,8 +170,23 @@ namespace appSugerencias.Gastos
                     {
                         comentarioSRA = DG_tabla.Rows[i].Cells["COMENTARIO"].Value.ToString();
                     }
+
+
+
+                    if (CB_sucursal.Text.Equals("FINANZAS"))
+                    {
+                        GastosAlmacenCedisController.ActualizarEstadoAprobacionFinanzas(estado, numAprobacion, comentarioSRA, id);
+
+                    }else if(CB_sucursal.Text.Equals("CEDIS"))
+                    {
+
+                        GastosAlmacenCedisController.ActualizarEstadoAprobacion(estado,numAprobacion,comentarioSRA,id);
+                    }
+                    else
+                    {
+
+                    }
                     
-                    GastosAlmacenCedisController.ActualizarEstadoAprobacionFinanzas(estado, numAprobacion, comentarioSRA, id);
                 }
                 else
                 {
@@ -140,11 +197,25 @@ namespace appSugerencias.Gastos
                     {
 
 
-                      
-                        num = RevisionGastosController.NumAutorizacionFinanzas();
-                        numAprobacion = "F" + "-" + num.ToString();
-                        comentarioSRA = DG_tabla.Rows[i].Cells["COMENTARIO"].Value.ToString();
-                        GastosAlmacenCedisController.ActualizarEstadoAprobacionFinanzas(estado, numAprobacion, comentarioSRA, id);
+                        if (CB_sucursal.Text.Equals("FINANZAS"))
+                        {
+                            num = Convert.ToInt32(RevisionGastosController.NumAutorizacionFinanzas());
+                            numAprobacion = "F" + "-" + num.ToString();
+                            comentarioSRA = DG_tabla.Rows[i].Cells["COMENTARIO"].Value.ToString();
+                            GastosAlmacenCedisController.ActualizarEstadoAprobacionFinanzas(estado, numAprobacion, comentarioSRA, id);
+
+                        }else if(CB_sucursal.Text.Equals("CEDIS"))
+                        {
+                            num = Convert.ToInt32(RevisionGastosController.GenerarNumAprobacion("CEDIS"));
+                            numAprobacion = "GG" + "" + num.ToString();
+                            comentarioSRA = DG_tabla.Rows[i].Cells["COMENTARIO"].Value.ToString();
+                            GastosAlmacenCedisController.ActualizarEstadoAprobacion(estado, numAprobacion, comentarioSRA, id);
+                        }
+                        else
+                        {
+
+                        }
+                       
 
 
                     }
@@ -155,7 +226,7 @@ namespace appSugerencias.Gastos
             }
 
 
-            BuscarGastos();
+            BuscarGastos(CB_sucursal.Text);
            
 
             MessageBox.Show("Se han guardado los cambios");
@@ -222,9 +293,14 @@ namespace appSugerencias.Gastos
             }
             else
             {
-                GastosXAprobar aprobar = new GastosXAprobar("FINANZAS");
+                GastosXAprobar aprobar = new GastosXAprobar(CB_sucursal.Text);
                 aprobar.Show();
             }
+        }
+
+        private void AprobacionGastosGeneral_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

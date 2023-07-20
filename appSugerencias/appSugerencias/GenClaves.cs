@@ -17,23 +17,23 @@ namespace appSugerencias
             InitializeComponent();
             DG_numeros.Columns[0].Width = 135;
         }
-#pragma warning disable CS0169 // El campo 'GenClaves.con' nunca se usa
+
         MySqlConnection con;
-#pragma warning restore CS0169 // El campo 'GenClaves.con' nunca se usa
+
        
        
-#pragma warning disable CS0169 // El campo 'GenClaves.aux' nunca se usa
+
         DataTable aux;
-#pragma warning restore CS0169 // El campo 'GenClaves.aux' nunca se usa
-#pragma warning disable CS0169 // El campo 'GenClaves.master' nunca se usa
+
+
         DataTable master;
-#pragma warning restore CS0169 // El campo 'GenClaves.master' nunca se usa
+
         MySqlConnection conbodega;
         MySqlConnection convallarta;
         MySqlConnection conrena;
         MySqlConnection convelazquez;
         MySqlConnection concoloso;
-        MySqlConnection conpregot;
+   
 
         public void Generar()//GENERA Y COMPARA LOS NUMEROS ALEATORIOS CON LAS CLAVES DE LOS PRODUCTOS QUE YA EXISTEN EN LAS BD
         {
@@ -46,7 +46,7 @@ namespace appSugerencias
                 DataTable DTrena = new DataTable();
                 DataTable DTcoloso = new DataTable();
                 DataTable DTvelazquez = new DataTable();
-                DataTable DTpregot = new DataTable();
+               
 
                 //**************************************** SE RELLENAN LOS DATATABLES CON LAS CLAVES DE ARTICULOS DE LAS TIENDAS ]*****************************
 
@@ -140,21 +140,7 @@ namespace appSugerencias
 
                 }
 
-                try
-                {
-                    conpregot = BDConexicon.Papeleria1Open();
-                    MySqlCommand cmdPregot = new MySqlCommand("SELECT articulo AS ARTICULO from prods", conpregot);
-                    MySqlDataAdapter adBodega = new MySqlDataAdapter(cmdPregot);
-                    adBodega.Fill(DTpregot);
-                    TB_estatuspregot.BackColor = Color.Green;
-                    conbodega.Close();
-                }
-                catch (Exception)
-                {
-
-                    TB_estatuspregot.BackColor = Color.Red;
-
-                }
+               
 
 
 
@@ -163,7 +149,7 @@ namespace appSugerencias
                     .Union(DTvallarta.AsEnumerable())
                     .Union(DTrena.AsEnumerable())
                     .Union(DTvelazquez.AsEnumerable())
-                    .Union(DTcoloso.AsEnumerable()).Union(DTpregot.AsEnumerable()).Distinct(DataRowComparer.Default).CopyToDataTable<DataRow>();
+                    .Union(DTcoloso.AsEnumerable()).Distinct(DataRowComparer.Default).CopyToDataTable<DataRow>();
 
                 //master = repetidos(master1, "articulo");
 
@@ -227,7 +213,7 @@ namespace appSugerencias
             TB_estatusRena.BackColor = Color.White;
             TB_estatusColoso.BackColor = Color.White;
             TB_estatusVelazquez.BackColor = Color.White;
-            TB_estatuspregot.BackColor = Color.White;
+           
             PB_proceso.Value = 0;
             DG_numeros.Rows.Clear();
             LB_mensaje.Text = "";
@@ -373,7 +359,7 @@ namespace appSugerencias
             TB_estatusRena.BackColor = Color.White;
             TB_estatusColoso.BackColor = Color.White;
             TB_estatusVelazquez.BackColor = Color.White;
-            TB_estatuspregot.BackColor = Color.White;
+          
             PB_proceso.Value = 0;
             DG_numeros.Rows.Clear();
             LB_mensaje.Text = "";

@@ -368,7 +368,7 @@ namespace appSugerencias.Gastos.Controlador
             return lista;
         }
 
-        public string GenerarNumAprobacion(string sucursal)
+        public static string GenerarNumAprobacion(string sucursal)
         {
             string inicial = "";
             if (sucursal.Equals("VALLARTA"))
@@ -385,10 +385,10 @@ namespace appSugerencias.Gastos.Controlador
             {
                 inicial = "C";
             }
-            else if (sucursal.Equals("CEDIS"))
-            {
-                inicial = "GG";
-            }
+            //else if (sucursal.Equals("CEDIS"))
+            //{
+            //    inicial = "GG";
+            //}
 
             //string num = "";
             //Random rand = new Random();
@@ -405,8 +405,15 @@ namespace appSugerencias.Gastos.Controlador
             string num = fecha.Minute.ToString() + fecha.Second.ToString() + fecha.Millisecond.ToString();
             //string cadena = hora.ToString() + dia.ToString() + segundos.ToString() + mes.ToString() + año.ToString() + minutos.ToString() + mili.ToString();
 
-
-            return inicial + "-" + num;
+            if (sucursal.Equals("CEDIS"))
+            {
+                return num;
+            }
+            else
+            {
+                return inicial + "-" + num;
+            }
+            
         }
 
       
@@ -636,34 +643,34 @@ namespace appSugerencias.Gastos.Controlador
             return num;
         }
 
-        public static int NumAutorizacionFinanzas()
+        public static string NumAutorizacionFinanzas()
         {
-        //    int num = 0;
+            //    int num = 0;
 
-        //    string query = "SELECT Consec FROM CONSEC WHERE Dato='NumAutorizacionFinanzas'";
-        //    MySqlConnection con = BDConexicon.BodegaOpen();
-        //    MySqlCommand cmd = new MySqlCommand(query, con);
-        //    MySqlDataReader dr = cmd.ExecuteReader();
+            //    string query = "SELECT Consec FROM CONSEC WHERE Dato='NumAutorizacionFinanzas'";
+            //    MySqlConnection con = BDConexicon.BodegaOpen();
+            //    MySqlCommand cmd = new MySqlCommand(query, con);
+            //    MySqlDataReader dr = cmd.ExecuteReader();
 
-        //    while (dr.Read())
-        //    {
-        //        num = Convert.ToInt32(dr["Consec"].ToString());
-        //    }
-        //    dr.Close();
-        //    con.Close();
-        //    return num;
-
-#pragma warning disable CS0219 // La variable 'inicial' está asignada pero su valor nunca se usa
-             string inicial = "F";
-#pragma warning restore CS0219 // La variable 'inicial' está asignada pero su valor nunca se usa
+            //    while (dr.Read())
+            //    {
+            //        num = Convert.ToInt32(dr["Consec"].ToString());
+            //    }
+            //    dr.Close();
+            //    con.Close();
+            //    return num;
 
 
-            int num = 0;
-             Random rand = new Random();
-              num = rand.Next(1111111,9999999);
+            //string inicial = "F";
 
-         
-           
+
+
+            //int num = 0;
+            //Random rand = new Random();
+            //num = rand.Next(1111111, 9999999);
+
+            DateTime fecha = DateTime.Now;
+            string num = fecha.Minute.ToString() + fecha.Second.ToString() + fecha.Millisecond.ToString();
 
 
             return num;

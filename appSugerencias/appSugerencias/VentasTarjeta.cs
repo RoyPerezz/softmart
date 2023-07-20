@@ -167,32 +167,29 @@ namespace appSugerencias
             try
             {
                 if (CHK_mespasado.Checked == true)
-            {
-                string mesRespaldo = MesRespaldo(mes);
+                {
+                    string mesRespaldo = MesRespaldo(mes);
 
-                if (CB_sucursal.SelectedItem.ToString().Equals("VALLARTA"))
-                {
-                   
-                   con = BDConexicon.RespaldoVA(mesRespaldo, año);
-                   
-                
-                }
-                if (CB_sucursal.SelectedItem.ToString().Equals("RENA"))
-                {
-                    con = BDConexicon.RespaldoRE(mesRespaldo, año);
-                }
-                if (CB_sucursal.SelectedItem.ToString().Equals("VELAZQUEZ"))
-                {
-                    con = BDConexicon.RespaldoVE(mesRespaldo, año);
-                }
-                if (CB_sucursal.SelectedItem.ToString().Equals("COLOSO"))
-                {
-                    con = BDConexicon.RespaldoCO(mesRespaldo, año);
-                }
-                if (CB_sucursal.SelectedItem.ToString().Equals("PREGOT"))
-                {
-                   con = BDConexicon.RespaldoPRE(mesRespaldo, año);
-                }
+                    if (CB_sucursal.SelectedItem.ToString().Equals("VALLARTA"))
+                    {
+
+                        con = BDConexicon.RespaldoVA(mesRespaldo, año);
+
+
+                    }
+                    if (CB_sucursal.SelectedItem.ToString().Equals("RENA"))
+                    {
+                        con = BDConexicon.RespaldoRE(mesRespaldo, año);
+                    }
+                    if (CB_sucursal.SelectedItem.ToString().Equals("VELAZQUEZ"))
+                    {
+                        con = BDConexicon.RespaldoVE(mesRespaldo, año);
+                    }
+                    if (CB_sucursal.SelectedItem.ToString().Equals("COLOSO"))
+                    {
+                        con = BDConexicon.RespaldoCO(mesRespaldo, año);
+                    }
+
                 }
                 else
                 {
@@ -212,10 +209,7 @@ namespace appSugerencias
                     {
                         con = BDConexicon.ColosoOpen();
                     }
-                    if (CB_sucursal.SelectedItem.ToString().Equals("PREGOT"))
-                    {
-                        con = BDConexicon.Papeleria1Open();
-                    }
+
                 }
 
                 int estado = 0;
@@ -358,10 +352,7 @@ namespace appSugerencias
                                 conectar = BDConexicon.RespaldoCO(mesRespaldo,año);
                             }
 
-                            if (CB_sucursal.SelectedItem.ToString().Equals("PREGOT"))
-                            {
-                                conectar = BDConexicon.RespaldoPRE(mesRespaldo,año);
-                            }
+                          
                         }
                         else
                         {
@@ -385,10 +376,7 @@ namespace appSugerencias
                                 conectar = BDConexicon.ColosoOpen();
                             }
 
-                            if (CB_sucursal.SelectedItem.ToString().Equals("PREGOT"))
-                            {
-                                conectar = BDConexicon.Papeleria1Open();
-                            }
+                           
                         }
 
                         DateTime fechaDT = DT_fecha.Value;

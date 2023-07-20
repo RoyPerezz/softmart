@@ -345,7 +345,7 @@ namespace appSugerencias.Ventas.Controlador
             int m = 0;
             string mes = "";
             string query = "SELECT coningre.CONCEPTO,coningre.DESCRIP,flujo.IMPORTE,flujo.FECHA,flujo.ESTACION,flujo.USUARIO,flujo.FLUJO FROM coningre INNER JOIN flujo ON coningre.CONCEPTO = flujo.CONCEPTO " +
-                "WHERE flujo.FECHA BETWEEN '"+inicio.ToString("yyyy-MM-dd")+"' AND '"+fin.ToString("yyyy-MM-dd")+"' AND (coningre.CONCEPTO='SOBRA' OR coningre.CONCEPTO LIKE 'SBR%') ";
+                "WHERE flujo.FECHA BETWEEN '"+inicio.ToString("yyyy-MM-dd")+"' AND '"+fin.ToString("yyyy-MM-dd")+ "' AND (coningre.CONCEPTO='SOB' OR coningre.CONCEPTO LIKE 'SBR%'  OR coningre.CONCEPTO='SOBRA')";
             MySqlConnection con = null;
             if (check == true)
             {

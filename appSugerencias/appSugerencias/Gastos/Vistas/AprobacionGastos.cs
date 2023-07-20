@@ -406,12 +406,12 @@ namespace appSugerencias.Gastos.Vistas
 
                         }else if(sucursal.Equals("FINANZAS"))
                         {
-                            num = RevisionGastosController.NumAutorizacionFinanzas();
+                            num = Convert.ToInt32(RevisionGastosController.NumAutorizacionFinanzas());
                             numAprobacion = "F"+"-"+num.ToString();
                             
                         }
                         else{
-                            numAprobacion = rg.GenerarNumAprobacion(sucursal);
+                            numAprobacion = RevisionGastosController.GenerarNumAprobacion(sucursal);
                         }
                        
                     }

@@ -6,7 +6,7 @@ using System.Text;
 
 namespace appSugerencias
 {
-    class FormatoFecha
+    public class FormatoFecha
     {
 
 
@@ -31,6 +31,62 @@ namespace appSugerencias
             return snow;
         }
 
+        public static int NumMes(string mes)
+        {
+            int num = 0;
+
+            if (mes.Equals("ENERO"))
+            {
+                num = 1;
+            }
+            else if (mes.Equals("FEBRERO"))
+            {
+                num = 2;
+
+            }
+            else if (mes.Equals("MARZO"))
+            {
+                num = 3;
+            }
+            else if (mes.Equals("ABRIL"))
+            {
+                num = 4;
+            }
+            else if (mes.Equals("MAYO"))
+            {
+                num = 5;
+            }
+            else if (mes.Equals("JUNIO"))
+            {
+                num = 6;
+            }
+            else if (mes.Equals("JULIO"))
+            {
+                num = 7;
+            }
+            else if (mes.Equals("AGOSTO"))
+            {
+                num = 8;
+            }
+            else if (mes.Equals("SEPTIEMBRE"))
+            {
+                num = 9;
+            }
+            else if (mes.Equals("OCTUBRE"))
+            {
+                num = 10;
+            }
+            else if (mes.Equals("NOVIEMBRE"))
+            {
+                num = 11;
+            }
+            else if (mes.Equals("DICIEMBRE"))
+            {
+                num = 12;
+            }
+
+            return num;
+        }
         public static string Mes(int num)
         {
             string mes = "";
