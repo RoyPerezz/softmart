@@ -282,7 +282,7 @@ namespace appSugerencias
                    lblVe.Text = "NA";
                    lblVe.ForeColor = Color.Red;
                 }
-
+                /*
                 try
                 {
                     conex_guardar = BDConexicon.Papeleria1Open();
@@ -303,7 +303,7 @@ namespace appSugerencias
                 limpiar();
 
                 btGuardar.Enabled = true;
-
+                */
             }
         }
 

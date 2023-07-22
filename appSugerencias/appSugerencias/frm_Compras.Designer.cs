@@ -67,10 +67,6 @@
             this.lblProRe = new System.Windows.Forms.Label();
             this.lblProCo = new System.Windows.Forms.Label();
             this.lblProVe = new System.Windows.Forms.Label();
-            this.lblPa = new System.Windows.Forms.Label();
-            this.lblPaId = new System.Windows.Forms.Label();
-            this.lblPaImpor = new System.Windows.Forms.Label();
-            this.lblPaPro = new System.Windows.Forms.Label();
             this.TB_orden = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -84,7 +80,7 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(18, 63);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(81, 16);
+            this.label1.Size = new System.Drawing.Size(80, 16);
             this.label1.TabIndex = 0;
             this.label1.Text = "Proveedor";
             // 
@@ -94,7 +90,7 @@
             this.Factura.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Factura.Location = new System.Drawing.Point(18, 106);
             this.Factura.Name = "Factura";
-            this.Factura.Size = new System.Drawing.Size(60, 16);
+            this.Factura.Size = new System.Drawing.Size(59, 16);
             this.Factura.TabIndex = 1;
             this.Factura.Text = "Factura";
             // 
@@ -104,7 +100,7 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(18, 149);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(82, 16);
+            this.label2.Size = new System.Drawing.Size(81, 16);
             this.label2.TabIndex = 2;
             this.label2.Text = "Descuento";
             // 
@@ -114,7 +110,7 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(18, 179);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(113, 16);
+            this.label3.Size = new System.Drawing.Size(112, 16);
             this.label3.TabIndex = 3;
             this.label3.Text = "Observaciones";
             // 
@@ -156,7 +152,7 @@
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(19, 29);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(57, 16);
+            this.label4.Size = new System.Drawing.Size(56, 16);
             this.label4.TabIndex = 19;
             this.label4.Text = "Tienda";
             // 
@@ -443,46 +439,6 @@
             this.lblProVe.TabIndex = 50;
             this.lblProVe.Text = "-----";
             // 
-            // lblPa
-            // 
-            this.lblPa.AutoSize = true;
-            this.lblPa.Location = new System.Drawing.Point(847, 225);
-            this.lblPa.Name = "lblPa";
-            this.lblPa.Size = new System.Drawing.Size(66, 13);
-            this.lblPa.TabIndex = 51;
-            this.lblPa.Text = "PAPELERIA";
-            this.lblPa.Visible = false;
-            // 
-            // lblPaId
-            // 
-            this.lblPaId.AutoSize = true;
-            this.lblPaId.Location = new System.Drawing.Point(953, 225);
-            this.lblPaId.Name = "lblPaId";
-            this.lblPaId.Size = new System.Drawing.Size(22, 13);
-            this.lblPaId.TabIndex = 52;
-            this.lblPaId.Text = "-----";
-            this.lblPaId.Visible = false;
-            // 
-            // lblPaImpor
-            // 
-            this.lblPaImpor.AutoSize = true;
-            this.lblPaImpor.Location = new System.Drawing.Point(1046, 225);
-            this.lblPaImpor.Name = "lblPaImpor";
-            this.lblPaImpor.Size = new System.Drawing.Size(22, 13);
-            this.lblPaImpor.TabIndex = 53;
-            this.lblPaImpor.Text = "-----";
-            this.lblPaImpor.Visible = false;
-            // 
-            // lblPaPro
-            // 
-            this.lblPaPro.AutoSize = true;
-            this.lblPaPro.Location = new System.Drawing.Point(1130, 225);
-            this.lblPaPro.Name = "lblPaPro";
-            this.lblPaPro.Size = new System.Drawing.Size(22, 13);
-            this.lblPaPro.TabIndex = 54;
-            this.lblPaPro.Text = "-----";
-            this.lblPaPro.Visible = false;
-            // 
             // TB_orden
             // 
             this.TB_orden.Location = new System.Drawing.Point(533, 107);
@@ -496,7 +452,7 @@
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.Location = new System.Drawing.Point(393, 107);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(134, 16);
+            this.label13.Size = new System.Drawing.Size(133, 16);
             this.label13.TabIndex = 55;
             this.label13.Text = "Orden de  Compra";
             // 
@@ -506,7 +462,7 @@
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.Location = new System.Drawing.Point(393, 68);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(108, 16);
+            this.label14.Size = new System.Drawing.Size(107, 16);
             this.label14.TabIndex = 57;
             this.label14.Text = "Fecha llegada";
             // 
@@ -527,10 +483,6 @@
             this.Controls.Add(this.label14);
             this.Controls.Add(this.TB_orden);
             this.Controls.Add(this.label13);
-            this.Controls.Add(this.lblPaPro);
-            this.Controls.Add(this.lblPaImpor);
-            this.Controls.Add(this.lblPaId);
-            this.Controls.Add(this.lblPa);
             this.Controls.Add(this.lblProVe);
             this.Controls.Add(this.lblProCo);
             this.Controls.Add(this.lblProRe);
@@ -619,10 +571,6 @@
         private System.Windows.Forms.Label lblProRe;
         private System.Windows.Forms.Label lblProCo;
         private System.Windows.Forms.Label lblProVe;
-        private System.Windows.Forms.Label lblPa;
-        private System.Windows.Forms.Label lblPaId;
-        private System.Windows.Forms.Label lblPaImpor;
-        private System.Windows.Forms.Label lblPaPro;
         private System.Windows.Forms.TextBox TB_orden;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;

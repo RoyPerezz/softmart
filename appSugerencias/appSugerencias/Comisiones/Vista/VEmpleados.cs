@@ -20,13 +20,20 @@ namespace appSugerencias.Comisiones.Vista
         List<MRol> listaRoles = new List<MRol>();
         public VEmpleados()
         {
-            InitializeComponent();
-            dgvEmpleados.DataSource = CEmpleado.CMostrarEmpleados2(MSesion.GetConexion());
-            listaRoles = CRol.CMostrarRoles(MSesion.GetConexion());
+            try
+            {
+                InitializeComponent();
+                dgvEmpleados.DataSource = CEmpleado.CMostrarEmpleados2(MSesion.GetConexion());
+                listaRoles = CRol.CMostrarRoles(MSesion.GetConexion());
 
-            cbRol.DisplayMember = "Rol";
-            cbRol.ValueMember = "Id";
-            cbRol.DataSource = listaRoles.ToList();
+                cbRol.DisplayMember = "Rol";
+                cbRol.ValueMember = "Id";
+                cbRol.DataSource = listaRoles.ToList();
+            }catch(Exception er)
+            {
+                this.MensajeError("No se puede Iniciar");
+            }
+            
         }
 
         private void HabilitarBtn()
@@ -79,6 +86,14 @@ namespace appSugerencias.Comisiones.Vista
 
             if (this.tbNombre.Text == string.Empty)
             { eprError.SetError(tbNombre, "Ingrese el nombre del empleado"); varvalidacampos++; }
+
+            if (this.cbRol.Text == "CAJAS")
+            {
+                if (this.tbUsuario.Text == string.Empty)
+                { eprError.SetError(tbUsuario, "Ingrese el usuario de la cajera"); varvalidacampos++; }
+
+
+            }
 
 
             else { varvalidacampos--; }
@@ -304,7 +319,7 @@ namespace appSugerencias.Comisiones.Vista
             try
             {
                 ValidaCampos();
-                if (varvalidacampos >= 0) MensajeError("Faltan ingresar algunos datos, serán remarcados");
+                if (varvalidacampos > 0) MensajeError("Faltan ingresar algunos datos, serán remarcados");
                 else
                 {
                     if (this.EsNuevo == true) AgregarEmpleado();

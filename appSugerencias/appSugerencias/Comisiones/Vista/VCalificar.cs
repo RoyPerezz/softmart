@@ -651,5 +651,10 @@ namespace appSugerencias.Comisiones.Vista
         {
             MostrarSumaCalificiaciones();
         }
+
+        private void lblCodigo_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

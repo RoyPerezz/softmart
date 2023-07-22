@@ -34,18 +34,18 @@
             this.Buscar = new System.Windows.Forms.GroupBox();
             this.btBuscar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.tbUsuario = new System.Windows.Forms.TextBox();
+            this.lblUsuario = new System.Windows.Forms.Label();
+            this.btCancelar = new System.Windows.Forms.Button();
+            this.cbRol = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tbCodigo = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.btGuardar = new System.Windows.Forms.Button();
             this.tbNombre = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tbCodigo = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cbRol = new System.Windows.Forms.ComboBox();
-            this.btCancelar = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.lblUsuario = new System.Windows.Forms.Label();
-            this.tbUsuario = new System.Windows.Forms.TextBox();
             this.eprError = new System.Windows.Forms.ErrorProvider(this.components);
             this.btNuevo = new System.Windows.Forms.Button();
             this.btModificar = new System.Windows.Forms.Button();
@@ -68,6 +68,9 @@
             // 
             // dgvEmpleados
             // 
+            this.dgvEmpleados.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEmpleados.Location = new System.Drawing.Point(12, 80);
             this.dgvEmpleados.Name = "dgvEmpleados";
@@ -77,6 +80,8 @@
             // 
             // Buscar
             // 
+            this.Buscar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.Buscar.Controls.Add(this.btBuscar);
             this.Buscar.Controls.Add(this.tbBuscar);
             this.Buscar.Location = new System.Drawing.Point(694, 105);
@@ -98,6 +103,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.tbUsuario);
             this.groupBox1.Controls.Add(this.lblUsuario);
             this.groupBox1.Controls.Add(this.btCancelar);
@@ -115,6 +122,78 @@
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Agregar/Editar";
+            // 
+            // tbUsuario
+            // 
+            this.tbUsuario.Location = new System.Drawing.Point(6, 226);
+            this.tbUsuario.Multiline = true;
+            this.tbUsuario.Name = "tbUsuario";
+            this.tbUsuario.Size = new System.Drawing.Size(132, 27);
+            this.tbUsuario.TabIndex = 11;
+            // 
+            // lblUsuario
+            // 
+            this.lblUsuario.AutoSize = true;
+            this.lblUsuario.Location = new System.Drawing.Point(6, 203);
+            this.lblUsuario.Name = "lblUsuario";
+            this.lblUsuario.Size = new System.Drawing.Size(64, 20);
+            this.lblUsuario.TabIndex = 10;
+            this.lblUsuario.Text = "Usuario";
+            // 
+            // btCancelar
+            // 
+            this.btCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btCancelar.Location = new System.Drawing.Point(214, 274);
+            this.btCancelar.Name = "btCancelar";
+            this.btCancelar.Size = new System.Drawing.Size(117, 32);
+            this.btCancelar.TabIndex = 9;
+            this.btCancelar.Text = "Cancelar";
+            this.btCancelar.UseVisualStyleBackColor = true;
+            this.btCancelar.Click += new System.EventHandler(this.btCancelar_Click);
+            // 
+            // cbRol
+            // 
+            this.cbRol.FormattingEnabled = true;
+            this.cbRol.Location = new System.Drawing.Point(6, 167);
+            this.cbRol.Name = "cbRol";
+            this.cbRol.Size = new System.Drawing.Size(151, 28);
+            this.cbRol.TabIndex = 8;
+            this.cbRol.SelectedValueChanged += new System.EventHandler(this.cbRol_SelectedValueChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 144);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(33, 20);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Rol";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 83);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(65, 20);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Nombre";
+            // 
+            // tbCodigo
+            // 
+            this.tbCodigo.Location = new System.Drawing.Point(6, 50);
+            this.tbCodigo.Multiline = true;
+            this.tbCodigo.Name = "tbCodigo";
+            this.tbCodigo.Size = new System.Drawing.Size(132, 27);
+            this.tbCodigo.TabIndex = 5;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 28);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(59, 20);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Codigo";
             // 
             // btGuardar
             // 
@@ -135,61 +214,6 @@
             this.tbNombre.Size = new System.Drawing.Size(278, 27);
             this.tbNombre.TabIndex = 0;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 28);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 20);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Codigo";
-            // 
-            // tbCodigo
-            // 
-            this.tbCodigo.Location = new System.Drawing.Point(6, 50);
-            this.tbCodigo.Multiline = true;
-            this.tbCodigo.Name = "tbCodigo";
-            this.tbCodigo.Size = new System.Drawing.Size(132, 27);
-            this.tbCodigo.TabIndex = 5;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 83);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 20);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Nombre";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 144);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(33, 20);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Rol";
-            // 
-            // cbRol
-            // 
-            this.cbRol.FormattingEnabled = true;
-            this.cbRol.Location = new System.Drawing.Point(6, 167);
-            this.cbRol.Name = "cbRol";
-            this.cbRol.Size = new System.Drawing.Size(121, 28);
-            this.cbRol.TabIndex = 8;
-            this.cbRol.SelectedValueChanged += new System.EventHandler(this.cbRol_SelectedValueChanged);
-            // 
-            // btCancelar
-            // 
-            this.btCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btCancelar.Location = new System.Drawing.Point(214, 274);
-            this.btCancelar.Name = "btCancelar";
-            this.btCancelar.Size = new System.Drawing.Size(117, 32);
-            this.btCancelar.TabIndex = 9;
-            this.btCancelar.Text = "Cancelar";
-            this.btCancelar.UseVisualStyleBackColor = true;
-            this.btCancelar.Click += new System.EventHandler(this.btCancelar_Click);
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -209,23 +233,6 @@
             this.label5.Size = new System.Drawing.Size(186, 37);
             this.label5.TabIndex = 11;
             this.label5.Text = "Empleados";
-            // 
-            // lblUsuario
-            // 
-            this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Location = new System.Drawing.Point(6, 203);
-            this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(64, 20);
-            this.lblUsuario.TabIndex = 10;
-            this.lblUsuario.Text = "Usuario";
-            // 
-            // tbUsuario
-            // 
-            this.tbUsuario.Location = new System.Drawing.Point(6, 226);
-            this.tbUsuario.Multiline = true;
-            this.tbUsuario.Name = "tbUsuario";
-            this.tbUsuario.Size = new System.Drawing.Size(132, 27);
-            this.tbUsuario.TabIndex = 11;
             // 
             // eprError
             // 
@@ -263,6 +270,7 @@
             // 
             // Acciones
             // 
+            this.Acciones.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Acciones.Controls.Add(this.btEliminar);
             this.Acciones.Controls.Add(this.btModificar);
             this.Acciones.Controls.Add(this.btNuevo);
@@ -285,7 +293,7 @@
             this.Controls.Add(this.dgvEmpleados);
             this.Controls.Add(this.Acciones);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "VEmpleados";
             this.Text = "VEmpleados";
             this.Load += new System.EventHandler(this.VEmpleados_Load);

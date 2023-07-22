@@ -228,5 +228,10 @@ namespace appSugerencias.Comisiones.Vista
             listaRoles = CRol.CConsultarRoles(tbBuscar.Text, MSesion.GetConexion());
             dgvRoles.DataSource = listaRoles.ToList();
         }
+
+        private void Acciones_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

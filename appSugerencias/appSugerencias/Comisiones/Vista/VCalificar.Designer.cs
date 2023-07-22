@@ -46,7 +46,9 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblCodigo = new System.Windows.Forms.Label();
+            this.dgvRevisarTareas = new System.Windows.Forms.DataGridView();
             this.btEditarCalif = new System.Windows.Forms.Button();
+            this.dgvRevisionCalif = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.ckbSemana = new System.Windows.Forms.CheckBox();
             this.button2 = new System.Windows.Forms.Button();
@@ -61,21 +63,19 @@
             this.dtpFechaReporte = new System.Windows.Forms.DateTimePicker();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.cbRolReporte = new System.Windows.Forms.ComboBox();
-            this.dgvRevisionCalif = new System.Windows.Forms.DataGridView();
-            this.dgvRevisarTareas = new System.Windows.Forms.DataGridView();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCalificaciones)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRevisarTareas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRevisionCalif)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReporte)).BeginInit();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvRevisionCalif)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvRevisarTareas)).BeginInit();
             this.SuspendLayout();
             // 
             // label5
@@ -100,6 +100,9 @@
             // 
             // tabControl1
             // 
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
@@ -126,6 +129,7 @@
             // 
             // btGuardar
             // 
+            this.btGuardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btGuardar.Location = new System.Drawing.Point(933, 475);
             this.btGuardar.Name = "btGuardar";
             this.btGuardar.Size = new System.Drawing.Size(102, 32);
@@ -137,6 +141,9 @@
             // dgvCalificaciones
             // 
             this.dgvCalificaciones.AllowUserToAddRows = false;
+            this.dgvCalificaciones.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvCalificaciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCalificaciones.Location = new System.Drawing.Point(16, 137);
             this.dgvCalificaciones.Name = "dgvCalificaciones";
@@ -146,6 +153,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.lbFechas);
@@ -181,7 +190,7 @@
             // 
             this.lbFechas.AutoSize = true;
             this.lbFechas.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbFechas.Location = new System.Drawing.Point(108, 86);
+            this.lbFechas.Location = new System.Drawing.Point(29, 86);
             this.lbFechas.Name = "lbFechas";
             this.lbFechas.Size = new System.Drawing.Size(60, 24);
             this.lbFechas.TabIndex = 2;
@@ -204,6 +213,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.cbRol);
             this.groupBox2.Controls.Add(this.btBuscar);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -250,6 +261,7 @@
             // 
             // lblNombre
             // 
+            this.lblNombre.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblNombre.AutoSize = true;
             this.lblNombre.Location = new System.Drawing.Point(714, 129);
             this.lblNombre.Name = "lblNombre";
@@ -259,15 +271,28 @@
             // 
             // lblCodigo
             // 
+            this.lblCodigo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblCodigo.AutoSize = true;
             this.lblCodigo.Location = new System.Drawing.Point(714, 111);
             this.lblCodigo.Name = "lblCodigo";
             this.lblCodigo.Size = new System.Drawing.Size(46, 18);
             this.lblCodigo.TabIndex = 12;
             this.lblCodigo.Text = "label1";
+            this.lblCodigo.Click += new System.EventHandler(this.lblCodigo_Click);
+            // 
+            // dgvRevisarTareas
+            // 
+            this.dgvRevisarTareas.AllowUserToAddRows = false;
+            this.dgvRevisarTareas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvRevisarTareas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvRevisarTareas.Location = new System.Drawing.Point(714, 154);
+            this.dgvRevisarTareas.Name = "dgvRevisarTareas";
+            this.dgvRevisarTareas.Size = new System.Drawing.Size(302, 299);
+            this.dgvRevisarTareas.TabIndex = 11;
             // 
             // btEditarCalif
             // 
+            this.btEditarCalif.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btEditarCalif.Location = new System.Drawing.Point(898, 459);
             this.btEditarCalif.Name = "btEditarCalif";
             this.btEditarCalif.Size = new System.Drawing.Size(118, 45);
@@ -276,8 +301,23 @@
             this.btEditarCalif.UseVisualStyleBackColor = true;
             this.btEditarCalif.Click += new System.EventHandler(this.btEditarCalif_Click);
             // 
+            // dgvRevisionCalif
+            // 
+            this.dgvRevisionCalif.AllowUserToAddRows = false;
+            this.dgvRevisionCalif.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvRevisionCalif.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvRevisionCalif.Location = new System.Drawing.Point(20, 154);
+            this.dgvRevisionCalif.Name = "dgvRevisionCalif";
+            this.dgvRevisionCalif.Size = new System.Drawing.Size(671, 299);
+            this.dgvRevisionCalif.TabIndex = 7;
+            this.dgvRevisionCalif.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRevisionCalif_CellDoubleClick);
+            // 
             // groupBox3
             // 
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.ckbSemana);
             this.groupBox3.Controls.Add(this.button2);
             this.groupBox3.Controls.Add(this.lbFechasReporte);
@@ -347,6 +387,7 @@
             // 
             // btGenerarReporte
             // 
+            this.btGenerarReporte.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btGenerarReporte.Location = new System.Drawing.Point(910, 448);
             this.btGenerarReporte.Name = "btGenerarReporte";
             this.btGenerarReporte.Size = new System.Drawing.Size(120, 52);
@@ -378,6 +419,9 @@
             // dgvReporte
             // 
             this.dgvReporte.AllowUserToAddRows = false;
+            this.dgvReporte.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvReporte.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvReporte.Location = new System.Drawing.Point(11, 130);
             this.dgvReporte.Name = "dgvReporte";
@@ -422,25 +466,6 @@
             this.cbRolReporte.Size = new System.Drawing.Size(209, 28);
             this.cbRolReporte.TabIndex = 3;
             // 
-            // dgvRevisionCalif
-            // 
-            this.dgvRevisionCalif.AllowUserToAddRows = false;
-            this.dgvRevisionCalif.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvRevisionCalif.Location = new System.Drawing.Point(20, 154);
-            this.dgvRevisionCalif.Name = "dgvRevisionCalif";
-            this.dgvRevisionCalif.Size = new System.Drawing.Size(671, 299);
-            this.dgvRevisionCalif.TabIndex = 7;
-            this.dgvRevisionCalif.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRevisionCalif_CellDoubleClick);
-            // 
-            // dgvRevisarTareas
-            // 
-            this.dgvRevisarTareas.AllowUserToAddRows = false;
-            this.dgvRevisarTareas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvRevisarTareas.Location = new System.Drawing.Point(714, 154);
-            this.dgvRevisarTareas.Name = "dgvRevisarTareas";
-            this.dgvRevisarTareas.Size = new System.Drawing.Size(302, 299);
-            this.dgvRevisarTareas.TabIndex = 11;
-            // 
             // VCalificar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -462,6 +487,8 @@
             this.groupBox2.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRevisarTareas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRevisionCalif)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.tabPage3.ResumeLayout(false);
@@ -469,8 +496,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvReporte)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvRevisionCalif)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvRevisarTareas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

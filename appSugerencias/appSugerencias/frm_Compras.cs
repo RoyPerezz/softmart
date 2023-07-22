@@ -80,20 +80,20 @@ namespace appSugerencias
             try
             {
 
-                //conectar.Close();
+                conectar.Close();
             }
-
+#pragma warning disable CS0168 // La variable 'ec' se ha declarado pero nunca se usa
             catch (Exception ec)
-
+#pragma warning restore CS0168 // La variable 'ec' se ha declarado pero nunca se usa
             {
 
             }
 
             if (CBTienda.SelectedItem.Equals("BODEGA"))
-            {
+                {
                     conectar = BDConexicon.BodegaOpen();
                     proveedores();
-            }
+                }
 
                 if (CBTienda.SelectedItem.Equals("RENA"))
                 {
@@ -125,7 +125,12 @@ namespace appSugerencias
                     proveedores();
                 }
 
-               
+                if (CBTienda.SelectedItem.Equals("PREGOT"))
+                {
+
+                    conectar = BDConexicon.Papeleria1Open();
+                    proveedores();
+                }
 
         }
 
@@ -151,9 +156,9 @@ namespace appSugerencias
                     dr.Close();
                 }
             }
-
+#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             catch (Exception ex)
-
+#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             {
                 LBConexion.ForeColor = Color.Red;
                 LBConexion.Text = "Sin Conexión";
@@ -175,9 +180,9 @@ namespace appSugerencias
                 
 
             }
-
+#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             catch (Exception ex)
-
+#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             {
 
                 LBConexion.ForeColor = Color.Red;
@@ -676,7 +681,16 @@ namespace appSugerencias
 
                 }
 
-               
+                //if (CBTienda.SelectedItem.Equals("PREGOT"))
+                //{
+                //    lblPaId.Text = "-----";
+                //    lblPaImpor.Text = "-----";
+                //    lblPaPro.Text = "-----";
+                //    lblPaId.Text = idCompra.ToString();
+                //    lblPaImpor.Text = TotalCompra.ToString();
+                //    lblPaPro.Text = CBFabricante.Text;
+
+                //}
 
             MessageBox.Show("Compra Registrada" + Environment.NewLine + "No. Compra: " + idCompra + Environment.NewLine + "Importe: " + TotalCompra);
 
