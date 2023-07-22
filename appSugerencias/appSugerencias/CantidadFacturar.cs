@@ -1293,9 +1293,9 @@ namespace appSugerencias
 
             string sucursalSeleccionada = SucursalSeleccionada();
             DateTime fecha;
-#pragma warning disable CS0219 // La variable 'valor' está asignada pero su valor nunca se usa
+
             bool valor = false;
-#pragma warning restore CS0219 // La variable 'valor' está asignada pero su valor nunca se usa
+
             int estado = 0;
             MySqlConnection con = null;
             string areaTrabajo = "";

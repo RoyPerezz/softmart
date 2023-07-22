@@ -218,6 +218,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblUsuario = new System.Windows.Forms.Label();
+            this.reporteGastosFinanzasGerenciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -1044,7 +1045,8 @@
             this.gastosToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.registrarGastoToolStripMenuItem1,
             this.listaDeGastosToolStripMenuItem,
-            this.registrarPersonaQueGeneraGastoToolStripMenuItem});
+            this.registrarPersonaQueGeneraGastoToolStripMenuItem,
+            this.reporteGastosFinanzasGerenciaToolStripMenuItem});
             this.gastosToolStripMenuItem1.Name = "gastosToolStripMenuItem1";
             this.gastosToolStripMenuItem1.Size = new System.Drawing.Size(218, 22);
             this.gastosToolStripMenuItem1.Text = "Gastos";
@@ -1759,6 +1761,13 @@
             this.lblUsuario.TabIndex = 9;
             this.lblUsuario.Text = "USER";
             // 
+            // reporteGastosFinanzasGerenciaToolStripMenuItem
+            // 
+            this.reporteGastosFinanzasGerenciaToolStripMenuItem.Name = "reporteGastosFinanzasGerenciaToolStripMenuItem";
+            this.reporteGastosFinanzasGerenciaToolStripMenuItem.Size = new System.Drawing.Size(271, 22);
+            this.reporteGastosFinanzasGerenciaToolStripMenuItem.Text = "Reporte gastos finanzas gerencia";
+            this.reporteGastosFinanzasGerenciaToolStripMenuItem.Click += new System.EventHandler(this.reporteGastosFinanzasGerenciaToolStripMenuItem_Click);
+            // 
             // Principal2_0
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1980,5 +1989,6 @@
         private System.Windows.Forms.ToolStripMenuItem registrarPersonaQueGeneraGastoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gastosFinanzasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem revisionEtiquetasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reporteGastosFinanzasGerenciaToolStripMenuItem;
     }
 }

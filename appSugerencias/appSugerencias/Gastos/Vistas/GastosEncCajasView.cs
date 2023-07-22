@@ -15,9 +15,9 @@ namespace appSugerencias.Gastos.Vistas
     public partial class GastosEncCajasView : Form, IDatos
     {
         string encajas = "";
-#pragma warning disable CS0414 // El campo 'GastosEncCajasView.inicial' está asignado pero su valor nunca se usa
+
         string inicial = "";
-#pragma warning restore CS0414 // El campo 'GastosEncCajasView.inicial' está asignado pero su valor nunca se usa
+
 
         public GastosEncCajasView(string usuario)
         {
@@ -30,6 +30,23 @@ namespace appSugerencias.Gastos.Vistas
         {
             string sucursal = BDConexicon.sucursal();
             return sucursal;
+        }
+
+        public string AreaTrabajo()
+        {
+            string area = "";
+
+            MySqlConnection con = BDConexicon.conectar();
+            MySqlCommand cmd = new MySqlCommand("SELECT area from usuarios WHERE usuario ='" + encajas + "'", con);
+            MySqlDataReader dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                area = dr["area"].ToString();
+            }
+            dr.Close();
+            con.Close();
+            return area;
         }
 
         public void PintarFila()
@@ -68,6 +85,16 @@ namespace appSugerencias.Gastos.Vistas
         private void GastosEncCajasView_Load(object sender, EventArgs e)
         {
 
+            string area = AreaTrabajo();
+            if (area.Equals("SISTEMAS")||area.Equals("ADMON GRAL")||area.Equals("SOPORTE"))
+            {
+                CB_sucursal.Enabled=true;
+            }
+            else
+            {
+                CB_sucursal.Enabled = false;
+
+            }
 
 
 

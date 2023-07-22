@@ -15,11 +15,29 @@ namespace appSugerencias.Gastos_Externos.Vistas
     public partial class ReporteGastosFinanzas_Gerencia : Form
     {
 
-        public ReporteGastosFinanzas_Gerencia()
+        string usuario = "",area="";
+        public ReporteGastosFinanzas_Gerencia(string usuario)
         {
+            this.usuario = usuario;
             InitializeComponent();
         }
 
+        public string AreaTrabajo()
+        {
+            string area = "";
+
+            MySqlConnection con = BDConexicon.conectar();
+            MySqlCommand cmd = new MySqlCommand("SELECT area from usuarios WHERE usuario ='" + usuario + "'", con);
+            MySqlDataReader dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                area = dr["area"].ToString();
+            }
+            dr.Close();
+            con.Close();
+            return area;
+        }
 
 
         //private void BT_buscar_Click(object sender, EventArgs e)
@@ -116,6 +134,14 @@ namespace appSugerencias.Gastos_Externos.Vistas
         }
         private void ReporteGastosFinanzas_Gerencia_Load_1(object sender, EventArgs e)
         {
+            area = AreaTrabajo();
+
+            if (area.Equals("FINANZAS"))
+            {
+                BT_abrir.Visible = false;
+                groupBox2.Visible = false;
+                DG_tabla.Columns["CHECK"].ReadOnly=true;
+            }
             LB_saldo_finanzas.Text =  CalcularSaldoCuenta("FINANZAS", "ENVIO").ToString("C2");
         }
 

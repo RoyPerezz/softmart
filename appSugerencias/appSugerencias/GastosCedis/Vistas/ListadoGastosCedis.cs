@@ -62,7 +62,7 @@ namespace appSugerencias.GastosCedis.Vistas
                     EstadoAprobacion = DG_tabla.Rows[e.RowIndex].Cells["ESTADOAPROBACION"].Value.ToString(),
                     Actualizar = true
                 };
-                GastosAlmacenCedis gac = new GastosAlmacenCedis(ac);
+                GastosAlmacenCedis gac = new GastosAlmacenCedis(ac,"");
                 gac.Show();
             }
             else

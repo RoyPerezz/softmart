@@ -24,7 +24,8 @@ namespace appSugerencias
         #region VARIABLES
         ArrayList facturasEfe = new ArrayList();
         ArrayList facturasTar = new ArrayList();
-
+        int depositado = 0;
+        int estado = 0;
         ArrayList ventasFacturadas = new ArrayList();
         DateTime PrimerDiaDelMes;
         DateTime UltimoDiaDelMes;
@@ -160,12 +161,110 @@ namespace appSugerencias
             return total;
         }
 
+
+        public double DepositoVentanilla(DateTime fecha,string sucursal)
+        {
+
+           
+          
+
+
+            double deposito = 0;
+            
+            MySqlConnection con = null;
+            string areaTrabajo = "";
+            areaTrabajo = AreaTrabajo();
+            if (areaTrabajo.Equals("SISTEMAS") || areaTrabajo.Equals("CXPAGAR") || areaTrabajo.Equals("ADMON GRAL") || areaTrabajo.Equals("CONTAB") || areaTrabajo.Equals("SOPORTE") || areaTrabajo.Equals("FINANZAS"))
+            {
+
+              
+                    con = BDConexicon.ConexionSucursal(sucursal);
+                
+
+
+
+
+            }
+            else
+            {
+                con = BDConexicon.conectar();
+            }
+            MySqlCommand cmd = null;
+            MySqlDataReader dr = null;
+            DataGridViewCheckBoxCell check = null;
+
+
+                check = new DataGridViewCheckBoxCell();
+              
+                cmd = new MySqlCommand("select fecha,importe,estado,depositado from rd_deposito_ventanilla where fecha='" + fecha.ToString("yyyy-MM-dd") + "'", con);
+                dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    //DG_tabla.Rows[i].Cells["DEPOSITO_VENTANILLA"].Value = Convert.ToDouble(dr["importe"].ToString());
+                    deposito= Convert.ToDouble(dr["importe"].ToString());
+                    depositado = Convert.ToInt32(dr["depositado"].ToString());
+                    estado = Convert.ToInt32(dr["estado"].ToString());
+
+
+            }
+                dr.Close();
+            
+
+            return deposito;
+
+
+        }
+
+        public bool FechaExiste(DateTime fecha)
+        {
+            bool respuesta = false;
+            
+            string consulta = "select * from rd_deposito_ventanilla where fecha='´" + fecha.ToString("yyyy-MM-dd") + "'";
+            MySqlConnection con = null;
+            string areaTrabajo = "";
+            areaTrabajo = AreaTrabajo();
+            if (areaTrabajo.Equals("SISTEMAS") || areaTrabajo.Equals("CXPAGAR") || areaTrabajo.Equals("ADMON GRAL") || areaTrabajo.Equals("CONTAB") || areaTrabajo.Equals("SOPORTE") || areaTrabajo.Equals("FINANZAS"))
+            {
+                con = BDConexicon.ConexionSucursal(sucursalSeleccionada);
+            }
+            else
+            {
+                con = BDConexicon.conectar();
+            }
+            MySqlCommand cmd = new MySqlCommand(consulta, con);
+            MySqlDataReader dr = cmd.ExecuteReader();
+
+            if (dr.HasRows)
+            {
+                respuesta = true;
+            }
+
+            dr.Close();
+
+            return respuesta;
+        }
+
+
+        public int FacturaGlobalHecha()
+        {
+            int estado = 0;
+            string query = "SELECT ";
+            return estado;
+        }
+
+        public string AcortarMes(string mes)
+        {
+            string m = "";
+
+
+            return m;
+        }
         private void BT_buscar_Click(object sender, EventArgs e)
         {
 
 
             DG_tabla.Rows.Clear();
-            double  totalFacturaCliente = 0, FacturaGlobal = 0, efectivo = 0, tarjeta = 0;
+            double  totalFacturaCliente = 0, FacturaGlobal = 0, efectivo = 0, tarjeta = 0,depositoCliente=0,depositoVentanilla=0,depositoPana=0;
             ArrayList ventasEfectivo = new ArrayList();
             DateTime FechaTabla;
             DateTime date = DateTime.Now;
@@ -204,26 +303,61 @@ namespace appSugerencias
             for (DateTime fecha = PrimerDiaDelMes; fecha <= UltimoDiaDelMes; fecha = fecha.AddDays(1))
             {
                 
-                DG_tabla.Rows.Add(fecha.ToString("yyyy-MM-dd"),0);
+                DG_tabla.Rows.Add(fecha.ToString("yyyy-MM-dd"),0,0);
             }
 
-          
 
+            bool checkDepositado = false;
             
             for (int i = 0; i < DG_tabla.Rows.Count; i++)
             {
+                bool valor = false;
                 FechaTabla = Convert.ToDateTime(DG_tabla.Rows[i].Cells["FECHA"].Value);
                 //ventaTotal = FacturacionController.CalcularTotalVenta(FechaTabla,sucursalSeleccionada);
                 ventasTarjetas = FacturacionController.CalcularTotalTarjetas(FechaTabla,sucursalSeleccionada,mes,año,respaldo);
                 ventaEfectivo = FacturacionController.CalcularTotalEfectivo(FechaTabla,sucursalSeleccionada,mes,año,respaldo);
                 //factEFE = FacturacionController.CalcularFacturacionEfectivo(FechaTabla,sucursalSeleccionada,mes,año,respaldo, ventasEfectivo);
+
+                //if (ventaEfectivo == 0 && ventasTarjetas == 0)
+                //{
+                //    break;
+                //}
+
+
                 totalFacturaCliente = TotalFacturacionCliente(FechaTabla,sucursalSeleccionada);
-
+                depositoCliente = FacturacionController.CalcularDepositoDeCliente(FechaTabla,sucursalSeleccionada,LB_patron.Text);
                 FacturaGlobal = (ventaEfectivo + ventasTarjetas) - totalFacturaCliente;
+                depositoVentanilla = DepositoVentanilla(FechaTabla,sucursalSeleccionada);
 
-                
+                depositoPana = (ventaEfectivo + ventasTarjetas) - ventasTarjetas - depositoCliente - depositoVentanilla;
+
 
                 DG_tabla.Rows[i].Cells["TOTAL_VENTA"].Value = (ventaEfectivo + ventasTarjetas);
+                DG_tabla.Rows[i].Cells["DEPOSITO_VENTANILLA"].Value = depositoVentanilla;
+                DG_tabla.Rows[i].Cells["DEPOSITO_CLIENTE"].Value = depositoCliente;
+                DG_tabla.Rows[i].Cells["DEPOSITO_PANA"].Value = depositoPana;
+
+                if (depositado == 1)
+                {
+                    DG_tabla.Rows[i].Cells["DEPOSITADO"].Value = true;
+                    DG_tabla.Rows[i].Cells["DEPOSITO_PANA"].Style.ForeColor = Color.White;
+                    DG_tabla.Rows[i].Cells["DEPOSITO_PANA"].Style.BackColor = Color.Red;
+                }else
+                {
+                    DG_tabla.Rows[i].Cells["DEPOSITADO"].Value = false;
+                }
+
+                if (estado==1)
+                {
+                    DG_tabla.Rows[i].Cells["FACTURA_ELABORADA"].Value = true;
+                }
+                else
+                {
+                    DG_tabla.Rows[i].Cells["FACTURA_ELABORADA"].Value = false;
+                }
+                
+                
+
                 DG_tabla.Rows[i].Cells["VENTAS_EFECTIVO"].Value = ventaEfectivo;
                 DG_tabla.Rows[i].Cells["BAUCHER"].Value = ventasTarjetas;
                 DG_tabla.Rows[i].Cells["TOTAL_FACTURADO"].Value = totalFacturaCliente;
@@ -235,12 +369,12 @@ namespace appSugerencias
                 DG_tabla.Rows[i].Cells["EFECTIVO"].Value = (ventaEfectivo/1.16);
                 DG_tabla.Rows[i].Cells["TARJETA"].Value = (ventasTarjetas/1.16);
 
-                if (ventaEfectivo==0 && ventasTarjetas==0)
-                {
-                    break;
-                }
+              
 
                 DG_tabla.Columns["TOTAL_VENTA"].DefaultCellStyle.Format = "C2";
+                DG_tabla.Columns["DEPOSITO_VENTANILLA"].DefaultCellStyle.Format = "C2";
+                DG_tabla.Columns["DEPOSITO_CLIENTE"].DefaultCellStyle.Format = "C2";
+                DG_tabla.Columns["DEPOSITO_PANA"].DefaultCellStyle.Format = "C2";
                 DG_tabla.Columns["VENTAS_EFECTIVO"].DefaultCellStyle.Format = "C2";
                 DG_tabla.Columns["BAUCHER"].DefaultCellStyle.Format = "C2";
                 DG_tabla.Columns["FACT_EFE"].DefaultCellStyle.Format = "C2";
@@ -249,7 +383,7 @@ namespace appSugerencias
                 DG_tabla.Columns["FACTURA_GLOBAL"].DefaultCellStyle.Format = "C2";
                 DG_tabla.Columns["EFECTIVO"].DefaultCellStyle.Format = "C2";
                 DG_tabla.Columns["TARJETA"].DefaultCellStyle.Format = "C2";
-                factTar = 0; factEFE = 0; ventasTarjetas=0; ventaEfectivo = 0; totalFacturaCliente = 0; FacturaGlobal = 0;
+                factTar = 0; factEFE = 0; ventasTarjetas=0; ventaEfectivo = 0; totalFacturaCliente = 0; FacturaGlobal = 0; depositoVentanilla=0;
             }
             ventasFacturadas.Clear();
             facturasEfe.Clear();
@@ -289,6 +423,170 @@ namespace appSugerencias
 
         private void CantFacturar_Load(object sender, EventArgs e)
         {
+
+        }
+
+        private void BT_guardar_Click(object sender, EventArgs e)
+        {
+            
+            DateTime fecha;
+            bool existe = false;
+            double importe = 0;
+            bool estado = false;
+            bool depositado = false;
+            int valor = 0, valor1 = 0;
+            string consulta = "INSERT INTO rd_deposito_ventanilla(fecha,importe,usuario,depositado)VALUES(?fecha,?importe,?usuario,?depositado)";
+
+
+
+
+            MySqlConnection con = null;
+            string areaTrabajo = "";
+            areaTrabajo = AreaTrabajo();
+            string empresa = "";
+            if (areaTrabajo.Equals("SISTEMAS") || areaTrabajo.Equals("CXPAGAR") || areaTrabajo.Equals("ADMON GRAL") || areaTrabajo.Equals("CONTAB") || areaTrabajo.Equals("SOPORTE") || areaTrabajo.Equals("FINANZAS"))
+            {
+
+
+              
+                    con = BDConexicon.ConexionSucursal(sucursalSeleccionada);
+              
+
+            }
+            else
+            {
+
+               
+                    con = BDConexicon.conectar();
+                
+
+            }
+            MySqlCommand cmd = null;
+
+            for (int i = 0; i < DG_tabla.Rows.Count; i++)
+            {
+                fecha = Convert.ToDateTime(DG_tabla.Rows[i].Cells["FECHA"].Value.ToString());
+                
+                importe = Convert.ToDouble(DG_tabla.Rows[i].Cells["DEPOSITO_VENTANILLA"].Value.ToString());
+
+                estado = Convert.ToBoolean(DG_tabla.Rows[i].Cells["FACTURA_ELABORADA"].Value);
+                depositado = Convert.ToBoolean(DG_tabla.Rows[i].Cells["DEPOSITADO"].Value);
+                valor = 0;
+
+                if (estado == true)
+                {
+                    valor = 1;
+                }
+
+                if (estado == false)
+                {
+                    valor = 0;
+                }
+
+                if (depositado == true)
+                {
+                    valor1 = 1;
+                }
+
+                if (depositado == false)
+                {
+                    valor1 = 0;
+                }
+
+               
+
+
+
+                existe = FechaExiste(fecha);
+                if (existe == true)
+                {
+                    MySqlCommand actualizar = new MySqlCommand("UPDATE rd_deposito_ventanilla SET importe=" + importe + ", estado=" + valor + ", depositado=" + valor1 + " WHERE fecha='" + fecha.ToString("yyyy-MM-dd") + "'", con);
+                    actualizar.ExecuteNonQuery();
+
+
+                }
+                else
+                {
+                    cmd = new MySqlCommand(consulta, con);
+                    cmd.Parameters.AddWithValue("?fecha", Convert.ToDateTime(DG_tabla.Rows[i].Cells["FECHA"].Value.ToString()));
+                    cmd.Parameters.AddWithValue("?importe", DG_tabla.Rows[i].Cells["DEPOSITO_VENTANILLA"].Value.ToString());
+                    cmd.Parameters.AddWithValue("?usuario", usuario);
+                    cmd.Parameters.AddWithValue("?depositado", valor1);
+                    cmd.ExecuteNonQuery();
+                }
+
+
+
+
+                //Solo se guarda si el usuario es del depto. de sistemas, cuentas por pagar o administracion gral, ya que las enc de cajas solo marcan que ya hicieron la factura global
+                if (areaTrabajo.Equals("SISTEMAS") || areaTrabajo.Equals("CXPAGAR") || areaTrabajo.Equals("ADMON GRAL"))
+                {
+                    Auditoria.Auditoria_cantidad_facturar(usuario, fecha.ToString("yyyy-MM-dd"), importe, sucursalSeleccionada);
+                }
+
+
+            }
+            con.Close();
+            MessageBox.Show("Se han guardado los cambios");
+        }
+
+        private void colorDeposito(DataGridView datagrid)
+        {
+            foreach (DataGridViewRow row in datagrid.Rows)
+            {
+
+                if (Convert.ToBoolean(datagrid.Rows[row.Index].Cells["DEPOSITADO"].Value) == true)
+                {
+
+                    datagrid.Rows[row.Index].Cells["DEPOSITO_PANA"].Style.ForeColor = Color.White;
+                    datagrid.Rows[row.Index].Cells["DEPOSITO_PANA"].Style.BackColor = Color.Red;
+                }
+                else if (Convert.ToBoolean(datagrid.Rows[row.Index].Cells[12].Value) == true)
+                {
+                    datagrid.Rows[row.Index].Cells["DEPOSITO_PANA"].Style.ForeColor = Color.Black;
+                    datagrid.Rows[row.Index].Cells["DEPOSITO_PANA"].Style.BackColor = Color.Yellow;
+                    datagrid.Rows[row.Index].Cells["DEPOSITO_PANA"].Style.SelectionBackColor = Color.SeaGreen;
+
+                }
+                else
+                {
+                    datagrid.Rows[row.Index].Cells["DEPOSITO_PANA"].Style.ForeColor = Color.Black;
+                    datagrid.Rows[row.Index].Cells["DEPOSITO_PANA"].Style.BackColor = Color.White;
+                }
+
+
+
+
+            }
+        }
+
+        private void colorFila(DataGridView datagrid)
+        {
+            foreach (DataGridViewRow row in datagrid.Rows)
+            {
+                if (Convert.ToBoolean(datagrid.Rows[row.Index].Cells["FACTURA_ELABORADA"].Value) == true)
+                {
+                    row.DefaultCellStyle.BackColor = Color.Yellow;
+                    row.DefaultCellStyle.SelectionBackColor = Color.SeaGreen;
+                }
+                else
+                {
+                    row.DefaultCellStyle.BackColor = Color.White;
+                    row.DefaultCellStyle.SelectionBackColor = Color.RoyalBlue;
+                }
+
+
+
+
+
+
+            }
+        }
+
+        private void DG_tabla_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            colorDeposito(DG_tabla);
+            colorFila(DG_tabla);
 
         }
 

@@ -2581,7 +2581,7 @@ namespace appSugerencias
             }
 
             //sino existe la instancia se crea una nueva
-            frm = new ReporteGastosFinanzas_Gerencia();
+            frm = new ReporteGastosFinanzas_Gerencia(lblUsuario.Text);
             string modulo = frm.Name;
             RegistrarAccesos(modulo);
             frm.Show();
@@ -3536,7 +3536,7 @@ namespace appSugerencias
             ac.ConceptoGral = "";
             ac.Actualizar = false;
             ac.Usuario = lblUsuario.Text;
-            frm = new GastosAlmacenCedis(ac);
+            frm = new GastosAlmacenCedis(ac,lblUsuario.Text);
             string modulo = frm.Name;
             RegistrarAccesos(modulo);
             frm.Show();
@@ -3569,6 +3569,26 @@ namespace appSugerencias
         private void micelaniaToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void reporteGastosFinanzasGerenciaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            //se localiza el formulario buscandolo entre los forms abiertos
+            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is ReporteGastosFinanzas_Gerencia);
+
+            if (frm != null)
+            {
+                //si la instancia existe la pongo en primer plano
+                frm.BringToFront();
+                return;
+            }
+
+            //sino existe la instancia se crea una nueva
+            frm = new ReporteGastosFinanzas_Gerencia(lblUsuario.Text);
+            string modulo = frm.Name;
+            RegistrarAccesos(modulo);
+            frm.Show();
         }
     }
 }
