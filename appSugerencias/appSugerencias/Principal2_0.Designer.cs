@@ -133,6 +133,7 @@
             this.registrarGastoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.listaDeGastosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registrarPersonaQueGeneraGastoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reporteGastosFinanzasGerenciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nominaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.altaDePersonalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reporteAsistenciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -218,6 +219,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblUsuario = new System.Windows.Forms.Label();
+            this.cantidadFacturar20ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -1044,7 +1046,8 @@
             this.gastosToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.registrarGastoToolStripMenuItem1,
             this.listaDeGastosToolStripMenuItem,
-            this.registrarPersonaQueGeneraGastoToolStripMenuItem});
+            this.registrarPersonaQueGeneraGastoToolStripMenuItem,
+            this.reporteGastosFinanzasGerenciaToolStripMenuItem});
             this.gastosToolStripMenuItem1.Name = "gastosToolStripMenuItem1";
             this.gastosToolStripMenuItem1.Size = new System.Drawing.Size(218, 22);
             this.gastosToolStripMenuItem1.Text = "Gastos";
@@ -1069,6 +1072,13 @@
             this.registrarPersonaQueGeneraGastoToolStripMenuItem.Size = new System.Drawing.Size(271, 22);
             this.registrarPersonaQueGeneraGastoToolStripMenuItem.Text = "Registrar Persona que genera gasto";
             this.registrarPersonaQueGeneraGastoToolStripMenuItem.Click += new System.EventHandler(this.registrarPersonaQueGeneraGastoToolStripMenuItem_Click);
+            // 
+            // reporteGastosFinanzasGerenciaToolStripMenuItem
+            // 
+            this.reporteGastosFinanzasGerenciaToolStripMenuItem.Name = "reporteGastosFinanzasGerenciaToolStripMenuItem";
+            this.reporteGastosFinanzasGerenciaToolStripMenuItem.Size = new System.Drawing.Size(271, 22);
+            this.reporteGastosFinanzasGerenciaToolStripMenuItem.Text = "Reporte gastos finanzas gerencia";
+            this.reporteGastosFinanzasGerenciaToolStripMenuItem.Click += new System.EventHandler(this.reporteGastosFinanzasGerenciaToolStripMenuItem_Click);
             // 
             // nominaToolStripMenuItem
             // 
@@ -1347,7 +1357,8 @@
             this.reportesToolStripMenuItem,
             this.estadosFinancierosToolStripMenuItem,
             this.despositoACuentasOsmartToolStripMenuItem,
-            this.transaccionesPTiempoToolStripMenuItem});
+            this.transaccionesPTiempoToolStripMenuItem,
+            this.cantidadFacturar20ToolStripMenuItem});
             this.gerenciaToolStripMenuItem.Name = "gerenciaToolStripMenuItem";
             this.gerenciaToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
             this.gerenciaToolStripMenuItem.Text = "Gerencia";
@@ -1759,6 +1770,13 @@
             this.lblUsuario.TabIndex = 9;
             this.lblUsuario.Text = "USER";
             // 
+            // cantidadFacturar20ToolStripMenuItem
+            // 
+            this.cantidadFacturar20ToolStripMenuItem.Name = "cantidadFacturar20ToolStripMenuItem";
+            this.cantidadFacturar20ToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
+            this.cantidadFacturar20ToolStripMenuItem.Text = "Cantidad Facturar 2.0";
+            this.cantidadFacturar20ToolStripMenuItem.Click += new System.EventHandler(this.cantidadFacturar20ToolStripMenuItem_Click);
+            // 
             // Principal2_0
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1980,5 +1998,7 @@
         private System.Windows.Forms.ToolStripMenuItem registrarPersonaQueGeneraGastoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gastosFinanzasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem revisionEtiquetasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reporteGastosFinanzasGerenciaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cantidadFacturar20ToolStripMenuItem;
     }
 }

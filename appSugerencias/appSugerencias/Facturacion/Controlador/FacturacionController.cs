@@ -10,7 +10,8 @@ namespace appSugerencias.Facturacion.Controlador
 {
     public class FacturacionController
     {
-        
+       
+
         public static double CalcularTotalVenta(DateTime fecha,string sucursal)
         {
             string query = "SELECT SUM((partvta.precio * ( partvta.cantidad  - partvta.a01 ) * (1 - (partvta.descuento / 100)) * ventas.tipo_cam)) As `Importe`," +
@@ -252,6 +253,38 @@ namespace appSugerencias.Facturacion.Controlador
             return total;
         }
 
-       
+       public static double CalcularDepositoDeCliente(DateTime fecha,string sucursal,string patron)
+        {
+            double depositoCliente = 0;
+            string consulta = "select sum(importe) as deposito from rd_pagos_enc_cajas where nomprov='" + patron + "' and fecha_pago = '" + fecha.ToString("yyyy-MM-dd") + "'";
+            MySqlConnection con = BDConexicon.ConexionSucursal(sucursal);
+            MySqlCommand cmd = new MySqlCommand(consulta,con);
+            MySqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                if (dr["deposito"].ToString().Equals(""))
+                {
+                    depositoCliente = 0;
+                }
+                else
+                {
+                    depositoCliente += Convert.ToDouble(dr["deposito"].ToString());
+                }
+            }
+            dr.Close();
+            con.Close();
+
+            return depositoCliente;
+        }
+
+        public static double ObtenerDepositoVentanilla(DateTime fecha, string sucursal)
+        {
+            double deposito = 0;
+
+
+
+            return deposito;
+        }
+
     }
 }

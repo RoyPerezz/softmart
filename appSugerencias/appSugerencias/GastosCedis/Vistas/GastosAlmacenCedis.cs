@@ -2,6 +2,8 @@
 using AForge.Video.DirectShow;
 using appSugerencias.Gastos.Controlador;
 using appSugerencias.Gastos.Modelo;
+using appSugerencias.Gastos_Externos.Controlador;
+using appSugerencias.Gastos_Externos.Modelo;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -20,16 +22,16 @@ namespace appSugerencias.Gastos.Vistas
     {
 
         int id = 0;
-#pragma warning disable CS0414 // El campo 'GastosAlmacenCedis.hayDispositivo' está asignado pero su valor nunca se usa
+        string usuario = "";
         bool hayDispositivo = false;
-#pragma warning restore CS0414 // El campo 'GastosAlmacenCedis.hayDispositivo' está asignado pero su valor nunca se usa
+
         private VideoCaptureDevice cam = new VideoCaptureDevice();//capturar video
         private FilterInfoCollection MiDispositivos = null;//detectar los dispositivos que se encuentren
         private VideoCaptureDevice MiWebCam;//verirfica si la camara está activa
         GastoAlmacenCedis gastoCedis;
-        public GastosAlmacenCedis(GastoAlmacenCedis gastoCedis)
+        public GastosAlmacenCedis(GastoAlmacenCedis gastoCedis,string usuario)
         {
-
+            this.usuario = usuario;
             this.gastoCedis = gastoCedis;
             InitializeComponent();
         }
@@ -286,11 +288,11 @@ namespace appSugerencias.Gastos.Vistas
 
             if (actualizar == false)
             {
-                ruta = @"\\\\192.168.0.190\\Users\\Admin\\Documents\\imgGastos\\" + nombreImagen;
+                ruta = @"\\\\192.168.6.190\\Users\\Admin\\Documents\\imgGastos\\" + nombreImagen;
             }
             else
             {
-                ruta = @"\\\\\\\\192.168.0.190\\\\Users\\\\Admin\\\\Documents\\\\imgGastos\\\\" + nombreImagen;
+                ruta = @"\\\\\\\\192.168.6.190\\\\Users\\\\Admin\\\\Documents\\\\imgGastos\\\\" + nombreImagen;
             }
 
 
@@ -302,7 +304,7 @@ namespace appSugerencias.Gastos.Vistas
         public string RutaServidor(string nombreImagen)
         {
            
-            string ruta = @"\\192.168.0.190\Users\Admin\Documents\imgGastos\" + nombreImagen;
+            string ruta = @"\\192.168.6.190\Users\Admin\Documents\imgGastos\" + nombreImagen;
 
 
             return ruta;
@@ -324,6 +326,9 @@ namespace appSugerencias.Gastos.Vistas
         }
         private void BT_guardar_Click(object sender, EventArgs e)
         {
+
+           
+
             try
             {
                 if (gastoCedis.Id==0)
@@ -345,6 +350,42 @@ namespace appSugerencias.Gastos.Vistas
                     };
 
                     GastosAlmacenCedisController.RegistrarGasto(ac);
+
+                    //  ######################################## REGISTRAR GASTO EXTERNO #######################################################################
+                    ArrayList sucursales = new ArrayList();
+                    sucursales.Add("VALLARTA");
+                    sucursales.Add("RENA");
+                    sucursales.Add("VELAZQUEZ");
+                    sucursales.Add("COLOSO");
+
+                    int idGasto = GastoExternoController.ObtenerIDGastoExterno(CB_concepto_gral.Text, CB_conceptoDetalle.Text, "GENERAL");
+
+                    DateTime hora = DT_fecha.Value;
+                    GastoExternoPago gep = new GastoExternoPago()
+                    {
+                        Fecha = DT_fecha.Value,
+                        Hora = hora.ToString("HH:mm:ss"),
+                        Importe = Convert.ToDouble(TB_importe.Text),
+                        IdGastoExterno = idGasto,
+                        ConceptoDetalle = CB_conceptoDetalle.Text,
+                        ConceptoGral = CB_concepto_gral.Text,
+                        TipoGasto = "GENERAL",
+                        Usuario = usuario,
+                        FechaCreacion = DateTime.Now,
+                        Observacion = TB_descripcion.Text
+
+
+                    };
+
+
+                    for (int i = 0; i < sucursales.Count; i++)
+                    {
+                        PagoGastoExternoController.InsertarPagoGastoExterno(sucursales[i].ToString(), gep); //INSERTA REGISTRO EN TABLA RD_GASTOS_EXTERNOSPAGOS, E IGUAL EL IMPORTE SE DIVIDE ENTRE 4
+                    }
+
+                    //  #########################################################################################################################################
+
+
 
                     if (!nombreFoto.Equals(""))
                     {

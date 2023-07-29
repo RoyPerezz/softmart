@@ -29,32 +29,21 @@ namespace appSugerencias
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle99 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle112 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle100 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle101 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle102 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle103 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle104 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle105 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle106 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle107 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle108 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle109 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle110 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle111 = new System.Windows.Forms.DataGridViewCellStyle();
             this.DG_tabla = new System.Windows.Forms.DataGridView();
-            this.RB_co = new System.Windows.Forms.RadioButton();
-            this.RB_ve = new System.Windows.Forms.RadioButton();
-            this.RB_re = new System.Windows.Forms.RadioButton();
-            this.RB_va = new System.Windows.Forms.RadioButton();
-            this.button1 = new System.Windows.Forms.Button();
-            this.CBX_mes_anterior = new System.Windows.Forms.CheckBox();
-            this.BT_guardar = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.LB_patron = new System.Windows.Forms.Label();
-            this.CB_año = new System.Windows.Forms.ComboBox();
-            this.CB_mes = new System.Windows.Forms.ComboBox();
-            this.BT_buscar = new System.Windows.Forms.Button();
             this.FECHA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TOTAL_VENTA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DEPOSITO_VENTANILLA = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -71,7 +60,26 @@ namespace appSugerencias
             this.EFECTIVO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TARJETA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FACTURA_ELABORADA = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.RB_co = new System.Windows.Forms.RadioButton();
+            this.RB_ve = new System.Windows.Forms.RadioButton();
+            this.RB_re = new System.Windows.Forms.RadioButton();
+            this.RB_va = new System.Windows.Forms.RadioButton();
+            this.button1 = new System.Windows.Forms.Button();
+            this.CBX_mes_anterior = new System.Windows.Forms.CheckBox();
+            this.BT_guardar = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.LB_patron = new System.Windows.Forms.Label();
+            this.CB_año = new System.Windows.Forms.ComboBox();
+            this.CB_mes = new System.Windows.Forms.ComboBox();
+            this.BT_buscar = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.DG_tabla)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // DG_tabla
@@ -80,6 +88,15 @@ namespace appSugerencias
             this.DG_tabla.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.DG_tabla.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle99.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle99.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle99.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle99.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle99.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle99.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle99.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DG_tabla.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle99;
             this.DG_tabla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DG_tabla.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.FECHA,
@@ -98,15 +115,133 @@ namespace appSugerencias
             this.EFECTIVO,
             this.TARJETA,
             this.FACTURA_ELABORADA});
+            dataGridViewCellStyle112.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle112.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle112.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle112.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle112.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle112.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle112.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DG_tabla.DefaultCellStyle = dataGridViewCellStyle112;
             this.DG_tabla.Location = new System.Drawing.Point(1, 128);
             this.DG_tabla.Name = "DG_tabla";
             this.DG_tabla.Size = new System.Drawing.Size(1542, 374);
             this.DG_tabla.TabIndex = 0;
+            this.DG_tabla.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.DG_tabla_CellValueChanged);
+            // 
+            // FECHA
+            // 
+            this.FECHA.HeaderText = "FECHA";
+            this.FECHA.Name = "FECHA";
+            // 
+            // TOTAL_VENTA
+            // 
+            dataGridViewCellStyle100.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.TOTAL_VENTA.DefaultCellStyle = dataGridViewCellStyle100;
+            this.TOTAL_VENTA.HeaderText = "TOTAL VENTA";
+            this.TOTAL_VENTA.Name = "TOTAL_VENTA";
+            // 
+            // DEPOSITO_VENTANILLA
+            // 
+            dataGridViewCellStyle101.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.DEPOSITO_VENTANILLA.DefaultCellStyle = dataGridViewCellStyle101;
+            this.DEPOSITO_VENTANILLA.HeaderText = "DEP. VENTANILLA";
+            this.DEPOSITO_VENTANILLA.Name = "DEPOSITO_VENTANILLA";
+            // 
+            // DEPOSITO_CLIENTE
+            // 
+            dataGridViewCellStyle102.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.DEPOSITO_CLIENTE.DefaultCellStyle = dataGridViewCellStyle102;
+            this.DEPOSITO_CLIENTE.HeaderText = "DEP. CLIENTE";
+            this.DEPOSITO_CLIENTE.Name = "DEPOSITO_CLIENTE";
+            // 
+            // DEPOSITO_PANA
+            // 
+            dataGridViewCellStyle103.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.DEPOSITO_PANA.DefaultCellStyle = dataGridViewCellStyle103;
+            this.DEPOSITO_PANA.HeaderText = "DEP. PANA";
+            this.DEPOSITO_PANA.Name = "DEPOSITO_PANA";
+            // 
+            // DEPOSITADO
+            // 
+            this.DEPOSITADO.HeaderText = "DEPOSITADO";
+            this.DEPOSITADO.Name = "DEPOSITADO";
+            // 
+            // FACT_EFE
+            // 
+            dataGridViewCellStyle104.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.FACT_EFE.DefaultCellStyle = dataGridViewCellStyle104;
+            this.FACT_EFE.HeaderText = "FACT. EFE";
+            this.FACT_EFE.Name = "FACT_EFE";
+            this.FACT_EFE.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.FACT_EFE.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // FACT_TAR
+            // 
+            dataGridViewCellStyle105.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.FACT_TAR.DefaultCellStyle = dataGridViewCellStyle105;
+            this.FACT_TAR.HeaderText = "FACT. TAR";
+            this.FACT_TAR.Name = "FACT_TAR";
+            this.FACT_TAR.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.FACT_TAR.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // TOTAL_FACTURADO
+            // 
+            dataGridViewCellStyle106.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.TOTAL_FACTURADO.DefaultCellStyle = dataGridViewCellStyle106;
+            this.TOTAL_FACTURADO.HeaderText = "TOTAL FACTURA DE CLIENTE";
+            this.TOTAL_FACTURADO.Name = "TOTAL_FACTURADO";
+            // 
+            // VENTAS_EFECTIVO
+            // 
+            dataGridViewCellStyle107.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.VENTAS_EFECTIVO.DefaultCellStyle = dataGridViewCellStyle107;
+            this.VENTAS_EFECTIVO.HeaderText = "VENTAS EFECTIVO";
+            this.VENTAS_EFECTIVO.Name = "VENTAS_EFECTIVO";
+            // 
+            // BAUCHER
+            // 
+            dataGridViewCellStyle108.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.BAUCHER.DefaultCellStyle = dataGridViewCellStyle108;
+            this.BAUCHER.HeaderText = "BAUCHER";
+            this.BAUCHER.Name = "BAUCHER";
+            // 
+            // FACTURA_GLOBAL
+            // 
+            dataGridViewCellStyle109.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.FACTURA_GLOBAL.DefaultCellStyle = dataGridViewCellStyle109;
+            this.FACTURA_GLOBAL.HeaderText = "FACTURA GLOBAL";
+            this.FACTURA_GLOBAL.Name = "FACTURA_GLOBAL";
+            // 
+            // DIFERENCIA
+            // 
+            this.DIFERENCIA.HeaderText = "DIFERENCIA";
+            this.DIFERENCIA.Name = "DIFERENCIA";
+            this.DIFERENCIA.Visible = false;
+            // 
+            // EFECTIVO
+            // 
+            dataGridViewCellStyle110.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.EFECTIVO.DefaultCellStyle = dataGridViewCellStyle110;
+            this.EFECTIVO.HeaderText = "EFECTIVO";
+            this.EFECTIVO.Name = "EFECTIVO";
+            // 
+            // TARJETA
+            // 
+            dataGridViewCellStyle111.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.TARJETA.DefaultCellStyle = dataGridViewCellStyle111;
+            this.TARJETA.HeaderText = "TARJETA";
+            this.TARJETA.Name = "TARJETA";
+            // 
+            // FACTURA_ELABORADA
+            // 
+            this.FACTURA_ELABORADA.HeaderText = "FACTURA ELABORADA";
+            this.FACTURA_ELABORADA.Name = "FACTURA_ELABORADA";
             // 
             // RB_co
             // 
             this.RB_co.AutoSize = true;
-            this.RB_co.Location = new System.Drawing.Point(7, 92);
+            this.RB_co.Location = new System.Drawing.Point(6, 88);
             this.RB_co.Name = "RB_co";
             this.RB_co.Size = new System.Drawing.Size(69, 17);
             this.RB_co.TabIndex = 33;
@@ -118,7 +253,7 @@ namespace appSugerencias
             // RB_ve
             // 
             this.RB_ve.AutoSize = true;
-            this.RB_ve.Location = new System.Drawing.Point(7, 70);
+            this.RB_ve.Location = new System.Drawing.Point(6, 66);
             this.RB_ve.Name = "RB_ve";
             this.RB_ve.Size = new System.Drawing.Size(89, 17);
             this.RB_ve.TabIndex = 32;
@@ -130,7 +265,7 @@ namespace appSugerencias
             // RB_re
             // 
             this.RB_re.AutoSize = true;
-            this.RB_re.Location = new System.Drawing.Point(7, 49);
+            this.RB_re.Location = new System.Drawing.Point(6, 45);
             this.RB_re.Name = "RB_re";
             this.RB_re.Size = new System.Drawing.Size(55, 17);
             this.RB_re.TabIndex = 31;
@@ -142,7 +277,7 @@ namespace appSugerencias
             // RB_va
             // 
             this.RB_va.AutoSize = true;
-            this.RB_va.Location = new System.Drawing.Point(7, 26);
+            this.RB_va.Location = new System.Drawing.Point(6, 22);
             this.RB_va.Name = "RB_va";
             this.RB_va.Size = new System.Drawing.Size(80, 17);
             this.RB_va.TabIndex = 30;
@@ -154,21 +289,22 @@ namespace appSugerencias
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.BackColor = System.Drawing.Color.DodgerBlue;
+            this.button1.BackColor = System.Drawing.Color.DarkGreen;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(1435, 28);
+            this.button1.Location = new System.Drawing.Point(256, 33);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(99, 58);
             this.button1.TabIndex = 29;
             this.button1.Text = "Exportar";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // CBX_mes_anterior
             // 
             this.CBX_mes_anterior.AutoSize = true;
             this.CBX_mes_anterior.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CBX_mes_anterior.Location = new System.Drawing.Point(231, 43);
+            this.CBX_mes_anterior.Location = new System.Drawing.Point(5, 35);
             this.CBX_mes_anterior.Name = "CBX_mes_anterior";
             this.CBX_mes_anterior.Size = new System.Drawing.Size(148, 35);
             this.CBX_mes_anterior.TabIndex = 28;
@@ -178,21 +314,22 @@ namespace appSugerencias
             // BT_guardar
             // 
             this.BT_guardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BT_guardar.BackColor = System.Drawing.Color.DodgerBlue;
+            this.BT_guardar.BackColor = System.Drawing.Color.ForestGreen;
             this.BT_guardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BT_guardar.ForeColor = System.Drawing.Color.White;
-            this.BT_guardar.Location = new System.Drawing.Point(1313, 28);
+            this.BT_guardar.Location = new System.Drawing.Point(151, 33);
             this.BT_guardar.Name = "BT_guardar";
             this.BT_guardar.Size = new System.Drawing.Size(99, 58);
             this.BT_guardar.TabIndex = 27;
             this.BT_guardar.Text = "Guardar";
             this.BT_guardar.UseVisualStyleBackColor = false;
+            this.BT_guardar.Click += new System.EventHandler(this.BT_guardar_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(629, 6);
+            this.label3.Location = new System.Drawing.Point(403, 5);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(73, 31);
             this.label3.TabIndex = 26;
@@ -202,7 +339,7 @@ namespace appSugerencias
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(449, 6);
+            this.label2.Location = new System.Drawing.Point(223, 5);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(72, 31);
             this.label2.TabIndex = 25;
@@ -213,10 +350,11 @@ namespace appSugerencias
             this.LB_patron.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.LB_patron.AutoSize = true;
             this.LB_patron.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LB_patron.Location = new System.Drawing.Point(860, 41);
+            this.LB_patron.Location = new System.Drawing.Point(155, 79);
             this.LB_patron.Name = "LB_patron";
             this.LB_patron.Size = new System.Drawing.Size(0, 31);
             this.LB_patron.TabIndex = 24;
+            this.LB_patron.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // CB_año
             // 
@@ -227,7 +365,7 @@ namespace appSugerencias
             "2023",
             "2024",
             "2025"});
-            this.CB_año.Location = new System.Drawing.Point(594, 43);
+            this.CB_año.Location = new System.Drawing.Point(368, 34);
             this.CB_año.Name = "CB_año";
             this.CB_año.Size = new System.Drawing.Size(149, 39);
             this.CB_año.TabIndex = 23;
@@ -250,7 +388,7 @@ namespace appSugerencias
             "OCTUBRE",
             "NOVIEMBRE",
             "DICIEMBRE"});
-            this.CB_mes.Location = new System.Drawing.Point(385, 43);
+            this.CB_mes.Location = new System.Drawing.Point(159, 34);
             this.CB_mes.Name = "CB_mes";
             this.CB_mes.Size = new System.Drawing.Size(203, 39);
             this.CB_mes.TabIndex = 22;
@@ -261,7 +399,7 @@ namespace appSugerencias
             this.BT_buscar.BackColor = System.Drawing.Color.DodgerBlue;
             this.BT_buscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BT_buscar.ForeColor = System.Drawing.Color.White;
-            this.BT_buscar.Location = new System.Drawing.Point(749, 28);
+            this.BT_buscar.Location = new System.Drawing.Point(46, 33);
             this.BT_buscar.Name = "BT_buscar";
             this.BT_buscar.Size = new System.Drawing.Size(99, 58);
             this.BT_buscar.TabIndex = 21;
@@ -269,140 +407,66 @@ namespace appSugerencias
             this.BT_buscar.UseVisualStyleBackColor = false;
             this.BT_buscar.Click += new System.EventHandler(this.BT_buscar_Click);
             // 
-            // FECHA
+            // groupBox1
             // 
-            this.FECHA.HeaderText = "FECHA";
-            this.FECHA.Name = "FECHA";
+            this.groupBox1.Controls.Add(this.RB_va);
+            this.groupBox1.Controls.Add(this.RB_co);
+            this.groupBox1.Controls.Add(this.RB_re);
+            this.groupBox1.Controls.Add(this.RB_ve);
+            this.groupBox1.Location = new System.Drawing.Point(1, 6);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(144, 116);
+            this.groupBox1.TabIndex = 34;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Selecciona una sucursal";
             // 
-            // TOTAL_VENTA
+            // groupBox2
             // 
-            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.TOTAL_VENTA.DefaultCellStyle = dataGridViewCellStyle25;
-            this.TOTAL_VENTA.HeaderText = "TOTAL VENTA";
-            this.TOTAL_VENTA.Name = "TOTAL_VENTA";
+            this.groupBox2.Controls.Add(this.CB_mes);
+            this.groupBox2.Controls.Add(this.CB_año);
+            this.groupBox2.Controls.Add(this.CBX_mes_anterior);
+            this.groupBox2.Controls.Add(this.LB_patron);
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Location = new System.Drawing.Point(151, 6);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(688, 116);
+            this.groupBox2.TabIndex = 35;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Busqueda";
             // 
-            // DEPOSITO_VENTANILLA
+            // groupBox3
             // 
-            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.DEPOSITO_VENTANILLA.DefaultCellStyle = dataGridViewCellStyle26;
-            this.DEPOSITO_VENTANILLA.HeaderText = "DEP. VENTANILLA";
-            this.DEPOSITO_VENTANILLA.Name = "DEPOSITO_VENTANILLA";
-            // 
-            // DEPOSITO_CLIENTE
-            // 
-            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.DEPOSITO_CLIENTE.DefaultCellStyle = dataGridViewCellStyle27;
-            this.DEPOSITO_CLIENTE.HeaderText = "DEP. CLIENTE";
-            this.DEPOSITO_CLIENTE.Name = "DEPOSITO_CLIENTE";
-            // 
-            // DEPOSITO_PANA
-            // 
-            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.DEPOSITO_PANA.DefaultCellStyle = dataGridViewCellStyle28;
-            this.DEPOSITO_PANA.HeaderText = "DEP. PANA";
-            this.DEPOSITO_PANA.Name = "DEPOSITO_PANA";
-            // 
-            // DEPOSITADO
-            // 
-            this.DEPOSITADO.HeaderText = "DEPOSITADO";
-            this.DEPOSITADO.Name = "DEPOSITADO";
-            // 
-            // FACT_EFE
-            // 
-            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.FACT_EFE.DefaultCellStyle = dataGridViewCellStyle29;
-            this.FACT_EFE.HeaderText = "FACT. EFE";
-            this.FACT_EFE.Name = "FACT_EFE";
-            this.FACT_EFE.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.FACT_EFE.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // FACT_TAR
-            // 
-            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.FACT_TAR.DefaultCellStyle = dataGridViewCellStyle30;
-            this.FACT_TAR.HeaderText = "FACT. TAR";
-            this.FACT_TAR.Name = "FACT_TAR";
-            this.FACT_TAR.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.FACT_TAR.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // TOTAL_FACTURADO
-            // 
-            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.TOTAL_FACTURADO.DefaultCellStyle = dataGridViewCellStyle31;
-            this.TOTAL_FACTURADO.HeaderText = "TOTAL FACTURA DE CLIENTE";
-            this.TOTAL_FACTURADO.Name = "TOTAL_FACTURADO";
-            // 
-            // VENTAS_EFECTIVO
-            // 
-            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.VENTAS_EFECTIVO.DefaultCellStyle = dataGridViewCellStyle32;
-            this.VENTAS_EFECTIVO.HeaderText = "VENTAS EFECTIVO";
-            this.VENTAS_EFECTIVO.Name = "VENTAS_EFECTIVO";
-            // 
-            // BAUCHER
-            // 
-            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.BAUCHER.DefaultCellStyle = dataGridViewCellStyle33;
-            this.BAUCHER.HeaderText = "BAUCHER";
-            this.BAUCHER.Name = "BAUCHER";
-            // 
-            // FACTURA_GLOBAL
-            // 
-            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.FACTURA_GLOBAL.DefaultCellStyle = dataGridViewCellStyle34;
-            this.FACTURA_GLOBAL.HeaderText = "FACTURA GLOBAL";
-            this.FACTURA_GLOBAL.Name = "FACTURA_GLOBAL";
-            // 
-            // DIFERENCIA
-            // 
-            this.DIFERENCIA.HeaderText = "DIFERENCIA";
-            this.DIFERENCIA.Name = "DIFERENCIA";
-            this.DIFERENCIA.Visible = false;
-            // 
-            // EFECTIVO
-            // 
-            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.EFECTIVO.DefaultCellStyle = dataGridViewCellStyle35;
-            this.EFECTIVO.HeaderText = "EFECTIVO";
-            this.EFECTIVO.Name = "EFECTIVO";
-            // 
-            // TARJETA
-            // 
-            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.TARJETA.DefaultCellStyle = dataGridViewCellStyle36;
-            this.TARJETA.HeaderText = "TARJETA";
-            this.TARJETA.Name = "TARJETA";
-            // 
-            // FACTURA_ELABORADA
-            // 
-            this.FACTURA_ELABORADA.HeaderText = "FACTURA ELABORADA";
-            this.FACTURA_ELABORADA.Name = "FACTURA_ELABORADA";
+            this.groupBox3.Controls.Add(this.button1);
+            this.groupBox3.Controls.Add(this.BT_buscar);
+            this.groupBox3.Controls.Add(this.BT_guardar);
+            this.groupBox3.Location = new System.Drawing.Point(845, 6);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(394, 116);
+            this.groupBox3.TabIndex = 35;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Acciones";
             // 
             // CantFacturar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(1546, 504);
-            this.Controls.Add(this.RB_co);
-            this.Controls.Add(this.RB_ve);
-            this.Controls.Add(this.RB_re);
-            this.Controls.Add(this.RB_va);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.CBX_mes_anterior);
-            this.Controls.Add(this.BT_guardar);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.LB_patron);
-            this.Controls.Add(this.CB_año);
-            this.Controls.Add(this.CB_mes);
-            this.Controls.Add(this.BT_buscar);
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.DG_tabla);
             this.Name = "CantFacturar";
             this.Text = "CantFacturar";
             this.Load += new System.EventHandler(this.CantFacturar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DG_tabla)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -438,5 +502,8 @@ namespace appSugerencias
         private System.Windows.Forms.DataGridViewTextBoxColumn EFECTIVO;
         private System.Windows.Forms.DataGridViewTextBoxColumn TARJETA;
         private System.Windows.Forms.DataGridViewCheckBoxColumn FACTURA_ELABORADA;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBox3;
     }
 }

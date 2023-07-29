@@ -1006,6 +1006,7 @@
             this.Controls.Add(this.tabControl1);
             this.Name = "Concentrador";
             this.Text = "Concentrador";
+            this.Load += new System.EventHandler(this.Concentrador_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
