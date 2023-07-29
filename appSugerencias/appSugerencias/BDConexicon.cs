@@ -382,7 +382,7 @@ namespace appSugerencias
         public static MySqlConnection RespaldoVA(string mes,int año)
         {
             string bd = "VALLARTA " + mes + " " + año;
-            MySqlConnection conVallarta = new MySqlConnection("server=192.168.1.2; database=" + bd + "; Uid=root; pwd=;pooling = false; convert zero datetime=True;");
+            MySqlConnection conVallarta = new MySqlConnection("server=192.168.5.2; database=" + bd + "; Uid=root; pwd=;pooling = false; convert zero datetime=True;");
             conVallarta.Open();
 
             return conVallarta;
@@ -433,7 +433,7 @@ namespace appSugerencias
         public static MySqlConnection RespaldoBO(string mes, int año)
         {
             string bd = "BODEGA " + mes + " " + año;
-            MySqlConnection conPregot = new MySqlConnection("server=192.168.0.190; database=" + bd + "; Uid=root; pwd=;pooling = false; convert zero datetime=True;");
+            MySqlConnection conPregot = new MySqlConnection("server=192.168.6.190; database=" + bd + "; Uid=root; pwd=;pooling = false; convert zero datetime=True;");
             conPregot.Open();
 
             return conPregot;
@@ -463,12 +463,12 @@ namespace appSugerencias
 
             if (sucursal.Equals("BODEGA"))
             {
-                dirIP = "192.168.0.190";
+                dirIP = "192.168.6.190";
             }
 
             if (sucursal.Equals("VALLARTA"))
             {
-                dirIP = "192.168.1.2";
+                dirIP = "192.168.5.2";
             }
 
             if (sucursal.Equals("RENA"))

@@ -39,16 +39,14 @@ namespace appSugerencias
             MySqlConnection re = BDConexicon.RenaOpen();
             MySqlConnection ve = BDConexicon.VelazquezOpen();
             MySqlConnection co = BDConexicon.ColosoOpen();
-            MySqlConnection pre = BDConexicon.Papeleria1Open();
+            //MySqlConnection pre = BDConexicon.Papeleria1Open();
 
 
-#pragma warning disable CS0219 // La variable 'adBO' está asignada pero su valor nunca se usa
             MySqlDataAdapter adBO = null;
-#pragma warning restore CS0219 // La variable 'adBO' está asignada pero su valor nunca se usa
-#pragma warning disable CS0219 // La variable 'adVA' está asignada pero su valor nunca se usa
+
+
             MySqlDataAdapter adVA = null;
-#pragma warning restore CS0219 // La variable 'adVA' está asignada pero su valor nunca se usa
-#pragma warning disable CS0219 // La variable 'adRE' está asignada pero su valor nunca se usa
+
             MySqlDataAdapter adRE = null;
 #pragma warning restore CS0219 // La variable 'adRE' está asignada pero su valor nunca se usa
 #pragma warning disable CS0219 // La variable 'adVE' está asignada pero su valor nunca se usa
@@ -90,9 +88,9 @@ namespace appSugerencias
             double compraCO = 0;
             double saldoCO = 0;
 
-            double abonoPRE = 0;
-            double compraPRE = 0;
-            double saldoPRE = 0;
+            //double abonoPRE = 0;
+            //double compraPRE = 0;
+            //double saldoPRE = 0;
 
 
             if (CBX_saldo.Checked == true)
@@ -277,41 +275,41 @@ namespace appSugerencias
 
 
                     //#####################################   SALDOS PREGOT  ####################################################
-                    MySqlCommand cmdPRE = new MySqlCommand(query, pre);
-                    drPRE = cmdPRE.ExecuteReader();
-                    while (drPRE.Read())
-                    {
-                        mov = drPRE["Cargo_ab"].ToString();
+                    //MySqlCommand cmdPRE = new MySqlCommand(query, pre);
+                    //drPRE = cmdPRE.ExecuteReader();
+                    //while (drPRE.Read())
+                    //{
+                    //    mov = drPRE["Cargo_ab"].ToString();
 
-                        if (mov.Equals("C"))
-                        {
-                            compraPRE += Convert.ToDouble(drPRE["importe"].ToString());
-                        }
-                        else
-                        {
-                            abonoPRE += Convert.ToDouble(drPRE["importe"].ToString());
-                        }
-                    }
-                    drPRE.Close();
-                    saldoPRE = compraPRE - abonoPRE;
+                    //    if (mov.Equals("C"))
+                    //    {
+                    //        compraPRE += Convert.ToDouble(drPRE["importe"].ToString());
+                    //    }
+                    //    else
+                    //    {
+                    //        abonoPRE += Convert.ToDouble(drPRE["importe"].ToString());
+                    //    }
+                    //}
+                    //drPRE.Close();
+                    //saldoPRE = compraPRE - abonoPRE;
 
 
-                    for (int j = 0; j < maestro.Rows.Count; j++)
-                    {
-                        /*proveedor = Convert.ToString(DG_tabla.Rows[j].Cells["PROVEEDOR"].Value);*/
-                        proveedor = Convert.ToString(maestro.Rows[i]["PROVEEDOR"]);
-                        if (proveedor.Equals(prov[i].proveedor))
-                        {
-                            /*DG_tabla.Rows[j].Cells["PREGOT"].Value = Convert.ToString(saldoPRE);*/
-                            maestro.Rows[i]["PREGOT"] = Convert.ToDouble(saldoPRE);
-                        }
-                    }
+                    //for (int j = 0; j < maestro.Rows.Count; j++)
+                    //{
+                    //    /*proveedor = Convert.ToString(DG_tabla.Rows[j].Cells["PROVEEDOR"].Value);*/
+                    //    proveedor = Convert.ToString(maestro.Rows[i]["PROVEEDOR"]);
+                    //    if (proveedor.Equals(prov[i].proveedor))
+                    //    {
+                    //        /*DG_tabla.Rows[j].Cells["PREGOT"].Value = Convert.ToString(saldoPRE);*/
+                    //        maestro.Rows[i]["PREGOT"] = Convert.ToDouble(saldoPRE);
+                    //    }
+                    //}
 
-                    saldoPRE = 0; compraPRE = 0; abonoPRE = 0;
+                    //saldoPRE = 0; compraPRE = 0; abonoPRE = 0;
 
                 }
 
-                bo.Close(); va.Close(); re.Close(); ve.Close(); co.Close(); pre.Close();
+                bo.Close(); va.Close(); re.Close(); ve.Close(); co.Close(); /*pre.Close();*/
 
 
                 // saldo total por proveedor
@@ -331,7 +329,7 @@ namespace appSugerencias
                     saldore = Convert.ToDouble(maestro.Rows[i]["RENA"]);
                     saldove = Convert.ToDouble(maestro.Rows[i]["VELAZQUEZ"]);
                     saldoco = Convert.ToDouble(maestro.Rows[i]["COLOSO"]);
-                    saldopre = Convert.ToDouble(maestro.Rows[i]["PREGOT"]);
+                    //saldopre = Convert.ToDouble(maestro.Rows[i]["PREGOT"]);
 
                     saldoTotal = saldobo + saldova + saldore + saldove + saldoco + saldopre;
                     //DG_tabla.Rows[i].Cells["SALDOTOTAL"].Value = saldoTotal;
@@ -355,10 +353,10 @@ namespace appSugerencias
                     tRena += Convert.ToDouble(maestro.Rows[i]["RENA"]);
                     tVelazquez += Convert.ToDouble(maestro.Rows[i]["VELAZQUEZ"]);
                     tColoso += Convert.ToDouble(maestro.Rows[i]["COLOSO"]);
-                    tPregot += Convert.ToDouble(maestro.Rows[i]["PREGOT"]);
+                    //tPregot += Convert.ToDouble(maestro.Rows[i]["PREGOT"]);
                     tTotal += Convert.ToDouble(maestro.Rows[i]["SALDO"]);
                 }
-                maestro.Rows.Add("", "TOTALES", tBodega, tVallarta, tRena, tVelazquez, tColoso, tPregot, tTotal);
+                maestro.Rows.Add("", "TOTALES", tBodega, tVallarta, tRena, tVelazquez, tColoso, tTotal);
 
                 DataView dv = null;
           
@@ -374,14 +372,14 @@ namespace appSugerencias
                 DG_tabla.Columns[5].DefaultCellStyle.Format = "C2";
                 DG_tabla.Columns[6].DefaultCellStyle.Format = "C2";
                 DG_tabla.Columns[7].DefaultCellStyle.Format = "C2";
-                DG_tabla.Columns[8].DefaultCellStyle.Format = "C2";
+                //DG_tabla.Columns[8].DefaultCellStyle.Format = "C2";
                 DG_tabla.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.TopRight;
                 DG_tabla.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.TopRight;
                 DG_tabla.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.TopRight;
                 DG_tabla.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.TopRight;
                 DG_tabla.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.TopRight;
                 DG_tabla.Columns[7].DefaultCellStyle.Alignment = DataGridViewContentAlignment.TopRight;
-                DG_tabla.Columns[8].DefaultCellStyle.Alignment = DataGridViewContentAlignment.TopRight;
+                //DG_tabla.Columns[8].DefaultCellStyle.Alignment = DataGridViewContentAlignment.TopRight;
                 DG_tabla.Columns["PROVEEDOR"].SortMode = DataGridViewColumnSortMode.NotSortable;
                 DG_tabla.Columns["NOMBRE"].SortMode = DataGridViewColumnSortMode.NotSortable;
                 DG_tabla.Columns["BODEGA"].SortMode = DataGridViewColumnSortMode.NotSortable;
@@ -389,7 +387,7 @@ namespace appSugerencias
                 DG_tabla.Columns["RENA"].SortMode = DataGridViewColumnSortMode.NotSortable;
                 DG_tabla.Columns["COLOSO"].SortMode = DataGridViewColumnSortMode.NotSortable;
                 DG_tabla.Columns["VELAZQUEZ"].SortMode = DataGridViewColumnSortMode.NotSortable;
-                DG_tabla.Columns["PREGOT"].SortMode = DataGridViewColumnSortMode.NotSortable;
+                //DG_tabla.Columns["PREGOT"].SortMode = DataGridViewColumnSortMode.NotSortable;
                 DG_tabla.Columns["SALDO"].SortMode = DataGridViewColumnSortMode.NotSortable;
             }
             else
@@ -572,41 +570,41 @@ namespace appSugerencias
 
 
                     //#####################################   SALDOS PREGOT  ####################################################
-                    MySqlCommand cmdPRE = new MySqlCommand(query, pre);
-                    drPRE = cmdPRE.ExecuteReader();
-                    while (drPRE.Read())
-                    {
-                        mov = drPRE["Cargo_ab"].ToString();
+                    //MySqlCommand cmdPRE = new MySqlCommand(query, pre);
+                    //drPRE = cmdPRE.ExecuteReader();
+                    //while (drPRE.Read())
+                    //{
+                    //    mov = drPRE["Cargo_ab"].ToString();
 
-                        if (mov.Equals("C"))
-                        {
-                            compraPRE += Convert.ToDouble(drPRE["importe"].ToString());
-                        }
-                        else
-                        {
-                            abonoPRE += Convert.ToDouble(drPRE["importe"].ToString());
-                        }
-                    }
-                    drPRE.Close();
-                    saldoPRE = compraPRE - abonoPRE;
+                    //    if (mov.Equals("C"))
+                    //    {
+                    //        compraPRE += Convert.ToDouble(drPRE["importe"].ToString());
+                    //    }
+                    //    else
+                    //    {
+                    //        abonoPRE += Convert.ToDouble(drPRE["importe"].ToString());
+                    //    }
+                    //}
+                    //drPRE.Close();
+                    //saldoPRE = compraPRE - abonoPRE;
 
 
-                    for (int j = 0; j < maestro.Rows.Count; j++)
-                    {
-                        /*proveedor = Convert.ToString(DG_tabla.Rows[j].Cells["PROVEEDOR"].Value);*/
-                        proveedor = Convert.ToString(maestro.Rows[i]["PROVEEDOR"]);
-                        if (proveedor.Equals(prov[i].proveedor))
-                        {
-                            /*DG_tabla.Rows[j].Cells["PREGOT"].Value = Convert.ToString(saldoPRE);*/
-                            maestro.Rows[i]["PREGOT"] = Convert.ToDouble(saldoPRE);
-                        }
-                    }
+                    //for (int j = 0; j < maestro.Rows.Count; j++)
+                    //{
+                    //    /*proveedor = Convert.ToString(DG_tabla.Rows[j].Cells["PROVEEDOR"].Value);*/
+                    //    proveedor = Convert.ToString(maestro.Rows[i]["PROVEEDOR"]);
+                    //    if (proveedor.Equals(prov[i].proveedor))
+                    //    {
+                    //        /*DG_tabla.Rows[j].Cells["PREGOT"].Value = Convert.ToString(saldoPRE);*/
+                    //        maestro.Rows[i]["PREGOT"] = Convert.ToDouble(saldoPRE);
+                    //    }
+                    //}
 
-                    saldoPRE = 0; compraPRE = 0; abonoPRE = 0;
+                    //saldoPRE = 0; compraPRE = 0; abonoPRE = 0;
 
                 }
 
-                bo.Close(); va.Close(); re.Close(); ve.Close(); co.Close(); pre.Close();
+                bo.Close(); va.Close(); re.Close(); ve.Close(); co.Close(); /*pre.Close();*/
 
 
                 // saldo total por proveedor
@@ -626,7 +624,7 @@ namespace appSugerencias
                     saldore = Convert.ToDouble(maestro.Rows[i]["RENA"]);
                     saldove = Convert.ToDouble(maestro.Rows[i]["VELAZQUEZ"]);
                     saldoco = Convert.ToDouble(maestro.Rows[i]["COLOSO"]);
-                    saldopre = Convert.ToDouble(maestro.Rows[i]["PREGOT"]);
+                    //saldopre = Convert.ToDouble(maestro.Rows[i]["PREGOT"]);
 
                     saldoTotal = saldobo + saldova + saldore + saldove + saldoco + saldopre;
                     //DG_tabla.Rows[i].Cells["SALDOTOTAL"].Value = saldoTotal;
@@ -650,7 +648,7 @@ namespace appSugerencias
                     tRena += Convert.ToDouble(maestro.Rows[i]["RENA"]);
                     tVelazquez += Convert.ToDouble(maestro.Rows[i]["VELAZQUEZ"]);
                     tColoso += Convert.ToDouble(maestro.Rows[i]["COLOSO"]);
-                    tPregot += Convert.ToDouble(maestro.Rows[i]["PREGOT"]);
+                    //tPregot += Convert.ToDouble(maestro.Rows[i]["PREGOT"]);
                     tTotal += Convert.ToDouble(maestro.Rows[i]["SALDO"]);
                 }
                 maestro.Rows.Add("", "TOTALES", tBodega, tVallarta, tRena, tVelazquez, tColoso, tPregot, tTotal);
@@ -681,7 +679,7 @@ namespace appSugerencias
                 DG_tabla.Columns["RENA"].SortMode = DataGridViewColumnSortMode.NotSortable;
                 DG_tabla.Columns["COLOSO"].SortMode = DataGridViewColumnSortMode.NotSortable;
                 DG_tabla.Columns["VELAZQUEZ"].SortMode = DataGridViewColumnSortMode.NotSortable;
-                DG_tabla.Columns["PREGOT"].SortMode = DataGridViewColumnSortMode.NotSortable;
+                //DG_tabla.Columns["PREGOT"].SortMode = DataGridViewColumnSortMode.NotSortable;
                 DG_tabla.Columns["SALDO"].SortMode = DataGridViewColumnSortMode.NotSortable;
             }
         }
@@ -745,7 +743,7 @@ namespace appSugerencias
             maestro.Columns.Add("RENA", typeof(double));
             maestro.Columns.Add("VELAZQUEZ", typeof(double));
             maestro.Columns.Add("COLOSO", typeof(double));
-            maestro.Columns.Add("PREGOT", typeof(double));
+            //maestro.Columns.Add("PREGOT", typeof(double));
             maestro.Columns.Add("SALDO", typeof(double));
 
 

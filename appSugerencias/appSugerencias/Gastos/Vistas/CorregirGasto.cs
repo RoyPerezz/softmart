@@ -440,7 +440,7 @@ namespace appSugerencias.Gastos.Vistas
 
             if (sucursal.Equals("VALLARTA"))
             {
-                ruta = @"\\192.168.1.2\Users\Administrador.WIN-SJDEC013JTB\Documents\imgTickets\";
+                ruta = @"\\192.168.5.2\Users\Administrador.WIN-SJDEC013JTB\Documents\imgTickets\";
             }
             else if (sucursal.Equals("RENA"))
             {
@@ -470,7 +470,7 @@ namespace appSugerencias.Gastos.Vistas
 
             if (sucursal.Equals("VALLARTA"))
             {
-                ruta = @"\\\\\\\\192.168.1.2\\\\Users\\\\Administrador.WIN-SJDEC013JTB\\\\Documents\\\\imgTickets\\\\";
+                ruta = @"\\\\\\\\192.168.5.2\\\\Users\\\\Administrador.WIN-SJDEC013JTB\\\\Documents\\\\imgTickets\\\\";
             }
             else if (sucursal.Equals("RENA"))
             {

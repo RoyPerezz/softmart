@@ -75,6 +75,20 @@
             this.btGuardar = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.dgvArticulo = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CLAVESATT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DESCRIPCIONSATT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbBuscar = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -105,20 +119,6 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtClaveSat = new System.Windows.Forms.TextBox();
             this.label25 = new System.Windows.Forms.Label();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CLAVESATT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DESCRIPCIONSATT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -638,6 +638,91 @@
             this.dgvArticulo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvArticulo_CellContentClick);
             this.dgvArticulo.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvArticulo_CellDoubleClick);
             // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "ARTICULO";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "DESCRIPCION";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 250;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "EXISTENCIA";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            // 
+            // Column12
+            // 
+            this.Column12.HeaderText = "COSTO";
+            this.Column12.Name = "Column12";
+            this.Column12.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "MAYOREO";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "MENUDEO";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "LINEA";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "MARCA";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "FABRICANTE";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "PRESENTACION";
+            this.Column9.Name = "Column9";
+            this.Column9.Visible = false;
+            // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "IMPUESTO";
+            this.Column10.Name = "Column10";
+            this.Column10.Visible = false;
+            // 
+            // Column11
+            // 
+            this.Column11.HeaderText = "UNIDAD";
+            this.Column11.Name = "Column11";
+            this.Column11.Visible = false;
+            // 
+            // CLAVESATT
+            // 
+            this.CLAVESATT.HeaderText = "CLAVESAT";
+            this.CLAVESATT.Name = "CLAVESATT";
+            this.CLAVESATT.Visible = false;
+            // 
+            // DESCRIPCIONSATT
+            // 
+            this.DESCRIPCIONSATT.HeaderText = "DESCRIPCIONSAT";
+            this.DESCRIPCIONSATT.Name = "DESCRIPCIONSATT";
+            this.DESCRIPCIONSATT.Visible = false;
+            // 
             // tbBuscar
             // 
             this.tbBuscar.Location = new System.Drawing.Point(53, 33);
@@ -958,91 +1043,6 @@
             this.label25.TabIndex = 14;
             this.label25.Text = "CONCENTRADOR TIENDA";
             // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "ARTICULO";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "DESCRIPCION";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 250;
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "EXISTENCIA";
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            // 
-            // Column12
-            // 
-            this.Column12.HeaderText = "COSTO";
-            this.Column12.Name = "Column12";
-            this.Column12.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "MAYOREO";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "MENUDEO";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "LINEA";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "MARCA";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "FABRICANTE";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            // 
-            // Column9
-            // 
-            this.Column9.HeaderText = "PRESENTACION";
-            this.Column9.Name = "Column9";
-            this.Column9.Visible = false;
-            // 
-            // Column10
-            // 
-            this.Column10.HeaderText = "IMPUESTO";
-            this.Column10.Name = "Column10";
-            this.Column10.Visible = false;
-            // 
-            // Column11
-            // 
-            this.Column11.HeaderText = "UNIDAD";
-            this.Column11.Name = "Column11";
-            this.Column11.Visible = false;
-            // 
-            // CLAVESATT
-            // 
-            this.CLAVESATT.HeaderText = "CLAVESAT";
-            this.CLAVESATT.Name = "CLAVESATT";
-            this.CLAVESATT.Visible = false;
-            // 
-            // DESCRIPCIONSATT
-            // 
-            this.DESCRIPCIONSATT.HeaderText = "DESCRIPCIONSAT";
-            this.DESCRIPCIONSATT.Name = "DESCRIPCIONSATT";
-            this.DESCRIPCIONSATT.Visible = false;
-            // 
             // Concentrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1053,6 +1053,7 @@
             this.Controls.Add(this.tabControl1);
             this.Name = "Concentrador";
             this.Text = "Concentrador";
+            this.Load += new System.EventHandler(this.Concentrador_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();

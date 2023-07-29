@@ -935,6 +935,11 @@ namespace appSugerencias
                 SendKeys.Send("{BACKSPACE}");
             }
         }
+
+        private void Concentrador_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 
 

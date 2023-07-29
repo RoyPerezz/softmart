@@ -199,6 +199,7 @@ namespace appSugerencias
             string lineaTabla = "";
             string lineaBD = "";
             string comando = "";
+
             DateTime inicio = DT_inicio.Value;
             DateTime fin = DT_fin.Value;
             try
@@ -211,18 +212,18 @@ namespace appSugerencias
                     con = conectar("VALLARTA");
               
                     total = 0;
-                    comando = "SELECT prods.linea,lineas.descrip AS desclinea, " +
-                    "SUM(IF(ventas.tipo_doc = 'DV' OR ventas.tipo_doc = 'DEV', IF(partvta.invent <> 0, partvta.cantidad, 0), " +
-                    "(partvta.cantidad - partvta.a01))) AS cantvend, SUM((partvta.precio * (partvta.cantidad - partvta.a01) * (1 - (partvta.descuento / 100)) * ventas.tipo_cam)) As Importe," +
-                    " SUM((partvta.precio * (partvta.cantidad - partvta.a01) * (1 - (partvta.descuento / 100)) * ventas.tipo_cam) * (partvta.impuesto / 100)) As Impuesto, " +
-                    "SUM((partvta.precio * (partvta.cantidad - partvta.a01) * (1 - (partvta.descuento / 100)) * ventas.tipo_cam) * (1 + (partvta.impuesto / 100))) As Total " +
-                     "FROM((partvta LEFT JOIN ventas ON ventas.venta = partvta.venta) INNER JOIN prods ON partvta.articulo = prods.articulo) INNER JOIN lineas ON prods.linea = lineas.linea " +
-                     "WHERE ventas.estado = 'CO' AND (ventas.tipo_doc = 'FAC' Or ventas.tipo_doc = 'DV' Or ventas.tipo_doc = 'REM') " +
-                    "AND ventas.cierre = 0 and " +
-                    "lineas.Linea IN ('MASCOTAS','FIESTA','ARTLIMPIEZA','BARBIE','BOLSA - FEB','CPAPE','COSVIP','COVID','NAV','BOLSA','PLY','BISUTE','BPLASTC','COSMET','HAL'," +
-                    "'JUGUET','MONTAB','MOSTRA','PAT','PELUCHE','PLASTIC','SER','SOMBRILLAS','MAY','FEB','ESCOLA','SYS','LLYMO','SALDOS','UNIFORMES','VITRINA') and ventas.F_EMISION BETWEEN '"+inicio.ToString("yyyy-MM-dd")+"' and '"+fin.ToString("yyyy-MM-dd")+"' GROUP BY lineas.linea order by lineas.descrip";
-                    MySqlCommand cmdr = new MySqlCommand(comando, con);
-                    MySqlDataReader mdrr;
+                comando = "SELECT prods.linea,lineas.descrip AS desclinea, " +
+                "SUM(IF(ventas.tipo_doc = 'DV' OR ventas.tipo_doc = 'DEV', IF(partvta.invent <> 0, partvta.cantidad, 0), " +
+                "(partvta.cantidad - partvta.a01))) AS cantvend, SUM((partvta.precio * (partvta.cantidad - partvta.a01) * (1 - (partvta.descuento / 100)) * ventas.tipo_cam)) As Importe," +
+                " SUM((partvta.precio * (partvta.cantidad - partvta.a01) * (1 - (partvta.descuento / 100)) * ventas.tipo_cam) * (partvta.impuesto / 100)) As Impuesto, " +
+                "SUM((partvta.precio * (partvta.cantidad - partvta.a01) * (1 - (partvta.descuento / 100)) * ventas.tipo_cam) * (1 + (partvta.impuesto / 100))) As Total " +
+                 "FROM((partvta LEFT JOIN ventas ON ventas.venta = partvta.venta) INNER JOIN prods ON partvta.articulo = prods.articulo) INNER JOIN lineas ON prods.linea = lineas.linea " +
+                 "WHERE ventas.estado = 'CO' AND (ventas.tipo_doc = 'FAC' Or ventas.tipo_doc = 'DV' Or ventas.tipo_doc = 'REM') " +
+                "AND ventas.cierre = 0 and " +
+                "lineas.Linea IN ('MASCOTAS','FIESTA','ARTLIMPIEZA','BARBIE','BOLSA - FEB','CPAPE','COSVIP','COVID','NAV','BOLSA','PLY','BISUTE','BPLASTC','COSMET','HAL'," +
+                "'JUGUET','MONTAB','MOSTRA','PAT','PELUCHE','PLASTIC','SER','SOMBRILLAS','MAY','FEB','ESCOLA','SYS','LLYMO','SALDOS','UNIFORMES','VITRINA') and ventas.F_EMISION BETWEEN '" + inicio.ToString("yyyy-MM-dd") + "' and '" + fin.ToString("yyyy-MM-dd") + "' GROUP BY lineas.linea order by lineas.descrip";
+                MySqlCommand cmdr = new MySqlCommand(comando, con);
+                MySqlDataReader mdrr;
 
                     mdrr = cmdr.ExecuteReader();
 
@@ -291,6 +292,7 @@ namespace appSugerencias
                 con = conectar("RENA");
 
                 total = 0;
+
                 comando = "SELECT prods.linea,lineas.descrip AS desclinea, " +
                 "SUM(IF(ventas.tipo_doc = 'DV' OR ventas.tipo_doc = 'DEV', IF(partvta.invent <> 0, partvta.cantidad, 0), " +
                 "(partvta.cantidad - partvta.a01))) AS cantvend, SUM((partvta.precio * (partvta.cantidad - partvta.a01) * (1 - (partvta.descuento / 100)) * ventas.tipo_cam)) As Importe," +
@@ -381,6 +383,9 @@ namespace appSugerencias
                 "AND ventas.cierre = 0 and " +
                 "lineas.Linea IN ('MASCOTAS','FIESTA','ARTLIMPIEZA','BARBIE','BOLSA - FEB','CPAPE','COSVIP','COVID','NAV','BOLSA','PLY','BISUTE','BPLASTC','COSMET','HAL'," +
                 "'JUGUET','MONTAB','MOSTRA','PAT','PELUCHE','PLASTIC','SER','SOMBRILLAS','MAY','FEB','ESCOLA','SYS','LLYMO','SALDOS','UNIFORMES','VITRINA')  and ventas.F_EMISION BETWEEN '" + inicio.ToString("yyyy-MM-dd") + "' and '" + fin.ToString("yyyy-MM-dd") + "' GROUP BY lineas.linea order by lineas.descrip";
+
+
+
                 MySqlCommand cmdr = new MySqlCommand(comando, con);
                 MySqlDataReader mdrr;
 
@@ -743,7 +748,7 @@ namespace appSugerencias
 
             if (tienda == "VALLARTA")
             {
-                IP = "192.168.1.2";
+                IP = "192.168.5.2";
 
             }
             else if (tienda == "RENA")
@@ -774,6 +779,7 @@ namespace appSugerencias
             }
             else
             {
+               
                 int m = DT_inicio.Value.Month;
                 int a = DT_inicio.Value.Year;
                 string mes = FormatoFecha.Mes(m);
@@ -814,7 +820,7 @@ namespace appSugerencias
 
             if (tienda == "VALLARTA")
             {
-                IP = "192.168.1.2";
+                IP = "192.168.5.2";
 
             }
             else if (tienda == "RENA")

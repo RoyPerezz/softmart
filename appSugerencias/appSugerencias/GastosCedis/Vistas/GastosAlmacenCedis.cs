@@ -288,11 +288,11 @@ namespace appSugerencias.Gastos.Vistas
 
             if (actualizar == false)
             {
-                ruta = @"\\\\192.168.0.190\\Users\\Admin\\Documents\\imgGastos\\" + nombreImagen;
+                ruta = @"\\\\192.168.6.190\\Users\\Admin\\Documents\\imgGastos\\" + nombreImagen;
             }
             else
             {
-                ruta = @"\\\\\\\\192.168.0.190\\\\Users\\\\Admin\\\\Documents\\\\imgGastos\\\\" + nombreImagen;
+                ruta = @"\\\\\\\\192.168.6.190\\\\Users\\\\Admin\\\\Documents\\\\imgGastos\\\\" + nombreImagen;
             }
 
 
@@ -304,7 +304,7 @@ namespace appSugerencias.Gastos.Vistas
         public string RutaServidor(string nombreImagen)
         {
            
-            string ruta = @"\\192.168.0.190\Users\Admin\Documents\imgGastos\" + nombreImagen;
+            string ruta = @"\\192.168.6.190\Users\Admin\Documents\imgGastos\" + nombreImagen;
 
 
             return ruta;

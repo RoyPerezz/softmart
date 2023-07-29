@@ -3590,5 +3590,24 @@ namespace appSugerencias
             RegistrarAccesos(modulo);
             frm.Show();
         }
+
+        private void cantidadFacturar20ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //se localiza el formulario buscandolo entre los forms abiertos
+            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is CantFacturar);
+
+            if (frm != null)
+            {
+                //si la instancia existe la pongo en primer plano
+                frm.BringToFront();
+                return;
+            }
+
+            //sino existe la instancia se crea una nueva
+            frm = new CantFacturar(lblUsuario.Text);
+            string modulo = frm.Name;
+            RegistrarAccesos(modulo);
+            frm.Show();
+        }
     }
 }

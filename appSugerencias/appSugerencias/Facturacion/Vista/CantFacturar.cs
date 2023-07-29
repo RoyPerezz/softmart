@@ -100,9 +100,9 @@ namespace appSugerencias
            
             if (CBX_mes_anterior.Checked == true)
             {
+                string m = AcortarMes(mes);
 
-               
-                con = BDConexicon.RespMultiSuc(sucursalSeleccionada, mes, año);
+                con = BDConexicon.RespMultiSuc(sucursalSeleccionada, m, año);
             }
             else
             {
@@ -256,7 +256,53 @@ namespace appSugerencias
         {
             string m = "";
 
-
+            if (mes.Equals("ENERO"))
+            {
+                m = "ENE";
+            }else if(mes.Equals("FEBRERO"))
+            {
+                m = "FEB";
+            
+             }else if(mes.Equals("MARZO"))
+            {
+                m = "MAR";
+            }
+            else if(mes.Equals("ABRIL"))
+            {
+                m = "ABR";
+            }
+            else if (mes.Equals("MAYO"))
+            {
+                m = "MAY";
+            }
+            else if (mes.Equals("JUNIO"))
+            {
+                m = "JUN";
+            }
+            else if (mes.Equals("JULIO"))
+            {
+                m = "JUL";
+            }
+            else if (mes.Equals("AGOSTO"))
+            {
+                m = "AGO";
+            }
+            else if (mes.Equals("SEPTIEMBRE"))
+            {
+                m = "SEP";
+            }
+            else if (mes.Equals("OCTUBRE"))
+            {
+                m = "OCT";
+            }
+            else if (mes.Equals("NOVIEMBRE"))
+            {
+                m = "NOV";
+            }
+            else if (mes.Equals("DICIEMBRE"))
+            {
+                m = "DEC";
+            }
             return m;
         }
         private void BT_buscar_Click(object sender, EventArgs e)
@@ -276,10 +322,15 @@ namespace appSugerencias
             bool respaldo = false;
             double ventaTotal = 0,ventaEfectivo =0,ventasTarjetas=0;
 
+            string m = "";
+
             //Se toma la conexión a base de datos actual o de mes pasado,si se seleccionó la casilla de respaldo o no.
             if (CBX_mes_anterior.Checked==true)
             {
-                con = BDConexicon.RespMultiSuc(sucursalSeleccionada,mes,año);
+
+                m = AcortarMes(mes);
+
+                con = BDConexicon.RespMultiSuc(sucursalSeleccionada,m,año);
                 respaldo = true;
             }
             else
@@ -308,14 +359,15 @@ namespace appSugerencias
 
 
             bool checkDepositado = false;
-            
+           
             for (int i = 0; i < DG_tabla.Rows.Count; i++)
             {
                 bool valor = false;
                 FechaTabla = Convert.ToDateTime(DG_tabla.Rows[i].Cells["FECHA"].Value);
                 //ventaTotal = FacturacionController.CalcularTotalVenta(FechaTabla,sucursalSeleccionada);
-                ventasTarjetas = FacturacionController.CalcularTotalTarjetas(FechaTabla,sucursalSeleccionada,mes,año,respaldo);
-                ventaEfectivo = FacturacionController.CalcularTotalEfectivo(FechaTabla,sucursalSeleccionada,mes,año,respaldo);
+               m = AcortarMes(mes);
+                ventasTarjetas = FacturacionController.CalcularTotalTarjetas(FechaTabla,sucursalSeleccionada,m,año,respaldo);
+                ventaEfectivo = FacturacionController.CalcularTotalEfectivo(FechaTabla,sucursalSeleccionada,m,año,respaldo);
                 //factEFE = FacturacionController.CalcularFacturacionEfectivo(FechaTabla,sucursalSeleccionada,mes,año,respaldo, ventasEfectivo);
 
                 //if (ventaEfectivo == 0 && ventasTarjetas == 0)
@@ -423,6 +475,77 @@ namespace appSugerencias
 
         private void CantFacturar_Load(object sender, EventArgs e)
         {
+            string area = AreaTrabajo();
+            string consulta = "select EMPRESA from econfig";
+            string sucursal = "";
+            string tienda = "";
+            MySqlConnection con = BDConexicon.conectar();
+            MySqlCommand cmd = new MySqlCommand(consulta, con);
+            MySqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                sucursal = dr["EMPRESA"].ToString();
+            }
+            dr.Close();
+
+            if (area.Equals("SISTEMAS") || area.Equals("CXPAGAR") || area.Equals("ADMON GRAL") || area.Equals("CONTAB") || area.Equals("SOPORTE") || area.Equals("FINANZAS"))
+            {
+                //CB_sucursal.Visible = true;
+                //CB_sucursal.Items.Add("VALLARTA");
+                //CB_sucursal.Items.Add("RENA");
+                //CB_sucursal.Items.Add("VELAZQUEZ");
+                //CB_sucursal.Items.Add("COLOSO");
+                RB_va.Enabled = true;
+                RB_re.Enabled = true;
+                RB_ve.Enabled = true;
+                RB_co.Enabled = true;
+                DG_tabla.Columns["DEPOSITADO"].Visible = true;
+            }
+            else
+            {
+                //CB_sucursal.Visible = false;
+                DG_tabla.Columns["DEPOSITADO"].Visible = false;
+                if (sucursal.Equals("OSMART VALLARTA"))
+                {
+                    RB_va.Enabled = true;
+                    RB_va.Checked = true;
+                    RB_re.Enabled = false;
+                    RB_ve.Enabled = false;
+                    RB_co.Enabled = false;
+                    tienda = "VALLARTA";
+                }
+
+                if (sucursal.Equals("OSMART RENACIMIENTO"))
+                {
+                    RB_va.Enabled = false;
+                    RB_re.Enabled = true;
+                    RB_re.Checked = true;
+                    RB_ve.Enabled = false;
+                    RB_co.Enabled = false;
+                    tienda = "RENA";
+                }
+
+                if (sucursal.Equals("OSMART VELAZQUEZ"))
+
+                {
+                    RB_va.Enabled = false;
+                    RB_re.Enabled = false;
+                    RB_ve.Enabled = true;
+                    RB_ve.Checked = true;
+                    RB_co.Enabled = false;
+                    tienda = "VELAZQUEZ";
+                }
+
+                if (sucursal.Equals("OSMART COLOSO"))
+                {
+                    RB_va.Enabled = false;
+                    RB_re.Enabled = false;
+                    RB_ve.Enabled = false;
+                    RB_co.Enabled = true;
+                    RB_co.Checked = true;
+                    tienda = "COLOSO";
+                }
+            }
 
         }
 
@@ -588,6 +711,62 @@ namespace appSugerencias
             colorDeposito(DG_tabla);
             colorFila(DG_tabla);
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
+            excel.Application.Workbooks.Add(true);
+
+
+
+
+            int indiceColumna = 0;
+
+
+
+            foreach (DataGridViewColumn col in DG_tabla.Columns)
+            {
+                indiceColumna++;
+
+                excel.Cells[5, indiceColumna] = col.Name;
+
+            }
+
+            int indiceFila = 4;
+
+            foreach (DataGridViewRow row in DG_tabla.Rows)
+            {
+                indiceFila++;
+                indiceColumna = 0;
+
+
+
+
+                foreach (DataGridViewColumn col in DG_tabla.Columns)
+                {
+                    indiceColumna++;
+
+
+
+                    excel.Cells[indiceFila + 1, indiceColumna] = row.Cells[col.Name].Value;
+
+
+
+
+
+
+                }
+
+
+
+            }
+
+
+            excel.Cells.Range["B6:M36"].NumberFormat = "$#,##0.00";
+
+
+            excel.Visible = true;
         }
 
         private void CB_año_SelectedIndexChanged(object sender, EventArgs e)
