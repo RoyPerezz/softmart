@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
+using System.Configuration;
 
 namespace appSugerencias
 {
@@ -19,20 +20,25 @@ namespace appSugerencias
 
         public static string optieneIp()
         {
-            TextReader IP;
-            IP = new StreamReader("IP.txt");
-            string ipn = IP.ReadLine();
-            IP.Close();
-            return ipn;
+            //TextReader IP;
+            //IP = new StreamReader("IP.txt");
+            //string ipn = IP.ReadLine();
+            //IP.Close();
+            //return ipn;
+
+            string IP = ConfigurationManager.AppSettings["IP"];
+            return IP;
         }
 
         public static string optieneBd()
         {
-            TextReader BD;
-            BD = new StreamReader("BD.txt");
-            string bdn = BD.ReadLine();
-            BD.Close();
-            return bdn;
+            //TextReader BD;
+            //BD = new StreamReader("BD.txt");
+            //string bdn = BD.ReadLine();
+            //BD.Close();
+            //return bdn;
+            string BD = ConfigurationManager.AppSettings["BD"];
+            return BD;
         }
 
         private void Principal2_Load(object sender, EventArgs e)

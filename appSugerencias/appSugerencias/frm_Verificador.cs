@@ -94,6 +94,7 @@ namespace appSugerencias
                 lbl6.Show();
                 //lbl7.Show();
                 button1.Show();
+                button2.Show();
                 lblArticulo.Text = articulo;
                 oferta = mdr.GetInt32("oferta");
                 impuesto = mdr.GetString("impuesto");
@@ -211,6 +212,7 @@ namespace appSugerencias
             lbl6.Hide();
             lbl7.Hide();
             button1.Hide();
+            button2.Hide();
             lblArticulo.Text = "";
             lblDescripcion.Text = "";
             lblPrecio1.Text = "";
@@ -317,6 +319,22 @@ namespace appSugerencias
 
             //sino existe la instancia se crea una nueva
             frm = new frm_kardex(lblArticulo.Text, 1);
+            frm.Show();
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is frm_VerificaExistenciaSuc);
+
+            if (frm != null)
+            {
+                //si la instancia existe la pongo en primer plano
+                frm.BringToFront();
+                return;
+            }
+
+            //sino existe la instancia se crea una nueva
+            frm = new frm_VerificaExistenciaSuc(lblArticulo.Text,lblDescripcion.Text);
             frm.Show();
         }
     }

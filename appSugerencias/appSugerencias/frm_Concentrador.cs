@@ -299,11 +299,11 @@ namespace appSugerencias
                     lblPre.Text = "NA";
                     lblPre.ForeColor = Color.Red;
                 }
-
+                */
                 limpiar();
 
                 btGuardar.Enabled = true;
-                */
+                
             }
         }
 
@@ -409,7 +409,8 @@ namespace appSugerencias
             tbFabricante.Text = "";
             tbImpuesto.Text = "";
             tbUnidad.Text = "";
-
+            tbClaveSat.Text = "";
+            tbDescripicionSat.Text = "";
 
 
 
@@ -435,8 +436,8 @@ namespace appSugerencias
             lblVe.ForeColor = Color.Black;
 
 
-            lblPre.Text = "---";
-            lblPre.ForeColor = Color.Black;
+            //lblPre.Text = "---";
+            //lblPre.ForeColor = Color.Black;
 
         }
 
@@ -837,24 +838,24 @@ namespace appSugerencias
                 }
 
                 //PREGOT
-                try
-                {
-                    conex_excel = BDConexicon.Papeleria1Open();
-                    cargarArticulos();
-                    conex_excel.Close();
+//                try
+//                {
+//                    conex_excel = BDConexicon.Papeleria1Open();
+//                    cargarArticulos();
+//                    conex_excel.Close();
 
-                    lblPre2.Text = "OK";
-                    lblPre2.ForeColor = Color.DarkGreen;
-                }
-#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
-                catch (Exception ex)
-#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
-                {
-                    lblPre2.Text = "NA";
-                    lblPre2.ForeColor = Color.Red;
+//                    lblPre2.Text = "OK";
+//                    lblPre2.ForeColor = Color.DarkGreen;
+//                }
+//#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
+//                catch (Exception ex)
+//#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
+//                {
+//                    lblPre2.Text = "NA";
+//                    lblPre2.ForeColor = Color.Red;
 
 
-                }
+//                }
 
 
                 btExcel.Enabled = true;
@@ -868,6 +869,7 @@ namespace appSugerencias
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
+            //BuscarArticulo(BDConexicon.ConectarSat(), txtClaveSat.Text);
             BuscarArticulo(BDConexicon.ConectarSat(), txtClaveSat.Text);
         }
 
@@ -924,16 +926,18 @@ namespace appSugerencias
                 }
                 else
                 {
+                   
                     BuscarArticulo(BDConexicon.ConectarSat(), txtClaveSat.Text);
-
+                    txtClaveSat.Text = "";
+                    //MessageBox.Show(txtClaveSat.Text);
                 }
             }
 
-            if (e.KeyChar == Convert.ToChar(Keys.Space))
-            {
-                txtClaveSat.Text = "";
-                SendKeys.Send("{BACKSPACE}");
-            }
+            //if (e.KeyChar == Convert.ToChar(Keys.Space))
+            //{
+            //    txtClaveSat.Text = "";
+            //    SendKeys.Send("{BACKSPACE}");
+            //}
         }
     }
 

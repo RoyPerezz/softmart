@@ -34,9 +34,7 @@
             this.label18 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.lblPre = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.lblBo = new System.Windows.Forms.Label();
             this.lblVa = new System.Windows.Forms.Label();
@@ -75,11 +73,23 @@
             this.btGuardar = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.dgvArticulo = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CLAVESATT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DESCRIPCIONSATT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbBuscar = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.lblPre2 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
             this.lblBo2 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.lblCo2 = new System.Windows.Forms.Label();
@@ -105,20 +115,6 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtClaveSat = new System.Windows.Forms.TextBox();
             this.label25 = new System.Windows.Forms.Label();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CLAVESATT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DESCRIPCIONSATT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -169,9 +165,7 @@
             this.groupBox5.Controls.Add(this.label18);
             this.groupBox5.Controls.Add(this.label12);
             this.groupBox5.Controls.Add(this.label13);
-            this.groupBox5.Controls.Add(this.lblPre);
             this.groupBox5.Controls.Add(this.label14);
-            this.groupBox5.Controls.Add(this.label24);
             this.groupBox5.Controls.Add(this.label15);
             this.groupBox5.Controls.Add(this.lblBo);
             this.groupBox5.Controls.Add(this.lblVa);
@@ -180,7 +174,7 @@
             this.groupBox5.Controls.Add(this.lblVe);
             this.groupBox5.Location = new System.Drawing.Point(935, 312);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(159, 177);
+            this.groupBox5.Size = new System.Drawing.Size(159, 148);
             this.groupBox5.TabIndex = 49;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Sucursales";
@@ -212,16 +206,6 @@
             this.label13.TabIndex = 36;
             this.label13.Text = "RENA";
             // 
-            // lblPre
-            // 
-            this.lblPre.AutoSize = true;
-            this.lblPre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPre.Location = new System.Drawing.Point(107, 147);
-            this.lblPre.Name = "lblPre";
-            this.lblPre.Size = new System.Drawing.Size(23, 16);
-            this.lblPre.TabIndex = 46;
-            this.lblPre.Text = "---";
-            // 
             // label14
             // 
             this.label14.AutoSize = true;
@@ -230,15 +214,6 @@
             this.label14.Size = new System.Drawing.Size(71, 13);
             this.label14.TabIndex = 37;
             this.label14.Text = "VELAZQUEZ";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(16, 147);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(52, 13);
-            this.label24.TabIndex = 45;
-            this.label24.Text = "PREGOT";
             // 
             // label15
             // 
@@ -255,7 +230,7 @@
             this.lblBo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBo.Location = new System.Drawing.Point(107, 26);
             this.lblBo.Name = "lblBo";
-            this.lblBo.Size = new System.Drawing.Size(23, 16);
+            this.lblBo.Size = new System.Drawing.Size(22, 16);
             this.lblBo.TabIndex = 44;
             this.lblBo.Text = "---";
             // 
@@ -265,7 +240,7 @@
             this.lblVa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblVa.Location = new System.Drawing.Point(107, 49);
             this.lblVa.Name = "lblVa";
-            this.lblVa.Size = new System.Drawing.Size(23, 16);
+            this.lblVa.Size = new System.Drawing.Size(22, 16);
             this.lblVa.TabIndex = 39;
             this.lblVa.Text = "---";
             // 
@@ -275,7 +250,7 @@
             this.lblRe.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRe.Location = new System.Drawing.Point(107, 73);
             this.lblRe.Name = "lblRe";
-            this.lblRe.Size = new System.Drawing.Size(23, 16);
+            this.lblRe.Size = new System.Drawing.Size(22, 16);
             this.lblRe.TabIndex = 40;
             this.lblRe.Text = "---";
             // 
@@ -285,7 +260,7 @@
             this.lblCo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCo.Location = new System.Drawing.Point(107, 122);
             this.lblCo.Name = "lblCo";
-            this.lblCo.Size = new System.Drawing.Size(23, 16);
+            this.lblCo.Size = new System.Drawing.Size(22, 16);
             this.lblCo.TabIndex = 42;
             this.lblCo.Text = "---";
             // 
@@ -295,7 +270,7 @@
             this.lblVe.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblVe.Location = new System.Drawing.Point(107, 98);
             this.lblVe.Name = "lblVe";
-            this.lblVe.Size = new System.Drawing.Size(23, 16);
+            this.lblVe.Size = new System.Drawing.Size(22, 16);
             this.lblVe.TabIndex = 41;
             this.lblVe.Text = "---";
             // 
@@ -358,7 +333,7 @@
             this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label26.Location = new System.Drawing.Point(591, 229);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(114, 16);
+            this.label26.Size = new System.Drawing.Size(113, 16);
             this.label26.TabIndex = 35;
             this.label26.Text = "DescripcionSat";
             // 
@@ -368,7 +343,7 @@
             this.ClaveSat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ClaveSat.Location = new System.Drawing.Point(591, 195);
             this.ClaveSat.Name = "ClaveSat";
-            this.ClaveSat.Size = new System.Drawing.Size(71, 16);
+            this.ClaveSat.Size = new System.Drawing.Size(70, 16);
             this.ClaveSat.TabIndex = 34;
             this.ClaveSat.Text = "ClaveSat";
             // 
@@ -378,7 +353,7 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(6, 61);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(91, 16);
+            this.label3.Size = new System.Drawing.Size(90, 16);
             this.label3.TabIndex = 13;
             this.label3.Text = "Descripcion";
             // 
@@ -396,7 +371,7 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(6, 29);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(60, 16);
+            this.label2.Size = new System.Drawing.Size(59, 16);
             this.label2.TabIndex = 11;
             this.label2.Text = "Articulo";
             // 
@@ -421,7 +396,7 @@
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(591, 25);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(46, 16);
+            this.label7.Size = new System.Drawing.Size(45, 16);
             this.label7.TabIndex = 19;
             this.label7.Text = "Linea";
             // 
@@ -439,7 +414,7 @@
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(591, 59);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(51, 16);
+            this.label6.Size = new System.Drawing.Size(50, 16);
             this.label6.TabIndex = 21;
             this.label6.Text = "Marca";
             // 
@@ -449,7 +424,7 @@
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(6, 93);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(48, 16);
+            this.label11.Size = new System.Drawing.Size(47, 16);
             this.label11.TabIndex = 33;
             this.label11.Text = "Costo";
             // 
@@ -466,7 +441,7 @@
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(6, 125);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(72, 16);
+            this.label4.Size = new System.Drawing.Size(71, 16);
             this.label4.TabIndex = 15;
             this.label4.Text = "Menudeo";
             // 
@@ -483,7 +458,7 @@
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(6, 157);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(69, 16);
+            this.label5.Size = new System.Drawing.Size(68, 16);
             this.label5.TabIndex = 17;
             this.label5.Text = "Mayoreo";
             // 
@@ -501,7 +476,7 @@
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(591, 93);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(82, 16);
+            this.label8.Size = new System.Drawing.Size(81, 16);
             this.label8.TabIndex = 23;
             this.label8.Text = "Fabricante";
             // 
@@ -519,7 +494,7 @@
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(6, 189);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(99, 16);
+            this.label9.Size = new System.Drawing.Size(98, 16);
             this.label9.TabIndex = 25;
             this.label9.Text = "Presentacion";
             // 
@@ -529,7 +504,7 @@
             this.Unidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Unidad.Location = new System.Drawing.Point(591, 161);
             this.Unidad.Name = "Unidad";
-            this.Unidad.Size = new System.Drawing.Size(58, 16);
+            this.Unidad.Size = new System.Drawing.Size(57, 16);
             this.Unidad.TabIndex = 29;
             this.Unidad.Text = "Unidad";
             // 
@@ -561,7 +536,7 @@
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(591, 127);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(71, 16);
+            this.label10.Size = new System.Drawing.Size(70, 16);
             this.label10.TabIndex = 27;
             this.label10.Text = "Impuesto";
             // 
@@ -638,6 +613,91 @@
             this.dgvArticulo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvArticulo_CellContentClick);
             this.dgvArticulo.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvArticulo_CellDoubleClick);
             // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "ARTICULO";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "DESCRIPCION";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 250;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "EXISTENCIA";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            // 
+            // Column12
+            // 
+            this.Column12.HeaderText = "COSTO";
+            this.Column12.Name = "Column12";
+            this.Column12.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "MAYOREO";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "MENUDEO";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "LINEA";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "MARCA";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "FABRICANTE";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "PRESENTACION";
+            this.Column9.Name = "Column9";
+            this.Column9.Visible = false;
+            // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "IMPUESTO";
+            this.Column10.Name = "Column10";
+            this.Column10.Visible = false;
+            // 
+            // Column11
+            // 
+            this.Column11.HeaderText = "UNIDAD";
+            this.Column11.Name = "Column11";
+            this.Column11.Visible = false;
+            // 
+            // CLAVESATT
+            // 
+            this.CLAVESATT.HeaderText = "CLAVESAT";
+            this.CLAVESATT.Name = "CLAVESATT";
+            this.CLAVESATT.Visible = false;
+            // 
+            // DESCRIPCIONSATT
+            // 
+            this.DESCRIPCIONSATT.HeaderText = "DESCRIPCIONSAT";
+            this.DESCRIPCIONSATT.Name = "DESCRIPCIONSATT";
+            this.DESCRIPCIONSATT.Visible = false;
+            // 
             // tbBuscar
             // 
             this.tbBuscar.Location = new System.Drawing.Point(53, 33);
@@ -658,8 +718,6 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.lblPre2);
-            this.tabPage2.Controls.Add(this.label19);
             this.tabPage2.Controls.Add(this.lblBo2);
             this.tabPage2.Controls.Add(this.label16);
             this.tabPage2.Controls.Add(this.lblCo2);
@@ -683,32 +741,13 @@
             this.tabPage2.UseVisualStyleBackColor = true;
             this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
             // 
-            // lblPre2
-            // 
-            this.lblPre2.AutoSize = true;
-            this.lblPre2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPre2.Location = new System.Drawing.Point(118, 615);
-            this.lblPre2.Name = "lblPre2";
-            this.lblPre2.Size = new System.Drawing.Size(23, 16);
-            this.lblPre2.TabIndex = 54;
-            this.lblPre2.Text = "---";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(27, 615);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(52, 13);
-            this.label19.TabIndex = 53;
-            this.label19.Text = "PREGOT";
-            // 
             // lblBo2
             // 
             this.lblBo2.AutoSize = true;
             this.lblBo2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBo2.Location = new System.Drawing.Point(118, 493);
             this.lblBo2.Name = "lblBo2";
-            this.lblBo2.Size = new System.Drawing.Size(23, 16);
+            this.lblBo2.Size = new System.Drawing.Size(22, 16);
             this.lblBo2.TabIndex = 52;
             this.lblBo2.Text = "---";
             // 
@@ -727,7 +766,7 @@
             this.lblCo2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCo2.Location = new System.Drawing.Point(118, 592);
             this.lblCo2.Name = "lblCo2";
-            this.lblCo2.Size = new System.Drawing.Size(23, 16);
+            this.lblCo2.Size = new System.Drawing.Size(22, 16);
             this.lblCo2.TabIndex = 50;
             this.lblCo2.Text = "---";
             // 
@@ -737,7 +776,7 @@
             this.lblVe2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblVe2.Location = new System.Drawing.Point(118, 568);
             this.lblVe2.Name = "lblVe2";
-            this.lblVe2.Size = new System.Drawing.Size(23, 16);
+            this.lblVe2.Size = new System.Drawing.Size(22, 16);
             this.lblVe2.TabIndex = 49;
             this.lblVe2.Text = "---";
             // 
@@ -747,7 +786,7 @@
             this.lblRe2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRe2.Location = new System.Drawing.Point(118, 543);
             this.lblRe2.Name = "lblRe2";
-            this.lblRe2.Size = new System.Drawing.Size(23, 16);
+            this.lblRe2.Size = new System.Drawing.Size(22, 16);
             this.lblRe2.TabIndex = 48;
             this.lblRe2.Text = "---";
             // 
@@ -757,7 +796,7 @@
             this.lblVa2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblVa2.Location = new System.Drawing.Point(118, 519);
             this.lblVa2.Name = "lblVa2";
-            this.lblVa2.Size = new System.Drawing.Size(23, 16);
+            this.lblVa2.Size = new System.Drawing.Size(22, 16);
             this.lblVa2.TabIndex = 47;
             this.lblVa2.Text = "---";
             // 
@@ -940,11 +979,10 @@
             // 
             // txtClaveSat
             // 
-            this.txtClaveSat.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtClaveSat.Location = new System.Drawing.Point(6, 19);
-            this.txtClaveSat.Multiline = true;
+            this.txtClaveSat.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtClaveSat.Location = new System.Drawing.Point(15, 22);
             this.txtClaveSat.Name = "txtClaveSat";
-            this.txtClaveSat.Size = new System.Drawing.Size(498, 37);
+            this.txtClaveSat.Size = new System.Drawing.Size(498, 38);
             this.txtClaveSat.TabIndex = 1;
             this.txtClaveSat.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtClaveSat_KeyPress);
             // 
@@ -957,91 +995,6 @@
             this.label25.Size = new System.Drawing.Size(332, 29);
             this.label25.TabIndex = 14;
             this.label25.Text = "CONCENTRADOR TIENDA";
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "ARTICULO";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "DESCRIPCION";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 250;
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "EXISTENCIA";
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            // 
-            // Column12
-            // 
-            this.Column12.HeaderText = "COSTO";
-            this.Column12.Name = "Column12";
-            this.Column12.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "MAYOREO";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "MENUDEO";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "LINEA";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "MARCA";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "FABRICANTE";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            // 
-            // Column9
-            // 
-            this.Column9.HeaderText = "PRESENTACION";
-            this.Column9.Name = "Column9";
-            this.Column9.Visible = false;
-            // 
-            // Column10
-            // 
-            this.Column10.HeaderText = "IMPUESTO";
-            this.Column10.Name = "Column10";
-            this.Column10.Visible = false;
-            // 
-            // Column11
-            // 
-            this.Column11.HeaderText = "UNIDAD";
-            this.Column11.Name = "Column11";
-            this.Column11.Visible = false;
-            // 
-            // CLAVESATT
-            // 
-            this.CLAVESATT.HeaderText = "CLAVESAT";
-            this.CLAVESATT.Name = "CLAVESATT";
-            this.CLAVESATT.Visible = false;
-            // 
-            // DESCRIPCIONSATT
-            // 
-            this.DESCRIPCIONSATT.HeaderText = "DESCRIPCIONSAT";
-            this.DESCRIPCIONSATT.Name = "DESCRIPCIONSATT";
-            this.DESCRIPCIONSATT.Visible = false;
             // 
             // Concentrador
             // 
@@ -1132,12 +1085,8 @@
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label lblBo2;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label lblPre;
-        private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label lblBo;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label lblPre2;
-        private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.GroupBox groupBox4;
