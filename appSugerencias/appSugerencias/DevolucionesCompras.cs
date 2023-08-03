@@ -945,14 +945,17 @@ namespace appSugerencias
                 double importe = 0;
                 double impuesto = 0;
                 double bruto = 0;
+                double costoU = 0;
                 foreach (DataRow row in artCompra.Rows)
                 {
-                    precio = Convert.ToDouble(row["PRECIO"].ToString());
+                    //precio = Convert.ToDouble(row["PRECIO"].ToString());    //COMENTÉ ESTE CODIGO
+                    costoU = Convert.ToDouble(row["COSTO_U"].ToString());      //AGREGUE ESTE
                     descuento = Convert.ToDouble(row["DESCUENTO"].ToString());
                     cantidad = Convert.ToInt32(row["CANTIDAD"].ToString());
                     impuesto = Convert.ToDouble(row["IMPUESTO"].ToString());
                     //row["IMPORTE"] = ((precio - (precio * (descuento / 100))) * cantidad)+(precio*(impuesto/100));
-                    bruto = precio * cantidad;
+                    //bruto = precio * cantidad;     //COMENTE ESTE CODIGO
+                    bruto = costoU * cantidad;        //CAMBIE PRECIO X COSTOU
                     row["IMPORTE"] = bruto + (bruto * (impuesto / 100));
                     importe += Convert.ToDouble(row["IMPORTE"].ToString());
                     TB_importeTotal.Text = String.Format("{0:0.##}", importe.ToString("C"));

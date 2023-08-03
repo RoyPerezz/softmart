@@ -1001,6 +1001,8 @@ namespace appSugerencias
 
                 DG_tabla.Rows[i].Cells["DEPOSITO_PANA"].Value = pana;
 
+
+           
                 totalEfectivo = Convert.ToDouble(DG_tabla.Rows[i].Cells["DEPOSITO_VENTANILLA"].Value)+ Convert.ToDouble(DG_tabla.Rows[i].Cells["DEPOSITOS"].Value) + Convert.ToDouble(DG_tabla.Rows[i].Cells["DEPOSITO_PANA"].Value);
 
                 DG_tabla.Rows[i].Cells["VENTAS_EFE"].Value = totalEfectivo;

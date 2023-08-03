@@ -84,6 +84,74 @@ namespace appSugerencias.Facturacion.Controlador
             return ventaTotal;
         }
 
+
+        public static double VentaTotal(DateTime fecha, MySqlConnection con)
+        {
+            double ventaTotal = 0;
+            try
+            {
+                
+
+
+                string query2 = "SELECT SUM((partvta.precio * ( partvta.cantidad  - partvta.a01 ) * (1 - (partvta.descuento / 100)) * ventas.tipo_cam)) As `Importe`," +
+                    "SUM((partvta.precio * (partvta.cantidad - partvta.a01) * (1 - (partvta.descuento / 100)) * ventas.tipo_cam) * (partvta.impuesto / 100)) As `Impuesto`" +
+                    "FROM partvta INNER JOIN ventas ON ventas.venta = partvta.venta WHERE ventas.estado = 'CO' AND(ventas.tipo_doc = 'FAC' Or ventas.tipo_doc = 'DV' Or ventas.tipo_doc = 'REM') AND ventas.cierre = 0 AND moneda = 'MN' AND ventas.usufecha = '" + fecha.ToString("yyyy-MM-dd") + "' AND ventas.caja = 'CAJA1' AND partvta.impuesto > 0 ";
+
+
+
+                string nventa = "SELECT SUM((partvta.precio * ( partvta.cantidad  - partvta.a01 ) * (1 - (partvta.descuento / 100)) * ventas.tipo_cam)) As `Importe`    " +
+                    "FROM partvta INNER JOIN ventas ON ventas.venta = partvta.venta WHERE ventas.estado = 'CO' AND(ventas.tipo_doc = 'FAC' Or ventas.tipo_doc = 'DV' Or ventas.tipo_doc = 'REM') AND ventas.cierre = 0 AND moneda = 'MN' AND ventas.usufecha = '" + fecha.ToString("yyyy-MM-dd") + "' AND partvta.impuesto = 0 AND ventas.caja = 'CAJA1'";
+
+               
+                double importe = 0, impuesto = 0, Nventa = 0;
+
+                MySqlCommand cmd = new MySqlCommand(query2, con);
+                DataTable dt = new DataTable();
+                MySqlDataAdapter ad = new MySqlDataAdapter(cmd);
+                ad.Fill(dt);
+
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    importe += Convert.ToDouble(dt.Rows[i]["importe"].ToString());
+                    impuesto += Convert.ToDouble(dt.Rows[i]["impuesto"].ToString());
+                    //ventaTotal += Convert.ToDouble(dt.Rows[i]["Total"].ToString());
+                    ventaTotal = importe + impuesto;
+                }
+
+                MySqlCommand cmd2 = new MySqlCommand(nventa, con);
+                MySqlDataReader dr2 = cmd2.ExecuteReader();
+
+                while (dr2.Read())
+                {
+                    if (DBNull.Value.Equals(dr2["Importe"].ToString()) || dr2["Importe"].ToString().Equals(""))
+                    {
+                        Nventa = 0;
+                    }
+                    else
+                    {
+                        Nventa = Convert.ToDouble(dr2["Importe"].ToString());
+                    }
+                }
+                dr2.Close();
+
+                ventaTotal += Nventa;
+
+
+
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine("Error:" + ex);
+            }
+
+
+
+
+
+            return ventaTotal;
+
+        }
         public static double CalcularTotalEfectivo(DateTime fecha,string sucursal,string mes,int año,bool respaldo)
         {
             double total = 0;
@@ -102,6 +170,8 @@ namespace appSugerencias.Facturacion.Controlador
             string devoluciones = "SELECT ventas.importe ,ventas.impuesto , ventas.OrigenDev,flujo.concepto2 " +
                 "FROM ventas inner join flujo on ventas.OrigenDev = flujo.venta " +
                 "where ventas.USUFECHA = '" + fecha.ToString("yyyy-MM-dd") + "' and ventas.TIPO_DOC = 'DV' AND(ventas.CAJA = 'CAJA1') GROUP BY ventas.OrigenDev";
+
+           
 
             MySqlConnection con = null;
 
@@ -159,7 +229,7 @@ namespace appSugerencias.Facturacion.Controlador
 
             string consulta = "SELECT ventas.importe ,ventas.impuesto , ventas.OrigenDev,flujo.concepto2 " +
                 "FROM ventas inner join flujo on ventas.OrigenDev = flujo.venta " +
-                "where ventas.USUFECHA = '" + fecha.ToString("yyyy-MM-dd") + "' and ventas.TIPO_DOC = 'DV' AND(ventas.CAJA = 'CAJA1' OR ventas.CAJA = 'CAJA2')GROUP BY ventas.OrigenDev";
+                "where ventas.USUFECHA = '" + fecha.ToString("yyyy-MM-dd") + "' and ventas.TIPO_DOC = 'DV' AND(ventas.CAJA = 'CAJA1') GROUP BY ventas.OrigenDev";
 
             double devTAR = 0;
             MySqlConnection con = null;

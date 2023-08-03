@@ -41,7 +41,7 @@ namespace appSugerencias
 
             //******************LLENA COMBOBOX CB_transferencia CON LOS NOMBRES DE LOS CLIENTES BANCARIOS CORRESPONDIENTES A LA SUCURSAL
             string tienda = "";
-            if (ip.Equals("192.168.1.2"))
+            if (ip.Equals("192.168.5.2"))
             {
                 tienda = "VALLARTA";
             }
@@ -82,6 +82,7 @@ namespace appSugerencias
                 CB_transferencia.Items.Add("DONACIONES ALBERGUE");
                 CB_transferencia.Items.Add("PANAMERICANA");
 
+
             }
 #pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             catch (Exception ex)
@@ -106,7 +107,7 @@ namespace appSugerencias
         {
             //DEPENDIENDO DE LA IP SERÁ EL NOMBRE DE LA SUCURSAL
             string tienda = "";
-            if (ip.Equals("192.168.1.2"))
+            if (ip.Equals("192.168.5.2"))
             {
                 tienda = "VALLARTA";
             }

@@ -42,9 +42,9 @@ namespace appSugerencias.Gastos.Vistas
                 respaldo = false;
             }
 
-#pragma warning disable CS0219 // La variable 'egreso' está asignada pero su valor nunca se usa
+
             double egreso = 0,gastos=0,proveedores=0,bancos=0;
-#pragma warning restore CS0219 // La variable 'egreso' está asignada pero su valor nunca se usa
+
             double retiro = 0;
             DG_tabla.Rows.Clear();
             string sucursal = CB_sucursal.SelectedItem.ToString();
@@ -60,9 +60,9 @@ namespace appSugerencias.Gastos.Vistas
             int indiceIngresos = 1;
             double ingreso = 0,totalIngreso=0;
             double retirosEfectivo = 0;
-#pragma warning disable CS0219 // La variable 'retir' está asignada pero su valor nunca se usa
+
             double retir = 0;
-#pragma warning restore CS0219 // La variable 'retir' está asignada pero su valor nunca se usa
+
             double ban = 0;
             double devCL = 0;
             double cajaGral = 0, acree = 0,accrDiversos=0,finanzas=0,albergue=0,comprasInocencio=0,comprasCDMX=0, gastosPerla=0,ccdis=0,totalGastosCedis=0;

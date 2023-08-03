@@ -152,5 +152,59 @@ namespace appSugerencias
             }
             return mes;
         }
+
+        public static string MesAbreviado(string mes)
+        {
+            string m = "";
+
+            if (mes.Equals("ENERO"))
+            {
+                m = "ENE";
+            }else if(mes.Equals("FEBRERO"))
+            {
+                m = "FEB";
+            }
+            else if (mes.Equals("MARZO"))
+            {
+                m = "MAR";
+            }
+            else if (mes.Equals("ABRIL"))
+            {
+                m = "ABR";
+            }
+            else if (mes.Equals("MAYO"))
+            {
+                m = "MAY";
+            }
+            else if (mes.Equals("JUNIO"))
+            {
+                m = "JUN";
+            }
+            else if (mes.Equals("JULIO"))
+            {
+                m = "JUL";
+            }
+            else if (mes.Equals("AGOSTO"))
+            {
+                m = "AGO";
+            }
+            else if (mes.Equals("SEPTIEMBRE"))
+            {
+                m = "SEP";
+            }
+            else if (mes.Equals("OCTUBRE"))
+            {
+                m = "OCT";
+            }
+            else if (mes.Equals("NOVIEMBRE"))
+            {
+                m = "NOV";
+            }
+            else if (mes.Equals("DICIEMBRE"))
+            {
+                m = "DIC";
+            }
+            return m;
+        }
     }
 }

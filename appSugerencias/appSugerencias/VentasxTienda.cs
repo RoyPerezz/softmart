@@ -37,12 +37,14 @@ namespace appSugerencias
             ventas();
         }
 
+
+       
         public void ventas()
         {
             double importeDiaVa,importeDiaRe, importeDiaVe, importeDiaCo,importeDiaPre,importeDiaTo;
-#pragma warning disable CS0168 // La variable 'Total' se ha declarado pero nunca se usa
+
             double totalVa, totalRe, totalCo, totalVe, totalPre,Total;
-#pragma warning restore CS0168 // La variable 'Total' se ha declarado pero nunca se usa
+
 
            
             importeDiaTo = 0;
@@ -58,11 +60,20 @@ namespace appSugerencias
                 dgvVentas.Rows[i].Cells[0].Value = i.ToString() + "/" + mes + "/" + ano;
             }
 
-
+            string mesSeleccionado = FormatoFecha.MesAbreviado(CB_mes.Text);
 
             try
             {
-                convallarta = BDConexicon.VallartaOpen();
+
+                if (CBX_respaldo.Checked==true)
+                {
+                    convallarta = BDConexicon.RespaldoVA(mesSeleccionado,DateTime.Now.Year);
+                }
+                else
+                {
+                    convallarta = BDConexicon.VallartaOpen();
+                }
+               
                 string comando = "SELECT ventas.F_EMISION AS 'Fecha', " +
                     "SUM((partvta.precio * (partvta.cantidad - partvta.a01) * (1 - (partvta.descuento / 100)) * ventas.tipo_cam)) + SUM((partvta.precio * (partvta.cantidad - partvta.a01) * (1 - (partvta.descuento / 100)) * ventas.tipo_cam) * (partvta.impuesto / 100)) As 'Total' " +
                     "FROM(partvta LEFT JOIN ventas ON ventas.VENTA = partvta.VENTA) INNER JOIN prods ON partvta.ARTICULO = prods.ARTICULO " +
@@ -117,7 +128,15 @@ namespace appSugerencias
            
             try
             {
-                conrena = BDConexicon.RenaOpen();
+
+                if (CBX_respaldo.Checked == true)
+                {
+                    conrena = BDConexicon.RespaldoRE(mesSeleccionado, DateTime.Now.Year);
+                }else
+                {
+                    conrena = BDConexicon.RenaOpen();
+                }
+                
                 string comando = "SELECT ventas.F_EMISION AS 'Fecha', " +
                     "SUM((partvta.precio * (partvta.cantidad - partvta.a01) * (1 - (partvta.descuento / 100)) * ventas.tipo_cam)) + SUM((partvta.precio * (partvta.cantidad - partvta.a01) * (1 - (partvta.descuento / 100)) * ventas.tipo_cam) * (partvta.impuesto / 100)) As 'Total' " +
                     "FROM(partvta LEFT JOIN ventas ON ventas.VENTA = partvta.VENTA) INNER JOIN prods ON partvta.ARTICULO = prods.ARTICULO " +
@@ -166,7 +185,16 @@ namespace appSugerencias
 
             try
             {
-                convelazquez = BDConexicon.VelazquezOpen();
+                if (CBX_respaldo.Checked == true)
+                {
+                    convelazquez = BDConexicon.RespaldoVE(mesSeleccionado, DateTime.Now.Year);
+                }
+                else
+                {
+                    convelazquez = BDConexicon.VelazquezOpen();
+                }
+
+               
                 string comando = "SELECT ventas.F_EMISION AS 'Fecha', " +
                     "SUM((partvta.precio * (partvta.cantidad - partvta.a01) * (1 - (partvta.descuento / 100)) * ventas.tipo_cam)) + SUM((partvta.precio * (partvta.cantidad - partvta.a01) * (1 - (partvta.descuento / 100)) * ventas.tipo_cam) * (partvta.impuesto / 100)) As 'Total' " +
                     "FROM(partvta LEFT JOIN ventas ON ventas.VENTA = partvta.VENTA) INNER JOIN prods ON partvta.ARTICULO = prods.ARTICULO " +
@@ -212,7 +240,16 @@ namespace appSugerencias
 
             try
             {
-                concoloso = BDConexicon.ColosoOpen();
+                if (CBX_respaldo.Checked == true)
+                {
+                    concoloso = BDConexicon.RespaldoCO(mesSeleccionado, DateTime.Now.Year);
+                }
+                else
+                {
+                    concoloso = BDConexicon.ColosoOpen();
+                }
+
+                
                 string comando = "SELECT ventas.F_EMISION AS 'Fecha', " +
                     "SUM((partvta.precio * (partvta.cantidad - partvta.a01) * (1 - (partvta.descuento / 100)) * ventas.tipo_cam)) + SUM((partvta.precio * (partvta.cantidad - partvta.a01) * (1 - (partvta.descuento / 100)) * ventas.tipo_cam) * (partvta.impuesto / 100)) As 'Total' " +
                     "FROM(partvta LEFT JOIN ventas ON ventas.VENTA = partvta.VENTA) INNER JOIN prods ON partvta.ARTICULO = prods.ARTICULO " +

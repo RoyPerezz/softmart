@@ -30,9 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VentasxTienda));
             this.dgvVentas = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.BT_exportar = new System.Windows.Forms.Button();
             this.FECHA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.VALLARTA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RENA = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -40,6 +37,11 @@
             this.COLOSO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PREGOT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TOTAL_DIA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.BT_exportar = new System.Windows.Forms.Button();
+            this.CBX_respaldo = new System.Windows.Forms.CheckBox();
+            this.CB_mes = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVentas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,42 +62,6 @@
             this.dgvVentas.Name = "dgvVentas";
             this.dgvVentas.Size = new System.Drawing.Size(749, 683);
             this.dgvVentas.TabIndex = 0;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(359, 26);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(99, 48);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Consultar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(26, 42);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(262, 16);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Reporte de ventas de las sucursales";
-            // 
-            // BT_exportar
-            // 
-            this.BT_exportar.BackColor = System.Drawing.Color.DodgerBlue;
-            this.BT_exportar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BT_exportar.ForeColor = System.Drawing.Color.White;
-            this.BT_exportar.Image = ((System.Drawing.Image)(resources.GetObject("BT_exportar.Image")));
-            this.BT_exportar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BT_exportar.Location = new System.Drawing.Point(519, 23);
-            this.BT_exportar.Name = "BT_exportar";
-            this.BT_exportar.Size = new System.Drawing.Size(112, 51);
-            this.BT_exportar.TabIndex = 4;
-            this.BT_exportar.Text = "Exportar";
-            this.BT_exportar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BT_exportar.UseVisualStyleBackColor = false;
-            this.BT_exportar.Click += new System.EventHandler(this.BT_exportar_Click);
             // 
             // FECHA
             // 
@@ -139,11 +105,80 @@
             this.TOTAL_DIA.HeaderText = "Total del Dia";
             this.TOTAL_DIA.Name = "TOTAL_DIA";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(506, 28);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(99, 48);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Consultar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(26, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(262, 16);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Reporte de ventas de las sucursales";
+            // 
+            // BT_exportar
+            // 
+            this.BT_exportar.BackColor = System.Drawing.Color.DodgerBlue;
+            this.BT_exportar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_exportar.ForeColor = System.Drawing.Color.White;
+            this.BT_exportar.Image = ((System.Drawing.Image)(resources.GetObject("BT_exportar.Image")));
+            this.BT_exportar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BT_exportar.Location = new System.Drawing.Point(666, 25);
+            this.BT_exportar.Name = "BT_exportar";
+            this.BT_exportar.Size = new System.Drawing.Size(112, 51);
+            this.BT_exportar.TabIndex = 4;
+            this.BT_exportar.Text = "Exportar";
+            this.BT_exportar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BT_exportar.UseVisualStyleBackColor = false;
+            this.BT_exportar.Click += new System.EventHandler(this.BT_exportar_Click);
+            // 
+            // CBX_respaldo
+            // 
+            this.CBX_respaldo.AutoSize = true;
+            this.CBX_respaldo.Location = new System.Drawing.Point(241, 45);
+            this.CBX_respaldo.Name = "CBX_respaldo";
+            this.CBX_respaldo.Size = new System.Drawing.Size(71, 17);
+            this.CBX_respaldo.TabIndex = 5;
+            this.CBX_respaldo.Text = "Respaldo";
+            this.CBX_respaldo.UseVisualStyleBackColor = true;
+            // 
+            // CB_mes
+            // 
+            this.CB_mes.FormattingEnabled = true;
+            this.CB_mes.Items.AddRange(new object[] {
+            "ENERO",
+            "FEBRERO",
+            "MARZO",
+            "ABRIL",
+            "MAYO",
+            "JUNIO",
+            "JULIO",
+            "AGOSTO",
+            "SEPTIEMBRE",
+            "OCTUBRE",
+            "NOVIEMBRE",
+            "DICIEMBRE"});
+            this.CB_mes.Location = new System.Drawing.Point(318, 41);
+            this.CB_mes.Name = "CB_mes";
+            this.CB_mes.Size = new System.Drawing.Size(137, 21);
+            this.CB_mes.TabIndex = 6;
+            // 
             // VentasxTienda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(818, 846);
+            this.Controls.Add(this.CB_mes);
+            this.Controls.Add(this.CBX_respaldo);
             this.Controls.Add(this.BT_exportar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
@@ -170,5 +205,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn COLOSO;
         private System.Windows.Forms.DataGridViewTextBoxColumn PREGOT;
         private System.Windows.Forms.DataGridViewTextBoxColumn TOTAL_DIA;
+        private System.Windows.Forms.CheckBox CBX_respaldo;
+        private System.Windows.Forms.ComboBox CB_mes;
     }
 }

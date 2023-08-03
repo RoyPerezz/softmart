@@ -22,6 +22,7 @@ namespace appSugerencias
         }
 
         #region VARIABLES
+        double devEFE = 0, devTAR = 0;
         ArrayList facturasEfe = new ArrayList();
         ArrayList facturasTar = new ArrayList();
         int depositado = 0;
@@ -305,6 +306,141 @@ namespace appSugerencias
             }
             return m;
         }
+
+
+
+        public void VentasDv(DateTime fecha)
+        {
+            //string sucursalSeleccionada = SucursalSeleccionada();
+
+            MySqlConnection con = null;
+
+            if (CBX_mes_anterior.Checked == true)
+            {
+                string m = "";
+
+
+                // int mes = fecha.Month;
+                int año = fecha.Year;
+
+                m = AcortarMes(mes);
+
+                con = BDConexicon.RespMultiSuc(sucursalSeleccionada, m, año);
+            }
+            else
+            {
+                con = BDConexicon.ConexionSucursal(sucursalSeleccionada);
+            }
+
+            string consulta = "SELECT ventas.importe ,ventas.impuesto , ventas.OrigenDev,flujo.concepto2 " +
+                "FROM ventas inner join flujo on ventas.OrigenDev = flujo.venta " +
+                "where ventas.USUFECHA = '" + fecha.ToString("yyyy-MM-dd") + "' and ventas.TIPO_DOC = 'DV' AND(ventas.CAJA = 'CAJA1') GROUP BY ventas.OrigenDev";
+            MySqlCommand cmd = new MySqlCommand(consulta, con);
+            MySqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                //devoluciones.Rows.Add(dr["total"].ToString(),dr["OrigenDev"].ToString(),dr["concepto2"].ToString());
+
+                if (dr["concepto2"].ToString().Equals("EFE"))
+                {
+                    devEFE += Convert.ToDouble(dr["importe"].ToString()) + Convert.ToDouble(dr["impuesto"].ToString());
+                }
+
+                if (dr["concepto2"].ToString().Equals("TAR"))
+                {
+                    devTAR += Convert.ToDouble(dr["importe"].ToString()) + Convert.ToDouble(dr["impuesto"].ToString());
+                }
+
+
+
+
+            }
+
+
+
+            //Descuento por exceso de ventas  cambio 1/2
+            //string f = "";
+            //if (tienda.Equals("COLOSO"))
+            //{
+            //    f = fecha.ToString("yyyy-MM-dd");
+
+            //    if (f.Equals("2022-08-27"))
+            //    {
+            //        dev_EFE = devEFE;
+            //        dev_TAR = devTAR;
+            //    }
+            //    if (f.Equals("2022-08-28"))
+            //    {
+            //        dev_EFE = devEFE;
+            //        dev_TAR = devTAR;
+            //    }
+            //    if (f.Equals("2022-08-29"))
+            //    {
+            //        dev_EFE = devEFE;
+            //        dev_TAR = devTAR;
+            //    }
+            //}
+
+
+            //if (tienda.Equals("VALLARTA"))
+            //{
+            //    f = fecha.ToString("yyyy-MM-dd");
+
+            //    if (f.Equals("2022-08-31"))
+            //    {
+            //        dev_EFE = devEFE;
+            //        dev_TAR = devTAR;
+            //    }
+            //}
+            dr.Close();
+            con.Close();
+        }
+
+
+        public double Nventa(DateTime fecha)
+        {
+            string nventa = "SELECT SUM((partvta.precio * ( partvta.cantidad  - partvta.a01 ) * (1 - (partvta.descuento / 100)) * ventas.tipo_cam)) As `Importe`    " +
+              "FROM partvta INNER JOIN ventas ON ventas.venta = partvta.venta WHERE ventas.estado = 'CO' AND(ventas.tipo_doc = 'FAC' Or ventas.tipo_doc = 'DV' Or ventas.tipo_doc = 'REM') AND ventas.cierre = 0 AND moneda = 'MN' AND ventas.usufecha = '" + fecha.ToString("yyyy-MM-dd") + "' AND partvta.impuesto = 0 AND ventas.caja = 'CAJA1'";
+
+            double nVenta = 0;
+            MySqlConnection con = null;
+            if (CBX_mes_anterior.Checked == true)
+            {
+
+                // int mes = fecha.Month;
+                int año = fecha.Year;
+
+                string sucursal = "";
+
+
+
+
+
+                con = BDConexicon.RespMultiSuc(sucursalSeleccionada, mes, año);
+            }
+            else
+            {
+                con = BDConexicon.ConexionSucursal(sucursalSeleccionada);
+            }
+            MySqlCommand cmd20 = new MySqlCommand(nventa, con);
+            MySqlDataReader dr0 = cmd20.ExecuteReader();
+
+
+
+            while (dr0.Read())
+            {
+                if (DBNull.Value.Equals(dr0["Importe"].ToString()) || dr0["Importe"].ToString().Equals(""))
+                {
+                    nVenta = 0;
+                }
+                else
+                {
+                    nVenta += Convert.ToDouble(dr0["Importe"].ToString());
+                }
+            }
+
+            return nVenta;
+        }
         private void BT_buscar_Click(object sender, EventArgs e)
         {
 
@@ -357,15 +493,17 @@ namespace appSugerencias
                 DG_tabla.Rows.Add(fecha.ToString("yyyy-MM-dd"),0,0);
             }
 
-
+            double ventaTotalDia = 0;
             bool checkDepositado = false;
-           
+            double nVenta = 0;
             for (int i = 0; i < DG_tabla.Rows.Count; i++)
             {
                 bool valor = false;
                 FechaTabla = Convert.ToDateTime(DG_tabla.Rows[i].Cells["FECHA"].Value);
                 //ventaTotal = FacturacionController.CalcularTotalVenta(FechaTabla,sucursalSeleccionada);
                m = AcortarMes(mes);
+
+                ventaTotalDia = FacturacionController.VentaTotal(FechaTabla,con);
                 ventasTarjetas = FacturacionController.CalcularTotalTarjetas(FechaTabla,sucursalSeleccionada,m,año,respaldo);
                 ventaEfectivo = FacturacionController.CalcularTotalEfectivo(FechaTabla,sucursalSeleccionada,m,año,respaldo);
                 //factEFE = FacturacionController.CalcularFacturacionEfectivo(FechaTabla,sucursalSeleccionada,mes,año,respaldo, ventasEfectivo);
@@ -374,7 +512,7 @@ namespace appSugerencias
                 //{
                 //    break;
                 //}
-
+                VentasDv(FechaTabla);
 
                 totalFacturaCliente = TotalFacturacionCliente(FechaTabla,sucursalSeleccionada);
                 depositoCliente = FacturacionController.CalcularDepositoDeCliente(FechaTabla,sucursalSeleccionada,LB_patron.Text);
@@ -383,8 +521,8 @@ namespace appSugerencias
 
                 depositoPana = (ventaEfectivo + ventasTarjetas) - ventasTarjetas - depositoCliente - depositoVentanilla;
 
-
-                DG_tabla.Rows[i].Cells["TOTAL_VENTA"].Value = (ventaEfectivo + ventasTarjetas);
+                
+                DG_tabla.Rows[i].Cells["TOTAL_VENTA"].Value = ventaTotalDia;// (ventaEfectivo + ventasTarjetas)+nVenta;
                 DG_tabla.Rows[i].Cells["DEPOSITO_VENTANILLA"].Value = depositoVentanilla;
                 DG_tabla.Rows[i].Cells["DEPOSITO_CLIENTE"].Value = depositoCliente;
                 DG_tabla.Rows[i].Cells["DEPOSITO_PANA"].Value = depositoPana;
@@ -407,19 +545,20 @@ namespace appSugerencias
                 {
                     DG_tabla.Rows[i].Cells["FACTURA_ELABORADA"].Value = false;
                 }
-                
-                
 
-                DG_tabla.Rows[i].Cells["VENTAS_EFECTIVO"].Value = ventaEfectivo;
-                DG_tabla.Rows[i].Cells["BAUCHER"].Value = ventasTarjetas;
+
+                //total efectivo =  deposito ventanilla + depositos + deposito pana
+                //ventaEfectivo = depositoVentanilla + depositoCliente + depositoPana;
+                DG_tabla.Rows[i].Cells["VENTAS_EFECTIVO"].Value = depositoVentanilla + depositoCliente + depositoPana;
+                DG_tabla.Rows[i].Cells["BAUCHER"].Value = ventasTarjetas ;
                 DG_tabla.Rows[i].Cells["TOTAL_FACTURADO"].Value = totalFacturaCliente;
                 DG_tabla.Rows[i].Cells["FACT_EFE"].Value = factEFE;
                 DG_tabla.Rows[i].Cells["FACT_TAR"].Value = factTar;
                 DG_tabla.Rows[i].Cells["FACTURA_GLOBAL"].Value = FacturaGlobal;
                 ventaEfectivo = ventaEfectivo - factEFE;
                 ventasTarjetas = ventasTarjetas - factTar;
-                DG_tabla.Rows[i].Cells["EFECTIVO"].Value = (ventaEfectivo/1.16);
-                DG_tabla.Rows[i].Cells["TARJETA"].Value = (ventasTarjetas/1.16);
+                DG_tabla.Rows[i].Cells["EFECTIVO"].Value = ventaEfectivo / 1.16;//(ventaEfectivo-factEFE-devEFE)/1.16;
+                DG_tabla.Rows[i].Cells["TARJETA"].Value = (ventasTarjetas-factTar)/1.16;
 
               
 

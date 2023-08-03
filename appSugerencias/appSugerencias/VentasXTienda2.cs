@@ -36,11 +36,21 @@ namespace appSugerencias
 
             importeDiaTo = 0;
             DateTime fecha;
-
+            string mesSeleccionado = FormatoFecha.MesAbreviado(CB_mes.Text);
 
             try
             {
-                Conex = BDConexicon.VallartaOpen();
+               
+
+                if (CBX_respaldo.Checked == true)
+                {
+                    Conex = BDConexicon.RespaldoVA(mesSeleccionado, DateTime.Now.Year);
+                }
+                else
+                {
+                    Conex = BDConexicon.VallartaOpen();
+                }
+               
 
                 string comando = "SELECT ventas.F_EMISION AS 'Fecha', " +
                     "SUM((partvta.precio * (partvta.cantidad - partvta.a01) * (1 - (partvta.descuento / 100)) * ventas.tipo_cam)) + SUM((partvta.precio * (partvta.cantidad - partvta.a01) * (1 - (partvta.descuento / 100)) * ventas.tipo_cam) * (partvta.impuesto / 100)) As 'Total' " +
@@ -95,7 +105,16 @@ namespace appSugerencias
 
             try
             {
-                Conex = BDConexicon.RenaOpen();
+
+                if (CBX_respaldo.Checked == true)
+                {
+                    Conex = BDConexicon.RespaldoRE(mesSeleccionado, DateTime.Now.Year);
+                }
+                else
+                {
+                    Conex = BDConexicon.RenaOpen();
+                }
+               
                 string comando = "SELECT ventas.F_EMISION AS 'Fecha', " +
                     "SUM((partvta.precio * (partvta.cantidad - partvta.a01) * (1 - (partvta.descuento / 100)) * ventas.tipo_cam)) + SUM((partvta.precio * (partvta.cantidad - partvta.a01) * (1 - (partvta.descuento / 100)) * ventas.tipo_cam) * (partvta.impuesto / 100)) As 'Total' " +
                     "FROM(partvta LEFT JOIN ventas ON ventas.VENTA = partvta.VENTA) INNER JOIN prods ON partvta.ARTICULO = prods.ARTICULO " +
@@ -148,7 +167,16 @@ namespace appSugerencias
 
             try
             {
-                Conex = BDConexicon.VelazquezOpen();
+
+                if (CBX_respaldo.Checked == true)
+                {
+                    Conex = BDConexicon.RespaldoVE(mesSeleccionado, DateTime.Now.Year);
+                }
+                else
+                {
+                    Conex = BDConexicon.VelazquezOpen();
+                }
+                
                 string comando = "SELECT ventas.F_EMISION AS 'Fecha', " +
                     "SUM((partvta.precio * (partvta.cantidad - partvta.a01) * (1 - (partvta.descuento / 100)) * ventas.tipo_cam)) + SUM((partvta.precio * (partvta.cantidad - partvta.a01) * (1 - (partvta.descuento / 100)) * ventas.tipo_cam) * (partvta.impuesto / 100)) As 'Total' " +
                     "FROM(partvta LEFT JOIN ventas ON ventas.VENTA = partvta.VENTA) INNER JOIN prods ON partvta.ARTICULO = prods.ARTICULO " +
@@ -198,7 +226,16 @@ namespace appSugerencias
 
             try
             {
-                Conex = BDConexicon.ColosoOpen();
+
+                if (CBX_respaldo.Checked == true)
+                {
+                    Conex = BDConexicon.RespaldoCO(mesSeleccionado, DateTime.Now.Year);
+                }
+                else
+                {
+                    Conex = BDConexicon.ColosoOpen();
+                }
+               
                 string comando = "SELECT ventas.F_EMISION AS 'Fecha', " +
                     "SUM((partvta.precio * (partvta.cantidad - partvta.a01) * (1 - (partvta.descuento / 100)) * ventas.tipo_cam)) + SUM((partvta.precio * (partvta.cantidad - partvta.a01) * (1 - (partvta.descuento / 100)) * ventas.tipo_cam) * (partvta.impuesto / 100)) As 'Total' " +
                     "FROM(partvta LEFT JOIN ventas ON ventas.VENTA = partvta.VENTA) INNER JOIN prods ON partvta.ARTICULO = prods.ARTICULO " +
