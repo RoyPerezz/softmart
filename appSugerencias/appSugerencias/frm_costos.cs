@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -579,20 +580,21 @@ namespace appSugerencias
 
             if (tienda == "VALLARTA")
             {
-                IP = "192.168.1.2";
+                
+                IP = ConfigurationManager.AppSettings["IpVallarta"];
 
             }
             else if (tienda == "RENA")
             {
-                IP = "192.168.2.2";
+                IP = ConfigurationManager.AppSettings["IpRena"];
             }
             else if (tienda == "COLOSO")
             {
-                IP = "192.168.3.2";
+                IP = ConfigurationManager.AppSettings["IpColoso"];
             }
             else if (tienda == "DIEZ")
             {
-                IP = "192.168.4.2";
+                IP = ConfigurationManager.AppSettings["IpVelazquez"];
             }
            
 
@@ -636,20 +638,20 @@ namespace appSugerencias
 
             if (tienda == "VALLARTA")
             {
-                IP = "192.168.1.2";
+                IP = ConfigurationManager.AppSettings["IpVallarta"];
 
             }
             else if (tienda == "RENA")
             {
-                IP = "192.168.2.2";
+                IP = ConfigurationManager.AppSettings["IpRena"];
             }
             else if (tienda == "COLOSO")
             {
-                IP = "192.168.3.2";
+                IP = ConfigurationManager.AppSettings["IpColoso"];
             }
             else if (tienda == "DIEZ")
             {
-                IP = "192.168.4.2";
+                IP = ConfigurationManager.AppSettings["IpVelazquez"];
             }
            
 

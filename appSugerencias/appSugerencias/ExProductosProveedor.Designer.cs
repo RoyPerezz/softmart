@@ -40,6 +40,7 @@
             this.LB_Coloso = new System.Windows.Forms.Label();
             this.LB_estadoVelazquez = new System.Windows.Forms.Label();
             this.LB_pregot = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DG_existencias)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,10 +49,13 @@
             this.DG_existencias.AllowUserToAddRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.Silver;
             this.DG_existencias.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.DG_existencias.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.DG_existencias.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.DG_existencias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DG_existencias.EnableHeadersVisualStyles = false;
-            this.DG_existencias.Location = new System.Drawing.Point(27, 77);
+            this.DG_existencias.Location = new System.Drawing.Point(27, 76);
             this.DG_existencias.Name = "DG_existencias";
             this.DG_existencias.Size = new System.Drawing.Size(1127, 379);
             this.DG_existencias.TabIndex = 0;
@@ -62,15 +66,14 @@
             this.CB_proveedores.FormattingEnabled = true;
             this.CB_proveedores.Location = new System.Drawing.Point(152, 34);
             this.CB_proveedores.Name = "CB_proveedores";
-            this.CB_proveedores.Size = new System.Drawing.Size(1002, 21);
+            this.CB_proveedores.Size = new System.Drawing.Size(868, 21);
             this.CB_proveedores.TabIndex = 1;
-            this.CB_proveedores.SelectedIndexChanged += new System.EventHandler(this.CB_proveedores_SelectedIndexChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(23, 35);
+            this.label1.Location = new System.Drawing.Point(37, 35);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(109, 20);
             this.label1.TabIndex = 2;
@@ -78,12 +81,13 @@
             // 
             // BT_exportar
             // 
+            this.BT_exportar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.BT_exportar.BackColor = System.Drawing.Color.DodgerBlue;
             this.BT_exportar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BT_exportar.ForeColor = System.Drawing.Color.White;
             this.BT_exportar.Image = ((System.Drawing.Image)(resources.GetObject("BT_exportar.Image")));
             this.BT_exportar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BT_exportar.Location = new System.Drawing.Point(1042, 464);
+            this.BT_exportar.Location = new System.Drawing.Point(1042, 472);
             this.BT_exportar.Name = "BT_exportar";
             this.BT_exportar.Size = new System.Drawing.Size(112, 51);
             this.BT_exportar.TabIndex = 3;
@@ -146,12 +150,26 @@
             this.LB_pregot.TabIndex = 9;
             this.LB_pregot.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.DodgerBlue;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(1042, 18);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(112, 51);
+            this.button2.TabIndex = 11;
+            this.button2.Text = "Buscar";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // ExProductosProveedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.ClientSize = new System.Drawing.Size(1184, 537);
+            this.ClientSize = new System.Drawing.Size(1184, 542);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.LB_pregot);
             this.Controls.Add(this.LB_estadoVelazquez);
             this.Controls.Add(this.LB_Coloso);
@@ -183,5 +201,6 @@
         private System.Windows.Forms.Label LB_Coloso;
         private System.Windows.Forms.Label LB_estadoVelazquez;
         private System.Windows.Forms.Label LB_pregot;
+        private System.Windows.Forms.Button button2;
     }
 }
