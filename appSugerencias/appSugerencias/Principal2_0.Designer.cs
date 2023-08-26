@@ -194,6 +194,7 @@
             this.registrarConceptoExternoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.despositoACuentasOsmartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.transaccionesPTiempoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cantidadFacturar20ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.micelaniaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.existenciasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.existenciaPProductoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -219,7 +220,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblUsuario = new System.Windows.Forms.Label();
-            this.cantidadFacturar20ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reporteAclaracionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -479,7 +480,8 @@
             this.cEDISToolStripMenuItem,
             this.artSinMovimientoToolStripMenuItem,
             this.calificarEmpleadosToolStripMenuItem,
-            this.gastosAlmacenCedisToolStripMenuItem});
+            this.gastosAlmacenCedisToolStripMenuItem,
+            this.reporteAclaracionesToolStripMenuItem});
             this.bodegaToolStripMenuItem.Name = "bodegaToolStripMenuItem";
             this.bodegaToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.bodegaToolStripMenuItem.Text = "Bodega";
@@ -492,7 +494,7 @@
             this.aplicarTraspasoToolStripMenuItem,
             this.reporteTraspasoToolStripMenuItem});
             this.traspasoToolStripMenuItem.Name = "traspasoToolStripMenuItem";
-            this.traspasoToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.traspasoToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
             this.traspasoToolStripMenuItem.Text = "Traspaso";
             // 
             // crearTraspasoToolStripMenuItem
@@ -519,14 +521,14 @@
             // cEDISToolStripMenuItem
             // 
             this.cEDISToolStripMenuItem.Name = "cEDISToolStripMenuItem";
-            this.cEDISToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.cEDISToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
             this.cEDISToolStripMenuItem.Text = "CEDIS";
             this.cEDISToolStripMenuItem.Click += new System.EventHandler(this.cEDISToolStripMenuItem_Click);
             // 
             // artSinMovimientoToolStripMenuItem
             // 
             this.artSinMovimientoToolStripMenuItem.Name = "artSinMovimientoToolStripMenuItem";
-            this.artSinMovimientoToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.artSinMovimientoToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
             this.artSinMovimientoToolStripMenuItem.Text = "Art. Sin Movimiento";
             this.artSinMovimientoToolStripMenuItem.Click += new System.EventHandler(this.artSinMovimientoToolStripMenuItem_Click);
             // 
@@ -538,7 +540,7 @@
             this.calculoDeComisionesToolStripMenuItem,
             this.eliminarCalificacionToolStripMenuItem});
             this.calificarEmpleadosToolStripMenuItem.Name = "calificarEmpleadosToolStripMenuItem";
-            this.calificarEmpleadosToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.calificarEmpleadosToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
             this.calificarEmpleadosToolStripMenuItem.Text = "Calificar Empleados";
             this.calificarEmpleadosToolStripMenuItem.Click += new System.EventHandler(this.calificarEmpleadosToolStripMenuItem_Click);
             // 
@@ -576,7 +578,7 @@
             this.registrarGastoToolStripMenuItem,
             this.listarModificarGastosToolStripMenuItem});
             this.gastosAlmacenCedisToolStripMenuItem.Name = "gastosAlmacenCedisToolStripMenuItem";
-            this.gastosAlmacenCedisToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.gastosAlmacenCedisToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
             this.gastosAlmacenCedisToolStripMenuItem.Text = "Gastos almacen cedis";
             // 
             // registrarGastoToolStripMenuItem
@@ -1559,6 +1561,13 @@
             this.transaccionesPTiempoToolStripMenuItem.Text = "Transacciones P/Tiempo";
             this.transaccionesPTiempoToolStripMenuItem.Click += new System.EventHandler(this.transaccionesPTiempoToolStripMenuItem_Click);
             // 
+            // cantidadFacturar20ToolStripMenuItem
+            // 
+            this.cantidadFacturar20ToolStripMenuItem.Name = "cantidadFacturar20ToolStripMenuItem";
+            this.cantidadFacturar20ToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
+            this.cantidadFacturar20ToolStripMenuItem.Text = "Cantidad Facturar 2.0";
+            this.cantidadFacturar20ToolStripMenuItem.Click += new System.EventHandler(this.cantidadFacturar20ToolStripMenuItem_Click);
+            // 
             // micelaniaToolStripMenuItem
             // 
             this.micelaniaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -1770,12 +1779,12 @@
             this.lblUsuario.TabIndex = 9;
             this.lblUsuario.Text = "USER";
             // 
-            // cantidadFacturar20ToolStripMenuItem
+            // reporteAclaracionesToolStripMenuItem
             // 
-            this.cantidadFacturar20ToolStripMenuItem.Name = "cantidadFacturar20ToolStripMenuItem";
-            this.cantidadFacturar20ToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
-            this.cantidadFacturar20ToolStripMenuItem.Text = "Cantidad Facturar 2.0";
-            this.cantidadFacturar20ToolStripMenuItem.Click += new System.EventHandler(this.cantidadFacturar20ToolStripMenuItem_Click);
+            this.reporteAclaracionesToolStripMenuItem.Name = "reporteAclaracionesToolStripMenuItem";
+            this.reporteAclaracionesToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.reporteAclaracionesToolStripMenuItem.Text = "Reporte Aclaraciones";
+            this.reporteAclaracionesToolStripMenuItem.Click += new System.EventHandler(this.reporteAclaracionesToolStripMenuItem_Click);
             // 
             // Principal2_0
             // 
@@ -2000,5 +2009,6 @@
         private System.Windows.Forms.ToolStripMenuItem revisionEtiquetasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reporteGastosFinanzasGerenciaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cantidadFacturar20ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reporteAclaracionesToolStripMenuItem;
     }
 }

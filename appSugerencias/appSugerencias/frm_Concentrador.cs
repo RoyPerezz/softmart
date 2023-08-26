@@ -292,9 +292,9 @@ namespace appSugerencias
                     lblPre.Text = "OK";
                     lblPre.ForeColor = Color.DarkGreen;
                 }
-#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
+
                 catch (Exception ex)
-#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
+
                 {
                     lblPre.Text = "NA";
                     lblPre.ForeColor = Color.Red;
@@ -302,8 +302,10 @@ namespace appSugerencias
 
                 limpiar();
 
-                btGuardar.Enabled = true;
+                
                 */
+
+                btGuardar.Enabled = true;
             }
         }
 
@@ -435,8 +437,8 @@ namespace appSugerencias
             lblVe.ForeColor = Color.Black;
 
 
-            lblPre.Text = "---";
-            lblPre.ForeColor = Color.Black;
+            //lblPre.Text = "---";
+            //lblPre.ForeColor = Color.Black;
 
         }
 
@@ -873,14 +875,14 @@ namespace appSugerencias
 
         public void BuscarArticulo(MySqlConnection conex, string texto)
         {
-            MySqlCommand cmd = new MySqlCommand("select c_claveprodserv as clave,Descripcion as descrip from c_claveprodserv where Descripcion like '%" + texto + "%'", conex);
+            MySqlCommand cmd = new MySqlCommand("select c_claveprodserv as clave,Descripcion as descrip from c_claveprodserv where Descripcion like '%" + texto.Replace("\r\n",string.Empty) + "%'", conex);
             MySqlDataAdapter adaptador = new MySqlDataAdapter(cmd);
             System.Data.DataTable dt = new System.Data.DataTable();
 
             adaptador.Fill(dt);
             dgvArticulo.Rows.Clear();
             dgvCatalogo.DataSource = dt;
-           
+            txtClaveSat.Text = "";
             dgvCatalogo.Columns[1].AutoSizeMode=DataGridViewAutoSizeColumnMode.Fill;
             conex.Close();
 
@@ -924,6 +926,7 @@ namespace appSugerencias
                 }
                 else
                 {
+                    
                     BuscarArticulo(BDConexicon.ConectarSat(), txtClaveSat.Text);
 
                 }

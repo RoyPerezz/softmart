@@ -37,14 +37,6 @@ namespace appSugerencias.Gastos.Vistas
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.DG_tabla = new System.Windows.Forms.DataGridView();
-            this.BT_guardar = new System.Windows.Forms.Button();
-            this.BT_aprobar = new System.Windows.Forms.Button();
-            this.LB_sucursal = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.LB_total = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ESTADO = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.IMPORTE = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -62,6 +54,14 @@ namespace appSugerencias.Gastos.Vistas
             this.FOTO1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FOTO2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FOTO3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BT_guardar = new System.Windows.Forms.Button();
+            this.BT_aprobar = new System.Windows.Forms.Button();
+            this.LB_sucursal = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.LB_total = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DG_tabla)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -76,7 +76,7 @@ namespace appSugerencias.Gastos.Vistas
             this.DG_tabla.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -103,7 +103,7 @@ namespace appSugerencias.Gastos.Vistas
             this.FOTO3});
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -116,99 +116,6 @@ namespace appSugerencias.Gastos.Vistas
             this.DG_tabla.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DG_tabla_CellContentClick);
             this.DG_tabla.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DG_tabla_CellContentDoubleClick);
             this.DG_tabla.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.DG_tabla_CellEndEdit);
-            // 
-            // BT_guardar
-            // 
-            this.BT_guardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BT_guardar.BackColor = System.Drawing.Color.DodgerBlue;
-            this.BT_guardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BT_guardar.ForeColor = System.Drawing.Color.White;
-            this.BT_guardar.Location = new System.Drawing.Point(1313, 55);
-            this.BT_guardar.Name = "BT_guardar";
-            this.BT_guardar.Size = new System.Drawing.Size(107, 57);
-            this.BT_guardar.TabIndex = 1;
-            this.BT_guardar.Text = "Guardar";
-            this.BT_guardar.UseVisualStyleBackColor = false;
-            this.BT_guardar.Click += new System.EventHandler(this.BT_guardar_Click);
-            // 
-            // BT_aprobar
-            // 
-            this.BT_aprobar.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.BT_aprobar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BT_aprobar.ForeColor = System.Drawing.Color.White;
-            this.BT_aprobar.Location = new System.Drawing.Point(2, 55);
-            this.BT_aprobar.Name = "BT_aprobar";
-            this.BT_aprobar.Size = new System.Drawing.Size(107, 57);
-            this.BT_aprobar.TabIndex = 2;
-            this.BT_aprobar.Text = "Aprobar";
-            this.BT_aprobar.UseVisualStyleBackColor = false;
-            this.BT_aprobar.Click += new System.EventHandler(this.BT_aprobar_Click);
-            // 
-            // LB_sucursal
-            // 
-            this.LB_sucursal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.LB_sucursal.AutoSize = true;
-            this.LB_sucursal.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LB_sucursal.ForeColor = System.Drawing.Color.White;
-            this.LB_sucursal.Location = new System.Drawing.Point(21, 37);
-            this.LB_sucursal.Name = "LB_sucursal";
-            this.LB_sucursal.Size = new System.Drawing.Size(0, 24);
-            this.LB_sucursal.TabIndex = 3;
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(31, 39);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(51, 24);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Total";
-            // 
-            // LB_total
-            // 
-            this.LB_total.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.LB_total.AutoSize = true;
-            this.LB_total.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LB_total.ForeColor = System.Drawing.Color.White;
-            this.LB_total.Location = new System.Drawing.Point(88, 39);
-            this.LB_total.Name = "LB_total";
-            this.LB_total.Size = new System.Drawing.Size(0, 24);
-            this.LB_total.TabIndex = 5;
-            // 
-            // panel1
-            // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BackColor = System.Drawing.Color.CadetBlue;
-            this.panel1.Controls.Add(this.LB_sucursal);
-            this.panel1.Location = new System.Drawing.Point(768, 12);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(272, 100);
-            this.panel1.TabIndex = 6;
-            // 
-            // panel2
-            // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.BackColor = System.Drawing.Color.DarkCyan;
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.LB_total);
-            this.panel2.Location = new System.Drawing.Point(1046, 12);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(261, 100);
-            this.panel2.TabIndex = 7;
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(-21, 40);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 24);
-            this.label2.TabIndex = 3;
             // 
             // ID
             // 
@@ -318,6 +225,99 @@ namespace appSugerencias.Gastos.Vistas
             this.FOTO3.HeaderText = "FOTO3";
             this.FOTO3.Name = "FOTO3";
             this.FOTO3.Visible = false;
+            // 
+            // BT_guardar
+            // 
+            this.BT_guardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BT_guardar.BackColor = System.Drawing.Color.DodgerBlue;
+            this.BT_guardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_guardar.ForeColor = System.Drawing.Color.White;
+            this.BT_guardar.Location = new System.Drawing.Point(1313, 55);
+            this.BT_guardar.Name = "BT_guardar";
+            this.BT_guardar.Size = new System.Drawing.Size(107, 57);
+            this.BT_guardar.TabIndex = 1;
+            this.BT_guardar.Text = "Guardar";
+            this.BT_guardar.UseVisualStyleBackColor = false;
+            this.BT_guardar.Click += new System.EventHandler(this.BT_guardar_Click);
+            // 
+            // BT_aprobar
+            // 
+            this.BT_aprobar.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.BT_aprobar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_aprobar.ForeColor = System.Drawing.Color.White;
+            this.BT_aprobar.Location = new System.Drawing.Point(2, 55);
+            this.BT_aprobar.Name = "BT_aprobar";
+            this.BT_aprobar.Size = new System.Drawing.Size(107, 57);
+            this.BT_aprobar.TabIndex = 2;
+            this.BT_aprobar.Text = "Aprobar";
+            this.BT_aprobar.UseVisualStyleBackColor = false;
+            this.BT_aprobar.Click += new System.EventHandler(this.BT_aprobar_Click);
+            // 
+            // LB_sucursal
+            // 
+            this.LB_sucursal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.LB_sucursal.AutoSize = true;
+            this.LB_sucursal.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LB_sucursal.ForeColor = System.Drawing.Color.White;
+            this.LB_sucursal.Location = new System.Drawing.Point(21, 37);
+            this.LB_sucursal.Name = "LB_sucursal";
+            this.LB_sucursal.Size = new System.Drawing.Size(0, 24);
+            this.LB_sucursal.TabIndex = 3;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(31, 39);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(51, 24);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Total";
+            // 
+            // LB_total
+            // 
+            this.LB_total.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.LB_total.AutoSize = true;
+            this.LB_total.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LB_total.ForeColor = System.Drawing.Color.White;
+            this.LB_total.Location = new System.Drawing.Point(88, 39);
+            this.LB_total.Name = "LB_total";
+            this.LB_total.Size = new System.Drawing.Size(0, 24);
+            this.LB_total.TabIndex = 5;
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.BackColor = System.Drawing.Color.CadetBlue;
+            this.panel1.Controls.Add(this.LB_sucursal);
+            this.panel1.Location = new System.Drawing.Point(768, 12);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(272, 100);
+            this.panel1.TabIndex = 6;
+            // 
+            // panel2
+            // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.BackColor = System.Drawing.Color.DarkCyan;
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.LB_total);
+            this.panel2.Location = new System.Drawing.Point(1046, 12);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(261, 100);
+            this.panel2.TabIndex = 7;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(-21, 40);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(0, 24);
+            this.label2.TabIndex = 3;
             // 
             // AprobacionGastos
             // 

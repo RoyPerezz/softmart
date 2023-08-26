@@ -28,32 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle131 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle156 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle132 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle133 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle134 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle135 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle136 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle137 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle138 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle139 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle140 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle141 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle142 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle143 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle144 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle145 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle146 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle147 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle148 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle149 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle150 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle151 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle152 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle153 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle154 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle155 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle79 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle104 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle80 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle81 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle82 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle83 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle84 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle85 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle86 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle87 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle88 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle89 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle90 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle91 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle92 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle93 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle94 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle95 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle96 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle97 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle98 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle99 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle100 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle101 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle102 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle103 = new System.Windows.Forms.DataGridViewCellStyle();
             this.DG_tabla = new System.Windows.Forms.DataGridView();
             this.MODEL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CLAVE = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -174,18 +174,9 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.PEDIDO = new System.Windows.Forms.TabPage();
-            this.DG_aclaraciones = new System.Windows.Forms.DataGridView();
-            this.SUCURSAL = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SOBRANTE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DIFERENCIA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TOTAL_ACLARACION = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DG_tabla_pedido = new System.Windows.Forms.DataGridView();
-            this.button7 = new System.Windows.Forms.Button();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.TB_utilidad = new System.Windows.Forms.TextBox();
-            this.TB_desc_pedido = new System.Windows.Forms.TextBox();
             this.BT_guardar_precios = new System.Windows.Forms.Button();
+            this.DG_aclaraciones = new System.Windows.Forms.DataGridView();
+            this.DG_tabla_pedido = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MODELO_ = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ARTICULO = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -204,6 +195,15 @@
             this.VELAZQUEZ = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.COLOSO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CHECK = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.button7 = new System.Windows.Forms.Button();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.TB_utilidad = new System.Windows.Forms.TextBox();
+            this.TB_desc_pedido = new System.Windows.Forms.TextBox();
+            this.SUCURSAL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TOTAL_COMPRA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DIFERENCIA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TOTAL_PAGAR = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DG_tabla)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -227,14 +227,14 @@
             this.DG_tabla.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            dataGridViewCellStyle131.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle131.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle131.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle131.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle131.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle131.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle131.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DG_tabla.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle131;
+            dataGridViewCellStyle79.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle79.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle79.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle79.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle79.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle79.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle79.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DG_tabla.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle79;
             this.DG_tabla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DG_tabla.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MODEL,
@@ -274,14 +274,14 @@
             this.EX_PAS_CO,
             this.PEDIDO_CO,
             this.IMP_CO});
-            dataGridViewCellStyle156.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle156.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle156.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle156.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle156.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle156.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle156.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DG_tabla.DefaultCellStyle = dataGridViewCellStyle156;
+            dataGridViewCellStyle104.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle104.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle104.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle104.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle104.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle104.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle104.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DG_tabla.DefaultCellStyle = dataGridViewCellStyle104;
             this.DG_tabla.Location = new System.Drawing.Point(-30, 4);
             this.DG_tabla.Name = "DG_tabla";
             this.DG_tabla.Size = new System.Drawing.Size(2027, 297);
@@ -295,8 +295,8 @@
             // 
             // CLAVE
             // 
-            dataGridViewCellStyle132.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.CLAVE.DefaultCellStyle = dataGridViewCellStyle132;
+            dataGridViewCellStyle80.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.CLAVE.DefaultCellStyle = dataGridViewCellStyle80;
             this.CLAVE.HeaderText = "CLAVE";
             this.CLAVE.Name = "CLAVE";
             // 
@@ -307,75 +307,75 @@
             // 
             // DEPTO
             // 
-            dataGridViewCellStyle133.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.DEPTO.DefaultCellStyle = dataGridViewCellStyle133;
+            dataGridViewCellStyle81.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.DEPTO.DefaultCellStyle = dataGridViewCellStyle81;
             this.DEPTO.HeaderText = "DEPTO.";
             this.DEPTO.Name = "DEPTO";
             // 
             // PIEZAS
             // 
-            dataGridViewCellStyle134.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.PIEZAS.DefaultCellStyle = dataGridViewCellStyle134;
+            dataGridViewCellStyle82.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.PIEZAS.DefaultCellStyle = dataGridViewCellStyle82;
             this.PIEZAS.HeaderText = "PZ X PEDIR";
             this.PIEZAS.Name = "PIEZAS";
             // 
             // CAJAS
             // 
-            dataGridViewCellStyle135.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.CAJAS.DefaultCellStyle = dataGridViewCellStyle135;
+            dataGridViewCellStyle83.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.CAJAS.DefaultCellStyle = dataGridViewCellStyle83;
             this.CAJAS.HeaderText = "CAJAS X PEDIR";
             this.CAJAS.Name = "CAJAS";
             // 
             // CAJAS_BOD
             // 
-            dataGridViewCellStyle136.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle136.BackColor = System.Drawing.Color.Cyan;
-            this.CAJAS_BOD.DefaultCellStyle = dataGridViewCellStyle136;
+            dataGridViewCellStyle84.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle84.BackColor = System.Drawing.Color.Cyan;
+            this.CAJAS_BOD.DefaultCellStyle = dataGridViewCellStyle84;
             this.CAJAS_BOD.HeaderText = "CAJAS X PEDIR BOD";
             this.CAJAS_BOD.Name = "CAJAS_BOD";
             // 
             // PZ_CAJA
             // 
-            dataGridViewCellStyle137.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.PZ_CAJA.DefaultCellStyle = dataGridViewCellStyle137;
+            dataGridViewCellStyle85.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.PZ_CAJA.DefaultCellStyle = dataGridViewCellStyle85;
             this.PZ_CAJA.HeaderText = "PZ X CAJA";
             this.PZ_CAJA.Name = "PZ_CAJA";
             // 
             // PZ_PAQ
             // 
-            dataGridViewCellStyle138.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.PZ_PAQ.DefaultCellStyle = dataGridViewCellStyle138;
+            dataGridViewCellStyle86.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.PZ_PAQ.DefaultCellStyle = dataGridViewCellStyle86;
             this.PZ_PAQ.HeaderText = "PZ X PAQ";
             this.PZ_PAQ.Name = "PZ_PAQ";
             // 
             // COSTO_PAQUETE
             // 
-            dataGridViewCellStyle139.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.COSTO_PAQUETE.DefaultCellStyle = dataGridViewCellStyle139;
+            dataGridViewCellStyle87.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.COSTO_PAQUETE.DefaultCellStyle = dataGridViewCellStyle87;
             this.COSTO_PAQUETE.HeaderText = "COSTO X PAQ.";
             this.COSTO_PAQUETE.Name = "COSTO_PAQUETE";
             // 
             // COSTO_PIEZA
             // 
-            dataGridViewCellStyle140.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle140.BackColor = System.Drawing.Color.Yellow;
-            this.COSTO_PIEZA.DefaultCellStyle = dataGridViewCellStyle140;
+            dataGridViewCellStyle88.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle88.BackColor = System.Drawing.Color.Yellow;
+            this.COSTO_PIEZA.DefaultCellStyle = dataGridViewCellStyle88;
             this.COSTO_PIEZA.HeaderText = "COSTO X PZ.";
             this.COSTO_PIEZA.Name = "COSTO_PIEZA";
             // 
             // PEDIDO_BOD
             // 
-            dataGridViewCellStyle141.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle141.BackColor = System.Drawing.Color.Aqua;
-            this.PEDIDO_BOD.DefaultCellStyle = dataGridViewCellStyle141;
+            dataGridViewCellStyle89.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle89.BackColor = System.Drawing.Color.Aqua;
+            this.PEDIDO_BOD.DefaultCellStyle = dataGridViewCellStyle89;
             this.PEDIDO_BOD.HeaderText = "PED. BOD";
             this.PEDIDO_BOD.Name = "PEDIDO_BOD";
             // 
             // IMPORTE_BOD
             // 
-            dataGridViewCellStyle142.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle142.BackColor = System.Drawing.Color.Yellow;
-            this.IMPORTE_BOD.DefaultCellStyle = dataGridViewCellStyle142;
+            dataGridViewCellStyle90.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle90.BackColor = System.Drawing.Color.Yellow;
+            this.IMPORTE_BOD.DefaultCellStyle = dataGridViewCellStyle90;
             this.IMPORTE_BOD.HeaderText = "IMPORTE BOD.";
             this.IMPORTE_BOD.Name = "IMPORTE_BOD";
             // 
@@ -386,8 +386,8 @@
             // 
             // EXT_CE
             // 
-            dataGridViewCellStyle143.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.EXT_CE.DefaultCellStyle = dataGridViewCellStyle143;
+            dataGridViewCellStyle91.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.EXT_CE.DefaultCellStyle = dataGridViewCellStyle91;
             this.EXT_CE.HeaderText = "EXT CE.";
             this.EXT_CE.Name = "EXT_CE";
             // 
@@ -403,15 +403,15 @@
             // 
             // MAX_VA
             // 
-            dataGridViewCellStyle144.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.MAX_VA.DefaultCellStyle = dataGridViewCellStyle144;
+            dataGridViewCellStyle92.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.MAX_VA.DefaultCellStyle = dataGridViewCellStyle92;
             this.MAX_VA.HeaderText = "MAX VA.";
             this.MAX_VA.Name = "MAX_VA";
             // 
             // EXT_VA
             // 
-            dataGridViewCellStyle145.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.EXT_VA.DefaultCellStyle = dataGridViewCellStyle145;
+            dataGridViewCellStyle93.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.EXT_VA.DefaultCellStyle = dataGridViewCellStyle93;
             this.EXT_VA.HeaderText = "EXT VA.";
             this.EXT_VA.Name = "EXT_VA";
             // 
@@ -422,8 +422,8 @@
             // 
             // PEDIDO_VA
             // 
-            dataGridViewCellStyle146.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.PEDIDO_VA.DefaultCellStyle = dataGridViewCellStyle146;
+            dataGridViewCellStyle94.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.PEDIDO_VA.DefaultCellStyle = dataGridViewCellStyle94;
             this.PEDIDO_VA.HeaderText = "PED VA";
             this.PEDIDO_VA.Name = "PEDIDO_VA";
             // 
@@ -434,15 +434,15 @@
             // 
             // MAX_RE
             // 
-            dataGridViewCellStyle147.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.MAX_RE.DefaultCellStyle = dataGridViewCellStyle147;
+            dataGridViewCellStyle95.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.MAX_RE.DefaultCellStyle = dataGridViewCellStyle95;
             this.MAX_RE.HeaderText = "MAX RE.";
             this.MAX_RE.Name = "MAX_RE";
             // 
             // EXT_RE
             // 
-            dataGridViewCellStyle148.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.EXT_RE.DefaultCellStyle = dataGridViewCellStyle148;
+            dataGridViewCellStyle96.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.EXT_RE.DefaultCellStyle = dataGridViewCellStyle96;
             this.EXT_RE.HeaderText = "EXT RE.";
             this.EXT_RE.Name = "EXT_RE";
             // 
@@ -453,8 +453,8 @@
             // 
             // PEDIDO_RE
             // 
-            dataGridViewCellStyle149.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.PEDIDO_RE.DefaultCellStyle = dataGridViewCellStyle149;
+            dataGridViewCellStyle97.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.PEDIDO_RE.DefaultCellStyle = dataGridViewCellStyle97;
             this.PEDIDO_RE.HeaderText = "PED RE";
             this.PEDIDO_RE.Name = "PEDIDO_RE";
             // 
@@ -465,15 +465,15 @@
             // 
             // MAX_VE
             // 
-            dataGridViewCellStyle150.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.MAX_VE.DefaultCellStyle = dataGridViewCellStyle150;
+            dataGridViewCellStyle98.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.MAX_VE.DefaultCellStyle = dataGridViewCellStyle98;
             this.MAX_VE.HeaderText = "MAX VE.";
             this.MAX_VE.Name = "MAX_VE";
             // 
             // EXT_VE
             // 
-            dataGridViewCellStyle151.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.EXT_VE.DefaultCellStyle = dataGridViewCellStyle151;
+            dataGridViewCellStyle99.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.EXT_VE.DefaultCellStyle = dataGridViewCellStyle99;
             this.EXT_VE.HeaderText = "EXT VE.";
             this.EXT_VE.Name = "EXT_VE";
             // 
@@ -484,8 +484,8 @@
             // 
             // PEDIDO_VE
             // 
-            dataGridViewCellStyle152.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.PEDIDO_VE.DefaultCellStyle = dataGridViewCellStyle152;
+            dataGridViewCellStyle100.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.PEDIDO_VE.DefaultCellStyle = dataGridViewCellStyle100;
             this.PEDIDO_VE.HeaderText = "PED VE";
             this.PEDIDO_VE.Name = "PEDIDO_VE";
             // 
@@ -496,15 +496,15 @@
             // 
             // MAX_CO
             // 
-            dataGridViewCellStyle153.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.MAX_CO.DefaultCellStyle = dataGridViewCellStyle153;
+            dataGridViewCellStyle101.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.MAX_CO.DefaultCellStyle = dataGridViewCellStyle101;
             this.MAX_CO.HeaderText = "MAX CO.";
             this.MAX_CO.Name = "MAX_CO";
             // 
             // EXT_CO
             // 
-            dataGridViewCellStyle154.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.EXT_CO.DefaultCellStyle = dataGridViewCellStyle154;
+            dataGridViewCellStyle102.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.EXT_CO.DefaultCellStyle = dataGridViewCellStyle102;
             this.EXT_CO.HeaderText = "EXT CO.";
             this.EXT_CO.Name = "EXT_CO";
             // 
@@ -515,8 +515,8 @@
             // 
             // PEDIDO_CO
             // 
-            dataGridViewCellStyle155.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.PEDIDO_CO.DefaultCellStyle = dataGridViewCellStyle155;
+            dataGridViewCellStyle103.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.PEDIDO_CO.DefaultCellStyle = dataGridViewCellStyle103;
             this.PEDIDO_CO.HeaderText = "PED CO";
             this.PEDIDO_CO.Name = "PEDIDO_CO";
             // 
@@ -1420,40 +1420,36 @@
             this.PEDIDO.Text = "PEDIDO";
             this.PEDIDO.UseVisualStyleBackColor = true;
             // 
+            // BT_guardar_precios
+            // 
+            this.BT_guardar_precios.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BT_guardar_precios.BackColor = System.Drawing.Color.DodgerBlue;
+            this.BT_guardar_precios.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_guardar_precios.ForeColor = System.Drawing.Color.White;
+            this.BT_guardar_precios.Location = new System.Drawing.Point(1460, 46);
+            this.BT_guardar_precios.Name = "BT_guardar_precios";
+            this.BT_guardar_precios.Size = new System.Drawing.Size(96, 34);
+            this.BT_guardar_precios.TabIndex = 31;
+            this.BT_guardar_precios.Text = "Actualizar";
+            this.BT_guardar_precios.UseVisualStyleBackColor = false;
+            this.BT_guardar_precios.Click += new System.EventHandler(this.BT_guardar_precios_Click);
+            // 
             // DG_aclaraciones
             // 
             this.DG_aclaraciones.AllowUserToAddRows = false;
+            this.DG_aclaraciones.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.DG_aclaraciones.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DG_aclaraciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DG_aclaraciones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.SUCURSAL,
-            this.SOBRANTE,
+            this.TOTAL_COMPRA,
             this.DIFERENCIA,
-            this.TOTAL_ACLARACION});
-            this.DG_aclaraciones.Location = new System.Drawing.Point(1460, 168);
+            this.TOTAL_PAGAR});
+            this.DG_aclaraciones.Location = new System.Drawing.Point(1452, 86);
             this.DG_aclaraciones.Name = "DG_aclaraciones";
             this.DG_aclaraciones.Size = new System.Drawing.Size(531, 150);
             this.DG_aclaraciones.TabIndex = 30;
-            // 
-            // SUCURSAL
-            // 
-            this.SUCURSAL.HeaderText = "SUCURSAL";
-            this.SUCURSAL.Name = "SUCURSAL";
-            // 
-            // SOBRANTE
-            // 
-            this.SOBRANTE.HeaderText = "SOBRANTE";
-            this.SOBRANTE.Name = "SOBRANTE";
-            // 
-            // DIFERENCIA
-            // 
-            this.DIFERENCIA.HeaderText = "DIFERENCIA";
-            this.DIFERENCIA.Name = "DIFERENCIA";
-            // 
-            // TOTAL_ACLARACION
-            // 
-            this.TOTAL_ACLARACION.HeaderText = "TOTAL";
-            this.TOTAL_ACLARACION.Name = "TOTAL_ACLARACION";
             // 
             // DG_tabla_pedido
             // 
@@ -1486,70 +1482,6 @@
             this.DG_tabla_pedido.Size = new System.Drawing.Size(1443, 312);
             this.DG_tabla_pedido.TabIndex = 29;
             this.DG_tabla_pedido.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DG_tabla_pedido_CellContentClick);
-            // 
-            // button7
-            // 
-            this.button7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button7.BackColor = System.Drawing.Color.DodgerBlue;
-            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.ForeColor = System.Drawing.Color.White;
-            this.button7.Location = new System.Drawing.Point(1460, 6);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(96, 34);
-            this.button7.TabIndex = 28;
-            this.button7.Text = "Calcular";
-            this.button7.UseVisualStyleBackColor = false;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
-            // 
-            // label23
-            // 
-            this.label23.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(1884, 38);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(42, 13);
-            this.label23.TabIndex = 8;
-            this.label23.Text = "Utilidad";
-            // 
-            // label24
-            // 
-            this.label24.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(1867, 12);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(59, 13);
-            this.label24.TabIndex = 7;
-            this.label24.Text = "Descuento";
-            // 
-            // TB_utilidad
-            // 
-            this.TB_utilidad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.TB_utilidad.Location = new System.Drawing.Point(1932, 35);
-            this.TB_utilidad.Name = "TB_utilidad";
-            this.TB_utilidad.Size = new System.Drawing.Size(51, 20);
-            this.TB_utilidad.TabIndex = 6;
-            // 
-            // TB_desc_pedido
-            // 
-            this.TB_desc_pedido.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.TB_desc_pedido.Location = new System.Drawing.Point(1932, 9);
-            this.TB_desc_pedido.Name = "TB_desc_pedido";
-            this.TB_desc_pedido.Size = new System.Drawing.Size(51, 20);
-            this.TB_desc_pedido.TabIndex = 5;
-            // 
-            // BT_guardar_precios
-            // 
-            this.BT_guardar_precios.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BT_guardar_precios.BackColor = System.Drawing.Color.DodgerBlue;
-            this.BT_guardar_precios.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BT_guardar_precios.ForeColor = System.Drawing.Color.White;
-            this.BT_guardar_precios.Location = new System.Drawing.Point(1460, 46);
-            this.BT_guardar_precios.Name = "BT_guardar_precios";
-            this.BT_guardar_precios.Size = new System.Drawing.Size(96, 34);
-            this.BT_guardar_precios.TabIndex = 31;
-            this.BT_guardar_precios.Text = "Actualizar";
-            this.BT_guardar_precios.UseVisualStyleBackColor = false;
-            this.BT_guardar_precios.Click += new System.EventHandler(this.BT_guardar_precios_Click);
             // 
             // ID
             // 
@@ -1644,6 +1576,76 @@
             this.CHECK.Name = "CHECK";
             this.CHECK.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.CHECK.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // button7
+            // 
+            this.button7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button7.BackColor = System.Drawing.Color.DodgerBlue;
+            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button7.ForeColor = System.Drawing.Color.White;
+            this.button7.Location = new System.Drawing.Point(1460, 6);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(96, 34);
+            this.button7.TabIndex = 28;
+            this.button7.Text = "Calcular";
+            this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // label23
+            // 
+            this.label23.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(1884, 38);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(42, 13);
+            this.label23.TabIndex = 8;
+            this.label23.Text = "Utilidad";
+            // 
+            // label24
+            // 
+            this.label24.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(1867, 12);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(59, 13);
+            this.label24.TabIndex = 7;
+            this.label24.Text = "Descuento";
+            // 
+            // TB_utilidad
+            // 
+            this.TB_utilidad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.TB_utilidad.Location = new System.Drawing.Point(1932, 35);
+            this.TB_utilidad.Name = "TB_utilidad";
+            this.TB_utilidad.Size = new System.Drawing.Size(51, 20);
+            this.TB_utilidad.TabIndex = 6;
+            // 
+            // TB_desc_pedido
+            // 
+            this.TB_desc_pedido.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.TB_desc_pedido.Location = new System.Drawing.Point(1932, 9);
+            this.TB_desc_pedido.Name = "TB_desc_pedido";
+            this.TB_desc_pedido.Size = new System.Drawing.Size(51, 20);
+            this.TB_desc_pedido.TabIndex = 5;
+            // 
+            // SUCURSAL
+            // 
+            this.SUCURSAL.HeaderText = "SUCURSAL";
+            this.SUCURSAL.Name = "SUCURSAL";
+            // 
+            // TOTAL_COMPRA
+            // 
+            this.TOTAL_COMPRA.HeaderText = "TOTAL COMPRA";
+            this.TOTAL_COMPRA.Name = "TOTAL_COMPRA";
+            // 
+            // DIFERENCIA
+            // 
+            this.DIFERENCIA.HeaderText = "DIFERENCIA";
+            this.DIFERENCIA.Name = "DIFERENCIA";
+            // 
+            // TOTAL_PAGAR
+            // 
+            this.TOTAL_PAGAR.HeaderText = "TOTAL_PAGAR";
+            this.TOTAL_PAGAR.Name = "TOTAL_PAGAR";
             // 
             // StockOrdenCompra
             // 
@@ -1824,10 +1826,6 @@
         private System.Windows.Forms.TextBox TB_desc_pedido;
         private System.Windows.Forms.DataGridView DG_tabla_pedido;
         private System.Windows.Forms.DataGridView DG_aclaraciones;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SUCURSAL;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SOBRANTE;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DIFERENCIA;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TOTAL_ACLARACION;
         private System.Windows.Forms.Button BT_guardar_precios;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn MODELO_;
@@ -1847,5 +1845,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn VELAZQUEZ;
         private System.Windows.Forms.DataGridViewTextBoxColumn COLOSO;
         private System.Windows.Forms.DataGridViewCheckBoxColumn CHECK;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SUCURSAL;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TOTAL_COMPRA;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DIFERENCIA;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TOTAL_PAGAR;
     }
 }

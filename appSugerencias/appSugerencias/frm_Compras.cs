@@ -80,52 +80,52 @@ namespace appSugerencias
             try
             {
 
-                conectar.Close();
+               //conectar.Close();
             }
-#pragma warning disable CS0168 // La variable 'ec' se ha declarado pero nunca se usa
-            catch (Exception ec)
-#pragma warning restore CS0168 // La variable 'ec' se ha declarado pero nunca se usa
-            {
 
+            catch (Exception ec)
+
+            {
+                MessageBox.Show("error"+ec);
             }
 
             if (CBTienda.SelectedItem.Equals("BODEGA"))
-                {
+            {
                     conectar = BDConexicon.BodegaOpen();
                     proveedores();
-                }
+            }
 
-                if (CBTienda.SelectedItem.Equals("RENA"))
-                {
+           else if (CBTienda.SelectedItem.Equals("RENA"))
+           {
                     conectar = BDConexicon.RenaOpen();
 
 
                     proveedores();
-                }
+           }
 
-                if (CBTienda.SelectedItem.Equals("COLOSO"))
-                {
+           else if (CBTienda.SelectedItem.Equals("COLOSO"))
+           {
 
                     conectar = BDConexicon.ColosoOpen();
 
 
                     proveedores();
-                }
+           }
 
-                if (CBTienda.SelectedItem.Equals("VELAZQUEZ"))
-                {
+           else if (CBTienda.SelectedItem.Equals("VELAZQUEZ"))
+           {
                     conectar = BDConexicon.VelazquezOpen();
                     proveedores();
-                }
+           }
 
-                if (CBTienda.SelectedItem.Equals("VALLARTA"))
-                {
+            else if (CBTienda.SelectedItem.Equals("VALLARTA"))
+            {
 
                     conectar = BDConexicon.VallartaOpen();
                     proveedores();
-                }
+            }
 
-                if (CBTienda.SelectedItem.Equals("PREGOT"))
+             else if (CBTienda.SelectedItem.Equals("PREGOT"))
                 {
 
                     conectar = BDConexicon.Papeleria1Open();
@@ -156,9 +156,9 @@ namespace appSugerencias
                     dr.Close();
                 }
             }
-#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
+
             catch (Exception ex)
-#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
+
             {
                 LBConexion.ForeColor = Color.Red;
                 LBConexion.Text = "Sin Conexión";

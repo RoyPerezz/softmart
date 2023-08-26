@@ -15,6 +15,7 @@ using appSugerencias.Gastos_Externos.Modelo;
 using appSugerencias.Gastos_Externos.Vistas;
 using appSugerencias.GastosCedis.Vistas;
 using appSugerencias.ReportesCCTV;
+using appSugerencias.Stock_Compras.Vista;
 using MySql.Data.MySqlClient;
 
 namespace appSugerencias
@@ -3605,6 +3606,25 @@ namespace appSugerencias
 
             //sino existe la instancia se crea una nueva
             frm = new CantFacturar(lblUsuario.Text);
+            string modulo = frm.Name;
+            RegistrarAccesos(modulo);
+            frm.Show();
+        }
+
+        private void reporteAclaracionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //se localiza el formulario buscandolo entre los forms abiertos
+            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is ReporteGralAclaraciones);
+
+            if (frm != null)
+            {
+                //si la instancia existe la pongo en primer plano
+                frm.BringToFront();
+                return;
+            }
+
+            //sino existe la instancia se crea una nueva
+            frm = new ReporteGralAclaraciones(lblUsuario.Text);
             string modulo = frm.Name;
             RegistrarAccesos(modulo);
             frm.Show();

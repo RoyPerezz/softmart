@@ -34,9 +34,7 @@
             this.label18 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.lblPre = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.lblBo = new System.Windows.Forms.Label();
             this.lblVa = new System.Windows.Forms.Label();
@@ -169,9 +167,7 @@
             this.groupBox5.Controls.Add(this.label18);
             this.groupBox5.Controls.Add(this.label12);
             this.groupBox5.Controls.Add(this.label13);
-            this.groupBox5.Controls.Add(this.lblPre);
             this.groupBox5.Controls.Add(this.label14);
-            this.groupBox5.Controls.Add(this.label24);
             this.groupBox5.Controls.Add(this.label15);
             this.groupBox5.Controls.Add(this.lblBo);
             this.groupBox5.Controls.Add(this.lblVa);
@@ -212,16 +208,6 @@
             this.label13.TabIndex = 36;
             this.label13.Text = "RENA";
             // 
-            // lblPre
-            // 
-            this.lblPre.AutoSize = true;
-            this.lblPre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPre.Location = new System.Drawing.Point(107, 147);
-            this.lblPre.Name = "lblPre";
-            this.lblPre.Size = new System.Drawing.Size(23, 16);
-            this.lblPre.TabIndex = 46;
-            this.lblPre.Text = "---";
-            // 
             // label14
             // 
             this.label14.AutoSize = true;
@@ -230,15 +216,6 @@
             this.label14.Size = new System.Drawing.Size(71, 13);
             this.label14.TabIndex = 37;
             this.label14.Text = "VELAZQUEZ";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(16, 147);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(52, 13);
-            this.label24.TabIndex = 45;
-            this.label24.Text = "PREGOT";
             // 
             // label15
             // 
@@ -1133,8 +1110,6 @@
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label lblBo2;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label lblPre;
-        private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label lblBo;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label lblPre2;

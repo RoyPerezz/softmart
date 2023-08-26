@@ -54,9 +54,7 @@ namespace appSugerencias.Gastos.Vistas
         {
 
             DG_tabla2.Rows.Clear();
-#pragma warning disable CS0219 // La variable 'count' está asignada pero su valor nunca se usa
-            int count = 0;
-#pragma warning restore CS0219 // La variable 'count' está asignada pero su valor nunca se usa
+
             List<Gasto> lista = new List<Gasto>();
             List<Gasto> lista2 = new List<Gasto>();
             GastosController gc = new GastosController();

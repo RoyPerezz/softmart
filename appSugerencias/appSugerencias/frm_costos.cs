@@ -579,7 +579,7 @@ namespace appSugerencias
 
             if (tienda == "VALLARTA")
             {
-                IP = "192.168.1.2";
+                IP = "192.168.5.2";
 
             }
             else if (tienda == "RENA")
@@ -636,7 +636,7 @@ namespace appSugerencias
 
             if (tienda == "VALLARTA")
             {
-                IP = "192.168.1.2";
+                IP = "192.168.5.2";
 
             }
             else if (tienda == "RENA")

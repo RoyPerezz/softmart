@@ -1404,6 +1404,7 @@
     <Compile Include="Singleton.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Stock Compras\Controlador\StockController.cs" />
+    <Compile Include="Stock Compras\Modelo\DetalleStockCompra.cs" />
     <Compile Include="Stock Compras\Modelo\Pedido.cs" />
     <Compile Include="Stock Compras\Vista\FormatoPedido.cs">
       <SubType>Form</SubType>
@@ -1474,6 +1475,7 @@
       <DependentUpon>UnidadesVendidasProveedor.cs</DependentUpon>
     </Compile>
     <Compile Include="Utilidades\Sucursal.cs" />
+    <Compile Include="Utilidades\Usuarios.cs" />
     <Compile Include="ValorInventario.cs">
       <SubType>Form</SubType>
     </Compile>

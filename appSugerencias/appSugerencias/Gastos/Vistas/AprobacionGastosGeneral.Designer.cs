@@ -29,12 +29,12 @@ namespace appSugerencias.Gastos
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.BT_aprobar = new System.Windows.Forms.Button();
             this.BT_guardar = new System.Windows.Forms.Button();
@@ -50,8 +50,6 @@ namespace appSugerencias.Gastos
             this.LB_total = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.DG_tabla = new System.Windows.Forms.DataGridView();
-            this.BT_gastosXAprobar = new System.Windows.Forms.Button();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.ESTADO = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ENCCAJAS = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -68,6 +66,8 @@ namespace appSugerencias.Gastos
             this.FOTO2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.COMENTARIO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NUMAUTORIZACION = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BT_gastosXAprobar = new System.Windows.Forms.Button();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -80,9 +80,9 @@ namespace appSugerencias.Gastos
             // 
             this.groupBox2.Controls.Add(this.BT_aprobar);
             this.groupBox2.Controls.Add(this.BT_guardar);
-            this.groupBox2.Location = new System.Drawing.Point(694, 2);
+            this.groupBox2.Location = new System.Drawing.Point(655, 2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(270, 148);
+            this.groupBox2.Size = new System.Drawing.Size(117, 148);
             this.groupBox2.TabIndex = 21;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Guardar Estado";
@@ -92,9 +92,9 @@ namespace appSugerencias.Gastos
             this.BT_aprobar.BackColor = System.Drawing.Color.LightSeaGreen;
             this.BT_aprobar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BT_aprobar.ForeColor = System.Drawing.Color.White;
-            this.BT_aprobar.Location = new System.Drawing.Point(75, 34);
+            this.BT_aprobar.Location = new System.Drawing.Point(16, 31);
             this.BT_aprobar.Name = "BT_aprobar";
-            this.BT_aprobar.Size = new System.Drawing.Size(96, 45);
+            this.BT_aprobar.Size = new System.Drawing.Size(83, 42);
             this.BT_aprobar.TabIndex = 4;
             this.BT_aprobar.Text = "Aprobar";
             this.BT_aprobar.UseVisualStyleBackColor = false;
@@ -105,9 +105,9 @@ namespace appSugerencias.Gastos
             this.BT_guardar.BackColor = System.Drawing.Color.DodgerBlue;
             this.BT_guardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BT_guardar.ForeColor = System.Drawing.Color.White;
-            this.BT_guardar.Location = new System.Drawing.Point(75, 85);
+            this.BT_guardar.Location = new System.Drawing.Point(16, 82);
             this.BT_guardar.Name = "BT_guardar";
-            this.BT_guardar.Size = new System.Drawing.Size(96, 45);
+            this.BT_guardar.Size = new System.Drawing.Size(83, 42);
             this.BT_guardar.TabIndex = 3;
             this.BT_guardar.Text = "Guardar";
             this.BT_guardar.UseVisualStyleBackColor = false;
@@ -122,7 +122,7 @@ namespace appSugerencias.Gastos
             this.groupBox1.Controls.Add(this.BT_buscar);
             this.groupBox1.Location = new System.Drawing.Point(4, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(684, 148);
+            this.groupBox1.Size = new System.Drawing.Size(647, 148);
             this.groupBox1.TabIndex = 20;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Busqueda gastos";
@@ -184,9 +184,9 @@ namespace appSugerencias.Gastos
             // 
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.panel1);
-            this.groupBox3.Location = new System.Drawing.Point(1245, 2);
+            this.groupBox3.Location = new System.Drawing.Point(1274, 2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(291, 148);
+            this.groupBox3.Size = new System.Drawing.Size(262, 148);
             this.groupBox3.TabIndex = 19;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Total gastos";
@@ -197,16 +197,16 @@ namespace appSugerencias.Gastos
             this.panel1.Controls.Add(this.BT_excel);
             this.panel1.Controls.Add(this.LB_total);
             this.panel1.Controls.Add(this.label5);
-            this.panel1.Location = new System.Drawing.Point(6, 19);
+            this.panel1.Location = new System.Drawing.Point(6, 20);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(279, 123);
+            this.panel1.Size = new System.Drawing.Size(251, 123);
             this.panel1.TabIndex = 0;
             // 
             // BT_excel
             // 
             this.BT_excel.BackColor = System.Drawing.Color.Green;
             this.BT_excel.ForeColor = System.Drawing.Color.White;
-            this.BT_excel.Location = new System.Drawing.Point(190, 4);
+            this.BT_excel.Location = new System.Drawing.Point(155, 3);
             this.BT_excel.Name = "BT_excel";
             this.BT_excel.Size = new System.Drawing.Size(86, 38);
             this.BT_excel.TabIndex = 11;
@@ -219,7 +219,7 @@ namespace appSugerencias.Gastos
             this.LB_total.AutoSize = true;
             this.LB_total.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LB_total.ForeColor = System.Drawing.Color.White;
-            this.LB_total.Location = new System.Drawing.Point(55, 61);
+            this.LB_total.Location = new System.Drawing.Point(84, 61);
             this.LB_total.Name = "LB_total";
             this.LB_total.Size = new System.Drawing.Size(0, 29);
             this.LB_total.TabIndex = 12;
@@ -229,7 +229,7 @@ namespace appSugerencias.Gastos
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(13, 23);
+            this.label5.Location = new System.Drawing.Point(55, 23);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(77, 24);
             this.label5.TabIndex = 11;
@@ -242,14 +242,14 @@ namespace appSugerencias.Gastos
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DG_tabla.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DG_tabla.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DG_tabla.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.DG_tabla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DG_tabla.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ESTADO,
@@ -268,44 +268,19 @@ namespace appSugerencias.Gastos
             this.FOTO2,
             this.COMENTARIO,
             this.NUMAUTORIZACION});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DG_tabla.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DG_tabla.DefaultCellStyle = dataGridViewCellStyle18;
             this.DG_tabla.Location = new System.Drawing.Point(1, 153);
             this.DG_tabla.Name = "DG_tabla";
             this.DG_tabla.Size = new System.Drawing.Size(1536, 379);
             this.DG_tabla.TabIndex = 18;
             this.DG_tabla.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DG_tabla_CellContentDoubleClick);
-            // 
-            // BT_gastosXAprobar
-            // 
-            this.BT_gastosXAprobar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BT_gastosXAprobar.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.BT_gastosXAprobar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BT_gastosXAprobar.ForeColor = System.Drawing.Color.White;
-            this.BT_gastosXAprobar.Location = new System.Drawing.Point(76, 50);
-            this.BT_gastosXAprobar.Name = "BT_gastosXAprobar";
-            this.BT_gastosXAprobar.Size = new System.Drawing.Size(129, 55);
-            this.BT_gastosXAprobar.TabIndex = 5;
-            this.BT_gastosXAprobar.Text = "Gastos por Aprobar";
-            this.BT_gastosXAprobar.UseVisualStyleBackColor = false;
-            this.BT_gastosXAprobar.Click += new System.EventHandler(this.BT_gastosXAprobar_Click);
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox4.Controls.Add(this.BT_gastosXAprobar);
-            this.groupBox4.Location = new System.Drawing.Point(969, 2);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(270, 148);
-            this.groupBox4.TabIndex = 22;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Revisar gastos pendientes";
             // 
             // ESTADO
             // 
@@ -344,15 +319,15 @@ namespace appSugerencias.Gastos
             // 
             // FECHA
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.FECHA.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.FECHA.DefaultCellStyle = dataGridViewCellStyle14;
             this.FECHA.HeaderText = "FECHA";
             this.FECHA.Name = "FECHA";
             // 
             // IMPORTE
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.IMPORTE.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.IMPORTE.DefaultCellStyle = dataGridViewCellStyle15;
             this.IMPORTE.HeaderText = "IMPORTE";
             this.IMPORTE.Name = "IMPORTE";
             // 
@@ -378,8 +353,8 @@ namespace appSugerencias.Gastos
             // 
             // FOLIO
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.FOLIO.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.FOLIO.DefaultCellStyle = dataGridViewCellStyle16;
             this.FOLIO.HeaderText = "FOLIO";
             this.FOLIO.Name = "FOLIO";
             // 
@@ -402,10 +377,35 @@ namespace appSugerencias.Gastos
             // 
             // NUMAUTORIZACION
             // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.NUMAUTORIZACION.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.NUMAUTORIZACION.DefaultCellStyle = dataGridViewCellStyle17;
             this.NUMAUTORIZACION.HeaderText = "NUM AUTORIZACION";
             this.NUMAUTORIZACION.Name = "NUMAUTORIZACION";
+            // 
+            // BT_gastosXAprobar
+            // 
+            this.BT_gastosXAprobar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BT_gastosXAprobar.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.BT_gastosXAprobar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_gastosXAprobar.ForeColor = System.Drawing.Color.White;
+            this.BT_gastosXAprobar.Location = new System.Drawing.Point(11, 54);
+            this.BT_gastosXAprobar.Name = "BT_gastosXAprobar";
+            this.BT_gastosXAprobar.Size = new System.Drawing.Size(106, 47);
+            this.BT_gastosXAprobar.TabIndex = 5;
+            this.BT_gastosXAprobar.Text = "Gastos por Aprobar";
+            this.BT_gastosXAprobar.UseVisualStyleBackColor = false;
+            this.BT_gastosXAprobar.Click += new System.EventHandler(this.BT_gastosXAprobar_Click);
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox4.Controls.Add(this.BT_gastosXAprobar);
+            this.groupBox4.Location = new System.Drawing.Point(1145, 2);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(123, 148);
+            this.groupBox4.TabIndex = 22;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Revisar gastos pendientes";
             // 
             // AprobacionGastosGeneral
             // 

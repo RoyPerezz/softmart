@@ -245,6 +245,7 @@ namespace appSugerencias
         {
             DG_tabla.Rows.Clear();
             DG_tabla_pedido.Rows.Clear();
+            DG_aclaraciones.Rows.Clear();
             string tipoStock = "";
             string query = "SELECT * FROM rd_detalle_stock_compra WHERE fk_stock='" + TB_idstock.Text + "' order by idreg";
             MySqlConnection conexion = BDConexicon.BodegaOpen();
@@ -381,7 +382,7 @@ namespace appSugerencias
                    
                     
                     DG_tabla_pedido.Rows.Add(dr["idreg"].ToString(), dr["modelo"].ToString(), dr["claveProducto"].ToString(), dr["descripcion"].ToString(), dr["cajaspedbo"].ToString(), dr["pzxcaja"].ToString(),0, dr["pzxpaq"].ToString(), Convert.ToDouble(dr["costoxpaq"].ToString()), Convert.ToDouble(dr["costoxpz"].ToString()),
-                        dr["precio_mayoreo"].ToString(), dr["precio_menudeo"].ToString(), dr["ped_bo"].ToString(), dr["ped_va"].ToString(), dr["ped_re"].ToString(), dr["ped_ve"].ToString(), dr["ped_co"].ToString(),precio_manual.ThreeState);
+                        dr["precio_mayoreo"].ToString(), dr["precio_menudeo"].ToString(), dr["ped_ce"].ToString(), dr["ped_va"].ToString(), dr["ped_re"].ToString(), dr["ped_ve"].ToString(), dr["ped_co"].ToString(),precio_manual.ThreeState);
 
                 }else if(RB_tiendas.Checked==true)
                 {
@@ -448,6 +449,96 @@ namespace appSugerencias
             }
             dr.Close();
 
+
+            int id = 0;
+            
+            MySqlCommand aclaracion = null;
+            MySqlDataReader dr3 = null;
+
+            if (RB_cedis.Checked == true)
+            {
+                DG_aclaraciones.Rows.Add("CEDIS", 0, 0, 0);
+            }
+
+            DG_aclaraciones.Rows.Add("VALLARTA",0,0,0);
+            DG_aclaraciones.Rows.Add("RENA", 0, 0, 0);
+            DG_aclaraciones.Rows.Add("VELAZQUEZ", 0, 0, 0);
+            DG_aclaraciones.Rows.Add("COLOSO", 0, 0, 0);
+            double importeCE = 0, importeVA = 0, importeRE = 0, importeVE = 0, importeCO = 0,cxpCE=0,cxpVA=0,cxpRE=0,cxpVE=0,cxpCO=0,totalcompraCE=0,totalCompraVA=0,totalCompraRE=0,totalCompraVE=0,totalCompraCO=0;
+            int cantCE=0,cantVallarta = 0, cantRena = 0, cantVelazquez = 0, cantColoso = 0;
+            for (int i = 0; i < DG_tabla_pedido.Rows.Count; i++)
+            {
+                id = Convert.ToInt32(DG_tabla_pedido.Rows[i].Cells["ID"].Value.ToString());
+                cantCE = Convert.ToInt32(DG_tabla_pedido.Rows[i].Cells["BODEGA"].Value.ToString());
+                cantVallarta = Convert.ToInt32(DG_tabla_pedido.Rows[i].Cells["VALLARTA"].Value.ToString());
+                cantRena = Convert.ToInt32(DG_tabla_pedido.Rows[i].Cells["RENA"].Value.ToString());
+                cantVelazquez = Convert.ToInt32(DG_tabla_pedido.Rows[i].Cells["VELAZQUEZ"].Value.ToString());
+                cantColoso = Convert.ToInt32(DG_tabla_pedido.Rows[i].Cells["COLOSO"].Value.ToString());
+
+                cxpCE = Convert.ToDouble(DG_tabla_pedido.Rows[i].Cells["COSTO_PAQ"].Value.ToString());
+                cxpVA = Convert.ToDouble(DG_tabla_pedido.Rows[i].Cells["COSTO_PAQ"].Value.ToString());
+                cxpRE = Convert.ToDouble(DG_tabla_pedido.Rows[i].Cells["COSTO_PAQ"].Value.ToString());
+                cxpVE = Convert.ToDouble(DG_tabla_pedido.Rows[i].Cells["COSTO_PAQ"].Value.ToString());
+                cxpCO = Convert.ToDouble(DG_tabla_pedido.Rows[i].Cells["COSTO_PAQ"].Value.ToString());
+                aclaracion = new MySqlCommand("SELECT * FROM rd_mercancia_aclaraciones WHERE fk_id_articulo=" + id + "", conexion);
+                dr3 = aclaracion.ExecuteReader();
+                while (dr3.Read())
+                {
+                    importeCE += Convert.ToDouble(dr3["importe_bo"].ToString());
+                    importeVA += Convert.ToDouble(dr3["importe_va"].ToString());
+                    importeRE += Convert.ToDouble(dr3["importe_re"].ToString());
+                    importeVE += Convert.ToDouble(dr3["importe_ve"].ToString());
+                    importeCO += Convert.ToDouble(dr3["importe_co"].ToString());
+                }
+                dr3.Close();
+
+                totalcompraCE += cantCE * cxpCE;
+                totalCompraVA += cantVallarta * cxpVA;
+                totalCompraRE += cantRena * cxpRE;
+                totalCompraVE += cantVelazquez * cxpVE;
+                totalCompraCO += cantColoso * cxpCO;
+
+            }
+
+            if (RB_cedis.Checked == true)
+            {
+                DG_aclaraciones.Rows[0].Cells["TOTAL_COMPRA"].Value = totalcompraCE;
+                DG_aclaraciones.Rows[1].Cells["TOTAL_COMPRA"].Value = totalCompraVA;
+                DG_aclaraciones.Rows[2].Cells["TOTAL_COMPRA"].Value = totalCompraRE;
+                DG_aclaraciones.Rows[3].Cells["TOTAL_COMPRA"].Value = totalCompraVE;
+                DG_aclaraciones.Rows[4].Cells["TOTAL_COMPRA"].Value = totalCompraCO;
+
+                DG_aclaraciones.Rows[0].Cells["DIFERENCIA"].Value = importeCE;
+                DG_aclaraciones.Rows[1].Cells["DIFERENCIA"].Value = importeVA;
+                DG_aclaraciones.Rows[2].Cells["DIFERENCIA"].Value = importeRE;
+                DG_aclaraciones.Rows[3].Cells["DIFERENCIA"].Value = importeVE;
+                DG_aclaraciones.Rows[4].Cells["DIFERENCIA"].Value = importeCO;
+
+                DG_aclaraciones.Rows[0].Cells["TOTAL_PAGAR"].Value = totalcompraCE + importeCE;
+                DG_aclaraciones.Rows[1].Cells["TOTAL_PAGAR"].Value = totalCompraVA + importeVA;
+                DG_aclaraciones.Rows[2].Cells["TOTAL_PAGAR"].Value = totalCompraRE + importeRE;
+                DG_aclaraciones.Rows[3].Cells["TOTAL_PAGAR"].Value = totalCompraVE + importeVE;
+                DG_aclaraciones.Rows[4].Cells["TOTAL_PAGAR"].Value = totalCompraCO + importeCO;
+            }
+            else
+            {
+                DG_aclaraciones.Rows[0].Cells["TOTAL_COMPRA"].Value = totalCompraVA;
+                DG_aclaraciones.Rows[1].Cells["TOTAL_COMPRA"].Value = totalCompraRE;
+                DG_aclaraciones.Rows[2].Cells["TOTAL_COMPRA"].Value = totalCompraVE;
+                DG_aclaraciones.Rows[3].Cells["TOTAL_COMPRA"].Value = totalCompraCO;
+
+                DG_aclaraciones.Rows[0].Cells["DIFERENCIA"].Value = importeVA;
+                DG_aclaraciones.Rows[1].Cells["DIFERENCIA"].Value = importeRE;
+                DG_aclaraciones.Rows[2].Cells["DIFERENCIA"].Value = importeVE;
+                DG_aclaraciones.Rows[3].Cells["DIFERENCIA"].Value = importeCO;
+
+                DG_aclaraciones.Rows[0].Cells["TOTAL_PAGAR"].Value = totalCompraVA + importeVA;
+                DG_aclaraciones.Rows[1].Cells["TOTAL_PAGAR"].Value = totalCompraRE + importeRE;
+                DG_aclaraciones.Rows[2].Cells["TOTAL_PAGAR"].Value = totalCompraVE + importeVE;
+                DG_aclaraciones.Rows[3].Cells["TOTAL_PAGAR"].Value = totalCompraCO + importeCO;
+            }
+
+           
 
             DG_tabla.Columns["EX_PAS_VA"].HeaderText = columnaExtra;
             DG_tabla.Columns["EX_PAS_RE"].HeaderText = columnaExtra;
