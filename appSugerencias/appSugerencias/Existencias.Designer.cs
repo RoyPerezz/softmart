@@ -140,6 +140,7 @@
             this.TB_articulo.Name = "TB_articulo";
             this.TB_articulo.Size = new System.Drawing.Size(622, 44);
             this.TB_articulo.TabIndex = 1;
+            this.TB_articulo.TextChanged += new System.EventHandler(this.TB_articulo_TextChanged);
             this.TB_articulo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TB_articulo_KeyPress);
             // 
             // BTN_aceptar
@@ -333,7 +334,7 @@
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(228, 171);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(21, 16);
+            this.label10.Size = new System.Drawing.Size(20, 16);
             this.label10.TabIndex = 11;
             this.label10.Text = "%";
             // 

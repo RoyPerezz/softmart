@@ -49,7 +49,7 @@ namespace appSugerencias
                 DataTable DTrena = new DataTable();
                 DataTable DTcoloso = new DataTable();
                 DataTable DTvelazquez = new DataTable();
-                DataTable DTpregot = new DataTable();
+                //DataTable DTpregot = new DataTable();
 
                 //DataTable extra para unir los demás
                 master = new DataTable();
@@ -138,24 +138,24 @@ namespace appSugerencias
 
                 }
 
-                try
-                {
+                //try
+                //{
 
 
-                    conpregot = BDConexicon.Papeleria1Open();
-                    MySqlCommand cmdPregot = new MySqlCommand("SELECT articulo AS ARTICULO,descrip AS DESCRIPCION, existencia " +
-                        "from prods where fabricante= '" + CB_proveedores.SelectedItem.ToString() + "'order by DESCRIPCION", conpregot);
-                    MySqlDataAdapter adColoso = new MySqlDataAdapter(cmdPregot);
-                    adColoso.Fill(DTpregot);
+                //    conpregot = BDConexicon.Papeleria1Open();
+                //    MySqlCommand cmdPregot = new MySqlCommand("SELECT articulo AS ARTICULO,descrip AS DESCRIPCION, existencia " +
+                //        "from prods where fabricante= '" + CB_proveedores.SelectedItem.ToString() + "'order by DESCRIPCION", conpregot);
+                //    MySqlDataAdapter adColoso = new MySqlDataAdapter(cmdPregot);
+                //    adColoso.Fill(DTpregot);
 
-                }
-                catch (Exception)
-                {
-                    LB_pregot.Text = "Sin Conexión";
-                    LB_pregot.ForeColor = Color.Red;
+                //}
+                //catch (Exception)
+                //{
+                //    LB_pregot.Text = "Sin Conexión";
+                //    LB_pregot.ForeColor = Color.Red;
                     
 
-                }
+                //}
 
 
 
@@ -165,7 +165,9 @@ namespace appSugerencias
                 .Union(DTvallarta.AsEnumerable())
                 .Union(DTrena.AsEnumerable())
                 .Union(DTvelazquez.AsEnumerable())
-                .Union(DTcoloso.AsEnumerable()).Union(DTpregot.AsEnumerable()).Distinct(DataRowComparer.Default).CopyToDataTable<DataRow>();
+                .Union(DTcoloso.AsEnumerable()).Distinct(DataRowComparer.Default).CopyToDataTable<DataRow>();
+
+                //.Union(DTcoloso.AsEnumerable()).Union(DTpregot.AsEnumerable()).Distinct(DataRowComparer.Default).CopyToDataTable<DataRow>();
 
                 master = repetidos(master1, "articulo");//se llama al metodo repetidos para que elimine los regitros iguales
 
@@ -178,7 +180,7 @@ namespace appSugerencias
                 master.Columns.Add("RENA", typeof(String));
                 master.Columns.Add("VELAZQUEZ", typeof(String));
                 master.Columns.Add("COLOSO", typeof(String));
-                master.Columns.Add("PREGOT", typeof(String));
+                //master.Columns.Add("PREGOT", typeof(String));
 
                 master.Columns.Remove("existencia");
 
@@ -191,7 +193,7 @@ namespace appSugerencias
                 RecorreRena(DTrena);
                 RecorreVelazquez(DTvelazquez);
                 RecorreColoso(DTcoloso);
-                RecorrerPregot(DTpregot);
+                //RecorrerPregot(DTpregot);
 
 
 
@@ -207,7 +209,7 @@ namespace appSugerencias
                 DG_existencias.Columns["RENA"].SortMode = DataGridViewColumnSortMode.NotSortable;
                 DG_existencias.Columns["COLOSO"].SortMode = DataGridViewColumnSortMode.NotSortable;
                 DG_existencias.Columns["VELAZQUEZ"].SortMode = DataGridViewColumnSortMode.NotSortable;
-                DG_existencias.Columns["PREGOT"].SortMode = DataGridViewColumnSortMode.NotSortable;
+                //DG_existencias.Columns["PREGOT"].SortMode = DataGridViewColumnSortMode.NotSortable;
 
                 DG_existencias.Columns["DESCRIPCION"].Width = 375;
 
@@ -228,7 +230,7 @@ namespace appSugerencias
                 concoloso.Close();
 
                 convelazquez.Close();
-                conpregot.Close();
+                //conpregot.Close();
             }
             catch (Exception ex)
             {
@@ -409,40 +411,40 @@ namespace appSugerencias
 
         }
 
-        public void RecorrerPregot(DataTable DTpregot)
-        {
-            try
-            {
-                foreach (DataRow row in master.Rows)
-                {
+//        public void RecorrerPregot(DataTable DTpregot)
+//        {
+//            try
+//            {
+//                foreach (DataRow row in master.Rows)
+//                {
 
 
-                    string valor = row["articulo"].ToString();
+//                    string valor = row["articulo"].ToString();
 
-                    foreach (DataRow row1 in DTpregot.Rows)
-                    {
+//                    foreach (DataRow row1 in DTpregot.Rows)
+//                    {
 
-                        if (valor.Equals(row1["articulo"].ToString()))
+//                        if (valor.Equals(row1["articulo"].ToString()))
 
-                        {
+//                        {
 
-                            row["PREGOT"] = row1["existencia"].ToString();
-                        }
+//                            row["PREGOT"] = row1["existencia"].ToString();
+//                        }
 
-                    }
-
-
-                }
-            }
-#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
-            catch (Exception ex)
-#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
-            {
+//                    }
 
 
-            }
+//                }
+//            }
+//#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
+//            catch (Exception ex)
+//#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
+//            {
 
-        }
+
+//            }
+
+//        }
 
 
         //Trae de la base de datos de bodega principal los proveedores
@@ -488,7 +490,7 @@ namespace appSugerencias
         private void CB_proveedores_SelectedIndexChanged(object sender, EventArgs e)
         {
           
-            Existencias();
+           
         }
 
 
@@ -569,6 +571,13 @@ namespace appSugerencias
         private void DG_existencias_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            button2.Enabled = false;
+            Existencias();
+            button2.Enabled = true;
         }
     }
 }

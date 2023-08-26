@@ -1933,5 +1933,10 @@ namespace appSugerencias
         {
 
         }
+
+        private void TB_articulo_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

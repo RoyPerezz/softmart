@@ -19,6 +19,19 @@ namespace appSugerencias
         //MySqlConnection conBodega;
 
 
+
+        static string IP= ConfigurationManager.AppSettings["IP"];
+        static string BD=ConfigurationManager.AppSettings["BD"];
+        static string Estacion= ConfigurationManager.AppSettings["ESTACION"];
+        static string User = ConfigurationManager.AppSettings["user"];
+        static string Pass = ConfigurationManager.AppSettings["pass"];
+        static string Port = ConfigurationManager.AppSettings["port"];
+
+        static string IPVallarta = ConfigurationManager.AppSettings["IpVallarta"];
+        static string IPRena = ConfigurationManager.AppSettings["IpRena"];
+        static string IPVelazquez = ConfigurationManager.AppSettings["IpVelazquez"];
+        static string IPColoso = ConfigurationManager.AppSettings["IpColoso"];
+        static string IPCEDIS = ConfigurationManager.AppSettings["IpCEDIS"];
         public static string sucursal()
         {
             string sucursal = "";
@@ -43,16 +56,16 @@ namespace appSugerencias
             //string ipn = IP.ReadLine();
             //IP.Close();
             //return ipn;
-            string IP = ConfigurationManager.AppSettings["IP"];
-            return IP;
+            string Ip = ConfigurationManager.AppSettings["IP"];
+            return Ip;
         }
 
         public static string optieneIPPregot()
         {
-            TextReader IP;
-            IP = new StreamReader("IPPregot.txt");
-            string ipn = IP.ReadLine();
-            IP.Close();
+            TextReader Ip;
+            Ip = new StreamReader("IPPregot.txt");
+            string ipn = Ip.ReadLine();
+            Ip.Close();
             return ipn;
         }
         public static string optieneBd()
@@ -74,8 +87,8 @@ namespace appSugerencias
             //string Estacion = leer.ReadLine();
             //leer.Close();
             //return Estacion;
-            string ESTACION = ConfigurationManager.AppSettings["ESTACION"];
-            return ESTACION;
+            string Estacion = ConfigurationManager.AppSettings["ESTACION"];
+            return Estacion;
         }
 
 
@@ -118,9 +131,9 @@ namespace appSugerencias
 
 
 
-            string IP = optieneIp();
-            string BD = optieneBd();
-            MySqlConnection con = new MySqlConnection("server=" + IP + "; database=" + BD + "; Uid=root; pwd=;pooling = false; convert zero datetime=True;");
+            //string IP = optieneIp();
+            //string BD = optieneBd();
+            MySqlConnection con = new MySqlConnection($"server={IP}; database={BD}; Uid={User}; pwd={Pass};pooling = false; convert zero datetime=True;");
             con.Open();
 
 
@@ -133,9 +146,9 @@ namespace appSugerencias
         {
 
 
-            string IP = ConfigurationManager.AppSettings["IpVallarta"];
-            string BD = optieneBd();
-            MySqlConnection conVallarta = new MySqlConnection("server="+IP+"; database=" + BD + "; Uid=root; pwd=;pooling = false; convert zero datetime=True;");
+            //string IP = ConfigurationManager.AppSettings["IpVallarta"];
+            //string BD = optieneBd();
+            MySqlConnection conVallarta = new MySqlConnection($"server={IPVallarta}; database={BD}; Uid={User}; pwd={Pass};pooling = false; convert zero datetime=True;");
             conVallarta.Open();
 
 
@@ -147,9 +160,9 @@ namespace appSugerencias
 
         public static MySqlConnection RenaOpen()
         {
-            string IP = ConfigurationManager.AppSettings["IpRena"];
-            string BD = optieneBd();
-            MySqlConnection conRena = new MySqlConnection("server="+IP+"; database=" + BD + "; Uid=root; pwd=;pooling = false; convert zero datetime=True;");
+            //string IP = ConfigurationManager.AppSettings["IpRena"];
+            //string BD = optieneBd();
+            MySqlConnection conRena = new MySqlConnection($"server={IPRena}; database={BD}; Uid={User}; pwd={Pass};pooling = false; convert zero datetime=True;");
             conRena.Open();
 
 
@@ -160,9 +173,9 @@ namespace appSugerencias
 
         public static MySqlConnection VelazquezOpen()
         {
-            string IP = ConfigurationManager.AppSettings["IpVelazquez"];
-            string BD = optieneBd();
-            MySqlConnection conVelazquez = new MySqlConnection("server="+IP+"; database=" + BD + "; Uid=root; pwd=;pooling = false; convert zero datetime=True;");
+            //string IP = ConfigurationManager.AppSettings["IpVelazquez"];
+            //string BD = optieneBd();
+            MySqlConnection conVelazquez = new MySqlConnection($"server={IPVelazquez}; database={BD}; Uid={User}; pwd={Pass};pooling = false; convert zero datetime=True;");
             conVelazquez.Open();
 
 
@@ -175,9 +188,9 @@ namespace appSugerencias
 
         public static MySqlConnection ColosoOpen()
         {
-            string IP = ConfigurationManager.AppSettings["IpColoso"];
-            string BD = optieneBd();
-            MySqlConnection conColoso = new MySqlConnection("server="+IP+"; database=" + BD + "; Uid=root; pwd=;pooling = false; convert zero datetime=True;");
+            //string IP = ConfigurationManager.AppSettings["IpColoso"];
+            //string BD = optieneBd();
+            MySqlConnection conColoso = new MySqlConnection($"server={IPColoso}; database={BD}; Uid={User}; pwd={Pass};pooling = false; convert zero datetime=True;");
             conColoso.Open();
 
             return conColoso;
@@ -187,9 +200,9 @@ namespace appSugerencias
 
         public static MySqlConnection BodegaOpen()
         {
-            string IP = ConfigurationManager.AppSettings["IpCEDIS"];
-            string BD = optieneBd();
-                MySqlConnection conBodega = new MySqlConnection("server="+IP+"; database=" + BD + "; Uid=root; pwd=;pooling = false; convert zero datetime=True;");
+            //string IP = ConfigurationManager.AppSettings["IpCEDIS"];
+            //string BD = optieneBd();
+                MySqlConnection conBodega = new MySqlConnection($"server={IPCEDIS}; database={BD}; Uid={User}; pwd={Pass};pooling = false; convert zero datetime=True;");
                 conBodega.Open();
            
 
@@ -202,9 +215,9 @@ namespace appSugerencias
 
         public static MySqlConnection VallartaClose()
         {
-            string IP = ConfigurationManager.AppSettings["IpVallarta"];
-            string BD = optieneBd();
-            MySqlConnection conVallarta = new MySqlConnection("server="+IP+"; database=" + BD + "; Uid=root; pwd=;");
+            //string IP = ConfigurationManager.AppSettings["IpVallarta"];
+            //string BD = optieneBd();
+            MySqlConnection conVallarta = new MySqlConnection($"server={IPVallarta}; database={BD}; Uid={User}; pwd={Pass};");
             conVallarta.Close();
 
 
@@ -217,9 +230,9 @@ namespace appSugerencias
 
         public static MySqlConnection RenaClose()
         {
-            string IP = ConfigurationManager.AppSettings["IpRena"];
-            string BD = optieneBd();
-            MySqlConnection conRena = new MySqlConnection("server="+IP+"; database=" + BD + "; Uid=root; pwd=;");
+            //string IP = ConfigurationManager.AppSettings["IpRena"];
+            //string BD = optieneBd();
+            MySqlConnection conRena = new MySqlConnection($"server={IPRena}; database={BD}; Uid={User}; pwd={Pass};");
             conRena.Close();
 
 
@@ -231,9 +244,9 @@ namespace appSugerencias
         public static MySqlConnection VelazquezClose()
         {
 
-            string IP = ConfigurationManager.AppSettings["IpVelazquez"];
-            string BD = optieneBd();
-            MySqlConnection conVelazquez = new MySqlConnection("server="+IP+"; database=" + BD + "; Uid=root; pwd=;");
+            //string IP = ConfigurationManager.AppSettings["IpVelazquez"];
+            //string BD = optieneBd();
+            MySqlConnection conVelazquez = new MySqlConnection($"server={IPVelazquez}; database={BD}; Uid={User}; pwd={Pass};");
             conVelazquez.Close();
 
 
@@ -244,9 +257,9 @@ namespace appSugerencias
 
         public static MySqlConnection ColosoClose()
         {
-            string IP = ConfigurationManager.AppSettings["IpColoso"];
-            string BD = optieneBd();
-            MySqlConnection conColoso = new MySqlConnection("server="+IP+"; database=" + BD + "; Uid=root; pwd=;");
+            //string IP = ConfigurationManager.AppSettings["IpColoso"];
+            //string BD = optieneBd();
+            MySqlConnection conColoso = new MySqlConnection($"server={IPColoso}; database={BD}; Uid={User}; pwd={Pass};");
             conColoso.Close();
 
 
@@ -257,9 +270,9 @@ namespace appSugerencias
 
         public static MySqlConnection BodegaClose()
         {
-            string IP = ConfigurationManager.AppSettings["IpCEDIS"];
-            string BD = optieneBd();
-            MySqlConnection conBodega = new MySqlConnection("server="+IP+"; database=" + BD + "; Uid=root; pwd=;");
+            //string IP = ConfigurationManager.AppSettings["IpCEDIS"];
+            //string BD = optieneBd();
+            MySqlConnection conBodega = new MySqlConnection($"server={IP}; database={BD}; Uid={User}; pwd={Pass};");
             conBodega.Close();
 
 
@@ -270,9 +283,9 @@ namespace appSugerencias
 
         public static MySqlConnection ConectarClose()
         {
-            string IP = optieneIp();
-            string BD = optieneBd();
-            MySqlConnection con = new MySqlConnection("server=" + IP + "; database=" + BD + "; Uid=root; pwd=;");
+            //string IP = optieneIp();
+            //string BD = optieneBd();
+            MySqlConnection con = new MySqlConnection($"server={IP}; database={BD}; Uid={User}; pwd={Pass};");
             con.Close();
 
 
@@ -381,8 +394,11 @@ namespace appSugerencias
 
         public static MySqlConnection RespaldoVA(string mes,int año)
         {
+            //string IP = ConfigurationManager.AppSettings["IpVallarta"];
             string bd = "VALLARTA " + mes + " " + año;
-            MySqlConnection conVallarta = new MySqlConnection("server=192.168.5.2; database=" + bd + "; Uid=root; pwd=;pooling = false; convert zero datetime=True;");
+            MySqlConnection conVallarta = new MySqlConnection($"server={IP}; database={bd}; Uid={User}; pwd={Pass};pooling = false; convert zero datetime=True;");
+
+            //MySqlConnection conVallarta = new MySqlConnection("server=192.168.1.2; database=" + bd + "; Uid=root; pwd=;pooling = false; convert zero datetime=True;");
             conVallarta.Open();
 
             return conVallarta;
@@ -391,8 +407,9 @@ namespace appSugerencias
 
         public static MySqlConnection RespaldoRE(string mes,int año)
         {
+            //string IP = ConfigurationManager.AppSettings["IpRena"];
             string bd = "RENA " + mes + " " + año;
-            MySqlConnection conRena = new MySqlConnection("server=192.168.2.2; database=" + bd + "; Uid=root; pwd=;pooling = false; convert zero datetime=True;");
+            MySqlConnection conRena = new MySqlConnection($"server={IP} database={bd}; Uid={User}; pwd={Pass};pooling = false; convert zero datetime=True;");
             conRena.Open();
 
             return conRena;
@@ -401,8 +418,9 @@ namespace appSugerencias
 
         public static MySqlConnection RespaldoCO(string mes,int año)
         {
+            //string IP = ConfigurationManager.AppSettings["IpColoso"];
             string bd = "COLOSO " + mes + " " + año;
-            MySqlConnection conColoso = new MySqlConnection("server=192.168.3.2; database=" + bd + "; Uid=root; pwd=;pooling = false; convert zero datetime=True;");
+            MySqlConnection conColoso = new MySqlConnection($"server={IP}; database={bd}; Uid={User}; pwd={Pass};pooling = false; convert zero datetime=True;");
             conColoso.Open();
 
             return conColoso;
@@ -412,7 +430,7 @@ namespace appSugerencias
         public static MySqlConnection RespaldoVE(string mes,int año)
         {
             string bd = "DIEZ " + mes + " " + año;
-            MySqlConnection conVelazquez = new MySqlConnection("server=192.168.4.2; database=" + bd + "; Uid=root; pwd=;pooling = false; convert zero datetime=True;");
+            MySqlConnection conVelazquez = new MySqlConnection($"server={IP}; database={bd}; Uid={User}; pwd={Pass};pooling = false; convert zero datetime=True;");
             conVelazquez.Open();
 
             return conVelazquez;
@@ -423,7 +441,7 @@ namespace appSugerencias
         {
             string IPP = optieneIPPregot();
             string bd = "PREGOT " + mes + " " + año;
-            MySqlConnection conPregot = new MySqlConnection("server="+IPP+"; database=" + bd + "; Uid=root; pwd=;pooling = false; convert zero datetime=True;");
+            MySqlConnection conPregot = new MySqlConnection($"server={IPP}; database={bd}; Uid={User}; pwd={Pass};pooling = false; convert zero datetime=True;");
             conPregot.Open();
 
             return conPregot;
@@ -433,7 +451,7 @@ namespace appSugerencias
         public static MySqlConnection RespaldoBO(string mes, int año)
         {
             string bd = "BODEGA " + mes + " " + año;
-            MySqlConnection conPregot = new MySqlConnection("server=192.168.6.190; database=" + bd + "; Uid=root; pwd=;pooling = false; convert zero datetime=True;");
+            MySqlConnection conPregot = new MySqlConnection($"server={IPCEDIS}; database={bd}; Uid={User}; pwd={Pass};pooling = false; convert zero datetime=True;");
             conPregot.Open();
 
             return conPregot;
@@ -445,9 +463,9 @@ namespace appSugerencias
 
 
 
-            string IP = optieneIp();
-            string BD = optieneBd();
-            MySqlConnection con = new MySqlConnection("server=" + IP + "; database="+sucursal+" "+mes+" "+año+"; Uid=root; pwd=;pooling = false; convert zero datetime=True;");
+            //string IP = optieneIp();
+            //string BD = optieneBd();
+            MySqlConnection con = new MySqlConnection($"server={IP}; database={sucursal} {mes} {año}; Uid={User}; pwd={Pass};pooling = false; convert zero datetime=True;");
             con.Open();
 
 
@@ -463,28 +481,28 @@ namespace appSugerencias
 
             if (sucursal.Equals("BODEGA"))
             {
-                dirIP = "192.168.6.190";
+                dirIP = IPCEDIS;
             }
 
             if (sucursal.Equals("VALLARTA"))
             {
-                dirIP = "192.168.5.2";
+                dirIP = IPVallarta;
             }
 
             if (sucursal.Equals("RENA"))
             {
-                dirIP = "192.168.2.2";
+                dirIP = IPRena;
             }
 
             if (sucursal.Equals("COLOSO"))
             {
-                dirIP = "192.168.3.2";
+                dirIP = IPColoso;
             }
 
             if (sucursal.Equals("VELAZQUEZ"))
             {
                 sucursal = "DIEZ";
-                dirIP = "192.168.4.2";
+                dirIP = IPVelazquez;
             }
 
             string IP = optieneIp();

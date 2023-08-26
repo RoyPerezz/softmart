@@ -44,7 +44,6 @@
             this.lblExistencia = new System.Windows.Forms.Label();
             this.lbl6 = new System.Windows.Forms.Label();
             this.lblLinea = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblLeyendaOferta = new System.Windows.Forms.Label();
             this.lblOferta1 = new System.Windows.Forms.Label();
             this.lblOferta2 = new System.Windows.Forms.Label();
@@ -52,6 +51,8 @@
             this.lbl7 = new System.Windows.Forms.Label();
             this.lblFabricante = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -205,15 +206,6 @@
             this.lblLinea.TabIndex = 18;
             this.lblLinea.Text = "Linea";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::appSugerencias.Properties.Resources.PREGOT_RGB_negro1;
-            this.pictureBox1.Location = new System.Drawing.Point(179, 187);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(803, 333);
-            this.pictureBox1.TabIndex = 19;
-            this.pictureBox1.TabStop = false;
-            // 
             // lblLeyendaOferta
             // 
             this.lblLeyendaOferta.AutoSize = true;
@@ -288,12 +280,35 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.DodgerBlue;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(12, 96);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(95, 39);
+            this.button2.TabIndex = 28;
+            this.button2.Text = "Otras Sucursales";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::appSugerencias.Properties.Resources.PREGOT_RGB_negro1;
+            this.pictureBox1.Location = new System.Drawing.Point(179, 187);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(803, 333);
+            this.pictureBox1.TabIndex = 19;
+            this.pictureBox1.TabStop = false;
+            // 
             // frm_Verificador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(1215, 687);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.lblFabricante);
             this.Controls.Add(this.lbl7);
@@ -353,5 +368,6 @@
         private System.Windows.Forms.Label lbl7;
         private System.Windows.Forms.Label lblFabricante;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }

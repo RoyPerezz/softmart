@@ -301,6 +301,12 @@
     <Compile Include="frm_ModificarConceptoGastoExterno.Designer.cs">
       <DependentUpon>frm_ModificarConceptoGastoExterno.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_VerificaExistenciaSuc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_VerificaExistenciaSuc.Designer.cs">
+      <DependentUpon>frm_VerificaExistenciaSuc.cs</DependentUpon>
+    </Compile>
     <Compile Include="Gastos Externos\Controlador\GastoExternoController.cs" />
     <Compile Include="Gastos Externos\Controlador\GastoFinanzasController.cs" />
     <Compile Include="Gastos Externos\Controlador\PagoGastoExternoController.cs" />
@@ -1620,6 +1626,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_ModificarConceptoGastoExterno.resx">
       <DependentUpon>frm_ModificarConceptoGastoExterno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_VerificaExistenciaSuc.resx">
+      <DependentUpon>frm_VerificaExistenciaSuc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Gastos Externos\Vistas\ListaGastosFinanzas.resx">
       <DependentUpon>ListaGastosFinanzas.cs</DependentUpon>
