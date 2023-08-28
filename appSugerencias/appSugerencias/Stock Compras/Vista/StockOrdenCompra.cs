@@ -441,7 +441,9 @@ namespace appSugerencias
                 }
 
 
-
+                DG_aclaraciones.Columns["TOTAL_COMPRA"].DefaultCellStyle.Format="C2";
+                DG_aclaraciones.Columns["DIFERENCIA"].DefaultCellStyle.Format = "C2";
+                DG_aclaraciones.Columns["TOTAL_PAGAR"].DefaultCellStyle.Format = "C2";
                 DG_tabla.Columns["EXT_VA"].DefaultCellStyle.ForeColor = Color.Red;
                 DG_tabla.Columns["EXT_RE"].DefaultCellStyle.ForeColor = Color.Red;
                 DG_tabla.Columns["EXT_VE"].DefaultCellStyle.ForeColor = Color.Red;

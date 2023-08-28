@@ -839,24 +839,24 @@ namespace appSugerencias
                 }
 
                 //PREGOT
-                try
-                {
-                    conex_excel = BDConexicon.Papeleria1Open();
-                    cargarArticulos();
-                    conex_excel.Close();
+//                try
+//                {
+//                    conex_excel = BDConexicon.Papeleria1Open();
+//                    cargarArticulos();
+//                    conex_excel.Close();
 
-                    lblPre2.Text = "OK";
-                    lblPre2.ForeColor = Color.DarkGreen;
-                }
-#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
-                catch (Exception ex)
-#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
-                {
-                    lblPre2.Text = "NA";
-                    lblPre2.ForeColor = Color.Red;
+//                    lblPre2.Text = "OK";
+//                    lblPre2.ForeColor = Color.DarkGreen;
+//                }
+//#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
+//                catch (Exception ex)
+//#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
+//                {
+//                    lblPre2.Text = "NA";
+//                    lblPre2.ForeColor = Color.Red;
 
 
-                }
+//                }
 
 
                 btExcel.Enabled = true;
