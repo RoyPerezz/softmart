@@ -116,6 +116,8 @@
             this.label17 = new System.Windows.Forms.Label();
             this.tbPrecio1 = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
+            this.TB_total_existencia = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.panelOfertas.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panelPrecio.SuspendLayout();
@@ -334,7 +336,7 @@
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(228, 171);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(20, 16);
+            this.label10.Size = new System.Drawing.Size(21, 16);
             this.label10.TabIndex = 11;
             this.label10.Text = "%";
             // 
@@ -459,6 +461,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.TB_total_existencia);
             this.groupBox2.Controls.Add(this.LB_PME_coloso);
             this.groupBox2.Controls.Add(this.LB_PM_coloso);
             this.groupBox2.Controls.Add(this.LB_PME_velazquez);
@@ -1045,6 +1049,24 @@
             this.label16.Text = "Mayoreo";
             this.label16.Click += new System.EventHandler(this.label16_Click);
             // 
+            // TB_total_existencia
+            // 
+            this.TB_total_existencia.Enabled = false;
+            this.TB_total_existencia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_total_existencia.Location = new System.Drawing.Point(89, 496);
+            this.TB_total_existencia.Name = "TB_total_existencia";
+            this.TB_total_existencia.Size = new System.Drawing.Size(49, 22);
+            this.TB_total_existencia.TabIndex = 54;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(5, 500);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(81, 13);
+            this.label3.TabIndex = 19;
+            this.label3.Text = "Total existencia";
+            // 
             // Existencias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1156,5 +1178,7 @@
         private System.Windows.Forms.Label LB_PM_vallarta;
         private System.Windows.Forms.Label LB_PME_bodega;
         private System.Windows.Forms.Label LB_PM_bodega;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox TB_total_existencia;
     }
 }

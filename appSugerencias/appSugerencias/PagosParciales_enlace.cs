@@ -83,13 +83,13 @@ namespace appSugerencias
 
             }
 
-            string query = "select distinct clientebancario from rd_bancos_osmart where tipo=1";
+            string query = "select patron from rd_patrones_tiendas where activo=1";
             MySqlConnection con = BDConexicon.BodegaOpen();
             MySqlCommand cmd = new MySqlCommand(query,con);
             MySqlDataReader dr = cmd.ExecuteReader();
             while (dr.Read())
             {
-                CB_patron.Items.Add(dr["clientebancario"].ToString());
+                CB_patron.Items.Add(dr["patron"].ToString());
                 
             }
             dr.Close();

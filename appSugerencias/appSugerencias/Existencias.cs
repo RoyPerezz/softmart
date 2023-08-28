@@ -17,7 +17,7 @@ namespace appSugerencias
         string Usuario;
         string Area;
         string ip;
-
+        int existenciaTotal = 0;
         public Existencias()
         {
             InitializeComponent();
@@ -51,7 +51,8 @@ namespace appSugerencias
 
                 if (rd.Read())
                 {
-                   
+                    existenciaTotal += Convert.ToInt32(rd["existencia"].ToString());
+
                     TB_vallarta.Text = rd[0].ToString();
                     LB_prov_vallarta.Text= rd["fabricante"].ToString();
                     LB_va_linea.Text = rd["linea"].ToString();
@@ -111,6 +112,7 @@ namespace appSugerencias
 
                 if (rd.Read())
                 {
+                    existenciaTotal += Convert.ToInt32(rd["existencia"].ToString());
                     TB_velazquez.Text = rd[0].ToString();
                     LB_prov_velazquez.Text= rd["fabricante"].ToString();
                     LB_ve_linea.Text = rd["linea"].ToString();
@@ -171,6 +173,7 @@ namespace appSugerencias
                 double precio1 = 0, precio2 = 0;
                 if (rd.Read())
                 {
+                    existenciaTotal += Convert.ToInt32(rd["existencia"].ToString());
                     TB_rena.Text = rd[0].ToString();
                     LB_prov_rena.Text= rd["fabricante"].ToString();
                     LB_re_linea.Text = rd["linea"].ToString();
@@ -233,6 +236,7 @@ namespace appSugerencias
 
                 if (rd.Read())
                 {
+                    existenciaTotal += Convert.ToInt32(rd["existencia"].ToString());
                     TB_coloso.Text = rd[0].ToString();
                     LB_prov_coloso.Text = rd["fabricante"].ToString();
                     LB_co_linea.Text = rd["linea"].ToString();
@@ -288,6 +292,7 @@ namespace appSugerencias
 
                 if (rd.Read())
                 {
+                    existenciaTotal+=Convert.ToInt32(rd["existencia"].ToString());
                     TB_bodega.Text = rd["existencia"].ToString();
                     LB_prov_bodega.Text= rd["fabricante"].ToString();
                     LB_bo_linea.Text = rd["linea"].ToString();
@@ -443,9 +448,9 @@ namespace appSugerencias
                 rd.Close();
                 con.Close();
             }
-#pragma warning disable CS0168 // La variable 'e' se ha declarado pero nunca se usa
+
             catch (Exception e)
-#pragma warning restore CS0168 // La variable 'e' se ha declarado pero nunca se usa
+
             {
                
             }
@@ -511,10 +516,11 @@ namespace appSugerencias
                 //{
                 //    Pregot();
                 //}
-                
 
 
 
+                TB_total_existencia.Text = existenciaTotal.ToString();
+                existenciaTotal = 0;
 
             }
 
@@ -1878,9 +1884,10 @@ namespace appSugerencias
                     //{
                     //    Pregot();
                     //}
-                  
 
 
+                    TB_total_existencia.Text = existenciaTotal.ToString();
+                    existenciaTotal = 0;
                 }
             }
 
