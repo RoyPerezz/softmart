@@ -353,8 +353,8 @@ namespace appSugerencias.Gastos.Vistas
                 double diferencia = total_Egreso - totalIngreso;// SE CALCULA LA DIFERENCIA
                 DG_tabla.Rows.Add("TOTALES", "", "", total_Egreso, "", "", totalIngreso, diferencia);
                 int filas = DG_tabla.Rows.Count;
-
-                DG_tabla.Rows[filas - 1].DefaultCellStyle.BackColor = Color.LightSeaGreen;
+               
+                DG_tabla.Rows[filas - 1].DefaultCellStyle.BackColor = Color.Black;
                 DG_tabla.Rows[filas - 1].DefaultCellStyle.ForeColor = Color.White;
             }
 

@@ -396,6 +396,7 @@ namespace appSugerencias
         {
             //string IP = ConfigurationManager.AppSettings["IpVallarta"];
             string bd = "VALLARTA " + mes + " " + año;
+            string IP = IPVallarta;
             MySqlConnection conVallarta = new MySqlConnection($"server={IP}; database={bd}; Uid={User}; pwd={Pass};pooling = false; convert zero datetime=True;");
 
             //MySqlConnection conVallarta = new MySqlConnection("server=192.168.1.2; database=" + bd + "; Uid=root; pwd=;pooling = false; convert zero datetime=True;");
@@ -409,7 +410,8 @@ namespace appSugerencias
         {
             //string IP = ConfigurationManager.AppSettings["IpRena"];
             string bd = "RENA " + mes + " " + año;
-            MySqlConnection conRena = new MySqlConnection($"server={IP} database={bd}; Uid={User}; pwd={Pass};pooling = false; convert zero datetime=True;");
+            string IP = IPRena;
+            MySqlConnection conRena = new MySqlConnection($"server={IP}; database={bd}; Uid={User}; pwd={Pass};pooling = false; convert zero datetime=True;");
             conRena.Open();
 
             return conRena;
@@ -420,6 +422,7 @@ namespace appSugerencias
         {
             //string IP = ConfigurationManager.AppSettings["IpColoso"];
             string bd = "COLOSO " + mes + " " + año;
+            string IP = IPColoso;
             MySqlConnection conColoso = new MySqlConnection($"server={IP}; database={bd}; Uid={User}; pwd={Pass};pooling = false; convert zero datetime=True;");
             conColoso.Open();
 
@@ -427,9 +430,10 @@ namespace appSugerencias
 
         }
 
-        public static MySqlConnection RespaldoVE(string mes,int año)
+        public static MySqlConnection RespaldoVE(string mes, int año)
         {
             string bd = "DIEZ " + mes + " " + año;
+            string IP = IPVelazquez;
             MySqlConnection conVelazquez = new MySqlConnection($"server={IP}; database={bd}; Uid={User}; pwd={Pass};pooling = false; convert zero datetime=True;");
             conVelazquez.Open();
 
