@@ -58,5 +58,79 @@ namespace appSugerencias
             return consec;
         }
 
+        public static int ConsecMovsinv(string sucursal)
+        {
+            int consec = 1;
+            MySqlConnection con = BDConexicon.ConexionSucursal(sucursal);
+            
+
+                MySqlCommand cmd = new MySqlCommand("SELECT Consec FROM CONSEC WHERE Dato ='movsinv'", con);
+                MySqlDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    consec += consec = Convert.ToInt32(dr["Consec"].ToString());
+                }
+            dr.Close();
+            con.Close();
+            
+
+
+            return consec;
+
+        }
+
+        public static int ConsecCompra(string sucursal)
+        {
+            int consec = 1;
+            MySqlConnection con = BDConexicon.ConexionSucursal(sucursal);
+            MySqlCommand cmd = new MySqlCommand("SELECT Consec FROM consec WHERE Dato='Compra'",con);
+            MySqlDataReader dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                consec += consec = Convert.ToInt32(dr["Consec"].ToString());
+            }
+            dr.Close();
+            con.Close();
+
+
+
+            return consec;
+        }
+
+        public static int ConsecPartcomp(string sucursal)
+        {
+            int consec = 1;
+            MySqlConnection con = BDConexicon.ConexionSucursal(sucursal);
+            MySqlCommand cmd = new MySqlCommand("SELECT Consec FROM consec WHERE Dato='partcomp'", con);
+            MySqlDataReader dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                consec += consec = Convert.ToInt32(dr["Consec"].ToString());
+            }
+            dr.Close();
+            con.Close();
+
+            return consec;
+        }
+
+        public static int ConsecCuentasXPagar(string sucursal)
+        {
+            int consec = 1;
+            MySqlConnection con = BDConexicon.ConexionSucursal(sucursal);
+            MySqlCommand cmd = new MySqlCommand("SELECT Consec FROM consec WHERE Dato='cuenxpag'", con);
+            MySqlDataReader dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                consec += consec = Convert.ToInt32(dr["Consec"].ToString());
+            }
+            dr.Close();
+            con.Close();
+
+            return consec;
+        }
     }
 }

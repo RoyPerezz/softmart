@@ -1827,7 +1827,7 @@ namespace appSugerencias
             //sino existe la instancia se crea una nueva
             frm = new DevolucionesCompras(lblUsuario.Text);
             string modulo = frm.Name;
-            RegistrarAccesos(modulo);
+          //  RegistrarAccesos(modulo);
             frm.Show();
         }
 
@@ -3625,6 +3625,44 @@ namespace appSugerencias
 
             //sino existe la instancia se crea una nueva
             frm = new ReporteGralAclaraciones(lblUsuario.Text);
+            string modulo = frm.Name;
+            RegistrarAccesos(modulo);
+            frm.Show();
+        }
+
+        private void formatoCompraToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //se localiza el formulario buscandolo entre los forms abiertos
+            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FormatoCompra);
+
+            if (frm != null)
+            {
+                //si la instancia existe la pongo en primer plano
+                frm.BringToFront();
+                return;
+            }
+
+            //sino existe la instancia se crea una nueva
+            frm = new FormatoCompra(lblUsuario.Text);
+            string modulo = frm.Name;
+            RegistrarAccesos(modulo);
+            frm.Show();
+        }
+
+        private void articulosSinMivimientoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is ArticulosSinVender);
+
+            if (frm != null)
+            {
+                //si la instancia existe la pongo en primer plano
+                frm.BringToFront();
+                return;
+            }
+
+            //sino existe la instancia se crea una nueva
+            frm = new ArticulosSinVender();
             string modulo = frm.Name;
             RegistrarAccesos(modulo);
             frm.Show();

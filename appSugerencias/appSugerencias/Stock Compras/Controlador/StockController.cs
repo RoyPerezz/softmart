@@ -177,5 +177,7 @@ namespace appSugerencias.Stock_Compras.Controlador
 
             con.Close();
         }
+
+       
     }
 }

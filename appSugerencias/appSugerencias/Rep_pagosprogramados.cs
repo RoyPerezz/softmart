@@ -444,7 +444,7 @@ namespace appSugerencias
 
             string area = Empleado.Area(usuario);
 
-            if (area.Equals("SISTEMAS")||area.Equals("ADMON GRAL"))
+            if (area.Equals("SISTEMAS")||area.Equals("ADMON GRAL") || area.Equals("COMPRAS"))
             {
                 DG_tabla.Columns["CHECK"].ReadOnly=false;
                 DG_tabla.Columns["PAGO_PARCIAL"].ReadOnly = false;
@@ -484,8 +484,10 @@ namespace appSugerencias
         {
 
             bool checkParcial = Convert.ToBoolean(DG_tabla.Rows[e.RowIndex].Cells["PAGO_PARCIAL"].Value);
+            bool checkAnticipado = Convert.ToBoolean(DG_tabla.Rows[e.RowIndex].Cells["PAGO_ANTICIPADO"].Value);
+            bool checkTotal = Convert.ToBoolean(DG_tabla.Rows[e.RowIndex].Cells["CHECK"].Value);
 
-            if (checkParcial == true)
+            if (checkParcial == true && RB_spei.Checked==true)
             {
                 string enlace = Convert.ToString(DG_tabla.Rows[e.RowIndex].Cells["ENLACE"].Value);
                 string sucursal = Convert.ToString(DG_tabla.Rows[e.RowIndex].Cells["SUCURSAL"].Value);
@@ -512,6 +514,74 @@ namespace appSugerencias
 
                 //    MessageBox.Show("ERROR, SOFTMART no reconoce el enlace del recurso al cual quieres acceder "+ex);
                 //}
+            }else if(checkParcial == false && checkAnticipado==false && checkTotal==false)
+            {
+                string enlace = Convert.ToString(DG_tabla.Rows[e.RowIndex].Cells["ENLACE"].Value);
+                string sucursal = Convert.ToString(DG_tabla.Rows[e.RowIndex].Cells["SUCURSAL"].Value);
+                string compra = Convert.ToString(DG_tabla.Rows[e.RowIndex].Cells["COMPRA"].Value);
+                string importe = Convert.ToString(DG_tabla.Rows[e.RowIndex].Cells["IMPORTE"].Value);
+                string referencia = Convert.ToString(DG_tabla.Rows[e.RowIndex].Cells["FACTURA"].Value);
+
+                DataTable pagosParciales = new DataTable();
+
+                MySqlConnection con = BDConexicon.ConexionSucursal(sucursal);
+                string query = "SELECT IMPORTE, TIPO_DOC, FECHA FROM CUENXPDET WHERE COMPRA='" + compra + "' AND Cargo_ab='A'";
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                MySqlDataAdapter ad = new MySqlDataAdapter(cmd);
+                ad.Fill(pagosParciales);
+
+                PagosParciales_enlace parcial = new PagosParciales_enlace(enlace, pagosParciales, usuario, importe, referencia, compra, sucursal);
+                parcial.Show();
+
+            }else if(RB_efectivo.Checked==true || RB_deposito.Checked==true||RB_todos.Checked==true)
+            {
+                string tipoPago = DG_tabla.Rows[e.RowIndex].Cells["TIPO"].Value.ToString();
+                if (tipoPago.Equals("SPEI"))
+                {
+                    if (checkParcial==true)
+                    {
+                        string enlace = Convert.ToString(DG_tabla.Rows[e.RowIndex].Cells["ENLACE"].Value);
+                        string sucursal = Convert.ToString(DG_tabla.Rows[e.RowIndex].Cells["SUCURSAL"].Value);
+                        string compra = Convert.ToString(DG_tabla.Rows[e.RowIndex].Cells["COMPRA"].Value);
+                        string importe = Convert.ToString(DG_tabla.Rows[e.RowIndex].Cells["IMPORTE"].Value);
+                        string referencia = Convert.ToString(DG_tabla.Rows[e.RowIndex].Cells["FACTURA"].Value);
+
+                        DataTable pagosParciales = new DataTable();
+
+                        MySqlConnection con = BDConexicon.ConexionSucursal(sucursal);
+                        string query = "SELECT IMPORTE, TIPO_DOC, FECHA FROM CUENXPDET WHERE COMPRA='" + compra + "' AND Cargo_ab='A'";
+                        MySqlCommand cmd = new MySqlCommand(query, con);
+                        MySqlDataAdapter ad = new MySqlDataAdapter(cmd);
+                        ad.Fill(pagosParciales);
+
+                        PagosParciales_enlace parcial = new PagosParciales_enlace(enlace, pagosParciales, usuario, importe, referencia, compra, sucursal);
+                        parcial.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("El pago ya se ha realizado, por lo que no puedes aplicarlo otra vez.");
+                    }
+                }
+                else
+                {
+                    string enlace = Convert.ToString(DG_tabla.Rows[e.RowIndex].Cells["ENLACE"].Value);
+                    string sucursal = Convert.ToString(DG_tabla.Rows[e.RowIndex].Cells["SUCURSAL"].Value);
+                    string compra = Convert.ToString(DG_tabla.Rows[e.RowIndex].Cells["COMPRA"].Value);
+                    string importe = Convert.ToString(DG_tabla.Rows[e.RowIndex].Cells["IMPORTE"].Value);
+                    string referencia = Convert.ToString(DG_tabla.Rows[e.RowIndex].Cells["FACTURA"].Value);
+
+                    DataTable pagosParciales = new DataTable();
+
+                    MySqlConnection con = BDConexicon.ConexionSucursal(sucursal);
+                    string query = "SELECT IMPORTE, TIPO_DOC, FECHA FROM CUENXPDET WHERE COMPRA='" + compra + "' AND Cargo_ab='A'";
+                    MySqlCommand cmd = new MySqlCommand(query, con);
+                    MySqlDataAdapter ad = new MySqlDataAdapter(cmd);
+                    ad.Fill(pagosParciales);
+
+                    PagosParciales_enlace parcial = new PagosParciales_enlace(enlace, pagosParciales, usuario, importe, referencia, compra, sucursal);
+                    parcial.Show();
+                }
+                
             }
             else
             {

@@ -38,15 +38,12 @@ namespace appSugerencias
         
 
         MySqlConnection conectar;
-        double IVA = 1.16;
-#pragma warning disable CS0169 // El campo 'frm_Compras.cantidadArticompra' nunca se usa
-        int idMovsinv, idCompra, idPartcomp, idCuentasxPag, existenciaTotal, existenciaCompra, existenciaPrevia, itemsCompra, cantidadArticompra;
-#pragma warning restore CS0169 // El campo 'frm_Compras.cantidadArticompra' nunca se usa
-#pragma warning disable CS0169 // El campo 'frm_Compras.costoArticulo' nunca se usa
-#pragma warning disable CS0169 // El campo 'frm_Compras.IVAcompra' nunca se usa
+        double IVA = 1.16;        int idMovsinv, idCompra, idPartcomp, idCuentasxPag, existenciaTotal, existenciaCompra, existenciaPrevia, itemsCompra, cantidadArticompra;
+
+
+
         double importeArticulo, IVAcompra, costoArticulo, importeCompra,importecompraSinIVA, TotalCompra;
-#pragma warning restore CS0169 // El campo 'frm_Compras.IVAcompra' nunca se usa
-#pragma warning restore CS0169 // El campo 'frm_Compras.costoArticulo' nunca se usa
+
 
         private void TBArchivo_TextChanged(object sender, EventArgs e)
         {

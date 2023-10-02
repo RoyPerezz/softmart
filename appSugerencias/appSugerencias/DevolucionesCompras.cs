@@ -49,7 +49,7 @@ namespace appSugerencias
             try
             {
                 MySqlConnection con = BDConexicon.conectar();
-                string query = "SELECT PROVEEDOR FROM proveed WHERE nombre ='" + CB_proveedores.SelectedItem.ToString() + "'";
+                string query = "SELECT PROVEEDOR FROM proveed WHERE nombre ='" + CB_proveedores.Text+ "'";
                 MySqlCommand cmd = new MySqlCommand(query, con);
                 MySqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
@@ -96,13 +96,17 @@ namespace appSugerencias
         private void CB_compra_SelectedIndexChanged(object sender, EventArgs e)
         {
             //******************************************************
+
+          
+
+
             double impuesto = 0;
             double importe = 0;
             double impFactura = 0;
             try
             {
                 MySqlConnection conexion = BDConexicon.ConexionSucursal(CB_sucursal.SelectedItem.ToString());
-                string queryCompras = "SELECT  FACTURA,IMPORTE,IMPUESTO FROM COMPRAS WHERE COMPRA ='" + CB_compra.SelectedItem.ToString() + "' and PROVEEDOR='" + TB_proveedor.Text + "'";
+                string queryCompras = "SELECT  FACTURA,IMPORTE,IMPUESTO FROM COMPRAS WHERE COMPRA ='" + CB_compra.Text + "' and PROVEEDOR='" + TB_proveedor.Text + "'";
                 MySqlCommand comando = new MySqlCommand(queryCompras, conexion);
                 MySqlDataReader reader = comando.ExecuteReader();
                 while (reader.Read())
@@ -117,9 +121,9 @@ namespace appSugerencias
                 reader.Close();
                 conexion.Close();
             }
-#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
+
             catch (Exception ex)
-#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
+
             {
 
                 //MessageBox.Show("Excepcion Controlada: Problema con el evento del combobox de compra  "+ex);
@@ -198,13 +202,15 @@ namespace appSugerencias
                 {
                     consec += consec = Convert.ToInt32(dr["Consec"].ToString());
                 }
+                dr.Close();
+                con.Close();
             }
             catch (Exception ex)
             {
 
                 MessageBox.Show("Error al traer consecutivo de movsinv " + ex);
             }
-
+          
 
 
             return consec;
@@ -529,15 +535,23 @@ namespace appSugerencias
                 double precio = 0;
                 int salida = 0;
                 int impuesto = 0;
-#pragma warning disable CS0219 // La variable 'inv' está asignada pero su valor nunca se usa
+
                 InventarioFisico inv = null;
-#pragma warning restore CS0219 // La variable 'inv' está asignada pero su valor nunca se usa
-#pragma warning disable CS0219 // La variable 'drRec' está asignada pero su valor nunca se usa
+
                 MySqlDataReader drRec = null;
-#pragma warning restore CS0219 // La variable 'drRec' está asignada pero su valor nunca se usa
+
                 if (CHK_parcial.Checked == false)
                 {
-                 
+
+
+                    // SE INSERTAN LOS DATOS EN EL CARDEX DEL ARTICULO, OSEA LA TABLA MOVSINV
+                    int consecMovsinv = ConsecMovsinv();
+                    int nuevoConsecutivo = consecMovsinv + Convert.ToInt32(DG_tabla.Rows.Count);
+
+                    MySqlCommand actualizaMovsinv = new MySqlCommand("UPDATE consec SET CONSEC=" + nuevoConsecutivo + " WHERE Dato='movsinv'", conexion);
+                    actualizaMovsinv.ExecuteNonQuery();
+
+
                     MySqlDataReader drExistencia = null;
                     for (int i = 0; i < DG_tabla.RowCount; i++)
                     {
@@ -591,10 +605,8 @@ namespace appSugerencias
                         MySqlCommand consecPartCompra = new MySqlCommand("UPDATE consec SET CONSEC=" + id_entrada + " WHERE Dato='partcomp'", conexion);
                         consecPartCompra.ExecuteNonQuery();
 
-                        // SE INSERTAN LOS DATOS EN EL CARDEX DEL ARTICULO, OSEA LA TABLA MOVSINV
-                        int consecMovsinv = ConsecMovsinv();
-                      
-                      
+                       
+
                         // ############## EXISTENCIA DEL ALMACEN ##############################################################################
                         MySqlCommand existenciaArt = new MySqlCommand("select existencia from movsinv where articulo='" + articulo + "' order by consec desc limit 1", conexion);
                         drExistencia = existenciaArt.ExecuteReader();
@@ -643,10 +655,13 @@ namespace appSugerencias
                         movsinv.Parameters.AddWithValue("?poliza", "");
                         movsinv.ExecuteNonQuery();
 
-                        MySqlCommand actualizaMovsinv = new MySqlCommand("UPDATE consec SET CONSEC="+ consecMovsinv+" WHERE Dato='movsinv'",conexion);
-                        actualizaMovsinv.ExecuteNonQuery();
 
-                        MySqlCommand actualizaDevComp = new MySqlCommand("UPDATE consec SET CONSEC='" + devComp + "' WHERE Dato='devcomp'", conexion);
+
+                        consecMovsinv++;
+
+
+
+                         MySqlCommand actualizaDevComp = new MySqlCommand("UPDATE consec SET CONSEC='" + devComp + "' WHERE Dato='devcomp'", conexion);
                         actualizaDevComp.ExecuteNonQuery();
                         // RECALCULAR ###################################################################################################################
                         //string query = "SELECT ENT_SAL,EXISTENCIA FROM MOVSINV WHERE ARTICULO='" + articulo + "'";
@@ -683,10 +698,18 @@ namespace appSugerencias
                     }
                     RecalcularExistencia();
                     MessageBox.Show("Se Realizó la devolución de la compra " + CB_compra.SelectedItem.ToString() + " de "+CB_proveedores.SelectedItem.ToString()+" exitosamente");
+                    consecMovsinv = 0;
                 }
                 else
                 {
-                 
+
+                    int consecMovsinv = ConsecMovsinv();
+                    int nuevoConsecutivo = consecMovsinv + Convert.ToInt32(DG_devolucion.Rows.Count);
+
+                    MySqlCommand actualizaMovsinv = new MySqlCommand("UPDATE consec SET CONSEC=" + nuevoConsecutivo + " WHERE Dato='movsinv'", conexion);
+                    actualizaMovsinv.ExecuteNonQuery();
+
+
                     MySqlDataReader drExistencia = null;
                     for (int i = 0; i < DG_devolucion.RowCount; i++)
                     {
@@ -742,7 +765,7 @@ namespace appSugerencias
                         consecPartCompra.ExecuteNonQuery();
 
                         // SE INSERTAN LOS DATOS EN EL CARDEX DEL ARTICULO, OSEA LA TABLA MOVSINV
-                        int consecMovsinv = ConsecMovsinv();
+                        //int consecMovsinv = ConsecMovsinv();
 
 
 
@@ -792,8 +815,11 @@ namespace appSugerencias
                         movsinv.Parameters.AddWithValue("?poliza", "");
                         movsinv.ExecuteNonQuery();
 
-                        MySqlCommand actualizaMovsinv = new MySqlCommand("UPDATE consec SET CONSEC=" + consecMovsinv + " WHERE Dato='movsinv'", conexion);
-                        actualizaMovsinv.ExecuteNonQuery();
+
+
+                        consecMovsinv++;
+                        //MySqlCommand actualizaMovsinv = new MySqlCommand("UPDATE consec SET CONSEC=" + consecMovsinv + " WHERE Dato='movsinv'", conexion);
+                        //actualizaMovsinv.ExecuteNonQuery();
 
                         MySqlCommand actualizaDevComp = new MySqlCommand("UPDATE consec SET CONSEC='" + devComp + "' WHERE Dato='devcomp'", conexion);
                         actualizaDevComp.ExecuteNonQuery();
@@ -903,6 +929,7 @@ namespace appSugerencias
                     Auditoria.Auditoria_devolucion_compra(usuario,CB_sucursal.SelectedItem.ToString(),TB_proveedor.Text,CB_compra.SelectedItem.ToString(),TB_factura.Text, importeCompra, parcial,total, importeDev,TB_observacion.Text,dt);
                     //####################################################################################################################################################################################################################################################################################################################
                     MessageBox.Show("Se Realizó la devolución de la compra " + CB_compra.SelectedItem.ToString() + " de  "+CB_proveedores.SelectedItem.ToString()+" exitosamente");
+                    consecMovsinv = 0;
                 }
 
                 conexion.Close();
@@ -1091,8 +1118,14 @@ namespace appSugerencias
             CB_compra.SelectedIndex = -1;
             TB_proveedor.Text = "";
             CB_proveedores.SelectedIndex = -1;
-       
-        
+
+            artCompra.Clear();
+            DG_devolucion.Rows.Clear();
+            TB_importeTotal.Text = "";
+            TB_importeTotal2.Text = "";
+            TB_dgFiltro.Text = "";
+
+
         }
 
         private void DG_devolucion_CellContentClick(object sender, DataGridViewCellEventArgs e)

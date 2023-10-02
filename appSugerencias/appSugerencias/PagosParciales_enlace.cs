@@ -186,7 +186,8 @@ namespace appSugerencias
                         dato = "ABONOPROV";
                     }
 
-
+                    decimal digito = decimal.Parse(TB_importe.Text, NumberStyles.Currency, CultureInfo.GetCultureInfo("en-US"));
+                    cantidad = digito.ToString("G0");
 
                     string compra = TB_compra.Text;
                     //double importe = Convert.ToDouble(TB_importe.Text);
@@ -228,7 +229,7 @@ namespace appSugerencias
                     //actualizar consecutivo de desglose de abono
                     MySqlCommand actualizar2 = new MySqlCommand("UPDATE CONSEC SET Consec=" + idDesglose + " WHERE Dato='consecAbono'", con);
                     actualizar2.ExecuteNonQuery();
-                    con.Close();
+                 
 
 
 
@@ -252,7 +253,7 @@ namespace appSugerencias
 
                     cmd.ExecuteNonQuery();
                     cmd3.ExecuteNonQuery();
-
+                    con.Close();
                     conBO.Close();
                     Limpiar();
                     MessageBox.Show("Se ha registrado el SPEI ");

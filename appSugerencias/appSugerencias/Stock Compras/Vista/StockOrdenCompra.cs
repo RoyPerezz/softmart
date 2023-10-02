@@ -341,6 +341,7 @@ namespace appSugerencias
             double precio_mayoreo = 0,precio_menudeo=0,costoXpz=0,descuento=0,utilidad=0;
 
             DataGridViewCheckBoxCell precio_manual = new DataGridViewCheckBoxCell();
+            int x = 0;
             while (dr.Read())
             {
 
@@ -352,12 +353,35 @@ namespace appSugerencias
                 //exco = Existencia(dr["claveProducto"].ToString(), "COLOSO");
 
 
+
                 //se agregan los datos en el datagrid
                 DG_tabla.Rows.Add(dr["modelo"].ToString(), dr["claveProducto"].ToString(), dr["descripcion"].ToString(), dr["departamento"].ToString(), dr["pzxpedir"].ToString(), Convert.ToDouble(dr["cajasxpedir"].ToString()), dr["cajaspedbo"].ToString(),
                     dr["pzxcaja"].ToString(), dr["pzxpaq"].ToString(), Convert.ToDouble(dr["costoxpaq"].ToString()), Convert.ToDouble(dr["costoxpz"].ToString()), dr["ped_bo"].ToString(), Convert.ToDouble(dr["importe_bo"].ToString()), dr["max_ce"].ToString(), exce, dr["ped_ce"].ToString(), Convert.ToDouble(dr["importeCE"].ToString()), dr["max_va"].ToString()
                     , dr["ex_va"].ToString(), dr["ex_pasada_va"].ToString(), dr["ped_va"].ToString(), Convert.ToDouble(dr["importe_va"].ToString()), dr["max_re"].ToString(), dr["ex_re"].ToString(), dr["ex_pasada_re"].ToString(), dr["ped_re"].ToString(), Convert.ToDouble(dr["importe_re"].ToString()), dr["max_ve"].ToString(), dr["ex_ve"].ToString(),
                     dr["ex_pasada_ve"].ToString(), dr["ped_ve"].ToString(), Convert.ToDouble(dr["importe_ve"].ToString()), dr["max_co"].ToString(), dr["ex_co"].ToString(), dr["ex_pasada_co"].ToString(), dr["ped_co"].ToString(), Convert.ToDouble(dr["importe_co"].ToString()), dr["idreg"].ToString(),dr["costou"].ToString(),dr["COMENTARIO"].ToString());
 
+                if (Convert.ToDouble(dr["importeCE"])<0)
+                {
+                    DG_tabla.Rows[x].Cells[16].Style.BackColor = Color.Black;
+                    DG_tabla.Rows[x].Cells[16].Style.ForeColor = Color.Red;
+                }
+                else
+                {
+                    DG_tabla.Rows[x].Cells[16].Style.BackColor = Color.White;
+                    DG_tabla.Rows[x].Cells[16].Style.ForeColor = Color.Black;
+                }
+
+                if (Convert.ToInt32(dr["ped_ce"])<0)
+                {
+                    DG_tabla.Rows[x].Cells[15].Style.BackColor = Color.Black;
+                    DG_tabla.Rows[x].Cells[15].Style.ForeColor = Color.Red;
+                }
+                else
+                {
+                    DG_tabla.Rows[x].Cells[15].Style.BackColor = Color.White;
+                    DG_tabla.Rows[x].Cells[15].Style.ForeColor = Color.Black;
+                }
+                x++;
 
                 if (string.IsNullOrEmpty(dr["precio_manual"].ToString()))
                 {
@@ -804,7 +828,7 @@ namespace appSugerencias
                     cajasXPedir = Convert.ToDouble(pzXPedir) / Convert.ToDouble(pzXCaja) / Convert.ToDouble(pzXPaq);
                     costoXPz = costoXPaq / pzXPaq;
                     ped_bo = cajaspedbo * pzXCaja;
-                    ped_ce = ped_bo - ped_va - ped_re - ped_co - ped_co;
+                    ped_ce = ped_bo - ped_va - ped_re - ped_ve - ped_co;
                     importe_bo = ped_bo * costoXPaq;
                     importe_ce = ped_ce * costoXPaq;
                     importe_va = ped_va * costoXPaq;
@@ -1077,15 +1101,37 @@ namespace appSugerencias
                             DG_tabla.Rows[i].Cells[5].Value = cajasXPedir;
                             //-------------------------------------------------------------------------------------
 
-                            //ped_ce = ped_bo - (ped_va + ped_re + ped_ve + ped_co);
-
+                            ped_ce = ped_bo - (ped_va + ped_re + ped_ve + ped_co);
+                            DG_tabla.Rows[i].Cells[15].Value = ped_ce;
                             //---------------------- IMPORTE CEDIS ------------------------------------------------
 
-                            DG_tabla.Rows[i].Cells[16].Value = Convert.ToDouble(DG_tabla.Rows[i].Cells[15].Value) * Convert.ToDouble(DG_tabla.Rows[i].Cells[9].Value);
+
+                            importe_ce = Convert.ToDouble(DG_tabla.Rows[i].Cells[15].Value) * Convert.ToDouble(DG_tabla.Rows[i].Cells[9].Value);
+                            DG_tabla.Rows[i].Cells[16].Value = importe_ce;
                             //-------------------------------------------------------------------------------------
 
 
+                            if (ped_ce<0)
+                            {
+                                DG_tabla.Rows[i].Cells[15].Style.BackColor = Color.Black;
+                                DG_tabla.Rows[i].Cells[15].Style.ForeColor = Color.Red;
+                            }
+                            else
+                            {
+                                DG_tabla.Rows[i].Cells[15].Style.BackColor = Color.White;
+                                DG_tabla.Rows[i].Cells[15].Style.ForeColor = Color.Black;
+                            }
 
+                            if (importe_ce<0)
+                            {
+                                DG_tabla.Rows[i].Cells[16].Style.BackColor = Color.Black;
+                                DG_tabla.Rows[i].Cells[16].Style.ForeColor = Color.Red;
+                            }
+                            else
+                            {
+                                DG_tabla.Rows[i].Cells[16].Style.BackColor = Color.White;
+                                DG_tabla.Rows[i].Cells[16].Style.ForeColor = Color.Black;
+                            }
                             //--------------IMPORTES DE ACUERDO AL PEDIDO ------------------------------------------
                             DG_tabla.Rows[i].Cells[21].Value = (ped_va * costoXPaq);//IMPORTE VALLARTA
                             DG_tabla.Rows[i].Cells[26].Value = (ped_re * costoXPaq);//IMPORTE RENA
@@ -1313,113 +1359,113 @@ namespace appSugerencias
                             exva = Convert.ToInt32(DG_tabla.Rows[i].Cells["EXT_VA"].Value);
                             maxva = Convert.ToInt32(DG_tabla.Rows[i].Cells["MAX_VA"].Value);
 
-                            //if (maxva == 0)
-                            //{
-                            //    DG_tabla.Rows[i].Cells["PEDIDO_VA"].Value = 0;
-                            //}
-                            //else
-                            //{
-                            //    if (exva > (maxva / 2))
-                            //    {
-                            //        DG_tabla.Rows[i].Cells["PEDIDO_VA"].Value = 0;
-                            //    }
+                            if (maxva == 0)
+                            {
+                                DG_tabla.Rows[i].Cells["PEDIDO_VA"].Value = 0;
+                            }
+                            else
+                            {
+                                if (exva > (maxva / 2))
+                                {
+                                    DG_tabla.Rows[i].Cells["PEDIDO_VA"].Value = 0;
+                                }
 
-                            //    if (exva <= (maxva / 2))
-                            //    {
-                            //        DG_tabla.Rows[i].Cells["PEDIDO_VA"].Value = maxva;
-                            //    }
+                                if (exva <= (maxva / 2))
+                                {
+                                    DG_tabla.Rows[i].Cells["PEDIDO_VA"].Value = maxva;
+                                }
 
-                            //    if (exva == 0)
-                            //    {
-                            //        DG_tabla.Rows[i].Cells["PEDIDO_VA"].Value = maxva;
-                            //    }
+                                if (exva == 0)
+                                {
+                                    DG_tabla.Rows[i].Cells["PEDIDO_VA"].Value = maxva;
+                                }
 
 
-                            //}
+                            }
 
                             //RENA
                             exre = Convert.ToInt32(DG_tabla.Rows[i].Cells["EXT_RE"].Value);
                             maxre = Convert.ToInt32(DG_tabla.Rows[i].Cells["MAX_RE"].Value);
 
-                            //if (maxre == 0)
-                            //{
-                            //    DG_tabla.Rows[i].Cells["PEDIDO_RE"].Value = 0;
-                            //}
-                            //else
-                            //{
-                            //    if (exre > (maxre / 2))
-                            //    {
-                            //        DG_tabla.Rows[i].Cells["PEDIDO_RE"].Value = 0;
-                            //    }
+                            if (maxre == 0)
+                            {
+                                DG_tabla.Rows[i].Cells["PEDIDO_RE"].Value = 0;
+                            }
+                            else
+                            {
+                                if (exre > (maxre / 2))
+                                {
+                                    DG_tabla.Rows[i].Cells["PEDIDO_RE"].Value = 0;
+                                }
 
-                            //    if (exre <= (maxre / 2))
-                            //    {
-                            //        DG_tabla.Rows[i].Cells["PEDIDO_RE"].Value = maxre;
-                            //    }
+                                if (exre <= (maxre / 2))
+                                {
+                                    DG_tabla.Rows[i].Cells["PEDIDO_RE"].Value = maxre;
+                                }
 
-                            //    if (exre == 0)
-                            //    {
-                            //        DG_tabla.Rows[i].Cells["PEDIDO_RE"].Value = maxre;
-                            //    }
+                                if (exre == 0)
+                                {
+                                    DG_tabla.Rows[i].Cells["PEDIDO_RE"].Value = maxre;
+                                }
 
 
-                            //}
+                            }
 
 
                             //VELAZQUEZ
                             exve = Convert.ToInt32(DG_tabla.Rows[i].Cells["EXT_VE"].Value);
                             maxve = Convert.ToInt32(DG_tabla.Rows[i].Cells["MAX_VE"].Value);
 
-                            //if (maxve == 0)
-                            //{
-                            //    DG_tabla.Rows[i].Cells["PEDIDO_VE"].Value = 0;
-                            //}
-                            //else
-                            //{
-                            //    if (exve > (maxve / 2))
-                            //    {
-                            //        DG_tabla.Rows[i].Cells["PEDIDO_VE"].Value = 0;
-                            //    }
+                            if (maxve == 0)
+                            {
+                                DG_tabla.Rows[i].Cells["PEDIDO_VE"].Value = 0;
+                            }
+                            else
+                            {
+                                if (exve > (maxve / 2))
+                                {
+                                    DG_tabla.Rows[i].Cells["PEDIDO_VE"].Value = 0;
+                                }
 
-                            //    if (exve <= (maxve / 2))
-                            //    {
-                            //        DG_tabla.Rows[i].Cells["PEDIDO_VE"].Value = maxve;
-                            //    }
+                                if (exve <= (maxve / 2))
+                                {
+                                    DG_tabla.Rows[i].Cells["PEDIDO_VE"].Value = maxve;
+                                }
 
-                            //    if (exve == 0)
-                            //    {
-                            //        DG_tabla.Rows[i].Cells["PEDIDO_VE"].Value = maxve;
-                            //    }
+                                if (exve == 0)
+                                {
+                                    DG_tabla.Rows[i].Cells["PEDIDO_VE"].Value = maxve;
+                                }
 
-                            //}
+                            }
 
                             //COLOSO
                             exco = Convert.ToInt32(DG_tabla.Rows[i].Cells["EXT_CO"].Value);
                             maxco = Convert.ToInt32(DG_tabla.Rows[i].Cells["MAX_CO"].Value);
 
-                            //if (maxco == 0)
-                            //{
-                            //    DG_tabla.Rows[i].Cells["PEDIDO_CO"].Value = 0;
-                            //}
-                            //else
-                            //{
-                            //    if (exco > (maxco / 2))
-                            //    {
-                            //        DG_tabla.Rows[i].Cells["PEDIDO_CO"].Value = 0;
-                            //    }
+                            if (maxco == 0)
+                            {
+                                DG_tabla.Rows[i].Cells["PEDIDO_CO"].Value = 0;
+                            }
+                            else
+                            {
+                                if (exco > (maxco / 2))
+                                {
+                                    DG_tabla.Rows[i].Cells["PEDIDO_CO"].Value = 0;
+                                }
 
-                            //    if (exco <= (maxco / 2))
-                            //    {
-                            //        DG_tabla.Rows[i].Cells["PEDIDO_CO"].Value = maxco;
-                            //    }
+                                if (exco <= (maxco / 2))
+                                {
+                                    DG_tabla.Rows[i].Cells["PEDIDO_CO"].Value = maxco;
+                                }
 
-                            //    if (exco == 0)
-                            //    {
-                            //        DG_tabla.Rows[i].Cells["PEDIDO_CO"].Value = maxco;
-                            //    }
+                                if (exco == 0)
+                                {
+                                    DG_tabla.Rows[i].Cells["PEDIDO_CO"].Value = maxco;
+                                }
 
 
-                            //}
+                            }
 
 
 
@@ -1445,7 +1491,10 @@ namespace appSugerencias
                             //DG_tabla.Rows[i].Cells[6].Value = pzXPedir / pzXCaja;
                             DG_tabla.Rows[i].Cells["PEDIDO_BOD"].Value = Convert.ToInt32(DG_tabla.Rows[i].Cells[6].Value) * Convert.ToInt32(DG_tabla.Rows[i].Cells[7].Value);
                             DG_tabla.Rows[i].Cells[12].Value = Convert.ToDouble(DG_tabla.Rows[i].Cells["PEDIDO_BOD"].Value) * Convert.ToDouble(DG_tabla.Rows[i].Cells[9].Value);
-                            DG_tabla.Rows[i].Cells[15].Value = Convert.ToInt32(DG_tabla.Rows[i].Cells["PEDIDO_BOD"].Value) - Convert.ToInt32(DG_tabla.Rows[i].Cells[4].Value);
+                          
+                            double pedido_ce = Convert.ToInt32(DG_tabla.Rows[i].Cells["PEDIDO_BOD"].Value) - Convert.ToInt32(DG_tabla.Rows[i].Cells[4].Value);
+                           
+                            DG_tabla.Rows[i].Cells[15].Value = pedido_ce;
                             //-------------------------------------------------------------------------------------
                             //------------- CAJAS POR PEDIR -------------------------------------------------------
                             pzXCaja = Convert.ToInt32(DG_tabla.Rows[i].Cells[7].Value);
@@ -1457,11 +1506,32 @@ namespace appSugerencias
                             //ped_ce = ped_bo - (ped_va + ped_re + ped_ve + ped_co);
 
                             //---------------------- IMPORTE CEDIS ------------------------------------------------
-
-                            DG_tabla.Rows[i].Cells[16].Value = Convert.ToDouble(DG_tabla.Rows[i].Cells[15].Value) * Convert.ToDouble(DG_tabla.Rows[i].Cells[9].Value);
+                            importe_ce = Convert.ToDouble(DG_tabla.Rows[i].Cells[15].Value) * Convert.ToDouble(DG_tabla.Rows[i].Cells[9].Value);
+                            DG_tabla.Rows[i].Cells[16].Value = importe_ce;
                             //-------------------------------------------------------------------------------------
 
+                            if (pedido_ce <0)
+                            {
+                                DG_tabla.Rows[i].Cells[15].Style.BackColor = Color.Black;
+                                DG_tabla.Rows[i].Cells[15].Style.ForeColor = Color.Red;
+                            }
+                            else
+                            {
+                                DG_tabla.Rows[i].Cells[15].Style.BackColor = Color.White;
+                                DG_tabla.Rows[i].Cells[15].Style.ForeColor = Color.Black;
+                            }
 
+
+                            if (importe_ce <0)
+                            {
+                                DG_tabla.Rows[i].Cells[16].Style.BackColor = Color.Black;
+                                DG_tabla.Rows[i].Cells[16].Style.ForeColor = Color.Red;
+                            }
+                            else
+                            {
+                                DG_tabla.Rows[i].Cells[16].Style.BackColor = Color.White;
+                                DG_tabla.Rows[i].Cells[16].Style.ForeColor = Color.Black;
+                            }
 
                             //--------------IMPORTES DE ACUERDO AL PEDIDO ------------------------------------------
                             DG_tabla.Rows[i].Cells[21].Value = (ped_va * costoXPaq);//IMPORTE VALLARTA
@@ -1518,75 +1588,75 @@ namespace appSugerencias
                             maxco = Convert.ToInt32(DG_tabla.Rows[i].Cells["MAX_CO"].Value);
 
 
-                            ////si es menor al 10% se pide el 150%
-                            //if (exva <= (maxva * 10) / 100)
-                            //{
-                            //    ped_va = maxva + maxva / 2;
-                            //}
-                            //else if (exva < (maxva / 2) && exva > (maxva * 10) / 100)//si es menos al 50% pero mayor que el 10%
-                            //{
-                            //    ped_va = maxva;
-                            //}
-                            //else //si es mayor o igual al 50%
-                            //{
-                            //    ped_va = 0;
-                            //}
+                            //si es menor al 10% se pide el 150%
+                            if (exva <= (maxva * 10) / 100)
+                            {
+                                ped_va = maxva + maxva / 2;
+                            }
+                            else if (exva < (maxva / 2) && exva > (maxva * 10) / 100)//si es menos al 50% pero mayor que el 10%
+                            {
+                                ped_va = maxva;
+                            }
+                            else //si es mayor o igual al 50%
+                            {
+                                ped_va = 0;
+                            }
 
-                            ////si es menor al 10% se pide el 150%
-                            //if (exre <= (maxre * 10) / 100)
-                            //{
-                            //    ped_re = maxre + maxre / 2;
-                            //}
-                            //else if (exre < (maxre / 2) && exre > (maxre * 10) / 100)//si es menos al 50% pero mayor que el 10%
-                            //{
-                            //    ped_re = maxre;
-                            //}
-                            //else //si es mayor o igual al 50%
-                            //{
-                            //    ped_re = 0;
-                            //}
+                            //si es menor al 10% se pide el 150%
+                            if (exre <= (maxre * 10) / 100)
+                            {
+                                ped_re = maxre + maxre / 2;
+                            }
+                            else if (exre < (maxre / 2) && exre > (maxre * 10) / 100)//si es menos al 50% pero mayor que el 10%
+                            {
+                                ped_re = maxre;
+                            }
+                            else //si es mayor o igual al 50%
+                            {
+                                ped_re = 0;
+                            }
 
-                            ////si es menor al 10% se pide el 150%
-                            //if (exve <= (maxve * 10) / 100)
-                            //{
-                            //    ped_ve = maxve + maxve / 2;
-                            //}
-                            //else if (exve < (maxve / 2) && exve > (maxve * 10) / 100)//si es menos al 50% pero mayor que el 10%
-                            //{
-                            //    ped_ve = maxve;
-                            //}
-                            //else //si es mayor o igual al 50%
-                            //{
-                            //    ped_ve = 0;
-                            //}
+                            //si es menor al 10% se pide el 150%
+                            if (exve <= (maxve * 10) / 100)
+                            {
+                                ped_ve = maxve + maxve / 2;
+                            }
+                            else if (exve < (maxve / 2) && exve > (maxve * 10) / 100)//si es menos al 50% pero mayor que el 10%
+                            {
+                                ped_ve = maxve;
+                            }
+                            else //si es mayor o igual al 50%
+                            {
+                                ped_ve = 0;
+                            }
 
-                            ////si es menor al 10% se pide el 150%
-                            //if (exco <= (maxco * 10) / 100)
-                            //{
-                            //    ped_co = maxco + maxco / 2;
-                            //}
-                            //else if (exco < (maxco / 2) && exco > (maxco * 10) / 100)//si es menos al 50% pero mayor que el 10%
-                            //{
-                            //    ped_co = maxco;
-                            //}
-                            //else //si es mayor o igual al 50%
-                            //{
-                            //    ped_co = 0;
-                            //}
+                            //si es menor al 10% se pide el 150%
+                            if (exco <= (maxco * 10) / 100)
+                            {
+                                ped_co = maxco + maxco / 2;
+                            }
+                            else if (exco < (maxco / 2) && exco > (maxco * 10) / 100)//si es menos al 50% pero mayor que el 10%
+                            {
+                                ped_co = maxco;
+                            }
+                            else //si es mayor o igual al 50%
+                            {
+                                ped_co = 0;
+                            }
 
 
 
-                            ////pedido va
-                            //DG_tabla.Rows[i].Cells["PEDIDO_VA"].Value = ped_va;
+                            //pedido va
+                            DG_tabla.Rows[i].Cells["PEDIDO_VA"].Value = ped_va;
 
-                            ////pedido rena
-                            //DG_tabla.Rows[i].Cells["PEDIDO_RE"].Value = ped_re;
+                            //pedido rena
+                            DG_tabla.Rows[i].Cells["PEDIDO_RE"].Value = ped_re;
 
-                            ////pedido velazquez
-                            //DG_tabla.Rows[i].Cells["PEDIDO_VE"].Value = ped_ve;
+                            //pedido velazquez
+                            DG_tabla.Rows[i].Cells["PEDIDO_VE"].Value = ped_ve;
 
-                            ////pedido coloso
-                            //DG_tabla.Rows[i].Cells["PEDIDO_CO"].Value = ped_co;
+                            //pedido coloso
+                            DG_tabla.Rows[i].Cells["PEDIDO_CO"].Value = ped_co;
 
 
                             ped_va =Convert.ToDouble( DG_tabla.Rows[i].Cells["PEDIDO_VA"].Value.ToString());
@@ -1737,7 +1807,7 @@ namespace appSugerencias
             bool respuesta = false;
             string claveDG = "";
 
-            for (int i = 0; i < DG_tabla.RowCount - 1; i++)
+            for (int i = 0; i < DG_tabla.RowCount ; i++)
 
             {
                 claveDG = DG_tabla.Rows[i].Cells[1].Value.ToString();
@@ -2462,23 +2532,152 @@ namespace appSugerencias
             
         }
 
+        private void BT_agregar_cantidad_pzcajas_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < DG_tabla.Rows.Count; i++)
+            {
+                DG_tabla.Rows[i].Cells["CAJAS_BOD"].Value = TB_cajasxpedirbo.Text;
+                DG_tabla.Rows[i].Cells["PZ_CAJA"].Value = TB_pzxcaja.Text;
+                DG_tabla.Rows[i].Cells["PZ_PAQ"].Value = TB_pzxpaq.Text;
+
+            }
+
+            TB_cajasxpedirbo.Text = ""; TB_pzxcaja.Text = ""; TB_pzxpaq.Text = "";
+
+
+        }
+
         private void BT_calculo_manual_Click(object sender, EventArgs e)
         {
-            int pedidobo=0,pedidoVa = 0,pedidoRe=0,pedidoVe=0,pedidoCo=0,pedidoCe=0, pzXPaq=0,pzxpedir=0;
+            int pedidobo=0,pedidoVa = 0,pedidoRe=0,pedidoVe=0,pedidoCo=0,pedidoCe=0, pzXPaq=0,pzxpedir=0,maxva=0,maxre=0,maxve=0,maxco=0,maxce=0;
+            int exva = 0, exre = 0, exve = 0, exco = 0;
             double costoXPaq = 0;
 
             for (int i = 0; i < DG_tabla.Rows.Count; i++)
             {
 
 
-               
+                // OBTENERMOS EL MAXIMO QUE TIENE REGISTRADO
+                //maxce = Convert.ToInt32(DG_tabla.Rows[i].Cells["MAX_CEDIS"].Value.ToString());
+                //maxva = Convert.ToInt32(DG_tabla.Rows[i].Cells["MAX_VA"].Value.ToString());
+                //maxre = Convert.ToInt32(DG_tabla.Rows[i].Cells["MAX_RE"].Value.ToString());
+                //maxve = Convert.ToInt32(DG_tabla.Rows[i].Cells["MAX_VE"].Value.ToString());
+                //maxco = Convert.ToInt32(DG_tabla.Rows[i].Cells["MAX_CO"].Value.ToString());
+
+                ////OBTENEMOS LA EXISTENCIA
+                //exva= Convert.ToInt32(DG_tabla.Rows[i].Cells["EXT_VA"].Value.ToString());
+                //exre = Convert.ToInt32(DG_tabla.Rows[i].Cells["EXT_RE"].Value.ToString());
+                //exve = Convert.ToInt32(DG_tabla.Rows[i].Cells["EXT_VE"].Value.ToString());
+                //exco = Convert.ToInt32(DG_tabla.Rows[i].Cells["EXT_CO"].Value.ToString());
 
                 costoXPaq = Convert.ToDouble(DG_tabla.Rows[i].Cells[9].Value);
                 pzXPaq = Convert.ToInt32(DG_tabla.Rows[i].Cells["PZ_PAQ"].Value);
 
 
+                // ######################## CALCULO DE PEDIDO TIENDAS #########################################
 
-              
+                // VALLARTA
+                //if (maxva == 0)
+                //{
+                //    DG_tabla.Rows[i].Cells["PEDIDO_VA"].Value = 0;
+                //}
+                //else
+                //{
+                //    if (exva > (maxva / 2))
+                //    {
+                //        DG_tabla.Rows[i].Cells["PEDIDO_VA"].Value = 0;
+                //    }
+
+                //    if (exva <= (maxva / 2))
+                //    {
+                //        DG_tabla.Rows[i].Cells["PEDIDO_VA"].Value = maxva;
+                //    }
+
+                //    if (exva == 0)
+                //    {
+                //        DG_tabla.Rows[i].Cells["PEDIDO_VA"].Value = maxva;
+                //    }
+
+
+                //}
+
+                //RENA
+
+                //if (maxre == 0)
+                //{
+                //    DG_tabla.Rows[i].Cells["PEDIDO_RE"].Value = 0;
+                //}
+                //else
+                //{
+                //    if (exre > (maxre / 2))
+                //    {
+                //        DG_tabla.Rows[i].Cells["PEDIDO_RE"].Value = 0;
+                //    }
+
+                //    if (exre <= (maxre / 2))
+                //    {
+                //        DG_tabla.Rows[i].Cells["PEDIDO_RE"].Value = maxre;
+                //    }
+
+                //    if (exre == 0)
+                //    {
+                //        DG_tabla.Rows[i].Cells["PEDIDO_RE"].Value = maxre;
+                //    }
+
+
+                //}
+
+                //VELAZQUEZ
+
+                //if (maxve == 0)
+                //{
+                //    DG_tabla.Rows[i].Cells["PEDIDO_VE"].Value = 0;
+                //}
+                //else
+                //{
+                //    if (exve > (maxve / 2))
+                //    {
+                //        DG_tabla.Rows[i].Cells["PEDIDO_VE"].Value = 0;
+                //    }
+
+                //    if (exve <= (maxve / 2))
+                //    {
+                //        DG_tabla.Rows[i].Cells["PEDIDO_VE"].Value = maxve;
+                //    }
+
+                //    if (exve == 0)
+                //    {
+                //        DG_tabla.Rows[i].Cells["PEDIDO_VE"].Value = maxve;
+                //    }
+
+                //}
+
+                //COLOSO
+
+                //if (maxco == 0)
+                //{
+                //    DG_tabla.Rows[i].Cells["PEDIDO_CO"].Value = 0;
+                //}
+                //else
+                //{
+                //    if (exco > (maxco / 2))
+                //    {
+                //        DG_tabla.Rows[i].Cells["PEDIDO_CO"].Value = 0;
+                //    }
+
+                //    if (exco <= (maxco / 2))
+                //    {
+                //        DG_tabla.Rows[i].Cells["PEDIDO_CO"].Value = maxco;
+                //    }
+
+                //    if (exco == 0)
+                //    {
+                //        DG_tabla.Rows[i].Cells["PEDIDO_CO"].Value = maxco;
+                //    }
+
+
+                //}
+
 
                 costoXPz = costoXPaq / pzXPaq;
 
@@ -2510,10 +2709,41 @@ namespace appSugerencias
 
                 if (RB_cedis.Checked==true)
                 {
+
+
+
+
+
                     pedidobo = Convert.ToInt32(DG_tabla.Rows[i].Cells["PEDIDO_BOD"].Value);
                     pedidoCe = pedidobo - (pedidoVa + pedidoRe + pedidoVe + pedidoCo);
+
+                    if (pedidoCe<0)
+                    {
+                        DG_tabla.Rows[i].Cells[15].Style.BackColor = Color.Black;
+                        DG_tabla.Rows[i].Cells[15].Style.ForeColor = Color.Red;
+
+                    }
+                    else
+                    {
+                        DG_tabla.Rows[i].Cells[15].Style.BackColor = Color.White;
+                        DG_tabla.Rows[i].Cells[15].Style.ForeColor = Color.Black;
+                    }
                     DG_tabla.Rows[i].Cells[15].Value = pedidoCe;
-                    DG_tabla.Rows[i].Cells[16].Value = costoXPaq * pedidoCe;
+
+                    double importeCE = costoXPaq * pedidoCe;
+
+                    if (importeCE < 0)
+                    {
+                        DG_tabla.Rows[i].Cells[16].Style.BackColor = Color.Black;
+                        DG_tabla.Rows[i].Cells[16].Style.ForeColor = Color.Red;
+
+                    }
+                    else
+                    {
+                        DG_tabla.Rows[i].Cells[16].Style.BackColor = Color.White;
+                        DG_tabla.Rows[i].Cells[16].Style.ForeColor = Color.Black;
+                    }
+                    DG_tabla.Rows[i].Cells[16].Value = importeCE;
                     totalce += Convert.ToDouble(DG_tabla.Rows[i].Cells[16].Value);
                 }
                 else
@@ -2610,33 +2840,42 @@ namespace appSugerencias
                 MySqlCommand cmd = new MySqlCommand(query, conexion);
                 MySqlDataReader dr = cmd.ExecuteReader();
                 Productos prod = new Productos();
-                while (dr.Read())
-                {
-                    pzCaja = PiezasXCajaCE(TB_articulo.Text);
-                    costo = CostoArticulo(TB_articulo.Text);
+               
+                    if (dr.Read())
+                    {
+                        pzCaja = PiezasXCajaCE(TB_articulo.Text);
+                        costo = CostoArticulo(TB_articulo.Text);
 
 
-                    existenciaBO = prod.ExistenciaXTienda(TB_articulo.Text,"BODEGA");
-                    existenciaVA = prod.ExistenciaXTienda(TB_articulo.Text, "VALLARTA");
-                    existenciaRE = prod.ExistenciaXTienda(TB_articulo.Text, "RENA");
-                    existenciaVE = prod.ExistenciaXTienda(TB_articulo.Text, "VELAZQUEZ");
-                    existenciaCO = prod.ExistenciaXTienda(TB_articulo.Text, "COLOSO");
+                        existenciaBO = prod.ExistenciaXTienda(TB_articulo.Text, "BODEGA");
+                        existenciaVA = prod.ExistenciaXTienda(TB_articulo.Text, "VALLARTA");
+                        existenciaRE = prod.ExistenciaXTienda(TB_articulo.Text, "RENA");
+                        existenciaVE = prod.ExistenciaXTienda(TB_articulo.Text, "VELAZQUEZ");
+                        existenciaCO = prod.ExistenciaXTienda(TB_articulo.Text, "COLOSO");
 
-                    maxBo = MaximoArticuloCE(TB_articulo.Text);
-                    maxVa = MaximoArticuloVA(TB_articulo.Text);
-                    maxRe = MaximoArticuloRE(TB_articulo.Text);
-                    maxVe = MaximoArticuloVE(TB_articulo.Text);
-                    maxCo = MaximoArticuloCO(TB_articulo.Text);
-                    DG_tabla.Rows.Add("", dr["articulo"].ToString(), dr["descrip"].ToString(), dr["linea"].ToString(), "1", "0", "0", pzCaja, 1,"0", costo, "0", "0", maxBo, existenciaBO, "0", "0", maxVa, existenciaVA, "0", "0", "0", maxRe, existenciaRE, "0", "0", "0", maxVe, existenciaVE, "0","0", "0", maxCo, existenciaCO, "0","0","0","0",costo,"-");
-                    DG_tabla.Columns["EXT_VA"].DefaultCellStyle.ForeColor = Color.Red;
-                    DG_tabla.Columns["EXT_RE"].DefaultCellStyle.ForeColor = Color.Red;
-                    DG_tabla.Columns["EXT_VE"].DefaultCellStyle.ForeColor = Color.Red;
-                    DG_tabla.Columns["EXT_CO"].DefaultCellStyle.ForeColor = Color.Red;
+                        maxBo = MaximoArticuloCE(TB_articulo.Text);
+                        maxVa = MaximoArticuloVA(TB_articulo.Text);
+                        maxRe = MaximoArticuloRE(TB_articulo.Text);
+                        maxVe = MaximoArticuloVE(TB_articulo.Text);
+                        maxCo = MaximoArticuloCO(TB_articulo.Text);
+                        DG_tabla.Rows.Add("", dr["articulo"].ToString(), dr["descrip"].ToString(), dr["linea"].ToString(), "1", "0", "0", pzCaja, 1, "0", costo, "0", "0", maxBo, existenciaBO, "0", "0", maxVa, existenciaVA, "0", "0", "0", maxRe, existenciaRE, "0", "0", "0", maxVe, existenciaVE, "0", "0", "0", maxCo, existenciaCO, "0", "0", "0", "0", costo, "-");
+                        DG_tabla.Columns["EXT_VA"].DefaultCellStyle.ForeColor = Color.Red;
+                        DG_tabla.Columns["EXT_RE"].DefaultCellStyle.ForeColor = Color.Red;
+                        DG_tabla.Columns["EXT_VE"].DefaultCellStyle.ForeColor = Color.Red;
+                        DG_tabla.Columns["EXT_CO"].DefaultCellStyle.ForeColor = Color.Red;
                 }
-                dr.Close();
-                conexion.Close();
-                TB_articulo.Text = "";
+                else
+                {
+                    MessageBox.Show("La clave no existe");
+                }
+                    dr.Close();
+                    conexion.Close();
+                    TB_articulo.Text = "";
+
+
+
             }
+            
         }
 
 
@@ -2965,16 +3204,29 @@ namespace appSugerencias
         //eliminar articulo de datagrid
         private void button2_Click(object sender, EventArgs e)
         {
-            try
-            {
-                DG_tabla.Rows.Remove(DG_tabla.CurrentRow);
 
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("No se puede eliminar una fila sin datos");
 
+            //try
+            //{
+             
+            //    DG_tabla.Rows.Remove(DG_tabla.CurrentRow);
+
+            //}
+            //catch (Exception)
+            //{
+            //    MessageBox.Show("No se puede eliminar una fila sin datos");
+
+            //}
+
+            DataGridViewSelectedRowCollection filas = DG_tabla.SelectedRows;
+            if (filas.Count>0)
+            {
+                foreach (DataGridViewRow item in filas)
+                {
+                    DG_tabla.Rows.Remove(item);
+                }
             }
+
         }
 
 

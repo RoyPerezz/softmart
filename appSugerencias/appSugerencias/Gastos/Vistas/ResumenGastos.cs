@@ -232,17 +232,18 @@ namespace appSugerencias.Gastos.Vistas
                         }
                         else
                         {
-                            if (item.Concepto.Equals("DEV") || item.Concepto.Equals("DEVCL"))
+                            if (item.Concepto.Equals("DEV") || item.Concepto.Equals("DEVCL"))// aqui estaba devcl para que cuadre-----------------------------------------------------------------------------------------------------------------------
                             {
 
                             }
                             else
                             {
                                 gastos += item.Importe;
-                                DG_tabla.Rows.Add(item.ConceptoGral,item.Descripcion + " " + item.Tipo_egreso, item.Importe, "", "", "", "", "", item.Concepto);
+                                DG_tabla.Rows.Add(item.ConceptoGral, item.Descripcion + " " + item.Tipo_egreso, item.Importe, "", "", "", "", "", item.Concepto);
 
                             }
-
+                            //gastos += item.Importe;
+                            //DG_tabla.Rows.Add(item.ConceptoGral, item.Descripcion + " " + item.Tipo_egreso, item.Importe, "", "", "", "", "", item.Concepto);
 
 
 

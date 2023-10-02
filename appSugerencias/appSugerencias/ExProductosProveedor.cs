@@ -524,7 +524,7 @@ namespace appSugerencias
             excel.Application.Workbooks.Add(true);
 
 
-            excel.Range["A1:A4000"].NumberFormat = "@";
+            excel.Range["A1:A10000"].NumberFormat = "@";
             int indiceColumna = 0;
 
             foreach (DataGridViewColumn col in DG_existencias.Columns)

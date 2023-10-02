@@ -1409,9 +1409,17 @@
     </Compile>
     <Compile Include="Singleton.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="Stock Compras\Controlador\CompraController.cs" />
     <Compile Include="Stock Compras\Controlador\StockController.cs" />
+    <Compile Include="Stock Compras\Modelo\Compra.cs" />
     <Compile Include="Stock Compras\Modelo\DetalleStockCompra.cs" />
     <Compile Include="Stock Compras\Modelo\Pedido.cs" />
+    <Compile Include="Stock Compras\Vista\FormatoCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Stock Compras\Vista\FormatoCompra.Designer.cs">
+      <DependentUpon>FormatoCompra.cs</DependentUpon>
+    </Compile>
     <Compile Include="Stock Compras\Vista\FormatoPedido.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1480,6 +1488,7 @@
     <Compile Include="UnidadesVendidasProveedor.Designer.cs">
       <DependentUpon>UnidadesVendidasProveedor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utilidades\Catalogos.cs" />
     <Compile Include="Utilidades\Sucursal.cs" />
     <Compile Include="Utilidades\Usuarios.cs" />
     <Compile Include="ValorInventario.cs">
@@ -2200,6 +2209,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Rp_pagocomisiones.resx">
       <DependentUpon>Rp_pagocomisiones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Stock Compras\Vista\FormatoCompra.resx">
+      <DependentUpon>FormatoCompra.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Stock Compras\Vista\FormatoPedido.resx">
       <DependentUpon>FormatoPedido.cs</DependentUpon>

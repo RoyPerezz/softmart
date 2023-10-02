@@ -29,14 +29,22 @@ namespace appSugerencias.Gastos.Vistas
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.DG_tabla = new System.Windows.Forms.DataGridView();
+            this.BT_egresos = new System.Windows.Forms.Button();
+            this.DT_fecha = new System.Windows.Forms.DateTimePicker();
+            this.CB_sucursal = new System.Windows.Forms.ComboBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.CBX_respaldo = new System.Windows.Forms.CheckBox();
+            this.BT_gastos = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.BT_gastos_finanzas = new System.Windows.Forms.Button();
             this.CONCEPTO_GRAL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EGRESOS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IMPORTE_EGRESOS = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,14 +55,6 @@ namespace appSugerencias.Gastos.Vistas
             this.DIFERENCIA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CLAVE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CLAVE_INGRESO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BT_egresos = new System.Windows.Forms.Button();
-            this.DT_fecha = new System.Windows.Forms.DateTimePicker();
-            this.CB_sucursal = new System.Windows.Forms.ComboBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.CBX_respaldo = new System.Windows.Forms.CheckBox();
-            this.BT_gastos = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.BT_gastos_finanzas = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DG_tabla)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -66,14 +66,14 @@ namespace appSugerencias.Gastos.Vistas
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DG_tabla.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DG_tabla.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DG_tabla.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.DG_tabla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DG_tabla.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CONCEPTO_GRAL,
@@ -86,81 +86,19 @@ namespace appSugerencias.Gastos.Vistas
             this.DIFERENCIA,
             this.CLAVE,
             this.CLAVE_INGRESO});
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DG_tabla.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DG_tabla.DefaultCellStyle = dataGridViewCellStyle7;
             this.DG_tabla.Location = new System.Drawing.Point(8, 140);
             this.DG_tabla.Name = "DG_tabla";
             this.DG_tabla.Size = new System.Drawing.Size(1080, 347);
             this.DG_tabla.TabIndex = 0;
             this.DG_tabla.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DG_tabla_CellContentDoubleClick);
-            // 
-            // CONCEPTO_GRAL
-            // 
-            this.CONCEPTO_GRAL.HeaderText = "CONCEPTO GRAL.";
-            this.CONCEPTO_GRAL.Name = "CONCEPTO_GRAL";
-            // 
-            // EGRESOS
-            // 
-            this.EGRESOS.HeaderText = "EGRESOS";
-            this.EGRESOS.Name = "EGRESOS";
-            // 
-            // IMPORTE_EGRESOS
-            // 
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.IMPORTE_EGRESOS.DefaultCellStyle = dataGridViewCellStyle9;
-            this.IMPORTE_EGRESOS.HeaderText = "IMPORTE";
-            this.IMPORTE_EGRESOS.Name = "IMPORTE_EGRESOS";
-            // 
-            // TOTAL_EGRESOS
-            // 
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.TOTAL_EGRESOS.DefaultCellStyle = dataGridViewCellStyle10;
-            this.TOTAL_EGRESOS.HeaderText = "TOTAL EGRESOS";
-            this.TOTAL_EGRESOS.Name = "TOTAL_EGRESOS";
-            // 
-            // INGRESOS
-            // 
-            this.INGRESOS.HeaderText = "INGRESOS";
-            this.INGRESOS.Name = "INGRESOS";
-            // 
-            // IMPORTE_INGRESOS
-            // 
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.IMPORTE_INGRESOS.DefaultCellStyle = dataGridViewCellStyle11;
-            this.IMPORTE_INGRESOS.HeaderText = "IMPORTE";
-            this.IMPORTE_INGRESOS.Name = "IMPORTE_INGRESOS";
-            // 
-            // TOTAL_INGRESOS
-            // 
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.TOTAL_INGRESOS.DefaultCellStyle = dataGridViewCellStyle12;
-            this.TOTAL_INGRESOS.HeaderText = "TOTAL INGRESOS";
-            this.TOTAL_INGRESOS.Name = "TOTAL_INGRESOS";
-            // 
-            // DIFERENCIA
-            // 
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.DIFERENCIA.DefaultCellStyle = dataGridViewCellStyle13;
-            this.DIFERENCIA.HeaderText = "DIFERENCIA";
-            this.DIFERENCIA.Name = "DIFERENCIA";
-            // 
-            // CLAVE
-            // 
-            this.CLAVE.HeaderText = "CLAVE";
-            this.CLAVE.Name = "CLAVE";
-            this.CLAVE.Visible = false;
-            // 
-            // CLAVE_INGRESO
-            // 
-            this.CLAVE_INGRESO.HeaderText = "CLAVE INGRESO";
-            this.CLAVE_INGRESO.Name = "CLAVE_INGRESO";
-            this.CLAVE_INGRESO.Visible = false;
             // 
             // BT_egresos
             // 
@@ -266,6 +204,68 @@ namespace appSugerencias.Gastos.Vistas
             this.BT_gastos_finanzas.Text = "Gastos de Finanzas";
             this.BT_gastos_finanzas.UseVisualStyleBackColor = false;
             this.BT_gastos_finanzas.Click += new System.EventHandler(this.BT_gastos_finanzas_Click);
+            // 
+            // CONCEPTO_GRAL
+            // 
+            this.CONCEPTO_GRAL.HeaderText = "CONCEPTO GRAL.";
+            this.CONCEPTO_GRAL.Name = "CONCEPTO_GRAL";
+            // 
+            // EGRESOS
+            // 
+            this.EGRESOS.HeaderText = "EGRESOS";
+            this.EGRESOS.Name = "EGRESOS";
+            // 
+            // IMPORTE_EGRESOS
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.IMPORTE_EGRESOS.DefaultCellStyle = dataGridViewCellStyle2;
+            this.IMPORTE_EGRESOS.HeaderText = "IMPORTE";
+            this.IMPORTE_EGRESOS.Name = "IMPORTE_EGRESOS";
+            // 
+            // TOTAL_EGRESOS
+            // 
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.TOTAL_EGRESOS.DefaultCellStyle = dataGridViewCellStyle3;
+            this.TOTAL_EGRESOS.HeaderText = "TOTAL EGRESOS";
+            this.TOTAL_EGRESOS.Name = "TOTAL_EGRESOS";
+            // 
+            // INGRESOS
+            // 
+            this.INGRESOS.HeaderText = "INGRESOS";
+            this.INGRESOS.Name = "INGRESOS";
+            // 
+            // IMPORTE_INGRESOS
+            // 
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.IMPORTE_INGRESOS.DefaultCellStyle = dataGridViewCellStyle4;
+            this.IMPORTE_INGRESOS.HeaderText = "IMPORTE";
+            this.IMPORTE_INGRESOS.Name = "IMPORTE_INGRESOS";
+            // 
+            // TOTAL_INGRESOS
+            // 
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.TOTAL_INGRESOS.DefaultCellStyle = dataGridViewCellStyle5;
+            this.TOTAL_INGRESOS.HeaderText = "TOTAL INGRESOS";
+            this.TOTAL_INGRESOS.Name = "TOTAL_INGRESOS";
+            // 
+            // DIFERENCIA
+            // 
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.DIFERENCIA.DefaultCellStyle = dataGridViewCellStyle6;
+            this.DIFERENCIA.HeaderText = "DIFERENCIA";
+            this.DIFERENCIA.Name = "DIFERENCIA";
+            // 
+            // CLAVE
+            // 
+            this.CLAVE.HeaderText = "CLAVE";
+            this.CLAVE.Name = "CLAVE";
+            this.CLAVE.Visible = false;
+            // 
+            // CLAVE_INGRESO
+            // 
+            this.CLAVE_INGRESO.HeaderText = "CLAVE INGRESO";
+            this.CLAVE_INGRESO.Name = "CLAVE_INGRESO";
+            this.CLAVE_INGRESO.Visible = false;
             // 
             // ResumenGastos
             // 
