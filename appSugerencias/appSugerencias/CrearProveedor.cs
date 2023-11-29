@@ -34,11 +34,12 @@ namespace appSugerencias
        
         private void CrearProveedor_Load(object sender, EventArgs e)
         {
-            
 
 
 
-            MySqlConnection conexion = BDConexicon.BodegaOpen();
+
+            //MySqlConnection conexion = BDConexicon.BodegaOpen();
+            MySqlConnection conexion = BDConexicon.conectar();
             string query="select PROVEEDOR from proveed where NOMBRE='PARA OTRO PROVEEDOR'";
             string query2 = "select nombre from proveed order by nombre";
             MySqlCommand cmd = new MySqlCommand(query,conexion);

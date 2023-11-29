@@ -61,7 +61,7 @@ namespace appSugerencias
             {
                 proveedores.Add(dr["PROVEEDOR"].ToString());
                 nombre = NombreProveedor(dr["PROVEEDOR"].ToString());
-                DG_tabla.Rows.Add(dr["PROVEEDOR"].ToString(),nombre,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+                DG_tabla.Rows.Add(dr["PROVEEDOR"].ToString(),nombre,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
             }
             dr.Close();
            
@@ -85,10 +85,10 @@ namespace appSugerencias
 
             string dtProveedor = "";
             double totalFiesta = 0,totalCosmeticos=0,totalNav=0,totalBolsa=0,totalPly=0,totalBisute=0,totalBplastc=0,totalLLymo=0,totalVitrinaNVO=0,totalJuguetes=0,totalMayo=0,totalMascotas=0;
-            double totalMontab=0,totalMostra=0,totalPlastic=0,totalSer=0,totalSombrillas=0,totalEscolar=0,totalCovid=0,totalFeb=0;
+            double totalMontab=0,totalMostra=0,totalPlastic=0,totalSer=0,totalSombrillas=0,totalEscolar=0,totalCovid=0,totalFeb=0,totalHalloween=0,totalPatrio=0;
 
             double DesctotalFiesta = 0, DesctotalCosmeticos = 0, DesctotalNav = 0, DesctotalBolsa = 0, DesctotalPly = 0, DesctotalBisute = 0, DesctotalBplastc = 0, DesctotalLLymo = 0, DesctotalVitrinaNVO = 0, DesctotalJuguetes = 0;
-            double DesctotalMontab = 0, DesctotalMostra = 0, DesctotalPlastic = 0, DesctotalSer = 0, DesctotalSombrillas = 0, DesctotalEscolar = 0, DesctotalCovid = 0, DesctotalFeb = 0, desctotalMayo = 0, desctotalMascotas = 0;
+            double DesctotalMontab = 0, DesctotalMostra = 0, DesctotalPlastic = 0, DesctotalSer = 0, DesctotalSombrillas = 0, DesctotalEscolar = 0, DesctotalCovid = 0, DesctotalFeb = 0, desctotalMayo = 0, desctotalMascotas = 0,desctotalHalloween=0,desctotalPatrio=0;
 
             ArrayList compras = new ArrayList();
             string tipo = "";
@@ -110,10 +110,10 @@ namespace appSugerencias
                 }
                 dr2.Close();
                 totalFiesta = 0; totalCosmeticos = 0; totalNav = 0; totalBolsa = 0; totalPly = 0; totalBisute = 0; totalBplastc = 0; totalLLymo = 0; totalVitrinaNVO = 0; totalJuguetes = 0;
-                totalMontab = 0; totalMostra = 0; totalPlastic = 0; totalSer = 0; totalSombrillas = 0; totalEscolar = 0; totalCovid = 0; totalFeb = 0;
+                totalMontab = 0; totalMostra = 0; totalPlastic = 0; totalSer = 0; totalSombrillas = 0; totalEscolar = 0; totalCovid = 0; totalFeb = 0; totalHalloween = 0;totalPatrio = 0;
 
                 DesctotalFiesta = 0; DesctotalCosmeticos = 0; DesctotalNav = 0; DesctotalBolsa = 0; DesctotalPly = 0; DesctotalBisute = 0; DesctotalBplastc = 0; DesctotalLLymo = 0; DesctotalVitrinaNVO = 0; DesctotalJuguetes = 0;
-                DesctotalMontab = 0; DesctotalMostra = 0; DesctotalPlastic = 0; DesctotalSer = 0; DesctotalSombrillas = 0; DesctotalEscolar = 0; DesctotalCovid = 0; DesctotalFeb = 0;
+                DesctotalMontab = 0; DesctotalMostra = 0; DesctotalPlastic = 0; DesctotalSer = 0; DesctotalSombrillas = 0; DesctotalEscolar = 0; DesctotalCovid = 0; DesctotalFeb = 0;desctotalHalloween = 0;desctotalPatrio = 0;desctotalMascotas = 0;
                 for (int j = 0; j < compras.Count; j++)
                 {
 
@@ -542,6 +542,48 @@ namespace appSugerencias
 
                         }
 
+                        if (linea.Equals("HAL")) 
+                        {
+
+                            tipo = dr3["TIPO_DOC"].ToString();
+                            if (tipo.Equals("COM"))
+                            {
+                                totalHalloween += Convert.ToDouble(dr3["total"].ToString());
+                            }
+
+                            if (tipo.Equals("DV"))
+                            {
+                                desctotalHalloween += Convert.ToDouble(dr3["total"].ToString());
+                            }
+
+
+
+                            DG_tabla.Rows[i].Cells["HALLOWEEN"].Value = totalHalloween + desctotalHalloween;
+                            DG_tabla.Rows[i].Cells["HALLOWEEN"].Style.ForeColor = Color.DarkGreen;
+
+                        }
+
+                        if (linea.Equals("PAT"))
+                        {
+
+                            tipo = dr3["TIPO_DOC"].ToString();
+                            if (tipo.Equals("COM"))
+                            {
+                                totalPatrio += Convert.ToDouble(dr3["total"].ToString());
+                            }
+
+                            if (tipo.Equals("DV"))
+                            {
+                                desctotalPatrio += Convert.ToDouble(dr3["total"].ToString());
+                            }
+
+
+
+                            DG_tabla.Rows[i].Cells["PATRIO"].Value = totalPatrio + desctotalPatrio;
+                            DG_tabla.Rows[i].Cells["PATRIO"].Style.ForeColor = Color.DarkGreen;
+
+                        }
+
 
 
 
@@ -573,6 +615,8 @@ namespace appSugerencias
             DG_tabla.Columns[20].DefaultCellStyle.Format = "C2";
             DG_tabla.Columns[21].DefaultCellStyle.Format = "C2";
             DG_tabla.Columns[22].DefaultCellStyle.Format = "C2";
+            DG_tabla.Columns[23].DefaultCellStyle.Format = "C2";
+            DG_tabla.Columns[24].DefaultCellStyle.Format = "C2";
 
             int filas = DG_tabla.RowCount;
             DG_tabla.Rows[filas - 1].DefaultCellStyle.BackColor = Color.SeaGreen;
@@ -587,7 +631,7 @@ namespace appSugerencias
             //CALCULA EL TOTAL QUE SE LE COMPRO A CADA PROVEEDOR
             double sumaFila = 0;
             double totalFiesta = 0, totalCosmeticos = 0, totalNav = 0, totalBolsa = 0, totalPly = 0, totalBisute = 0, totalBplastc = 0, totalLLymo = 0, totalVitrinaNVO = 0, totalJuguetes = 0;
-            double totalMontab = 0, totalMostra = 0, totalPlastic = 0, totalSer = 0, totalSombrillas = 0, totalEscolar = 0, totalCovid = 0, totalFeb = 0,totalMayo=0,totalMascotas=0,Total=0;
+            double totalMontab = 0, totalMostra = 0, totalPlastic = 0, totalSer = 0, totalSombrillas = 0, totalEscolar = 0, totalCovid = 0, totalFeb = 0,totalMayo=0,totalMascotas=0,totalHalloween=0,totalPatrio=0, Total=0;
 
             double cantidad = 0;
             for (int i = 0; i < DG_tabla.Rows.Count; i++)
@@ -628,6 +672,8 @@ namespace appSugerencias
                 totalFeb += Convert.ToDouble(DG_tabla.Rows[fila].Cells[19].Value);
                 totalMayo += Convert.ToDouble(DG_tabla.Rows[fila].Cells["MAYO10"].Value);
                 totalMascotas += Convert.ToDouble(DG_tabla.Rows[fila].Cells["MASCOTAS"].Value);
+                totalHalloween += Convert.ToDouble(DG_tabla.Rows[fila].Cells["HALLOWEEN"].Value);
+                totalPatrio += Convert.ToDouble(DG_tabla.Rows[fila].Cells["PATRIO"].Value);
 
 
 
@@ -643,7 +689,7 @@ namespace appSugerencias
 
             }
 
-            DG_tabla.Rows.Add("","TOTALES", totalFiesta, totalCosmeticos, totalNav, totalBolsa, totalPly, totalBisute, totalBplastc, totalLLymo, totalVitrinaNVO, totalJuguetes, totalMontab, totalMostra, totalPlastic, totalSer, totalSombrillas, totalEscolar, totalCovid, totalFeb,totalMayo, totalMascotas,Total);
+            DG_tabla.Rows.Add("","TOTALES", totalFiesta, totalCosmeticos, totalNav, totalBolsa, totalPly, totalBisute, totalBplastc, totalLLymo, totalVitrinaNVO, totalJuguetes, totalMontab, totalMostra, totalPlastic, totalSer, totalSombrillas, totalEscolar, totalCovid, totalFeb,totalMayo, totalMascotas,totalHalloween,totalPatrio,Total);
 
 
         }
@@ -699,7 +745,7 @@ namespace appSugerencias
 
            
             excel.Cells.Range["A3"].Value = "TOTAL COMPRAS A PROVEEDORES DEL MES DE ";
-            excel.Cells.Range["C6:U100"].NumberFormat = "$#,##0.00";
+            excel.Cells.Range["C6:Y200"].NumberFormat = "$#,##0.00";
            
 
             excel.Visible = true;

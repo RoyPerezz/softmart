@@ -20,9 +20,11 @@ namespace appSugerencias.Gastos.Vistas
         string sucursal = "";
         DateTime fecha = DateTime.Now;
         bool respaldo = false;
+        int mes=0, año = 0;
         public AprobacionGastos(string sucursal, DateTime fecha, bool respaldo)
         {
-
+            this.mes = fecha.Month;
+            this.año = fecha.Year;
             this.sucursal = sucursal;
             this.fecha = fecha;
             this.respaldo = respaldo;
@@ -518,7 +520,7 @@ namespace appSugerencias.Gastos.Vistas
                 comentario = DG_tabla.Rows[e.RowIndex].Cells["DETALLE"].Value.ToString();
                 comrevision2 = DG_tabla.Rows[e.RowIndex].Cells["COMREV2"].Value.ToString();
                 comentarioRev = DG_tabla.Rows[e.RowIndex].Cells["COMENTARIO"].Value.ToString();
-                FotoRevision revision = new FotoRevision(foto1, comentario, foto2, foto3, comentarioRev, comrevision2);
+                FotoRevision revision = new FotoRevision(foto1, comentario, foto2, foto3, comentarioRev, comrevision2,mes,año);
                 revision.Show();
             }
 

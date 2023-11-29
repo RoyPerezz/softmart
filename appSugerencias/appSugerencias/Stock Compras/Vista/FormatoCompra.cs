@@ -32,6 +32,18 @@ namespace appSugerencias.Stock_Compras.Vista
         private void FormatoCompra_Load(object sender, EventArgs e)
         {
 
+            DG_tabla.Columns["VA"].Width = 55;
+            DG_tabla.Columns["RE"].Width = 55;
+            DG_tabla.Columns["VL"].Width = 55;
+            DG_tabla.Columns["CO"].Width = 55;
+            DG_tabla.Columns["BO"].Width = 55;
+            DG_tabla.Columns["DESCRIPCION"].Width = 300;
+            DG_tabla.Columns["COSTO"].Width = 80;
+            DG_tabla.Columns["PMAYOREO"].Width = 80;
+            DG_tabla.Columns["PMENUDEO"].Width = 80;
+            DG_tabla.Columns["IVA"].Width = 40;
+            DG_tabla.Columns["MARCA"].Width = 45;
+
             //Carga la lista de proveedores en el combobox CB_proveedores
             List<string> lista = CompraController.ListaProveedores();
             for (int i = 0; i < lista.Count; i++)
@@ -79,7 +91,19 @@ namespace appSugerencias.Stock_Compras.Vista
 
         private void BT_buscar_Click(object sender, EventArgs e)
         {
+            RB_com2.Checked = false;
+            RB_com3.Checked = false;
+            RB_iva.Checked = false;
+            RB_sys.Checked = false;
+            CB_cambio_fabricante.Text = "";
+            CB_cambio_linea.Text = "";
+            CB_tipoImpuesto.Text = "";
+            CB_sucursal.Text = "";
+            TB_orden_compra.Text = "";
+            TB_factura.Text = "";
+            TB_observaciones.Text = "";
             DG_tabla.Rows.Clear();
+          
             List<Compra> compra = CompraController.BuscarDatosCompra(Convert.ToInt32(TB_idstock.Text));
 
 
@@ -104,7 +128,9 @@ namespace appSugerencias.Stock_Compras.Vista
                 compra[i].CantidadVA, compra[i].CantidadRE, compra[i].CantidadVE, compra[i].CantidadCO, compra[i].CantidadBO);
             }
 
-            
+            DG_tabla.Columns["COSTO"].DefaultCellStyle.Format = "C2";
+            DG_tabla.Columns["PMAYOREO"].DefaultCellStyle.Format = "C2";
+            DG_tabla.Columns["PMENUDEO"].DefaultCellStyle.Format = "C2";
         }
 
         private void CB_stock_SelectedIndexChanged(object sender, EventArgs e)
@@ -275,7 +301,8 @@ namespace appSugerencias.Stock_Compras.Vista
             }
 
 
-
+            excel.Cells.Range["C6:E1000"].NumberFormat = "$#,##0.00";
+            excel.Cells.Range["A6:A1000"].NumberFormat = "@";
 
             excel.Visible = true;
         }

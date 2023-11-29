@@ -49,6 +49,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
             this.DG_tabla = new System.Windows.Forms.DataGridView();
             this.CB_sucursal = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -80,6 +82,8 @@
             this.FEB14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MAYO10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MASCOTAS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HALLOWEEN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PATRIO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TOTAL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DG_tabla)).BeginInit();
             this.SuspendLayout();
@@ -114,6 +118,8 @@
             this.FEB14,
             this.MAYO10,
             this.MASCOTAS,
+            this.HALLOWEEN,
+            this.PATRIO,
             this.TOTAL});
             this.DG_tabla.Location = new System.Drawing.Point(-4, 104);
             this.DG_tabla.Name = "DG_tabla";
@@ -371,11 +377,27 @@
             this.MASCOTAS.HeaderText = "MASCOTAS";
             this.MASCOTAS.Name = "MASCOTAS";
             // 
+            // HALLOWEEN
+            // 
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HALLOWEEN.DefaultCellStyle = dataGridViewCellStyle21;
+            this.HALLOWEEN.HeaderText = "HALLOWEEN";
+            this.HALLOWEEN.Name = "HALLOWEEN";
+            // 
+            // PATRIO
+            // 
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PATRIO.DefaultCellStyle = dataGridViewCellStyle22;
+            this.PATRIO.HeaderText = "PATRIO";
+            this.PATRIO.Name = "PATRIO";
+            // 
             // TOTAL
             // 
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TOTAL.DefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TOTAL.DefaultCellStyle = dataGridViewCellStyle23;
             this.TOTAL.HeaderText = "TOTAL";
             this.TOTAL.Name = "TOTAL";
             // 
@@ -436,6 +458,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn FEB14;
         private System.Windows.Forms.DataGridViewTextBoxColumn MAYO10;
         private System.Windows.Forms.DataGridViewTextBoxColumn MASCOTAS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HALLOWEEN;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PATRIO;
         private System.Windows.Forms.DataGridViewTextBoxColumn TOTAL;
     }
 }

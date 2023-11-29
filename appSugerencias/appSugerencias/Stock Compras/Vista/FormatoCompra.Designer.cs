@@ -29,6 +29,16 @@ namespace appSugerencias.Stock_Compras.Vista
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.CB_proveedor = new System.Windows.Forms.ComboBox();
             this.CB_stock = new System.Windows.Forms.ComboBox();
             this.TB_folio = new System.Windows.Forms.TextBox();
@@ -42,20 +52,6 @@ namespace appSugerencias.Stock_Compras.Vista
             this.BT_buscar = new System.Windows.Forms.Button();
             this.RB_com3 = new System.Windows.Forms.RadioButton();
             this.RB_com2 = new System.Windows.Forms.RadioButton();
-            this.BO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VL = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FABRICANTE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MARCA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LINEA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IVA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PMENUDEO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PMAYOREO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.COSTO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DESCRIPCION = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CLAVE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DG_tabla = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.TB_idproveedor = new System.Windows.Forms.TextBox();
@@ -77,14 +73,28 @@ namespace appSugerencias.Stock_Compras.Vista
             this.CB_sucursal = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.DT_fecha_llegada = new System.Windows.Forms.DateTimePicker();
-            this.label8 = new System.Windows.Forms.Label();
-            this.TB_factura = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.TB_orden_compra = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.TB_observaciones = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.TB_orden_compra = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.TB_factura = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.DT_fecha_llegada = new System.Windows.Forms.DateTimePicker();
+            this.CLAVE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DESCRIPCION = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.COSTO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PMAYOREO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PMENUDEO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IVA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LINEA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MARCA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FABRICANTE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DG_tabla)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -219,76 +229,6 @@ namespace appSugerencias.Stock_Compras.Vista
             this.RB_com2.UseVisualStyleBackColor = true;
             this.RB_com2.CheckedChanged += new System.EventHandler(this.RB_com2_CheckedChanged);
             // 
-            // BO
-            // 
-            this.BO.HeaderText = "BO";
-            this.BO.Name = "BO";
-            // 
-            // CO
-            // 
-            this.CO.HeaderText = "CO";
-            this.CO.Name = "CO";
-            // 
-            // VL
-            // 
-            this.VL.HeaderText = "VL";
-            this.VL.Name = "VL";
-            // 
-            // RE
-            // 
-            this.RE.HeaderText = "RE";
-            this.RE.Name = "RE";
-            // 
-            // VA
-            // 
-            this.VA.HeaderText = "VA";
-            this.VA.Name = "VA";
-            // 
-            // FABRICANTE
-            // 
-            this.FABRICANTE.HeaderText = "FABRICANTE";
-            this.FABRICANTE.Name = "FABRICANTE";
-            // 
-            // MARCA
-            // 
-            this.MARCA.HeaderText = "MARCA";
-            this.MARCA.Name = "MARCA";
-            // 
-            // LINEA
-            // 
-            this.LINEA.HeaderText = "LINEA";
-            this.LINEA.Name = "LINEA";
-            // 
-            // IVA
-            // 
-            this.IVA.HeaderText = "IVA";
-            this.IVA.Name = "IVA";
-            // 
-            // PMENUDEO
-            // 
-            this.PMENUDEO.HeaderText = "P. MENUDEO";
-            this.PMENUDEO.Name = "PMENUDEO";
-            // 
-            // PMAYOREO
-            // 
-            this.PMAYOREO.HeaderText = "P. MAYOREO";
-            this.PMAYOREO.Name = "PMAYOREO";
-            // 
-            // COSTO
-            // 
-            this.COSTO.HeaderText = "COSTO";
-            this.COSTO.Name = "COSTO";
-            // 
-            // DESCRIPCION
-            // 
-            this.DESCRIPCION.HeaderText = "DESCRIPCION";
-            this.DESCRIPCION.Name = "DESCRIPCION";
-            // 
-            // CLAVE
-            // 
-            this.CLAVE.HeaderText = "CLAVE";
-            this.CLAVE.Name = "CLAVE";
-            // 
             // DG_tabla
             // 
             this.DG_tabla.AllowUserToAddRows = false;
@@ -296,6 +236,14 @@ namespace appSugerencias.Stock_Compras.Vista
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DG_tabla.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DG_tabla.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.DG_tabla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DG_tabla.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CLAVE,
@@ -546,37 +494,22 @@ namespace appSugerencias.Stock_Compras.Vista
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Cargar compra";
             // 
-            // DT_fecha_llegada
+            // label11
             // 
-            this.DT_fecha_llegada.Location = new System.Drawing.Point(128, 47);
-            this.DT_fecha_llegada.Name = "DT_fecha_llegada";
-            this.DT_fecha_llegada.Size = new System.Drawing.Size(214, 20);
-            this.DT_fecha_llegada.TabIndex = 23;
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(23, 102);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(98, 13);
+            this.label11.TabIndex = 30;
+            this.label11.Text = "OBSERVACIONES";
             // 
-            // label8
+            // TB_observaciones
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(10, 53);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(112, 13);
-            this.label8.TabIndex = 24;
-            this.label8.Text = "FECHA DE LLEGADA";
-            // 
-            // TB_factura
-            // 
-            this.TB_factura.Location = new System.Drawing.Point(127, 73);
-            this.TB_factura.Name = "TB_factura";
-            this.TB_factura.Size = new System.Drawing.Size(317, 20);
-            this.TB_factura.TabIndex = 25;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(64, 76);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(57, 13);
-            this.label9.TabIndex = 26;
-            this.label9.Text = "FACTURA";
+            this.TB_observaciones.Location = new System.Drawing.Point(128, 99);
+            this.TB_observaciones.Multiline = true;
+            this.TB_observaciones.Name = "TB_observaciones";
+            this.TB_observaciones.Size = new System.Drawing.Size(316, 47);
+            this.TB_observaciones.TabIndex = 29;
             // 
             // label10
             // 
@@ -594,22 +527,125 @@ namespace appSugerencias.Stock_Compras.Vista
             this.TB_orden_compra.Size = new System.Drawing.Size(137, 20);
             this.TB_orden_compra.TabIndex = 27;
             // 
-            // label11
+            // label9
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(23, 102);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(98, 13);
-            this.label11.TabIndex = 30;
-            this.label11.Text = "OBSERVACIONES";
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(64, 76);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(57, 13);
+            this.label9.TabIndex = 26;
+            this.label9.Text = "FACTURA";
             // 
-            // TB_observaciones
+            // TB_factura
             // 
-            this.TB_observaciones.Location = new System.Drawing.Point(128, 99);
-            this.TB_observaciones.Multiline = true;
-            this.TB_observaciones.Name = "TB_observaciones";
-            this.TB_observaciones.Size = new System.Drawing.Size(316, 47);
-            this.TB_observaciones.TabIndex = 29;
+            this.TB_factura.Location = new System.Drawing.Point(127, 73);
+            this.TB_factura.Name = "TB_factura";
+            this.TB_factura.Size = new System.Drawing.Size(317, 20);
+            this.TB_factura.TabIndex = 25;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(10, 53);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(112, 13);
+            this.label8.TabIndex = 24;
+            this.label8.Text = "FECHA DE LLEGADA";
+            // 
+            // DT_fecha_llegada
+            // 
+            this.DT_fecha_llegada.Location = new System.Drawing.Point(128, 47);
+            this.DT_fecha_llegada.Name = "DT_fecha_llegada";
+            this.DT_fecha_llegada.Size = new System.Drawing.Size(214, 20);
+            this.DT_fecha_llegada.TabIndex = 23;
+            // 
+            // CLAVE
+            // 
+            this.CLAVE.HeaderText = "CLAVE";
+            this.CLAVE.Name = "CLAVE";
+            // 
+            // DESCRIPCION
+            // 
+            this.DESCRIPCION.HeaderText = "DESCRIPCION";
+            this.DESCRIPCION.Name = "DESCRIPCION";
+            // 
+            // COSTO
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.COSTO.DefaultCellStyle = dataGridViewCellStyle2;
+            this.COSTO.HeaderText = "COSTO";
+            this.COSTO.Name = "COSTO";
+            // 
+            // PMAYOREO
+            // 
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.PMAYOREO.DefaultCellStyle = dataGridViewCellStyle3;
+            this.PMAYOREO.HeaderText = "P. MAYOREO";
+            this.PMAYOREO.Name = "PMAYOREO";
+            // 
+            // PMENUDEO
+            // 
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.PMENUDEO.DefaultCellStyle = dataGridViewCellStyle4;
+            this.PMENUDEO.HeaderText = "P. MENUDEO";
+            this.PMENUDEO.Name = "PMENUDEO";
+            // 
+            // IVA
+            // 
+            this.IVA.HeaderText = "IVA";
+            this.IVA.Name = "IVA";
+            // 
+            // LINEA
+            // 
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.LINEA.DefaultCellStyle = dataGridViewCellStyle5;
+            this.LINEA.HeaderText = "LINEA";
+            this.LINEA.Name = "LINEA";
+            // 
+            // MARCA
+            // 
+            this.MARCA.HeaderText = "MARCA";
+            this.MARCA.Name = "MARCA";
+            // 
+            // FABRICANTE
+            // 
+            this.FABRICANTE.HeaderText = "FABRICANTE";
+            this.FABRICANTE.Name = "FABRICANTE";
+            // 
+            // VA
+            // 
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.VA.DefaultCellStyle = dataGridViewCellStyle6;
+            this.VA.HeaderText = "VA";
+            this.VA.Name = "VA";
+            // 
+            // RE
+            // 
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.RE.DefaultCellStyle = dataGridViewCellStyle7;
+            this.RE.HeaderText = "RE";
+            this.RE.Name = "RE";
+            // 
+            // VL
+            // 
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.VL.DefaultCellStyle = dataGridViewCellStyle8;
+            this.VL.HeaderText = "VL";
+            this.VL.Name = "VL";
+            // 
+            // CO
+            // 
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.CO.DefaultCellStyle = dataGridViewCellStyle9;
+            this.CO.HeaderText = "CO";
+            this.CO.Name = "CO";
+            // 
+            // BO
+            // 
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.BO.DefaultCellStyle = dataGridViewCellStyle10;
+            this.BO.HeaderText = "BO";
+            this.BO.Name = "BO";
             // 
             // FormatoCompra
             // 
@@ -668,20 +704,6 @@ namespace appSugerencias.Stock_Compras.Vista
         private System.Windows.Forms.Button BT_buscar;
         private System.Windows.Forms.RadioButton RB_com3;
         private System.Windows.Forms.RadioButton RB_com2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn BO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn VL;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RE;
-        private System.Windows.Forms.DataGridViewTextBoxColumn VA;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FABRICANTE;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MARCA;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LINEA;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IVA;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PMENUDEO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PMAYOREO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn COSTO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DESCRIPCION;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CLAVE;
         private System.Windows.Forms.DataGridView DG_tabla;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox TB_idproveedor;
@@ -711,5 +733,19 @@ namespace appSugerencias.Stock_Compras.Vista
         private System.Windows.Forms.TextBox TB_orden_compra;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox TB_observaciones;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CLAVE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DESCRIPCION;
+        private System.Windows.Forms.DataGridViewTextBoxColumn COSTO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PMAYOREO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PMENUDEO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IVA;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LINEA;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MARCA;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FABRICANTE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn VA;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn VL;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BO;
     }
 }

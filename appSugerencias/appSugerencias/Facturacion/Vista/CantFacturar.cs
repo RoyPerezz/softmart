@@ -592,24 +592,28 @@ namespace appSugerencias
         {
             sucursalSeleccionada = "VALLARTA";
            LB_patron.Text = "MARICELA LOPEZ LORENZO";
+            DG_tabla.Rows.Clear();
         }
 
         private void RB_re_CheckedChanged(object sender, EventArgs e)
         {
             sucursalSeleccionada = "RENA";
             LB_patron.Text = "GEORGINA LAGUNAS ESCOBEDO";
+            DG_tabla.Rows.Clear();
         }
 
         private void RB_ve_CheckedChanged(object sender, EventArgs e)
         {
             sucursalSeleccionada = "VELAZQUEZ";
             LB_patron.Text = "MIGUEL ANGEL REZA FLORES";
+            DG_tabla.Rows.Clear();
         }
 
         private void RB_co_CheckedChanged(object sender, EventArgs e)
         {
             sucursalSeleccionada = "COLOSO";
             LB_patron.Text = "DANIELA LOPEZ RAMIREZ";
+            DG_tabla.Rows.Clear();
         }
 
         private void CantFacturar_Load(object sender, EventArgs e)

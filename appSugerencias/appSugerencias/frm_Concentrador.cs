@@ -542,7 +542,7 @@ namespace appSugerencias
             catch (Exception ed)
 #pragma warning restore CS0168 // La variable 'ed' se ha declarado pero nunca se usa
             {
-                MessageBox.Show("Error archivo de Excel / Cierre Archivo de Excel");
+                MessageBox.Show("Error archivo de Excel / Cierre Archivo de Excel" +ed);
             }
         }
 

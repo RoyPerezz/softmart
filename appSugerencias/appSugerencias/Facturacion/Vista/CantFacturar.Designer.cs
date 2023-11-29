@@ -29,20 +29,20 @@ namespace appSugerencias
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle99 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle112 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle100 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle101 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle102 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle103 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle104 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle105 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle106 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle107 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle108 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle109 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle110 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle111 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             this.DG_tabla = new System.Windows.Forms.DataGridView();
             this.FECHA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TOTAL_VENTA = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -76,10 +76,12 @@ namespace appSugerencias
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.DG_tabla)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // DG_tabla
@@ -89,14 +91,14 @@ namespace appSugerencias
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DG_tabla.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle99.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle99.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle99.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle99.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle99.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle99.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle99.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DG_tabla.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle99;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DG_tabla.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.DG_tabla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DG_tabla.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.FECHA,
@@ -115,14 +117,14 @@ namespace appSugerencias
             this.EFECTIVO,
             this.TARJETA,
             this.FACTURA_ELABORADA});
-            dataGridViewCellStyle112.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle112.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle112.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle112.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle112.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle112.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle112.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DG_tabla.DefaultCellStyle = dataGridViewCellStyle112;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DG_tabla.DefaultCellStyle = dataGridViewCellStyle14;
             this.DG_tabla.Location = new System.Drawing.Point(1, 128);
             this.DG_tabla.Name = "DG_tabla";
             this.DG_tabla.Size = new System.Drawing.Size(1542, 374);
@@ -136,29 +138,29 @@ namespace appSugerencias
             // 
             // TOTAL_VENTA
             // 
-            dataGridViewCellStyle100.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.TOTAL_VENTA.DefaultCellStyle = dataGridViewCellStyle100;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.TOTAL_VENTA.DefaultCellStyle = dataGridViewCellStyle2;
             this.TOTAL_VENTA.HeaderText = "TOTAL VENTA";
             this.TOTAL_VENTA.Name = "TOTAL_VENTA";
             // 
             // DEPOSITO_VENTANILLA
             // 
-            dataGridViewCellStyle101.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.DEPOSITO_VENTANILLA.DefaultCellStyle = dataGridViewCellStyle101;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.DEPOSITO_VENTANILLA.DefaultCellStyle = dataGridViewCellStyle3;
             this.DEPOSITO_VENTANILLA.HeaderText = "DEP. VENTANILLA";
             this.DEPOSITO_VENTANILLA.Name = "DEPOSITO_VENTANILLA";
             // 
             // DEPOSITO_CLIENTE
             // 
-            dataGridViewCellStyle102.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.DEPOSITO_CLIENTE.DefaultCellStyle = dataGridViewCellStyle102;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.DEPOSITO_CLIENTE.DefaultCellStyle = dataGridViewCellStyle4;
             this.DEPOSITO_CLIENTE.HeaderText = "DEP. CLIENTE";
             this.DEPOSITO_CLIENTE.Name = "DEPOSITO_CLIENTE";
             // 
             // DEPOSITO_PANA
             // 
-            dataGridViewCellStyle103.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.DEPOSITO_PANA.DefaultCellStyle = dataGridViewCellStyle103;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.DEPOSITO_PANA.DefaultCellStyle = dataGridViewCellStyle5;
             this.DEPOSITO_PANA.HeaderText = "DEP. PANA";
             this.DEPOSITO_PANA.Name = "DEPOSITO_PANA";
             // 
@@ -169,8 +171,8 @@ namespace appSugerencias
             // 
             // FACT_EFE
             // 
-            dataGridViewCellStyle104.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.FACT_EFE.DefaultCellStyle = dataGridViewCellStyle104;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.FACT_EFE.DefaultCellStyle = dataGridViewCellStyle6;
             this.FACT_EFE.HeaderText = "FACT. EFE";
             this.FACT_EFE.Name = "FACT_EFE";
             this.FACT_EFE.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -178,8 +180,8 @@ namespace appSugerencias
             // 
             // FACT_TAR
             // 
-            dataGridViewCellStyle105.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.FACT_TAR.DefaultCellStyle = dataGridViewCellStyle105;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.FACT_TAR.DefaultCellStyle = dataGridViewCellStyle7;
             this.FACT_TAR.HeaderText = "FACT. TAR";
             this.FACT_TAR.Name = "FACT_TAR";
             this.FACT_TAR.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -187,29 +189,29 @@ namespace appSugerencias
             // 
             // TOTAL_FACTURADO
             // 
-            dataGridViewCellStyle106.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.TOTAL_FACTURADO.DefaultCellStyle = dataGridViewCellStyle106;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.TOTAL_FACTURADO.DefaultCellStyle = dataGridViewCellStyle8;
             this.TOTAL_FACTURADO.HeaderText = "TOTAL FACTURA DE CLIENTE";
             this.TOTAL_FACTURADO.Name = "TOTAL_FACTURADO";
             // 
             // VENTAS_EFECTIVO
             // 
-            dataGridViewCellStyle107.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.VENTAS_EFECTIVO.DefaultCellStyle = dataGridViewCellStyle107;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.VENTAS_EFECTIVO.DefaultCellStyle = dataGridViewCellStyle9;
             this.VENTAS_EFECTIVO.HeaderText = "VENTAS EFECTIVO";
             this.VENTAS_EFECTIVO.Name = "VENTAS_EFECTIVO";
             // 
             // BAUCHER
             // 
-            dataGridViewCellStyle108.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.BAUCHER.DefaultCellStyle = dataGridViewCellStyle108;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.BAUCHER.DefaultCellStyle = dataGridViewCellStyle10;
             this.BAUCHER.HeaderText = "BAUCHER";
             this.BAUCHER.Name = "BAUCHER";
             // 
             // FACTURA_GLOBAL
             // 
-            dataGridViewCellStyle109.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.FACTURA_GLOBAL.DefaultCellStyle = dataGridViewCellStyle109;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.FACTURA_GLOBAL.DefaultCellStyle = dataGridViewCellStyle11;
             this.FACTURA_GLOBAL.HeaderText = "FACTURA GLOBAL";
             this.FACTURA_GLOBAL.Name = "FACTURA_GLOBAL";
             // 
@@ -221,15 +223,15 @@ namespace appSugerencias
             // 
             // EFECTIVO
             // 
-            dataGridViewCellStyle110.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.EFECTIVO.DefaultCellStyle = dataGridViewCellStyle110;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.EFECTIVO.DefaultCellStyle = dataGridViewCellStyle12;
             this.EFECTIVO.HeaderText = "EFECTIVO";
             this.EFECTIVO.Name = "EFECTIVO";
             // 
             // TARJETA
             // 
-            dataGridViewCellStyle111.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.TARJETA.DefaultCellStyle = dataGridViewCellStyle111;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.TARJETA.DefaultCellStyle = dataGridViewCellStyle13;
             this.TARJETA.HeaderText = "TARJETA";
             this.TARJETA.Name = "TARJETA";
             // 
@@ -292,7 +294,7 @@ namespace appSugerencias
             this.button1.BackColor = System.Drawing.Color.DarkGreen;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(256, 33);
+            this.button1.Location = new System.Drawing.Point(113, 30);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(99, 58);
             this.button1.TabIndex = 29;
@@ -317,7 +319,7 @@ namespace appSugerencias
             this.BT_guardar.BackColor = System.Drawing.Color.ForestGreen;
             this.BT_guardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BT_guardar.ForeColor = System.Drawing.Color.White;
-            this.BT_guardar.Location = new System.Drawing.Point(151, 33);
+            this.BT_guardar.Location = new System.Drawing.Point(8, 30);
             this.BT_guardar.Name = "BT_guardar";
             this.BT_guardar.Size = new System.Drawing.Size(99, 58);
             this.BT_guardar.TabIndex = 27;
@@ -437,15 +439,25 @@ namespace appSugerencias
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.button1);
             this.groupBox3.Controls.Add(this.BT_buscar);
-            this.groupBox3.Controls.Add(this.BT_guardar);
             this.groupBox3.Location = new System.Drawing.Point(845, 6);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(394, 116);
+            this.groupBox3.Size = new System.Drawing.Size(185, 116);
             this.groupBox3.TabIndex = 35;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Acciones";
+            this.groupBox3.Text = "Busqueda";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox4.Controls.Add(this.button1);
+            this.groupBox4.Controls.Add(this.BT_guardar);
+            this.groupBox4.Location = new System.Drawing.Point(1315, 6);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(228, 116);
+            this.groupBox4.TabIndex = 36;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Guardar y Exportar";
             // 
             // CantFacturar
             // 
@@ -453,6 +465,7 @@ namespace appSugerencias
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(1546, 504);
+            this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -466,6 +479,7 @@ namespace appSugerencias
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -505,5 +519,6 @@ namespace appSugerencias
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox groupBox4;
     }
 }

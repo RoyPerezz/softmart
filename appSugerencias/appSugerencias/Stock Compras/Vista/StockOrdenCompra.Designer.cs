@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -54,44 +54,12 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
             this.DG_tabla = new System.Windows.Forms.DataGridView();
-            this.MODEL = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CLAVE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DESCRIP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DEPTO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PIEZAS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CAJAS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CAJAS_BOD = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PZ_CAJA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PZ_PAQ = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.COSTO_PAQUETE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.COSTO_PIEZA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PEDIDO_BOD = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IMPORTE_BOD = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MAX_CEDIS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EXT_CE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PED_CEDIS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IMPORTE_CEDIS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MAX_VA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EXT_VA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EX_PAS_VA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PEDIDO_VA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IMP_VA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MAX_RE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EXT_RE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EX_PAS_RE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PEDIDO_RE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IMP_RE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MAX_VE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EXT_VE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EX_PAS_VE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PEDIDO_VE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IMP_VE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MAX_CO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EXT_CO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EX_PAS_CO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PEDIDO_CO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IMP_CO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BT_crear = new System.Windows.Forms.Button();
             this.BT_calcular = new System.Windows.Forms.Button();
             this.TB_folio = new System.Windows.Forms.TextBox();
@@ -211,6 +179,46 @@
             this.label27 = new System.Windows.Forms.Label();
             this.TB_pzxpaq = new System.Windows.Forms.TextBox();
             this.BT_agregar_cantidad_pzcajas = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.BT_cargar_fabricantes = new System.Windows.Forms.Button();
+            this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.MODEL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CLAVE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DESCRIP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DEPTO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PIEZAS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CAJAS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CAJAS_BOD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PZ_CAJA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PZ_PAQ = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.COSTO_PAQUETE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.COSTO_PIEZA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PEDIDO_BOD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IMPORTE_BOD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MAX_CEDIS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EXT_CE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PED_CEDIS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IMPORTE_CEDIS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MAX_VA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EXT_VA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EX_PAS_VA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PEDIDO_VA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IMP_VA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MAX_RE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EXT_RE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EX_PAS_RE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PEDIDO_RE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IMP_RE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MAX_VE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EXT_VE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EX_PAS_VE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PEDIDO_VE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IMP_VE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MAX_CO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EXT_CO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EX_PAS_CO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PEDIDO_CO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IMP_CO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DG_tabla)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -226,6 +234,7 @@
             this.PEDIDO.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DG_aclaraciones)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DG_tabla_pedido)).BeginInit();
+            this.groupBox10.SuspendLayout();
             this.SuspendLayout();
             // 
             // DG_tabla
@@ -281,256 +290,19 @@
             this.EX_PAS_CO,
             this.PEDIDO_CO,
             this.IMP_CO});
-            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle26.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle26.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle26.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DG_tabla.DefaultCellStyle = dataGridViewCellStyle26;
+            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle31.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle31.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle31.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle31.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle31.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle31.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DG_tabla.DefaultCellStyle = dataGridViewCellStyle31;
             this.DG_tabla.Location = new System.Drawing.Point(-30, 4);
             this.DG_tabla.Name = "DG_tabla";
             this.DG_tabla.Size = new System.Drawing.Size(2027, 268);
             this.DG_tabla.TabIndex = 0;
             this.DG_tabla.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DG_tabla_CellContentClick);
-            // 
-            // MODEL
-            // 
-            this.MODEL.HeaderText = "MODELO";
-            this.MODEL.Name = "MODEL";
-            // 
-            // CLAVE
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.CLAVE.DefaultCellStyle = dataGridViewCellStyle2;
-            this.CLAVE.HeaderText = "CLAVE";
-            this.CLAVE.Name = "CLAVE";
-            // 
-            // DESCRIP
-            // 
-            this.DESCRIP.HeaderText = "DESCRIPCION";
-            this.DESCRIP.Name = "DESCRIP";
-            // 
-            // DEPTO
-            // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.DEPTO.DefaultCellStyle = dataGridViewCellStyle3;
-            this.DEPTO.HeaderText = "DEPTO.";
-            this.DEPTO.Name = "DEPTO";
-            // 
-            // PIEZAS
-            // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.PIEZAS.DefaultCellStyle = dataGridViewCellStyle4;
-            this.PIEZAS.HeaderText = "PZ X PEDIR";
-            this.PIEZAS.Name = "PIEZAS";
-            // 
-            // CAJAS
-            // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.CAJAS.DefaultCellStyle = dataGridViewCellStyle5;
-            this.CAJAS.HeaderText = "CAJAS X PEDIR";
-            this.CAJAS.Name = "CAJAS";
-            // 
-            // CAJAS_BOD
-            // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Cyan;
-            this.CAJAS_BOD.DefaultCellStyle = dataGridViewCellStyle6;
-            this.CAJAS_BOD.HeaderText = "CAJAS X PEDIR BOD";
-            this.CAJAS_BOD.Name = "CAJAS_BOD";
-            // 
-            // PZ_CAJA
-            // 
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.PZ_CAJA.DefaultCellStyle = dataGridViewCellStyle7;
-            this.PZ_CAJA.HeaderText = "PZ X CAJA";
-            this.PZ_CAJA.Name = "PZ_CAJA";
-            // 
-            // PZ_PAQ
-            // 
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.PZ_PAQ.DefaultCellStyle = dataGridViewCellStyle8;
-            this.PZ_PAQ.HeaderText = "PZ X PAQ";
-            this.PZ_PAQ.Name = "PZ_PAQ";
-            // 
-            // COSTO_PAQUETE
-            // 
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.COSTO_PAQUETE.DefaultCellStyle = dataGridViewCellStyle9;
-            this.COSTO_PAQUETE.HeaderText = "COSTO X PAQ.";
-            this.COSTO_PAQUETE.Name = "COSTO_PAQUETE";
-            // 
-            // COSTO_PIEZA
-            // 
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.Yellow;
-            this.COSTO_PIEZA.DefaultCellStyle = dataGridViewCellStyle10;
-            this.COSTO_PIEZA.HeaderText = "COSTO X PZ.";
-            this.COSTO_PIEZA.Name = "COSTO_PIEZA";
-            // 
-            // PEDIDO_BOD
-            // 
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.Aqua;
-            this.PEDIDO_BOD.DefaultCellStyle = dataGridViewCellStyle11;
-            this.PEDIDO_BOD.HeaderText = "PED. BOD";
-            this.PEDIDO_BOD.Name = "PEDIDO_BOD";
-            // 
-            // IMPORTE_BOD
-            // 
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.Yellow;
-            this.IMPORTE_BOD.DefaultCellStyle = dataGridViewCellStyle12;
-            this.IMPORTE_BOD.HeaderText = "IMPORTE BOD.";
-            this.IMPORTE_BOD.Name = "IMPORTE_BOD";
-            // 
-            // MAX_CEDIS
-            // 
-            this.MAX_CEDIS.HeaderText = "MAX_CE";
-            this.MAX_CEDIS.Name = "MAX_CEDIS";
-            // 
-            // EXT_CE
-            // 
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.EXT_CE.DefaultCellStyle = dataGridViewCellStyle13;
-            this.EXT_CE.HeaderText = "EXT CE.";
-            this.EXT_CE.Name = "EXT_CE";
-            // 
-            // PED_CEDIS
-            // 
-            this.PED_CEDIS.HeaderText = "PED_CE";
-            this.PED_CEDIS.Name = "PED_CEDIS";
-            // 
-            // IMPORTE_CEDIS
-            // 
-            this.IMPORTE_CEDIS.HeaderText = "IMPORTE_CE";
-            this.IMPORTE_CEDIS.Name = "IMPORTE_CEDIS";
-            // 
-            // MAX_VA
-            // 
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.MAX_VA.DefaultCellStyle = dataGridViewCellStyle14;
-            this.MAX_VA.HeaderText = "MAX VA.";
-            this.MAX_VA.Name = "MAX_VA";
-            // 
-            // EXT_VA
-            // 
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.EXT_VA.DefaultCellStyle = dataGridViewCellStyle15;
-            this.EXT_VA.HeaderText = "EXT VA.";
-            this.EXT_VA.Name = "EXT_VA";
-            // 
-            // EX_PAS_VA
-            // 
-            this.EX_PAS_VA.HeaderText = "COL1";
-            this.EX_PAS_VA.Name = "EX_PAS_VA";
-            // 
-            // PEDIDO_VA
-            // 
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.PEDIDO_VA.DefaultCellStyle = dataGridViewCellStyle16;
-            this.PEDIDO_VA.HeaderText = "PED VA";
-            this.PEDIDO_VA.Name = "PEDIDO_VA";
-            // 
-            // IMP_VA
-            // 
-            this.IMP_VA.HeaderText = "IMPORTE VA";
-            this.IMP_VA.Name = "IMP_VA";
-            // 
-            // MAX_RE
-            // 
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.MAX_RE.DefaultCellStyle = dataGridViewCellStyle17;
-            this.MAX_RE.HeaderText = "MAX RE.";
-            this.MAX_RE.Name = "MAX_RE";
-            // 
-            // EXT_RE
-            // 
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.EXT_RE.DefaultCellStyle = dataGridViewCellStyle18;
-            this.EXT_RE.HeaderText = "EXT RE.";
-            this.EXT_RE.Name = "EXT_RE";
-            // 
-            // EX_PAS_RE
-            // 
-            this.EX_PAS_RE.HeaderText = "COL2";
-            this.EX_PAS_RE.Name = "EX_PAS_RE";
-            // 
-            // PEDIDO_RE
-            // 
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.PEDIDO_RE.DefaultCellStyle = dataGridViewCellStyle19;
-            this.PEDIDO_RE.HeaderText = "PED RE";
-            this.PEDIDO_RE.Name = "PEDIDO_RE";
-            // 
-            // IMP_RE
-            // 
-            this.IMP_RE.HeaderText = "IMPORTE RE";
-            this.IMP_RE.Name = "IMP_RE";
-            // 
-            // MAX_VE
-            // 
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.MAX_VE.DefaultCellStyle = dataGridViewCellStyle20;
-            this.MAX_VE.HeaderText = "MAX VE.";
-            this.MAX_VE.Name = "MAX_VE";
-            // 
-            // EXT_VE
-            // 
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.EXT_VE.DefaultCellStyle = dataGridViewCellStyle21;
-            this.EXT_VE.HeaderText = "EXT VE.";
-            this.EXT_VE.Name = "EXT_VE";
-            // 
-            // EX_PAS_VE
-            // 
-            this.EX_PAS_VE.HeaderText = "COL3";
-            this.EX_PAS_VE.Name = "EX_PAS_VE";
-            // 
-            // PEDIDO_VE
-            // 
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.PEDIDO_VE.DefaultCellStyle = dataGridViewCellStyle22;
-            this.PEDIDO_VE.HeaderText = "PED VE";
-            this.PEDIDO_VE.Name = "PEDIDO_VE";
-            // 
-            // IMP_VE
-            // 
-            this.IMP_VE.HeaderText = "IMPORTE VE";
-            this.IMP_VE.Name = "IMP_VE";
-            // 
-            // MAX_CO
-            // 
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.MAX_CO.DefaultCellStyle = dataGridViewCellStyle23;
-            this.MAX_CO.HeaderText = "MAX CO.";
-            this.MAX_CO.Name = "MAX_CO";
-            // 
-            // EXT_CO
-            // 
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.EXT_CO.DefaultCellStyle = dataGridViewCellStyle24;
-            this.EXT_CO.HeaderText = "EXT CO.";
-            this.EXT_CO.Name = "EXT_CO";
-            // 
-            // EX_PAS_CO
-            // 
-            this.EX_PAS_CO.HeaderText = "COL4";
-            this.EX_PAS_CO.Name = "EX_PAS_CO";
-            // 
-            // PEDIDO_CO
-            // 
-            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.PEDIDO_CO.DefaultCellStyle = dataGridViewCellStyle25;
-            this.PEDIDO_CO.HeaderText = "PED CO";
-            this.PEDIDO_CO.Name = "PEDIDO_CO";
-            // 
-            // IMP_CO
-            // 
-            this.IMP_CO.HeaderText = "IMPORTE CO";
-            this.IMP_CO.Name = "IMP_CO";
             // 
             // BT_crear
             // 
@@ -657,9 +429,9 @@
             // 
             this.groupBox1.Controls.Add(this.button5);
             this.groupBox1.Controls.Add(this.BT_pedido);
-            this.groupBox1.Location = new System.Drawing.Point(1392, 180);
+            this.groupBox1.Location = new System.Drawing.Point(1392, 199);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(309, 138);
+            this.groupBox1.Size = new System.Drawing.Size(309, 139);
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Crear Orden Compra";
@@ -670,7 +442,7 @@
             this.button5.BackColor = System.Drawing.Color.DodgerBlue;
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Location = new System.Drawing.Point(6, 21);
+            this.button5.Location = new System.Drawing.Point(36, 47);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(99, 62);
             this.button5.TabIndex = 20;
@@ -684,9 +456,9 @@
             this.BT_pedido.BackColor = System.Drawing.Color.DodgerBlue;
             this.BT_pedido.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BT_pedido.ForeColor = System.Drawing.Color.White;
-            this.BT_pedido.Location = new System.Drawing.Point(139, 27);
+            this.BT_pedido.Location = new System.Drawing.Point(174, 45);
             this.BT_pedido.Name = "BT_pedido";
-            this.BT_pedido.Size = new System.Drawing.Size(96, 47);
+            this.BT_pedido.Size = new System.Drawing.Size(111, 62);
             this.BT_pedido.TabIndex = 27;
             this.BT_pedido.Text = "Pedido";
             this.BT_pedido.UseVisualStyleBackColor = false;
@@ -716,7 +488,7 @@
             this.groupBox2.Controls.Add(this.groupBox7);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.TB_articulo);
-            this.groupBox2.Location = new System.Drawing.Point(1, 174);
+            this.groupBox2.Location = new System.Drawing.Point(1, 198);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(674, 144);
             this.groupBox2.TabIndex = 16;
@@ -738,6 +510,7 @@
             // 
             // groupBox7
             // 
+            this.groupBox7.Controls.Add(this.button8);
             this.groupBox7.Controls.Add(this.label22);
             this.groupBox7.Controls.Add(this.CB_lineas);
             this.groupBox7.Controls.Add(this.label21);
@@ -755,7 +528,7 @@
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(58, 73);
+            this.label22.Location = new System.Drawing.Point(90, 71);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(33, 13);
             this.label22.TabIndex = 23;
@@ -764,9 +537,9 @@
             // CB_lineas
             // 
             this.CB_lineas.FormattingEnabled = true;
-            this.CB_lineas.Location = new System.Drawing.Point(97, 68);
+            this.CB_lineas.Location = new System.Drawing.Point(127, 68);
             this.CB_lineas.Name = "CB_lineas";
-            this.CB_lineas.Size = new System.Drawing.Size(218, 21);
+            this.CB_lineas.Size = new System.Drawing.Size(182, 21);
             this.CB_lineas.TabIndex = 22;
             // 
             // label21
@@ -832,7 +605,7 @@
             this.groupBox3.Controls.Add(this.label6);
             this.groupBox3.Location = new System.Drawing.Point(731, -2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(970, 179);
+            this.groupBox3.Size = new System.Drawing.Size(970, 192);
             this.groupBox3.TabIndex = 17;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "TOTALES";
@@ -978,7 +751,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(7, 112);
+            this.label7.Location = new System.Drawing.Point(54, 129);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(87, 13);
             this.label7.TabIndex = 13;
@@ -986,7 +759,7 @@
             // 
             // TB_columna
             // 
-            this.TB_columna.Location = new System.Drawing.Point(96, 109);
+            this.TB_columna.Location = new System.Drawing.Point(143, 126);
             this.TB_columna.Name = "TB_columna";
             this.TB_columna.Size = new System.Drawing.Size(144, 20);
             this.TB_columna.TabIndex = 14;
@@ -1009,7 +782,7 @@
             this.groupBox6.Controls.Add(this.CBX_cedis);
             this.groupBox6.Location = new System.Drawing.Point(1, -2);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(414, 179);
+            this.groupBox6.Size = new System.Drawing.Size(414, 192);
             this.groupBox6.TabIndex = 16;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Stock";
@@ -1063,7 +836,7 @@
             this.groupBox4.Controls.Add(this.CB_proveedorStock);
             this.groupBox4.Controls.Add(this.button3);
             this.groupBox4.Controls.Add(this.BT_buscar);
-            this.groupBox4.Location = new System.Drawing.Point(919, 179);
+            this.groupBox4.Location = new System.Drawing.Point(919, 199);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(467, 138);
             this.groupBox4.TabIndex = 18;
@@ -1197,7 +970,7 @@
             // 
             this.groupBox5.Controls.Add(this.RB_tiendas);
             this.groupBox5.Controls.Add(this.RB_cedis);
-            this.groupBox5.Location = new System.Drawing.Point(681, 178);
+            this.groupBox5.Location = new System.Drawing.Point(681, 199);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(232, 60);
             this.groupBox5.TabIndex = 21;
@@ -1260,7 +1033,7 @@
             // 
             this.groupBox8.Controls.Add(this.RB_mostrar_todas);
             this.groupBox8.Controls.Add(this.RB_algunas);
-            this.groupBox8.Location = new System.Drawing.Point(681, 252);
+            this.groupBox8.Location = new System.Drawing.Point(681, 276);
             this.groupBox8.Name = "groupBox8";
             this.groupBox8.Size = new System.Drawing.Size(232, 65);
             this.groupBox8.TabIndex = 25;
@@ -1293,6 +1066,7 @@
             // 
             // groupBox9
             // 
+            this.groupBox9.Controls.Add(this.BT_cargar_fabricantes);
             this.groupBox9.Controls.Add(this.label20);
             this.groupBox9.Controls.Add(this.label19);
             this.groupBox9.Controls.Add(this.CB_fabricante);
@@ -1304,7 +1078,7 @@
             this.groupBox9.Controls.Add(this.DT_inicio);
             this.groupBox9.Location = new System.Drawing.Point(421, -2);
             this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(304, 179);
+            this.groupBox9.Size = new System.Drawing.Size(304, 194);
             this.groupBox9.TabIndex = 18;
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "Buscar existencia pasada";
@@ -1312,7 +1086,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(10, 28);
+            this.label20.Location = new System.Drawing.Point(10, 50);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(57, 13);
             this.label20.TabIndex = 19;
@@ -1321,7 +1095,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(7, 85);
+            this.label19.Location = new System.Drawing.Point(54, 102);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(21, 13);
             this.label19.TabIndex = 21;
@@ -1330,14 +1104,14 @@
             // CB_fabricante
             // 
             this.CB_fabricante.FormattingEnabled = true;
-            this.CB_fabricante.Location = new System.Drawing.Point(72, 25);
+            this.CB_fabricante.Location = new System.Drawing.Point(72, 47);
             this.CB_fabricante.Name = "CB_fabricante";
             this.CB_fabricante.Size = new System.Drawing.Size(226, 21);
             this.CB_fabricante.TabIndex = 18;
             // 
             // DT_fin
             // 
-            this.DT_fin.Location = new System.Drawing.Point(40, 84);
+            this.DT_fin.Location = new System.Drawing.Point(87, 101);
             this.DT_fin.Name = "DT_fin";
             this.DT_fin.Size = new System.Drawing.Size(200, 20);
             this.DT_fin.TabIndex = 20;
@@ -1345,7 +1119,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(2, 59);
+            this.label18.Location = new System.Drawing.Point(49, 76);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(32, 13);
             this.label18.TabIndex = 19;
@@ -1356,7 +1130,7 @@
             this.BT_existencia_pasada.BackColor = System.Drawing.Color.DodgerBlue;
             this.BT_existencia_pasada.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BT_existencia_pasada.ForeColor = System.Drawing.Color.White;
-            this.BT_existencia_pasada.Location = new System.Drawing.Point(87, 138);
+            this.BT_existencia_pasada.Location = new System.Drawing.Point(87, 152);
             this.BT_existencia_pasada.Name = "BT_existencia_pasada";
             this.BT_existencia_pasada.Size = new System.Drawing.Size(200, 35);
             this.BT_existencia_pasada.TabIndex = 9;
@@ -1366,7 +1140,7 @@
             // 
             // DT_inicio
             // 
-            this.DT_inicio.Location = new System.Drawing.Point(40, 57);
+            this.DT_inicio.Location = new System.Drawing.Point(87, 74);
             this.DT_inicio.Name = "DT_inicio";
             this.DT_inicio.Size = new System.Drawing.Size(200, 20);
             this.DT_inicio.TabIndex = 18;
@@ -1422,7 +1196,7 @@
             this.PEDIDO.Location = new System.Drawing.Point(4, 22);
             this.PEDIDO.Name = "PEDIDO";
             this.PEDIDO.Padding = new System.Windows.Forms.Padding(3);
-            this.PEDIDO.Size = new System.Drawing.Size(1997, 324);
+            this.PEDIDO.Size = new System.Drawing.Size(1997, 295);
             this.PEDIDO.TabIndex = 1;
             this.PEDIDO.Text = "PEDIDO";
             this.PEDIDO.UseVisualStyleBackColor = true;
@@ -1657,7 +1431,7 @@
             // TB_cajasxpedirbo
             // 
             this.TB_cajasxpedirbo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.TB_cajasxpedirbo.Location = new System.Drawing.Point(1581, 339);
+            this.TB_cajasxpedirbo.Location = new System.Drawing.Point(21, 40);
             this.TB_cajasxpedirbo.Name = "TB_cajasxpedirbo";
             this.TB_cajasxpedirbo.Size = new System.Drawing.Size(75, 20);
             this.TB_cajasxpedirbo.TabIndex = 24;
@@ -1667,7 +1441,7 @@
             // 
             this.label25.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(1572, 324);
+            this.label25.Location = new System.Drawing.Point(12, 25);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(93, 13);
             this.label25.TabIndex = 24;
@@ -1677,7 +1451,7 @@
             // 
             this.label26.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(1709, 324);
+            this.label26.Location = new System.Drawing.Point(32, 67);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(51, 13);
             this.label26.TabIndex = 29;
@@ -1686,7 +1460,7 @@
             // TB_pzxcaja
             // 
             this.TB_pzxcaja.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.TB_pzxcaja.Location = new System.Drawing.Point(1698, 339);
+            this.TB_pzxcaja.Location = new System.Drawing.Point(21, 82);
             this.TB_pzxcaja.Name = "TB_pzxcaja";
             this.TB_pzxcaja.Size = new System.Drawing.Size(75, 20);
             this.TB_pzxcaja.TabIndex = 30;
@@ -1696,7 +1470,7 @@
             // 
             this.label27.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(1826, 324);
+            this.label27.Location = new System.Drawing.Point(128, 23);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(49, 13);
             this.label27.TabIndex = 31;
@@ -1705,7 +1479,7 @@
             // TB_pzxpaq
             // 
             this.TB_pzxpaq.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.TB_pzxpaq.Location = new System.Drawing.Point(1815, 339);
+            this.TB_pzxpaq.Location = new System.Drawing.Point(117, 38);
             this.TB_pzxpaq.Name = "TB_pzxpaq";
             this.TB_pzxpaq.Size = new System.Drawing.Size(75, 20);
             this.TB_pzxpaq.TabIndex = 32;
@@ -1717,7 +1491,7 @@
             this.BT_agregar_cantidad_pzcajas.BackColor = System.Drawing.Color.DodgerBlue;
             this.BT_agregar_cantidad_pzcajas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BT_agregar_cantidad_pzcajas.ForeColor = System.Drawing.Color.White;
-            this.BT_agregar_cantidad_pzcajas.Location = new System.Drawing.Point(1916, 328);
+            this.BT_agregar_cantidad_pzcajas.Location = new System.Drawing.Point(117, 82);
             this.BT_agregar_cantidad_pzcajas.Name = "BT_agregar_cantidad_pzcajas";
             this.BT_agregar_cantidad_pzcajas.Size = new System.Drawing.Size(86, 41);
             this.BT_agregar_cantidad_pzcajas.TabIndex = 24;
@@ -1725,19 +1499,302 @@
             this.BT_agregar_cantidad_pzcajas.UseVisualStyleBackColor = false;
             this.BT_agregar_cantidad_pzcajas.Click += new System.EventHandler(this.BT_agregar_cantidad_pzcajas_Click);
             // 
+            // button8
+            // 
+            this.button8.BackColor = System.Drawing.Color.DodgerBlue;
+            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button8.ForeColor = System.Drawing.Color.White;
+            this.button8.Location = new System.Drawing.Point(6, 63);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(74, 37);
+            this.button8.TabIndex = 24;
+            this.button8.Text = "Cargar Lineas";
+            this.button8.UseVisualStyleBackColor = false;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
+            // BT_cargar_fabricantes
+            // 
+            this.BT_cargar_fabricantes.BackColor = System.Drawing.Color.DodgerBlue;
+            this.BT_cargar_fabricantes.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_cargar_fabricantes.ForeColor = System.Drawing.Color.White;
+            this.BT_cargar_fabricantes.Location = new System.Drawing.Point(166, 10);
+            this.BT_cargar_fabricantes.Name = "BT_cargar_fabricantes";
+            this.BT_cargar_fabricantes.Size = new System.Drawing.Size(132, 35);
+            this.BT_cargar_fabricantes.TabIndex = 22;
+            this.BT_cargar_fabricantes.Text = "Cargar fabricantes";
+            this.BT_cargar_fabricantes.UseVisualStyleBackColor = false;
+            this.BT_cargar_fabricantes.Click += new System.EventHandler(this.BT_cargar_fabricantes_Click);
+            // 
+            // groupBox10
+            // 
+            this.groupBox10.Controls.Add(this.BT_agregar_cantidad_pzcajas);
+            this.groupBox10.Controls.Add(this.TB_cajasxpedirbo);
+            this.groupBox10.Controls.Add(this.label26);
+            this.groupBox10.Controls.Add(this.label27);
+            this.groupBox10.Controls.Add(this.TB_pzxcaja);
+            this.groupBox10.Controls.Add(this.label25);
+            this.groupBox10.Controls.Add(this.TB_pzxpaq);
+            this.groupBox10.Location = new System.Drawing.Point(1707, 199);
+            this.groupBox10.Name = "groupBox10";
+            this.groupBox10.Size = new System.Drawing.Size(295, 139);
+            this.groupBox10.TabIndex = 28;
+            this.groupBox10.TabStop = false;
+            this.groupBox10.Text = "Crear Orden Compra";
+            // 
+            // MODEL
+            // 
+            this.MODEL.HeaderText = "MODELO";
+            this.MODEL.Name = "MODEL";
+            // 
+            // CLAVE
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.CLAVE.DefaultCellStyle = dataGridViewCellStyle2;
+            this.CLAVE.HeaderText = "CLAVE";
+            this.CLAVE.Name = "CLAVE";
+            // 
+            // DESCRIP
+            // 
+            this.DESCRIP.HeaderText = "DESCRIPCION";
+            this.DESCRIP.Name = "DESCRIP";
+            // 
+            // DEPTO
+            // 
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.DEPTO.DefaultCellStyle = dataGridViewCellStyle3;
+            this.DEPTO.HeaderText = "DEPTO.";
+            this.DEPTO.Name = "DEPTO";
+            // 
+            // PIEZAS
+            // 
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.PIEZAS.DefaultCellStyle = dataGridViewCellStyle4;
+            this.PIEZAS.HeaderText = "PZ X PEDIR";
+            this.PIEZAS.Name = "PIEZAS";
+            // 
+            // CAJAS
+            // 
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.CAJAS.DefaultCellStyle = dataGridViewCellStyle5;
+            this.CAJAS.HeaderText = "CAJAS X PEDIR";
+            this.CAJAS.Name = "CAJAS";
+            // 
+            // CAJAS_BOD
+            // 
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Cyan;
+            this.CAJAS_BOD.DefaultCellStyle = dataGridViewCellStyle6;
+            this.CAJAS_BOD.HeaderText = "CAJAS X PEDIR BOD";
+            this.CAJAS_BOD.Name = "CAJAS_BOD";
+            // 
+            // PZ_CAJA
+            // 
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.PZ_CAJA.DefaultCellStyle = dataGridViewCellStyle7;
+            this.PZ_CAJA.HeaderText = "PZ X CAJA";
+            this.PZ_CAJA.Name = "PZ_CAJA";
+            // 
+            // PZ_PAQ
+            // 
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.PZ_PAQ.DefaultCellStyle = dataGridViewCellStyle8;
+            this.PZ_PAQ.HeaderText = "PZ X PAQ";
+            this.PZ_PAQ.Name = "PZ_PAQ";
+            // 
+            // COSTO_PAQUETE
+            // 
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.COSTO_PAQUETE.DefaultCellStyle = dataGridViewCellStyle9;
+            this.COSTO_PAQUETE.HeaderText = "COSTO X PAQ.";
+            this.COSTO_PAQUETE.Name = "COSTO_PAQUETE";
+            // 
+            // COSTO_PIEZA
+            // 
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.Yellow;
+            this.COSTO_PIEZA.DefaultCellStyle = dataGridViewCellStyle10;
+            this.COSTO_PIEZA.HeaderText = "COSTO X PZ.";
+            this.COSTO_PIEZA.Name = "COSTO_PIEZA";
+            // 
+            // PEDIDO_BOD
+            // 
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.Aqua;
+            this.PEDIDO_BOD.DefaultCellStyle = dataGridViewCellStyle11;
+            this.PEDIDO_BOD.HeaderText = "PED. BOD";
+            this.PEDIDO_BOD.Name = "PEDIDO_BOD";
+            // 
+            // IMPORTE_BOD
+            // 
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.Yellow;
+            this.IMPORTE_BOD.DefaultCellStyle = dataGridViewCellStyle12;
+            this.IMPORTE_BOD.HeaderText = "IMPORTE BOD.";
+            this.IMPORTE_BOD.Name = "IMPORTE_BOD";
+            // 
+            // MAX_CEDIS
+            // 
+            this.MAX_CEDIS.HeaderText = "MAX_CE";
+            this.MAX_CEDIS.Name = "MAX_CEDIS";
+            // 
+            // EXT_CE
+            // 
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.EXT_CE.DefaultCellStyle = dataGridViewCellStyle13;
+            this.EXT_CE.HeaderText = "EXT CE.";
+            this.EXT_CE.Name = "EXT_CE";
+            // 
+            // PED_CEDIS
+            // 
+            this.PED_CEDIS.HeaderText = "PED_CE";
+            this.PED_CEDIS.Name = "PED_CEDIS";
+            // 
+            // IMPORTE_CEDIS
+            // 
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.IMPORTE_CEDIS.DefaultCellStyle = dataGridViewCellStyle14;
+            this.IMPORTE_CEDIS.HeaderText = "IMPORTE_CE";
+            this.IMPORTE_CEDIS.Name = "IMPORTE_CEDIS";
+            // 
+            // MAX_VA
+            // 
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.MAX_VA.DefaultCellStyle = dataGridViewCellStyle15;
+            this.MAX_VA.HeaderText = "MAX VA.";
+            this.MAX_VA.Name = "MAX_VA";
+            // 
+            // EXT_VA
+            // 
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.EXT_VA.DefaultCellStyle = dataGridViewCellStyle16;
+            this.EXT_VA.HeaderText = "EXT VA.";
+            this.EXT_VA.Name = "EXT_VA";
+            // 
+            // EX_PAS_VA
+            // 
+            this.EX_PAS_VA.HeaderText = "COL1";
+            this.EX_PAS_VA.Name = "EX_PAS_VA";
+            // 
+            // PEDIDO_VA
+            // 
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.PEDIDO_VA.DefaultCellStyle = dataGridViewCellStyle17;
+            this.PEDIDO_VA.HeaderText = "PED VA";
+            this.PEDIDO_VA.Name = "PEDIDO_VA";
+            // 
+            // IMP_VA
+            // 
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.IMP_VA.DefaultCellStyle = dataGridViewCellStyle18;
+            this.IMP_VA.HeaderText = "IMPORTE VA";
+            this.IMP_VA.Name = "IMP_VA";
+            // 
+            // MAX_RE
+            // 
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.MAX_RE.DefaultCellStyle = dataGridViewCellStyle19;
+            this.MAX_RE.HeaderText = "MAX RE.";
+            this.MAX_RE.Name = "MAX_RE";
+            // 
+            // EXT_RE
+            // 
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.EXT_RE.DefaultCellStyle = dataGridViewCellStyle20;
+            this.EXT_RE.HeaderText = "EXT RE.";
+            this.EXT_RE.Name = "EXT_RE";
+            // 
+            // EX_PAS_RE
+            // 
+            this.EX_PAS_RE.HeaderText = "COL2";
+            this.EX_PAS_RE.Name = "EX_PAS_RE";
+            // 
+            // PEDIDO_RE
+            // 
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.PEDIDO_RE.DefaultCellStyle = dataGridViewCellStyle21;
+            this.PEDIDO_RE.HeaderText = "PED RE";
+            this.PEDIDO_RE.Name = "PEDIDO_RE";
+            // 
+            // IMP_RE
+            // 
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.IMP_RE.DefaultCellStyle = dataGridViewCellStyle22;
+            this.IMP_RE.HeaderText = "IMPORTE RE";
+            this.IMP_RE.Name = "IMP_RE";
+            // 
+            // MAX_VE
+            // 
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.MAX_VE.DefaultCellStyle = dataGridViewCellStyle23;
+            this.MAX_VE.HeaderText = "MAX VE.";
+            this.MAX_VE.Name = "MAX_VE";
+            // 
+            // EXT_VE
+            // 
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.EXT_VE.DefaultCellStyle = dataGridViewCellStyle24;
+            this.EXT_VE.HeaderText = "EXT VE.";
+            this.EXT_VE.Name = "EXT_VE";
+            // 
+            // EX_PAS_VE
+            // 
+            this.EX_PAS_VE.HeaderText = "COL3";
+            this.EX_PAS_VE.Name = "EX_PAS_VE";
+            // 
+            // PEDIDO_VE
+            // 
+            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.PEDIDO_VE.DefaultCellStyle = dataGridViewCellStyle25;
+            this.PEDIDO_VE.HeaderText = "PED VE";
+            this.PEDIDO_VE.Name = "PEDIDO_VE";
+            // 
+            // IMP_VE
+            // 
+            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.IMP_VE.DefaultCellStyle = dataGridViewCellStyle26;
+            this.IMP_VE.HeaderText = "IMPORTE VE";
+            this.IMP_VE.Name = "IMP_VE";
+            // 
+            // MAX_CO
+            // 
+            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.MAX_CO.DefaultCellStyle = dataGridViewCellStyle27;
+            this.MAX_CO.HeaderText = "MAX CO.";
+            this.MAX_CO.Name = "MAX_CO";
+            // 
+            // EXT_CO
+            // 
+            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.EXT_CO.DefaultCellStyle = dataGridViewCellStyle28;
+            this.EXT_CO.HeaderText = "EXT CO.";
+            this.EXT_CO.Name = "EXT_CO";
+            // 
+            // EX_PAS_CO
+            // 
+            this.EX_PAS_CO.HeaderText = "COL4";
+            this.EX_PAS_CO.Name = "EX_PAS_CO";
+            // 
+            // PEDIDO_CO
+            // 
+            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.PEDIDO_CO.DefaultCellStyle = dataGridViewCellStyle29;
+            this.PEDIDO_CO.HeaderText = "PED CO";
+            this.PEDIDO_CO.Name = "PEDIDO_CO";
+            // 
+            // IMP_CO
+            // 
+            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.IMP_CO.DefaultCellStyle = dataGridViewCellStyle30;
+            this.IMP_CO.HeaderText = "IMPORTE CO";
+            this.IMP_CO.Name = "IMP_CO";
+            // 
             // StockOrdenCompra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(2007, 686);
-            this.Controls.Add(this.BT_agregar_cantidad_pzcajas);
-            this.Controls.Add(this.label27);
-            this.Controls.Add(this.TB_pzxpaq);
-            this.Controls.Add(this.label26);
-            this.Controls.Add(this.TB_pzxcaja);
-            this.Controls.Add(this.label25);
-            this.Controls.Add(this.TB_cajasxpedirbo);
+            this.Controls.Add(this.groupBox10);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.BT_pdf);
             this.Controls.Add(this.groupBox9);
@@ -1778,8 +1835,9 @@
             this.PEDIDO.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DG_aclaraciones)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DG_tabla_pedido)).EndInit();
+            this.groupBox10.ResumeLayout(false);
+            this.groupBox10.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -1846,43 +1904,6 @@
         private System.Windows.Forms.GroupBox groupBox8;
         private System.Windows.Forms.RadioButton RB_mostrar_todas;
         private System.Windows.Forms.RadioButton RB_algunas;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MODEL;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CLAVE;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DESCRIP;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DEPTO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PIEZAS;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CAJAS;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CAJAS_BOD;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PZ_CAJA;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PZ_PAQ;
-        private System.Windows.Forms.DataGridViewTextBoxColumn COSTO_PAQUETE;
-        private System.Windows.Forms.DataGridViewTextBoxColumn COSTO_PIEZA;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PEDIDO_BOD;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IMPORTE_BOD;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MAX_CEDIS;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EXT_CE;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PED_CEDIS;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IMPORTE_CEDIS;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MAX_VA;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EXT_VA;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EX_PAS_VA;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PEDIDO_VA;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IMP_VA;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MAX_RE;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EXT_RE;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EX_PAS_RE;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PEDIDO_RE;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IMP_RE;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MAX_VE;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EXT_VE;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EX_PAS_VE;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PEDIDO_VE;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IMP_VE;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MAX_CO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EXT_CO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EX_PAS_CO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PEDIDO_CO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IMP_CO;
         private System.Windows.Forms.Label LB_total;
         private System.Windows.Forms.Label LB_to;
         private System.Windows.Forms.RadioButton RB_tiendas;
@@ -1942,5 +1963,45 @@
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.TextBox TB_pzxpaq;
         private System.Windows.Forms.Button BT_agregar_cantidad_pzcajas;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button BT_cargar_fabricantes;
+        private System.Windows.Forms.GroupBox groupBox10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MODEL;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CLAVE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DESCRIP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DEPTO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PIEZAS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CAJAS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CAJAS_BOD;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PZ_CAJA;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PZ_PAQ;
+        private System.Windows.Forms.DataGridViewTextBoxColumn COSTO_PAQUETE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn COSTO_PIEZA;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PEDIDO_BOD;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IMPORTE_BOD;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MAX_CEDIS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EXT_CE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PED_CEDIS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IMPORTE_CEDIS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MAX_VA;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EXT_VA;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EX_PAS_VA;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PEDIDO_VA;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IMP_VA;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MAX_RE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EXT_RE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EX_PAS_RE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PEDIDO_RE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IMP_RE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MAX_VE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EXT_VE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EX_PAS_VE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PEDIDO_VE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IMP_VE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MAX_CO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EXT_CO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EX_PAS_CO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PEDIDO_CO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IMP_CO;
     }
 }

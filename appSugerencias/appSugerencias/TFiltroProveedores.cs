@@ -24,7 +24,8 @@ namespace appSugerencias
         public void ObtenerProveedores()
         {
             string query = "SELECT proveedor,nombre FROM proveed WHERE nombre like '%"+nombre+"%'";
-            MySqlConnection conexion = BDConexicon.BodegaOpen();
+            //MySqlConnection conexion = BDConexicon.BodegaOpen();
+            MySqlConnection conexion = BDConexicon.conectar();
             MySqlCommand cmd = new MySqlCommand(query,conexion);
             MySqlDataReader dr = cmd.ExecuteReader();
             while (dr.Read())

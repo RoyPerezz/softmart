@@ -1409,11 +1409,19 @@
     </Compile>
     <Compile Include="Singleton.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="Stock Compras\Controlador\AclaracionController.cs" />
     <Compile Include="Stock Compras\Controlador\CompraController.cs" />
     <Compile Include="Stock Compras\Controlador\StockController.cs" />
+    <Compile Include="Stock Compras\Modelo\Aclaracion.cs" />
     <Compile Include="Stock Compras\Modelo\Compra.cs" />
     <Compile Include="Stock Compras\Modelo\DetalleStockCompra.cs" />
     <Compile Include="Stock Compras\Modelo\Pedido.cs" />
+    <Compile Include="Stock Compras\Vista\FormatoAclaracionesTiendas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Stock Compras\Vista\FormatoAclaracionesTiendas.Designer.cs">
+      <DependentUpon>FormatoAclaracionesTiendas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Stock Compras\Vista\FormatoCompra.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -2209,6 +2217,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Rp_pagocomisiones.resx">
       <DependentUpon>Rp_pagocomisiones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Stock Compras\Vista\FormatoAclaracionesTiendas.resx">
+      <DependentUpon>FormatoAclaracionesTiendas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Stock Compras\Vista\FormatoCompra.resx">
       <DependentUpon>FormatoCompra.cs</DependentUpon>

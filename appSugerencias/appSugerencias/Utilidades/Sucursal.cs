@@ -11,11 +11,11 @@ namespace appSugerencias.Utilidades
         {
             string sucursal = "";
 
-            if (ip.Equals("192.168.0.190"))
+            if (ip.Equals("192.168.6.190"))
             {
                 sucursal = "CEDIS";
 
-            }else if(ip.Equals("192.168.1.2"))
+            }else if(ip.Equals("192.168.5.2"))
             {
                 sucursal = "VALLARTA";
 

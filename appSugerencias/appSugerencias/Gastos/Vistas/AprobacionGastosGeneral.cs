@@ -268,7 +268,7 @@ namespace appSugerencias.Gastos
                 comentario = DG_tabla.Rows[e.RowIndex].Cells["DESCRIPCION"].Value.ToString();
                 //comrevision2 = DG_tabla.Rows[e.RowIndex].Cells["COMREV2"].Value.ToString();
                 //comentarioRev = DG_tabla.Rows[e.RowIndex].Cells["COMENTARIO"].Value.ToString();
-                FotoRevision revision = new FotoRevision(foto1, comentario, "", foto2, comentarioRev, comrevision2);
+                FotoRevision revision = new FotoRevision(foto1, comentario, "", foto2, comentarioRev, comrevision2,0, 0);
                 revision.Show();
             }
 

@@ -66,7 +66,8 @@ namespace appSugerencias
 
         public void Bancos()
         {
-            MySqlConnection con = BDConexicon.BodegaOpen();
+            //MySqlConnection con = BDConexicon.BodegaOpen();
+            MySqlConnection con = BDConexicon.conectar();
             CB_banco.Items.Add("");
             try
             {
@@ -455,7 +456,8 @@ namespace appSugerencias
             {
                 try
                 {
-                    MySqlConnection bo = BDConexicon.BodegaOpen();
+                    //MySqlConnection bo = BDConexicon.BodegaOpen();
+                    MySqlConnection bo = BDConexicon.conectar();
                     double cantidad = Convert.ToDouble(abono);
                    
                     MySqlCommand spei = new MySqlCommand("INSERT INTO rd_historial_saldobancos(tienda,mov,ie,banco,cuenta,pagara,cantidad,fecha,hora) VALUES(?tienda,?mov,?ie,?banco,?cuenta,?pagara,?cantidad,?fecha,?hora) ", bo);
@@ -2848,7 +2850,8 @@ namespace appSugerencias
             else
             {
 
-                MySqlConnection con = BDConexicon.BodegaOpen();
+                // MySqlConnection con = BDConexicon.BodegaOpen();
+                MySqlConnection con = BDConexicon.conectar();
                 MySqlCommand cmd = new MySqlCommand("SELECT pagara FROM rd_cuentas_bancarias WHERE cuenta='" + CB_cuenta.SelectedItem.ToString() + "'", con);
                 MySqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
@@ -2916,11 +2919,12 @@ namespace appSugerencias
             {
                 CB_cuenta.Items.Add("");
             }
-           
 
 
-      
-            MySqlConnection con = BDConexicon.BodegaOpen();
+
+
+            //MySqlConnection con = BDConexicon.BodegaOpen();
+            MySqlConnection con = BDConexicon.conectar();
             MySqlCommand cmd = new MySqlCommand("SELECT cuenta FROM rd_cuentas_bancarias WHERE banco='"+CB_banco.SelectedItem.ToString()+"' AND fk_proveedor='"+ TB_proveedor.Text+"'", con);
             MySqlDataReader dr = cmd.ExecuteReader();
             while (dr.Read())

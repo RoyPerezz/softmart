@@ -53,7 +53,8 @@ namespace appSugerencias
         public ArrayList Proveedores()
         {
             ArrayList prov = new ArrayList();
-            MySqlConnection conexion = BDConexicon.BodegaOpen();
+            //  MySqlConnection conexion = BDConexicon.BodegaOpen();
+            MySqlConnection conexion = BDConexicon.conectar();
             string query = "SELECT nombre FROM proveed ORDER BY nombre";
             MySqlCommand cmd = new MySqlCommand(query,conexion);
             MySqlDataReader dr = cmd.ExecuteReader();

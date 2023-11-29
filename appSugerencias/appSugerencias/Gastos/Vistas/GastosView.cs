@@ -468,7 +468,7 @@ namespace appSugerencias.Gastos.Vistas
             string ruta3 = DG_tabla.Rows[e.RowIndex].Cells["FOTO3"].Value.ToString();
            string comRevision2 = DG_tabla.Rows[e.RowIndex].Cells["COMREVISION2"].Value.ToString();
             string comentarioRev = DG_tabla.Rows[e.RowIndex].Cells["COMENTARIO"].Value.ToString();
-            FotoRevision revision = new FotoRevision(ruta, detalle,ruta2,ruta3, comentarioRev,comRevision2);
+            FotoRevision revision = new FotoRevision(ruta, detalle,ruta2,ruta3, comentarioRev,comRevision2,0,0);
             revision.Show();
         }
 

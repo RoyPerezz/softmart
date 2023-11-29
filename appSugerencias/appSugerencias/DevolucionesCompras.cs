@@ -141,7 +141,9 @@ namespace appSugerencias
                 }
                 else
                 {
+                    BT_devolver.Enabled = false;
                     Devolucion();
+                    BT_devolver.Enabled = true;
                 }
             }
             else
@@ -152,7 +154,9 @@ namespace appSugerencias
                 }
                 else
                 {
+                    BT_devolver.Enabled = false;
                     Devolucion();
+                    BT_devolver.Enabled = true;
                 }
             }
           

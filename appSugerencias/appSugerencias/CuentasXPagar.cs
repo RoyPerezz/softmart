@@ -327,7 +327,9 @@ namespace appSugerencias
         //###################################### OBTENER LOS NOMBRES DE LOS PROVEEDORES #######################################################
         public void proveedores()
         {
-            MySqlConnection BO = BDConexicon.BodegaOpen();
+            //MySqlConnection BO = BDConexicon.BodegaOpen();
+            MySqlConnection BO = BDConexicon.conectar();
+
 
             try
             {
@@ -523,7 +525,8 @@ namespace appSugerencias
             
 
             ResetarComponentes();
-            MySqlConnection BO = BDConexicon.BodegaOpen();
+            //MySqlConnection BO = BDConexicon.BodegaOpen();
+            MySqlConnection BO = BDConexicon.conectar();
             DG_datos.Rows.Clear();
             saldo = 0;
             try

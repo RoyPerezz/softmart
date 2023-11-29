@@ -418,49 +418,51 @@ namespace appSugerencias
                     utilidad = Convert.ToDouble(TB_utilidad.Text);
                     precio_mayoreo = Math.Ceiling(costoXpz * (1 - (descuento / 100)) * (1 + (utilidad / 100)));
 
-                    if (precio_mayoreo >= 0 && precio_mayoreo < 2)
-                    {
-                        precio_menudeo = 2;
+                    //if (precio_mayoreo >= 0 && precio_mayoreo < 2)
+                    //{
+                    //    precio_menudeo = 2;
 
-                    }
-                    else if (precio_mayoreo >= 2 && precio_mayoreo < 2.99)
-                    {
-                        precio_menudeo = 3.5;
+                    //}
+                    //else if (precio_mayoreo >= 2 && precio_mayoreo < 2.99)
+                    //{
+                    //    precio_menudeo = 3.5;
 
-                    }
-                    else if (precio_mayoreo >= 3 && precio_mayoreo < 10.99)
-                    {
-                        precio_menudeo = precio_mayoreo + 2;
+                    //}
+                    //else if (precio_mayoreo >= 3 && precio_mayoreo < 10.99)
+                    //{
+                    //    precio_menudeo = precio_mayoreo + 2;
 
-                    }
-                    else if (precio_mayoreo >= 11 && precio_mayoreo < 11.99)
-                    {
-                        precio_menudeo = 14;
+                    //}
+                    //else if (precio_mayoreo >= 11 && precio_mayoreo < 11.99)
+                    //{
+                    //    precio_menudeo = 14;
 
-                    }
-                    else if (precio_mayoreo >= 12 && precio_mayoreo < 16.99)
-                    {
-                        precio_menudeo = precio_mayoreo + 4;
+                    //}
+                    //else if (precio_mayoreo >= 12 && precio_mayoreo < 16.99)
+                    //{
+                    //    precio_menudeo = precio_mayoreo + 4;
 
-                    }
-                    else if (precio_mayoreo >= 17 && precio_mayoreo < 50.99)
-                    {
-                        precio_menudeo = precio_mayoreo + 5;
+                    //}
+                    //else if (precio_mayoreo >= 17 && precio_mayoreo < 50.99)
+                    //{
+                    //    precio_menudeo = precio_mayoreo + 5;
 
-                    }
-                    else if (precio_mayoreo >= 51 && precio_mayoreo < 199)
-                    {
-                        precio_menudeo = precio_mayoreo + 10;
+                    //}
+                    //else if (precio_mayoreo >= 51 && precio_mayoreo < 199)
+                    //{
+                    //    precio_menudeo = precio_mayoreo + 10;
 
-                    }
-                    else if (precio_mayoreo >= 200)
-                    {
-                        precio_menudeo = precio_mayoreo + 20;
-                    }
+                    //}
+                    //else if (precio_mayoreo >= 200)
+                    //{
+                    //    precio_menudeo = precio_mayoreo + 20;
+                    //}
 
 
-                    DG_tabla_pedido.Rows.Add(dr["idreg"].ToString(), dr["modelo"].ToString(), dr["claveProducto"].ToString(), dr["descripcion"].ToString(),"","","", dr["pzxpaq"].ToString(), Convert.ToDouble(dr["costoxpaq"].ToString()), Convert.ToDouble(dr["costoxpz"].ToString()),
-                      precio_mayoreo, precio_menudeo, dr["ped_bo"].ToString(), dr["ped_va"].ToString(), dr["ped_re"].ToString(), dr["ped_ve"].ToString(), dr["ped_co"].ToString(), precio_manual.ThreeState);
+                    //DG_tabla_pedido.Rows.Add(dr["idreg"].ToString(), dr["modelo"].ToString(), dr["claveProducto"].ToString(), dr["descripcion"].ToString(),"","","", dr["pzxpaq"].ToString(), Convert.ToDouble(dr["costoxpaq"].ToString()), Convert.ToDouble(dr["costoxpz"].ToString()),
+                    //  precio_mayoreo, precio_menudeo, dr["ped_bo"].ToString(), dr["ped_va"].ToString(), dr["ped_re"].ToString(), dr["ped_ve"].ToString(), dr["ped_co"].ToString(), precio_manual.ThreeState);
+                    DG_tabla_pedido.Rows.Add(dr["idreg"].ToString(), dr["modelo"].ToString(), dr["claveProducto"].ToString(), dr["descripcion"].ToString(), "", "", "", dr["pzxpaq"].ToString(), Convert.ToDouble(dr["costoxpaq"].ToString()), Convert.ToDouble(dr["costoxpz"].ToString()),
+                     dr["precio_mayoreo"], dr["precio_menudeo"], dr["ped_bo"].ToString(), dr["ped_va"].ToString(), dr["ped_re"].ToString(), dr["ped_ve"].ToString(), dr["ped_co"].ToString(), precio_manual.ThreeState);
 
                 }
 
@@ -579,6 +581,12 @@ namespace appSugerencias
             DG_tabla.Columns[26].DefaultCellStyle.Format = "C2";
             DG_tabla.Columns[31].DefaultCellStyle.Format = "C2";
             DG_tabla.Columns[36].DefaultCellStyle.Format = "C2";
+
+            DG_tabla_pedido.Columns["COSTO_PAQ"].DefaultCellStyle.Format = "C2";
+            DG_tabla_pedido.Columns["COSTO_PZ"].DefaultCellStyle.Format = "C2";
+            DG_tabla_pedido.Columns["PMAY"].DefaultCellStyle.Format = "C2";
+            DG_tabla_pedido.Columns["PMEN"].DefaultCellStyle.Format = "C2";
+
 
             //Calcular();
             conexion.Close();
@@ -2412,7 +2420,7 @@ namespace appSugerencias
             descuento = Convert.ToDouble(TB_desc_pedido.Text);
             utilidad = Convert.ToDouble(TB_utilidad.Text);
             bool tf = false;
-
+            double incremento = 0, descuentoTotal = 0,desPorcentaje=0;
             for (int i = 0; i < DG_tabla.Rows.Count; i++)
             {
 
@@ -2423,8 +2431,34 @@ namespace appSugerencias
                 }
                 else
                 {
-                    costoXpz = Convert.ToDouble(DG_tabla.Rows[i].Cells["COSTO_PIEZA"].Value);
-                    precio_mayoreo = Math.Ceiling(costoXpz * (1 - (descuento / 100)) * (1 + (utilidad / 100)));
+                    costoXpz = Convert.ToDouble(DG_tabla_pedido.Rows[i].Cells["COSTO_PZ"].Value);
+                    //precio_mayoreo = Math.Ceiling(costoXpz * (1 - (descuento / 100)) * (1 + (utilidad / 100)));
+
+                    if (costoXpz >= 0.10 && costoXpz <= 2.00)
+                    {
+                        descuentoTotal = (costoXpz * 2) * (descuento / 100);
+                        precio_mayoreo = (costoXpz * 2) -descuentoTotal ;
+                    }else if(costoXpz >= 2.01 && costoXpz <= 49.99)
+                    {
+                        desPorcentaje = (descuento / 100);
+                        descuentoTotal = (costoXpz + (costoXpz * 0.70)) * desPorcentaje;
+                        precio_mayoreo = Math.Ceiling((costoXpz + (costoXpz * 0.70)) -descuentoTotal);
+                    }
+                    else if(costoXpz >=50 && costoXpz <= 89.99)
+                    {
+                        desPorcentaje = (descuento / 100);
+                        descuentoTotal = (costoXpz + (costoXpz * 0.60)) * desPorcentaje;
+                        precio_mayoreo = Math.Ceiling((costoXpz + (costoXpz * 0.60)) - descuentoTotal);
+                    }
+
+                
+                    else if(costoXpz >= 90)
+                    {
+                        desPorcentaje = (descuento / 100);
+                        descuentoTotal = (costoXpz + (costoXpz * 0.50)) * desPorcentaje;
+                        precio_mayoreo = Math.Ceiling((costoXpz + (costoXpz * 0.50)) - descuentoTotal);
+                    }
+                
 
                     if (precio_mayoreo >= 0 && precio_mayoreo < 2)
                     {
@@ -2545,6 +2579,18 @@ namespace appSugerencias
             TB_cajasxpedirbo.Text = ""; TB_pzxcaja.Text = ""; TB_pzxpaq.Text = "";
 
 
+        }
+
+
+        //CARGA LAS LINEAS EN EL COMBOBOX
+        private void button8_Click(object sender, EventArgs e)
+        {
+            CargarLineas();
+        }
+
+        private void BT_cargar_fabricantes_Click(object sender, EventArgs e)
+        {
+            CargarFabricantes();
         }
 
         private void BT_calculo_manual_Click(object sender, EventArgs e)
@@ -2907,8 +2953,8 @@ namespace appSugerencias
         }
         private void StockOrdenCompra_Load(object sender, EventArgs e)
         {
-            CargarFabricantes();
-            CargarLineas();
+            //CargarFabricantes();
+            //CargarLineas();
             RB_cedis.Checked = true;
             DG_tabla.Columns.Add("ID","ID");
             DG_tabla.Columns.Add("COSTOU", "COSTO UNITARIO");
@@ -2928,7 +2974,7 @@ namespace appSugerencias
             //llenar el datagrid de los proveedores que ya tienen un stock
             MySqlConnection conexion = BDConexicon.BodegaOpen();
             string query = "Select distinct proveedor From rd_stock_compra";
-            MySqlCommand cmd = new MySqlCommand(query,conexion);
+            MySqlCommand cmd = new MySqlCommand(query, conexion);
             MySqlDataReader dr = cmd.ExecuteReader();
             Proveedor nombre = new Proveedor();
             while (dr.Read())

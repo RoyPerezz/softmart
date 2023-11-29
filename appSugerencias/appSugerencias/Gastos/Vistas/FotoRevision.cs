@@ -13,6 +13,7 @@ namespace appSugerencias.Gastos.Vistas
     {
 
         string ruta = "",comentario ="",ruta2="",ruta3="",comRevision, comRevision2="";
+        int mes=0,año = 0;
 
         private void BT_ampliar3_Click(object sender, EventArgs e)
         {
@@ -48,13 +49,14 @@ namespace appSugerencias.Gastos.Vistas
                     
         }
 
-        public FotoRevision(string ruta,string comentario,string ruta2,string ruta3,string comRevision,string comRevision2)
+        public FotoRevision(string ruta,string comentario,string ruta2,string ruta3,string comRevision,string comRevision2,int mes,int año)
         {
             this.ruta = ruta;
             this.ruta2 = ruta2;
             this.ruta3 = ruta3;
             this.comentario = comentario;
-           
+            this.mes = mes;
+            this.año = año;
             this.comRevision = comRevision;
             this.comRevision2 = comRevision2;
             InitializeComponent();
@@ -63,23 +65,122 @@ namespace appSugerencias.Gastos.Vistas
         private void FotoRevision_Load(object sender, EventArgs e)
         {
 
-
+            string cadena1 = "",cadena2="",rutaCompleta="",caracter="";
+            int contarSlash = 0;
             if (!ruta.Equals(""))
             {
-               pictureBox1.Image = Image.FromFile(ruta);
-                pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+                if (mes==1||mes==2||mes==3||mes==4||mes==5||mes==6||mes==7)
+                {
+                    if (año==2023)
+                    {
+                        rutaCompleta = ruta;
+                      
+
+
+                        for (int i = 0; i < rutaCompleta.Length; i++)
+                        {
+
+                            caracter = rutaCompleta[i].ToString();
+                            if (caracter.Equals("\\"))
+                            {
+                                contarSlash++;
+                            }
+                            else { break; }
+
+                        }
+
+                        cadena1 = ruta.Substring(contarSlash+11);
+                        cadena2 = ruta.Substring(12);
+                        ruta = cadena1;
+                        pictureBox1.Image = Image.FromFile("\\\\192.168.5.2" + ruta);
+                        pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+                        contarSlash = 0;
+                    }
+                }
+                else
+                {
+                    pictureBox1.Image = Image.FromFile(ruta);
+                    pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+                }
+               
+               
             }
 
             if (!ruta2.Equals(""))
             {
-                pictureBox2.Image = Image.FromFile(ruta2);
-                pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+                if (mes == 1 || mes == 2 || mes == 3 || mes == 4 || mes == 5 || mes == 6 || mes == 7)
+                {
+                    if (año==2023)
+                    {
+                        rutaCompleta = ruta2;
+
+
+
+                        for (int i = 0; i < rutaCompleta.Length; i++)
+                        {
+
+                            caracter = rutaCompleta[i].ToString();
+                            if (caracter.Equals("\\"))
+                            {
+                                contarSlash++;
+                            }
+                            else { break; }
+
+                        }
+
+                        cadena1 = ruta2.Substring(contarSlash + 11);
+                        cadena2 = ruta2.Substring(12);
+                        ruta2 = cadena1;
+                        pictureBox2.Image = Image.FromFile("\\\\192.168.5.2" + ruta2);
+                        pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+                        contarSlash = 0;
+                    }
+                }
+                else
+                {
+                    pictureBox2.Image = Image.FromFile(ruta2);
+                    pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+                }
+                    
             }
 
             if (!ruta3.Equals(""))
             {
-                pictureBox3.Image = Image.FromFile(ruta3);
-                pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
+               
+                if (mes == 1 || mes == 2 || mes == 3 || mes == 4 || mes == 5 || mes == 6 || mes == 7)
+                {
+                    if (año==2023)
+                    {
+                        rutaCompleta = ruta3;
+
+
+
+                        for (int i = 0; i < rutaCompleta.Length; i++)
+                        {
+
+                            caracter = rutaCompleta[i].ToString();
+                            if (caracter.Equals("\\"))
+                            {
+                                contarSlash++;
+                            }
+                            else { break; }
+
+                        }
+
+                        cadena1 = ruta3.Substring(contarSlash + 11);
+                        cadena2 = ruta3.Substring(12);
+                        ruta3 = cadena1;
+                        pictureBox3.Image = Image.FromFile("\\\\192.168.5.2" + ruta3);
+                        pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
+                        contarSlash = 0;
+                    }
+                }
+                else
+                {
+                    pictureBox3.Image = Image.FromFile(ruta3);
+                    pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
+                }
+                    
             }
            
 

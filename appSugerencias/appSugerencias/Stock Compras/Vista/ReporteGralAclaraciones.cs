@@ -157,7 +157,27 @@ namespace appSugerencias.Stock_Compras.Vista
                 "                descripcion," +
                 "                pzxpaq," +
                 "                costoxpaq," +
-                "                costoxpz" +              
+                "                costoxpz," +
+                "                falta_bo," +
+                "                mal_estado_bo," +
+                "                sobrante_bo," +
+                "                total_aclaracion_bo," +
+                "                falta_va," +
+                "                mal_estado_va," +
+                "                sobrante_va," +
+                "                total_aclaracion_va," +
+                "                falta_re," +
+                "                mal_estado_re," +
+                "                sobrante_re," +
+                "                total_aclaracion_re," +
+                "                falta_ve," +
+                "                mal_estado_ve," +
+                "                sobrante_ve," +
+                "                total_aclaracion_ve," +
+                "                 falta_co," +
+                "                mal_estado_co," +
+                "                sobrante_co," +
+                "                total_aclaracion_co " +              
                 "          FROM rd_detalle_stock_compra" +
                 "          WHERE fk_stock='"+TB_idStock.Text+"'" +
                 "          ORDER BY idreg";
@@ -214,7 +234,7 @@ namespace appSugerencias.Stock_Compras.Vista
 
                 //}
 
-                DG_tabla.Rows.Add(dr["idreg"].ToString(),dr["modelo"].ToString(),dr["claveProducto"].ToString(),dr["descripcion"].ToString(),dr["pzxpaq"].ToString(),dr["costoxpaq"].ToString(),dr["costoxpz"].ToString(),0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+                DG_tabla.Rows.Add(dr["idreg"].ToString(),dr["modelo"].ToString(),dr["claveProducto"].ToString(),dr["descripcion"].ToString(),dr["pzxpaq"].ToString(),dr["costoxpaq"].ToString(),dr["costoxpz"].ToString(),dr["falta_bo"].ToString(), dr["mal_estado_bo"].ToString(), dr["sobrante_bo"].ToString(), dr["total_aclaracion_bo"].ToString(), dr["falta_va"].ToString(), dr["mal_estado_va"].ToString(), dr["sobrante_va"].ToString(), dr["total_aclaracion_va"].ToString(), dr["falta_re"].ToString(), dr["mal_estado_re"].ToString(), dr["sobrante_re"].ToString(), dr["total_aclaracion_re"].ToString(), dr["falta_ve"].ToString(), dr["mal_estado_ve"].ToString(), dr["sobrante_ve"].ToString(), dr["total_aclaracion_ve"].ToString(), dr["falta_co"].ToString(), dr["mal_estado_co"].ToString(), dr["sobrante_co"].ToString(), dr["total_aclaracion_co"],0,0);
             }
             dr.Close();
 

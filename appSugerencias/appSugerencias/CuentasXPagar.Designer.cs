@@ -28,14 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CuentasXPagar));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.CB_proveedor = new System.Windows.Forms.ComboBox();
             this.DG_datos = new System.Windows.Forms.DataGridView();
+            this.IDMOV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PROV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FECHA_ = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TIPO_DOCUMENTO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.REFERENCIA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MOVIMIENTO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SUCURSAL_ = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.COMPRA_ = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PAGO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SALDO_ = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OBSERV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.COBRADOR = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TB_proveedor = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -71,18 +83,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.LB_saldo = new System.Windows.Forms.Label();
             this.BT_guardar = new System.Windows.Forms.Button();
-            this.IDMOV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PROV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FECHA_ = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TIPO_DOCUMENTO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.REFERENCIA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MOVIMIENTO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SUCURSAL_ = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.COMPRA_ = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PAGO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SALDO_ = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OBSERV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.COBRADOR = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DG_datos)).BeginInit();
             this.PN_conexiones.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -93,9 +93,9 @@
             this.CB_proveedor.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.CB_proveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CB_proveedor.FormattingEnabled = true;
-            this.CB_proveedor.Location = new System.Drawing.Point(172, 92);
+            this.CB_proveedor.Location = new System.Drawing.Point(228, 92);
             this.CB_proveedor.Name = "CB_proveedor";
-            this.CB_proveedor.Size = new System.Drawing.Size(1242, 33);
+            this.CB_proveedor.Size = new System.Drawing.Size(1186, 33);
             this.CB_proveedor.TabIndex = 3;
             this.CB_proveedor.SelectedIndexChanged += new System.EventHandler(this.CB_proveedor_SelectedIndexChanged);
             this.CB_proveedor.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CB_proveedor_KeyDown);
@@ -103,22 +103,22 @@
             // DG_datos
             // 
             this.DG_datos.AllowUserToAddRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.DG_datos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.DG_datos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
             this.DG_datos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DG_datos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DG_datos.BackgroundColor = System.Drawing.SystemColors.Control;
             this.DG_datos.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DG_datos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DG_datos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.DG_datos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DG_datos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IDMOV,
@@ -133,22 +133,88 @@
             this.SALDO_,
             this.OBSERV,
             this.COBRADOR});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.LightSeaGreen;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DG_datos.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.LightSeaGreen;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DG_datos.DefaultCellStyle = dataGridViewCellStyle10;
             this.DG_datos.EnableHeadersVisualStyles = false;
-            this.DG_datos.Location = new System.Drawing.Point(2, 135);
+            this.DG_datos.Location = new System.Drawing.Point(2, 163);
             this.DG_datos.Name = "DG_datos";
-            this.DG_datos.Size = new System.Drawing.Size(1840, 560);
+            this.DG_datos.Size = new System.Drawing.Size(1840, 532);
             this.DG_datos.TabIndex = 9;
             this.DG_datos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DG_datos_CellClick);
             this.DG_datos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DG_datos_CellContentClick);
             this.DG_datos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DG_datos_CellDoubleClick);
+            // 
+            // IDMOV
+            // 
+            this.IDMOV.HeaderText = "COMPRA";
+            this.IDMOV.Name = "IDMOV";
+            // 
+            // PROV
+            // 
+            this.PROV.HeaderText = "PROVEEDOR";
+            this.PROV.Name = "PROV";
+            // 
+            // FECHA_
+            // 
+            this.FECHA_.HeaderText = "FECHA";
+            this.FECHA_.Name = "FECHA_";
+            // 
+            // TIPO_DOCUMENTO
+            // 
+            this.TIPO_DOCUMENTO.HeaderText = "TIPO_DOC";
+            this.TIPO_DOCUMENTO.Name = "TIPO_DOCUMENTO";
+            // 
+            // REFERENCIA
+            // 
+            this.REFERENCIA.HeaderText = "REFERENCIA";
+            this.REFERENCIA.Name = "REFERENCIA";
+            // 
+            // MOVIMIENTO
+            // 
+            this.MOVIMIENTO.HeaderText = "MOV";
+            this.MOVIMIENTO.Name = "MOVIMIENTO";
+            // 
+            // SUCURSAL_
+            // 
+            this.SUCURSAL_.HeaderText = "SUCURSAL";
+            this.SUCURSAL_.Name = "SUCURSAL_";
+            // 
+            // COMPRA_
+            // 
+            this.COMPRA_.HeaderText = "CARGO/COMPRA";
+            this.COMPRA_.Name = "COMPRA_";
+            // 
+            // PAGO
+            // 
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.PAGO.DefaultCellStyle = dataGridViewCellStyle8;
+            this.PAGO.HeaderText = "ABONO/PAGO";
+            this.PAGO.Name = "PAGO";
+            // 
+            // SALDO_
+            // 
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.SALDO_.DefaultCellStyle = dataGridViewCellStyle9;
+            this.SALDO_.HeaderText = "SALDO";
+            this.SALDO_.Name = "SALDO_";
+            // 
+            // OBSERV
+            // 
+            this.OBSERV.HeaderText = "OBSERV";
+            this.OBSERV.Name = "OBSERV";
+            this.OBSERV.Visible = false;
+            // 
+            // COBRADOR
+            // 
+            this.COBRADOR.HeaderText = "COBRADOR";
+            this.COBRADOR.Name = "COBRADOR";
+            this.COBRADOR.Visible = false;
             // 
             // TB_proveedor
             // 
@@ -165,7 +231,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label2.Location = new System.Drawing.Point(12, 97);
+            this.label2.Location = new System.Drawing.Point(68, 97);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(154, 25);
             this.label2.TabIndex = 5;
@@ -267,9 +333,9 @@
             // 
             this.TB_filtro.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.TB_filtro.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TB_filtro.Location = new System.Drawing.Point(172, 49);
+            this.TB_filtro.Location = new System.Drawing.Point(228, 49);
             this.TB_filtro.Name = "TB_filtro";
-            this.TB_filtro.Size = new System.Drawing.Size(329, 31);
+            this.TB_filtro.Size = new System.Drawing.Size(273, 31);
             this.TB_filtro.TabIndex = 2;
             this.TB_filtro.TextChanged += new System.EventHandler(this.TB_filtro_TextChanged_1);
             this.TB_filtro.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_filtro_KeyDown);
@@ -280,7 +346,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label3.Location = new System.Drawing.Point(74, 52);
+            this.label3.Location = new System.Drawing.Point(130, 55);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(92, 25);
             this.label3.TabIndex = 1;
@@ -336,7 +402,7 @@
             this.BT_abonos.BackColor = System.Drawing.Color.DodgerBlue;
             this.BT_abonos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BT_abonos.ForeColor = System.Drawing.Color.White;
-            this.BT_abonos.Location = new System.Drawing.Point(1741, 92);
+            this.BT_abonos.Location = new System.Drawing.Point(403, 3);
             this.BT_abonos.Name = "BT_abonos";
             this.BT_abonos.Size = new System.Drawing.Size(98, 36);
             this.BT_abonos.TabIndex = 8;
@@ -434,12 +500,13 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.BT_buscar_compra);
             this.groupBox1.Controls.Add(this.TB_compra);
-            this.groupBox1.Location = new System.Drawing.Point(1397, 14);
+            this.groupBox1.Location = new System.Drawing.Point(1397, 22);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(221, 74);
+            this.groupBox1.Size = new System.Drawing.Size(221, 66);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Buscar Compra";
+            this.groupBox1.Visible = false;
             // 
             // BT_cuentasOS
             // 
@@ -508,72 +575,6 @@
             this.BT_guardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BT_guardar.UseVisualStyleBackColor = false;
             this.BT_guardar.Click += new System.EventHandler(this.BT_guardar_Click);
-            // 
-            // IDMOV
-            // 
-            this.IDMOV.HeaderText = "COMPRA";
-            this.IDMOV.Name = "IDMOV";
-            // 
-            // PROV
-            // 
-            this.PROV.HeaderText = "PROVEEDOR";
-            this.PROV.Name = "PROV";
-            // 
-            // FECHA_
-            // 
-            this.FECHA_.HeaderText = "FECHA";
-            this.FECHA_.Name = "FECHA_";
-            // 
-            // TIPO_DOCUMENTO
-            // 
-            this.TIPO_DOCUMENTO.HeaderText = "TIPO_DOC";
-            this.TIPO_DOCUMENTO.Name = "TIPO_DOCUMENTO";
-            // 
-            // REFERENCIA
-            // 
-            this.REFERENCIA.HeaderText = "REFERENCIA";
-            this.REFERENCIA.Name = "REFERENCIA";
-            // 
-            // MOVIMIENTO
-            // 
-            this.MOVIMIENTO.HeaderText = "MOV";
-            this.MOVIMIENTO.Name = "MOVIMIENTO";
-            // 
-            // SUCURSAL_
-            // 
-            this.SUCURSAL_.HeaderText = "SUCURSAL";
-            this.SUCURSAL_.Name = "SUCURSAL_";
-            // 
-            // COMPRA_
-            // 
-            this.COMPRA_.HeaderText = "CARGO/COMPRA";
-            this.COMPRA_.Name = "COMPRA_";
-            // 
-            // PAGO
-            // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.PAGO.DefaultCellStyle = dataGridViewCellStyle3;
-            this.PAGO.HeaderText = "ABONO/PAGO";
-            this.PAGO.Name = "PAGO";
-            // 
-            // SALDO_
-            // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.SALDO_.DefaultCellStyle = dataGridViewCellStyle4;
-            this.SALDO_.HeaderText = "SALDO";
-            this.SALDO_.Name = "SALDO_";
-            // 
-            // OBSERV
-            // 
-            this.OBSERV.HeaderText = "OBSERV";
-            this.OBSERV.Name = "OBSERV";
-            this.OBSERV.Visible = false;
-            // 
-            // COBRADOR
-            // 
-            this.COBRADOR.HeaderText = "COBRADOR";
-            this.COBRADOR.Name = "COBRADOR";
-            this.COBRADOR.Visible = false;
             // 
             // CuentasXPagar
             // 
