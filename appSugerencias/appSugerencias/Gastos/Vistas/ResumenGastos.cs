@@ -255,7 +255,7 @@ namespace appSugerencias.Gastos.Vistas
                 int fila = DG_tabla.Rows.Count;
                 double efectivoSinUsar = 0;
                 efectivoSinUsar = retirosEfectivo - (proveedores + bancos);
-                DG_tabla.Rows[fila - 1].Cells["TOTAL_EGRESOS"].Value = gastos;//TOTAL DE GASTOS DE TIENDA
+                DG_tabla.Rows[fila - 1].Cells["TOTAL_EGRESOS"].Value = gastos +devCL;//TOTAL DE GASTOS DE TIENDA
                 DG_tabla.Rows.Add("RETIROS DE EFECTIVO", "", "", efectivoSinUsar, "", "", "", "");//TOTAL DEL EFECTIVO DISPONIBLE
 
                 fila = DG_tabla.Rows.Count;

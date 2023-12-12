@@ -24,7 +24,7 @@ namespace appSugerencias
             this.usuario = usuario;
         }
 
-
+        double suma = 0;
         public string AreaTrabajo()
         {
             string area = "";
@@ -51,8 +51,8 @@ namespace appSugerencias
             DG_reporte.Columns["USER"].Visible = false;
             DG_reporte.Columns["IE"].Visible = false;
             DG_reporte.Columns["ESTACION"].Visible = false;
-            DG_reporte.Columns["NUMAUTORIZACION"].Visible = false;
-            DG_reporte.Columns["CHECK"].Visible = false;
+            //DG_reporte.Columns["NUMAUTORIZACION"].Visible = false;
+            //DG_reporte.Columns["CHECK"].Visible = false;
 
             string suc = Sucursal();
 
@@ -93,14 +93,14 @@ namespace appSugerencias
 
                 if (area.Equals("FINANZAS"))
                 {
-                    DG_reporte.Columns["CHECK"].ReadOnly = false;
+                    //DG_reporte.Columns["CHECK"].ReadOnly = false;
                     BT_guardar.Enabled = true;
-                    DG_reporte.Columns["NUMAUTORIZACION"].ReadOnly = true;
+                    //DG_reporte.Columns["NUMAUTORIZACION"].ReadOnly = true;
                 }
                 else
                 {
-                    DG_reporte.Columns["NUMAUTORIZACION"].ReadOnly = false;
-                    DG_reporte.Columns["CHECK"].ReadOnly = false;
+                    //DG_reporte.Columns["NUMAUTORIZACION"].ReadOnly = false;
+                    //DG_reporte.Columns["CHECK"].ReadOnly = false;
                     BT_guardar.Enabled = true;
                 }
 
@@ -108,21 +108,21 @@ namespace appSugerencias
             }
             else
             {
-                DG_reporte.Columns["NUMAUTORIZACION"].ReadOnly = true;
-                DG_reporte.Columns["CHECK"].ReadOnly = true;
+                //DG_reporte.Columns["NUMAUTORIZACION"].ReadOnly = true;
+                //DG_reporte.Columns["CHECK"].ReadOnly = true;
                 BT_guardar.Enabled = false;
             }
 
             if (area.Equals("DIREC GRAL") || area.Equals("ADMON GRAL"))
             {
-                DG_reporte.Columns["CHECK"].ReadOnly = true;
+                //DG_reporte.Columns["CHECK"].ReadOnly = true;
             }
 
             DG_reporte.Columns["CLAVE"].Width = 70;
             //DG_reporte.Columns["HORA"].Width = 80;
             //DG_reporte.Columns["IE"].Width = 30;
             DG_reporte.Columns["DESCRIPCION"].Width = 400;
-            DG_reporte.Columns["CHECK"].Width = 70;
+            //DG_reporte.Columns["CHECK"].Width = 70;
         }
 
 
@@ -181,10 +181,10 @@ namespace appSugerencias
             return mesRespaldo;
         }
 
+        string nombre = "";
         public string Sucursal()
         {
 
-            string nombre = "";
             MySqlConnection con = BDConexicon.conectar();
             MySqlCommand cmd = new MySqlCommand("SELECT EMPRESA FROM ECONFIG", con);
             MySqlDataReader dr = cmd.ExecuteReader();
@@ -202,7 +202,7 @@ namespace appSugerencias
         public MySqlConnection ElegirSucursal()
         {
             MySqlConnection con = null;
-
+            Sucursal();
             string sucursal = CB_sucursal.SelectedItem.ToString();
             int numMes = DT_fecha.Value.Month;
             int año = DT_fecha.Value.Year;
@@ -266,7 +266,7 @@ namespace appSugerencias
 
             DG_reporte.Rows.Clear();
             //string nombreempresa = NombreSucursal();
-
+            suma = 0;
             
             MySqlConnection con = ElegirSucursal();
             DateTime fecha = DT_fecha.Value;
@@ -274,7 +274,7 @@ namespace appSugerencias
             double retiro = 0;
             double disponible = 0;
             double monto = 0;
-
+          
             try
             {
                 MySqlCommand cmd = new MySqlCommand("SELECT flujo.concepto2,conegre.TIPO_GASTO,conegre.descrip,SUM(flujo.importe * flujo.tipo_cam) AS `Importe`,flujo.ing_eg AS IE, flujo.banco, flujo.cheque, flujo.fecha, flujo.hora, flujo.usuario, flujo.estacion,conegre.TIPO_CONCEPTO FROM" +
@@ -309,8 +309,8 @@ namespace appSugerencias
                         {
 
                         }
-
-                        DG_reporte.Rows.Add(dr["concepto2"].ToString(), dr["TIPO_GASTO"].ToString(), dr["descrip"].ToString(), monto, dr["IE"].ToString(), f.ToString("dd-MM-yyyy"), dr["hora"].ToString(), dr["usuario"].ToString(), dr["estacion"].ToString());
+                        suma += monto;
+                        DG_reporte.Rows.Add(dr["concepto2"].ToString(), dr["TIPO_GASTO"].ToString(), dr["descrip"].ToString(), monto.ToString("C2"), dr["IE"].ToString(), f.ToString("dd-MM-yyyy"), dr["hora"].ToString(), dr["usuario"].ToString(), dr["estacion"].ToString());
 
                     }
 
@@ -318,17 +318,19 @@ namespace appSugerencias
 
 
                 disponible = efectivo - retiro;
-                double suma = 0;
+           
                 for (int i = 0; i < DG_reporte.Rows.Count; i++)
                 {
                     //if (DG_reporte.Rows[i].Cells["CLAVE"].Value.Equals("Retir"))
                     //{
                     //    DG_reporte.Rows[i].Cells["IMPORTE"].Value = disponible;
                     //}
-                    suma += Convert.ToDouble(DG_reporte.Rows[i].Cells["IMPORTE"].Value);
+
+
+                   // suma += Convert.ToDouble(DG_reporte.Rows[i].Cells["IMPORTE"].Value);
                 }
 
-                DG_reporte.Rows.Add("", "", "GASTOS TOTALES", suma, "", "", "", "");
+                DG_reporte.Rows.Add("", "", "GASTOS TOTALES", suma.ToString("C2"), "", "", "", "");
 
                 dr.Close();
             }
@@ -337,7 +339,7 @@ namespace appSugerencias
 
                 MessageBox.Show("Error al obtener datos del reporte :" + ex);
             }
-            DG_reporte.Columns[3].DefaultCellStyle.Format = "C2";
+            //DG_reporte.Columns[3].DefaultCellStyle.Format = "C2";
            
 
             try
@@ -374,8 +376,8 @@ namespace appSugerencias
 
                         if (clave.Equals(claveBD))
                         {
-                            DG_reporte.Rows[i].Cells["NUMAUTORIZACION"].Value = dr2["num_autorizacion"].ToString();
-                            DG_reporte.Rows[i].Cells["CHECK"].Value = check.ThreeState;
+                            //DG_reporte.Rows[i].Cells["NUMAUTORIZACION"].Value = dr2["num_autorizacion"].ToString();
+                            //DG_reporte.Rows[i].Cells["CHECK"].Value = check.ThreeState;
                         }
                        
                     }
@@ -403,7 +405,8 @@ namespace appSugerencias
             try
             {
 
-                Document doc = new Document(PageSize.A4.Rotate());
+                //Document doc = new Document(PageSize.A4.Rotate());
+                Document doc = new Document(PageSize.A4);
                 string filename = "gastos\\gastoxdia" + fecha.ToString("dd-MM-yyyy")+".pdf";
 
                 PdfWriter writer = PdfWriter.GetInstance(doc, new FileStream(@filename, FileMode.Create));
@@ -412,7 +415,7 @@ namespace appSugerencias
                 
 
 
-                doc.AddTitle("Gastos por día");
+                doc.AddTitle("Gastos por día de");
                 doc.AddCreator("RoyP3r3z");
 
 
@@ -438,64 +441,153 @@ namespace appSugerencias
 
                 ////Give some space after the image
                 jpg.SpacingAfter = 10f;
-                jpg.Alignment = Element.ALIGN_CENTER;
+                jpg.Alignment = Element.ALIGN_RIGHT;
                 doc.Add(jpg);
                 ////fin del codigo de la imagen
 
 
-                Paragraph parrafoEnc = new Paragraph();
-                parrafoEnc.Add("");
-                doc.Add(parrafoEnc);
-                parrafoEnc.Clear();
-
-                doc.Add(Chunk.NEWLINE);
+                //Paragraph parrafoEnc = new Paragraph();
+                //parrafoEnc.Add("REPORTE DE GASTOS POR DÍA " + CB_sucursal.Text);
 
 
 
+                //doc.Add(parrafoEnc);
+
+                //parrafoEnc.Clear();
+
+                PdfPTable titulo = new PdfPTable(1);
+                titulo.HorizontalAlignment = Element.ALIGN_LEFT;
+                titulo.WidthPercentage = 100;
+                titulo.SpacingBefore = 10;
+                
+                
+                PdfPCell texto = new PdfPCell(new Phrase("REPORTE DE GASTOS "+CB_sucursal.Text+"                                                                            "+suma.ToString("C2")));
+                texto.Border = 0;
+                
+                
+                texto.BackgroundColor = BaseColor.LIGHT_GRAY;
+
+                //doc.Add(Chunk.NEWLINE);
+                titulo.AddCell(texto);
+
+                doc.Add(titulo);
                 //Creamos nuestra tabla 
                 PdfPTable table = new PdfPTable(DG_reporte.Columns.Count);
 
 
                 table.WidthPercentage = 100;
-                float[] widths = new float[] { 30f, 90f, 55f, 20f, 55f, 55f, 55f, 55f};
+                float[] widths = new float[] { 35f,40f,90f, 55f, 10f,45f,40f, 50f,50f};
                 table.SetWidths(widths);
                 table.SkipLastFooter = true;
                 table.SpacingAfter = 50;
 
                 //Encabezados
+                //for (int j = 0; j < DG_reporte.Columns.Count; j++)
+                //{
+                //    table.AddCell(new Phrase(DG_reporte.Columns[j].HeaderText));
+
+                //}
+
+                ////flag the first row as a header
+                //table.HeaderRows = 1;
+                //Encabezados
+                PdfPCell celda = new PdfPCell();
+
+
+                iTextSharp.text.Font columnas = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.TIMES_ROMAN, 11, iTextSharp.text.Font.NORMAL);
+                columnas.SetColor(255, 255, 255);
+
                 for (int j = 0; j < DG_reporte.Columns.Count; j++)
                 {
-                    table.AddCell(new Phrase(DG_reporte.Columns[j].HeaderText));
+                    celda = new PdfPCell(new Phrase(DG_reporte.Columns[j].HeaderText, columnas));
+                    celda.BackgroundColor = BaseColor.DARK_GRAY;
+                    celda.Top = 30;
+                    celda.HorizontalAlignment = Element.ALIGN_CENTER;
+                    table.AddCell(celda);
+                    //table.AddCell(new Phrase(DG_tabla.Columns[j].HeaderText));
+
 
                 }
 
-                //flag the first row as a header
                 table.HeaderRows = 1;
-
-                double valor = 0;
+                bool pintar = false;
+                iTextSharp.text.Font filas = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.TIMES_ROMAN, 10, iTextSharp.text.Font.NORMAL);
                 for (int i = 0; i < DG_reporte.Rows.Count; i++)
                 {
+
+                    if (i%2==0)
+                    {
+                        pintar = true;
+                    }
+                    else
+                    {
+                        pintar = false;
+                    }
+
                     for (int k = 0; k < DG_reporte.Columns.Count; k++)
                     {
-
-
                         if (DG_reporte[k, i].Value != null)
                         {
-
-                            if (k == 2)
+                            celda = new PdfPCell(new Phrase(DG_reporte[k, i].Value.ToString(), filas));
+                            if (pintar==true)
                             {
-                                //string.Format("{0:C3}", 112.236677
-                                //table.AddCell(new Phrase(DG_reporte[k, i].Value.ToString()));
-                                valor = Convert.ToDouble(DG_reporte[k, i].Value);
-                                table.AddCell(new Phrase(string.Format("{0:C2}", valor)));
+                                celda.BackgroundColor = BaseColor.LIGHT_GRAY;
+                            }
+
+                            if (k == 3)
+                            {
+
+                                celda.HorizontalAlignment = Element.ALIGN_RIGHT;
+
+                            }else if(k==2)
+                            {
+                                celda.HorizontalAlignment = Element.ALIGN_LEFT;
                             }
                             else
                             {
-                                table.AddCell(new Phrase(DG_reporte[k, i].Value.ToString()));
+                                celda.HorizontalAlignment = Element.ALIGN_CENTER;
                             }
+
+
+                            //if (!DG_reporte.Rows[i].Cells["VENTA"].Value.ToString().Equals(""))
+                            //{
+                            //    celda.BackgroundColor = BaseColor.LIGHT_GRAY;
+
+
+                            //}
+
+                            table.AddCell(celda);
+
                         }
                     }
                 }
+
+
+              
+                //double valor = 0;
+                //for (int i = 0; i < DG_reporte.Rows.Count; i++)
+                //{
+                //    for (int k = 0; k < DG_reporte.Columns.Count; k++)
+                //    {
+
+
+                //        if (DG_reporte[k, i].Value != null)
+                //        {
+
+                //            if (k == 3)
+                //            {
+                //                //string.Format("{0:C3}", 112.236677
+                //                //table.AddCell(new Phrase(DG_reporte[k, i].Value.ToString()));
+                //                valor = Convert.ToDouble(DG_reporte[k, i].Value);
+                //                table.AddCell(new Phrase(string.Format("{0:C2}", valor)));
+                //            }
+                //            else
+                //            {
+                //                table.AddCell(new Phrase(DG_reporte[k, i].Value.ToString()));
+                //            }
+                //        }
+                //    }
+                //}
 
                 doc.Add(table);
 

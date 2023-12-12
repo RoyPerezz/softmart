@@ -31,6 +31,13 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.DG_reporte = new System.Windows.Forms.DataGridView();
+            this.DT_fecha = new System.Windows.Forms.DateTimePicker();
+            this.BT_aceptar = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.CHK_respaldo = new System.Windows.Forms.CheckBox();
+            this.CB_sucursal = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.BT_guardar = new System.Windows.Forms.Button();
             this.CLAVE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TIPO_GASTO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DESCRIPCION = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -40,15 +47,6 @@
             this.HORA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.USER = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ESTACION = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NUMAUTORIZACION = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CHECK = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.DT_fecha = new System.Windows.Forms.DateTimePicker();
-            this.BT_aceptar = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.CHK_respaldo = new System.Windows.Forms.CheckBox();
-            this.CB_sucursal = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.BT_guardar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DG_reporte)).BeginInit();
             this.SuspendLayout();
             // 
@@ -73,70 +71,11 @@
             this.FECHA,
             this.HORA,
             this.USER,
-            this.ESTACION,
-            this.NUMAUTORIZACION,
-            this.CHECK});
+            this.ESTACION});
             this.DG_reporte.Location = new System.Drawing.Point(3, 60);
             this.DG_reporte.Name = "DG_reporte";
             this.DG_reporte.Size = new System.Drawing.Size(896, 459);
             this.DG_reporte.TabIndex = 0;
-            // 
-            // CLAVE
-            // 
-            this.CLAVE.HeaderText = "CLAVE";
-            this.CLAVE.Name = "CLAVE";
-            // 
-            // TIPO_GASTO
-            // 
-            this.TIPO_GASTO.HeaderText = "TIPO EGRESO";
-            this.TIPO_GASTO.Name = "TIPO_GASTO";
-            // 
-            // DESCRIPCION
-            // 
-            this.DESCRIPCION.HeaderText = "DESCRIPCION";
-            this.DESCRIPCION.Name = "DESCRIPCION";
-            // 
-            // IMPORTE
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.IMPORTE.DefaultCellStyle = dataGridViewCellStyle2;
-            this.IMPORTE.HeaderText = "IMPORTE";
-            this.IMPORTE.Name = "IMPORTE";
-            // 
-            // IE
-            // 
-            this.IE.HeaderText = "IE";
-            this.IE.Name = "IE";
-            // 
-            // FECHA
-            // 
-            this.FECHA.HeaderText = "FECHA";
-            this.FECHA.Name = "FECHA";
-            // 
-            // HORA
-            // 
-            this.HORA.HeaderText = "HORA";
-            this.HORA.Name = "HORA";
-            // 
-            // USER
-            // 
-            this.USER.HeaderText = "USUARIO";
-            this.USER.Name = "USER";
-            // 
-            // ESTACION
-            // 
-            this.ESTACION.HeaderText = "ESTACION";
-            this.ESTACION.Name = "ESTACION";
-            // 
-            // NUMAUTORIZACION
-            // 
-            this.NUMAUTORIZACION.HeaderText = "NUM. AUTORIZACIÓN";
-            this.NUMAUTORIZACION.Name = "NUMAUTORIZACION";
-            // 
-            // CHECK
-            // 
-            this.CHECK.HeaderText = "CHECK";
-            this.CHECK.Name = "CHECK";
             // 
             // DT_fecha
             // 
@@ -221,6 +160,53 @@
             this.BT_guardar.UseVisualStyleBackColor = false;
             this.BT_guardar.Click += new System.EventHandler(this.BT_guardar_Click);
             // 
+            // CLAVE
+            // 
+            this.CLAVE.HeaderText = "CLAVE";
+            this.CLAVE.Name = "CLAVE";
+            // 
+            // TIPO_GASTO
+            // 
+            this.TIPO_GASTO.HeaderText = "TIPO EGRESO";
+            this.TIPO_GASTO.Name = "TIPO_GASTO";
+            // 
+            // DESCRIPCION
+            // 
+            this.DESCRIPCION.HeaderText = "DESCRIPCION";
+            this.DESCRIPCION.Name = "DESCRIPCION";
+            // 
+            // IMPORTE
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.IMPORTE.DefaultCellStyle = dataGridViewCellStyle2;
+            this.IMPORTE.HeaderText = "IMPORTE";
+            this.IMPORTE.Name = "IMPORTE";
+            // 
+            // IE
+            // 
+            this.IE.HeaderText = "IE";
+            this.IE.Name = "IE";
+            // 
+            // FECHA
+            // 
+            this.FECHA.HeaderText = "FECHA";
+            this.FECHA.Name = "FECHA";
+            // 
+            // HORA
+            // 
+            this.HORA.HeaderText = "HORA";
+            this.HORA.Name = "HORA";
+            // 
+            // USER
+            // 
+            this.USER.HeaderText = "USUARIO";
+            this.USER.Name = "USER";
+            // 
+            // ESTACION
+            // 
+            this.ESTACION.HeaderText = "ESTACION";
+            this.ESTACION.Name = "ESTACION";
+            // 
             // RepGastosxDia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -263,7 +249,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn HORA;
         private System.Windows.Forms.DataGridViewTextBoxColumn USER;
         private System.Windows.Forms.DataGridViewTextBoxColumn ESTACION;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NUMAUTORIZACION;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn CHECK;
     }
 }
