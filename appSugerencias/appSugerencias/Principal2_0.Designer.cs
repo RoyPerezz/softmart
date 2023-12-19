@@ -223,6 +223,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblUsuario = new System.Windows.Forms.Label();
+            this.valorInventarioPorLineaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -1407,7 +1408,8 @@
             this.solictudDePagosToolStripMenuItem,
             this.corteZToolStripMenuItem,
             this.valorDelInventarioToolStripMenuItem,
-            this.gastosFinanzasToolStripMenuItem});
+            this.gastosFinanzasToolStripMenuItem,
+            this.valorInventarioPorLineaToolStripMenuItem});
             this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
             this.reportesToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
             this.reportesToolStripMenuItem.Text = "Reportes";
@@ -1804,6 +1806,13 @@
             this.lblUsuario.TabIndex = 9;
             this.lblUsuario.Text = "USER";
             // 
+            // valorInventarioPorLineaToolStripMenuItem
+            // 
+            this.valorInventarioPorLineaToolStripMenuItem.Name = "valorInventarioPorLineaToolStripMenuItem";
+            this.valorInventarioPorLineaToolStripMenuItem.Size = new System.Drawing.Size(234, 22);
+            this.valorInventarioPorLineaToolStripMenuItem.Text = "Valor inventario por linea";
+            this.valorInventarioPorLineaToolStripMenuItem.Click += new System.EventHandler(this.valorInventarioPorLineaToolStripMenuItem_Click);
+            // 
             // Principal2_0
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2030,5 +2039,6 @@
         private System.Windows.Forms.ToolStripMenuItem reporteAclaracionesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem formatoCompraToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem articulosSinMivimientoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem valorInventarioPorLineaToolStripMenuItem;
     }
 }

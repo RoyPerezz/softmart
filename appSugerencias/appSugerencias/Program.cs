@@ -16,6 +16,7 @@ using appSugerencias.Cajas.Cajeras.Vista;
 using appSugerencias.Cajas.Enc_Cajas.Vista;
 using appSugerencias.Comisiones.Vista;
 using appSugerencias.Stock_Compras.Vista;
+using appSugerencias.Inventario.Vistas;
 
 namespace appSugerencias
 {
@@ -47,7 +48,10 @@ namespace appSugerencias
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
                
-                Application.Run(new frm_Login());
+                Application.Run(new frm_Login()
+                {
+
+                });
             }
             else
             {

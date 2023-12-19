@@ -496,6 +496,14 @@
     <Compile Include="Gastos\Vistas\ResumenGastos.Designer.cs">
       <DependentUpon>ResumenGastos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Inventario\Controlador\InventarioController.cs" />
+    <Compile Include="Inventario\Modelo\CostoInventario.cs" />
+    <Compile Include="Inventario\Vistas\CostoXlinea.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventario\Vistas\CostoXlinea.Designer.cs">
+      <DependentUpon>CostoXlinea.cs</DependentUpon>
+    </Compile>
     <Compile Include="Nombre_proveedor_pagos_programados.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1733,6 +1741,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Gastos\Vistas\ResumenGastos.resx">
       <DependentUpon>ResumenGastos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\Vistas\CostoXlinea.resx">
+      <DependentUpon>CostoXlinea.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Nombre_proveedor_pagos_programados.resx">
       <DependentUpon>Nombre_proveedor_pagos_programados.cs</DependentUpon>

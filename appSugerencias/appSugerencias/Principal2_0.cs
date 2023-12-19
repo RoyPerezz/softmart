@@ -14,6 +14,7 @@ using appSugerencias.Gastos.Vistas;
 using appSugerencias.Gastos_Externos.Modelo;
 using appSugerencias.Gastos_Externos.Vistas;
 using appSugerencias.GastosCedis.Vistas;
+using appSugerencias.Inventario.Vistas;
 using appSugerencias.ReportesCCTV;
 using appSugerencias.Stock_Compras.Vista;
 using MySql.Data.MySqlClient;
@@ -3663,6 +3664,24 @@ namespace appSugerencias
 
             //sino existe la instancia se crea una nueva
             frm = new ArticulosSinVender();
+            string modulo = frm.Name;
+            RegistrarAccesos(modulo);
+            frm.Show();
+        }
+
+        private void valorInventarioPorLineaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is CostoXlinea);
+
+            if (frm != null)
+            {
+                //si la instancia existe la pongo en primer plano
+                frm.BringToFront();
+                return;
+            }
+
+            //sino existe la instancia se crea una nueva
+            frm = new CostoXlinea();
             string modulo = frm.Name;
             RegistrarAccesos(modulo);
             frm.Show();

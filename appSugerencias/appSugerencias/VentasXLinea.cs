@@ -665,7 +665,7 @@ namespace appSugerencias
 
             if (tienda == "VALLARTA")
             {
-                IP = "192.168.5.2";
+                IP = "25.48.197.55";
 
             }
             else if (tienda == "RENA")
@@ -674,7 +674,7 @@ namespace appSugerencias
             }
             else if (tienda == "COLOSO")
             {
-                IP = "192.168.3.2";
+                IP = "25.44.173.71";
             }
             else if (tienda == "DIEZ")
             {
@@ -736,7 +736,7 @@ namespace appSugerencias
 
             if (tienda == "VALLARTA")
             {
-                IP = "192.168.5.2";
+                IP = "25.48.197.55";
 
             }
             else if (tienda == "RENA")
@@ -745,7 +745,7 @@ namespace appSugerencias
             }
             else if (tienda == "COLOSO")
             {
-                IP = "192.168.3.2";
+                IP = "25.44.173.71";
             }
             else if (tienda == "DIEZ")
             {

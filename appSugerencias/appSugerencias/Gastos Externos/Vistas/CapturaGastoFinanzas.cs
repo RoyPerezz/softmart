@@ -174,11 +174,9 @@ namespace appSugerencias.Gastos.Vistas
             sucursales.Add("VELAZQUEZ");
             sucursales.Add("COLOSO");
 
-#pragma warning disable CS0219 // La variable 'rutaFoto' está asignada pero su valor nunca se usa
-#pragma warning disable CS0219 // La variable 'rutaFoto2' está asignada pero su valor nunca se usa
+
             string rutaFoto = "",rutaFoto2="";
-#pragma warning restore CS0219 // La variable 'rutaFoto2' está asignada pero su valor nunca se usa
-#pragma warning restore CS0219 // La variable 'rutaFoto' está asignada pero su valor nunca se usa
+
 
             GastoExterno ge = new GastoExterno()
             {
@@ -240,15 +238,9 @@ namespace appSugerencias.Gastos.Vistas
 
             if (GX_finanzas.Id==0)
             {
-                if (!nombreFoto.Equals(""))
-                {
-                    File.Copy(rutaOrigen, RutaServidor(ge.NombreFoto1), true);
-                }
+               
 
-                if (!nombreFoto2.Equals(""))
-                {
-                    File.Copy(rutaOrigen2, RutaServidor(ge.NombreFoto2), true);
-                }
+
                 GastoFinanzasController.GuardarGasto(ge);//GUARDA EL GASTO CAPTURADO POR EL USUARIO
               
                 for (int i = 0; i < sucursales.Count; i++)
@@ -260,9 +252,17 @@ namespace appSugerencias.Gastos.Vistas
                 {
                     PagoGastoExternoController.InsertarPagoGastoExterno(sucursales[i].ToString(),gep); //INSERTA REGISTRO EN TABLA RD_GASTOS_EXTERNOSPAGOS, E IGUAL EL IMPORTE SE DIVIDE ENTRE 4
                 }
-                
 
-                
+                if (!nombreFoto.Equals(""))
+                {
+                    File.Copy(rutaOrigen, RutaServidor(ge.NombreFoto1), true);
+                }
+
+                if (!nombreFoto2.Equals(""))
+                {
+                    File.Copy(rutaOrigen2, RutaServidor(ge.NombreFoto2), true);
+                }
+
                 MessageBox.Show("Se ha guardado el gasto");
                 Limpiar();
             }

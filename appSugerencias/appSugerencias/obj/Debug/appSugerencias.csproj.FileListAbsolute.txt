@@ -2645,3 +2645,4 @@ C:\Users\Roy Pérez\Documents\GitHub\softmart\appSugerencias\appSugerencias\obj\
 C:\Users\Roy Pérez\Documents\GitHub\softmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.exe
 C:\Users\Roy Pérez\Documents\GitHub\softmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.pdb
 C:\Users\Roy Pérez\Documents\GitHub\softmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.csproj.AssemblyReference.cache
+C:\Users\Roy Pérez\Documents\GitHub\softmart\appSugerencias\appSugerencias\obj\Debug\appSugerencias.Inventario.Vistas.CostoXlinea.resources
