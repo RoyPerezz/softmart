@@ -34,7 +34,7 @@ namespace appSugerencias
                 {
 
 
-                    MySqlCommand cmd = new MySqlCommand("SELECT tienda,suc_pago,mov,ie,pagara,fecha,cantidad,ref_gastoexterno,suc_pago " +
+                    MySqlCommand cmd = new MySqlCommand("SELECT idreg,tienda,suc_pago,mov,ie,pagara,fecha,cantidad,ref_gastoexterno,suc_pago " +
                         "FROM rd_historial_saldobancos " +
                         "WHERE  banco='FUNDACION ALBERGUE' and cuenta='FUNDACION ALBERGUE' ORDER BY FECHA", con);
 
@@ -47,14 +47,14 @@ namespace appSugerencias
                         if (dr["ie"].ToString().Equals("I"))
                         {
                             saldo += cantidad;
-                            DG_tabla.Rows.Add( dr["mov"].ToString(), dr["pagara"].ToString(),fecha.ToString("dd-MM-yyyy"), "", "", cantidad, "", saldo,dr["tienda"].ToString(), dr["suc_pago"].ToString());
+                            DG_tabla.Rows.Add( dr["idreg"].ToString(),dr["mov"].ToString(), dr["pagara"].ToString(),fecha.ToString("dd-MM-yyyy"), "", "", cantidad, "", saldo,dr["tienda"].ToString(), dr["suc_pago"].ToString());
                         }
 
                         if (dr["ie"].ToString().Equals("E"))
                         {
 
                             saldo -= cantidad;
-                            DG_tabla.Rows.Add( dr["mov"].ToString(), dr["pagara"].ToString(), dr["fecha"].ToString(), dr["ref_gastoexterno"].ToString(), dr["suc_pago"].ToString(), "", cantidad, saldo, dr["tienda"].ToString(), dr["suc_pago"].ToString());
+                            DG_tabla.Rows.Add(dr["idreg"].ToString(), dr["mov"].ToString(), dr["pagara"].ToString(), dr["fecha"].ToString(), dr["ref_gastoexterno"].ToString(), dr["suc_pago"].ToString(), "", cantidad, saldo, dr["tienda"].ToString(), dr["suc_pago"].ToString());
                         }
                     }
 
@@ -69,13 +69,14 @@ namespace appSugerencias
             }
             else
             {
-                try
+
+                if (CB_cuentas.Text.Equals("PRESTAMO OTIS"))
                 {
-
-
-                    MySqlCommand cmd = new MySqlCommand("SELECT tienda,suc_pago,mov,ie,pagara,fecha,cantidad,ref_gastoexterno,suc_pago " +
+                    string query = "SELECT idreg,tienda,suc_pago,mov,ie,pagara,fecha,cantidad,ref_gastoexterno,suc_pago " +
                         "FROM rd_historial_saldobancos " +
-                        "WHERE  banco='" + CB_banco.SelectedItem.ToString() + "' and cuenta='" + CB_cuentas.SelectedItem.ToString() + "' ORDER BY FECHA", con);
+                        "WHERE  banco='" + CB_banco.SelectedItem.ToString() + "' and cuenta='" + CB_cuentas.SelectedItem.ToString() + "' and tienda='"+CB_sucursal.Text+"' ORDER BY FECHA";
+
+                    MySqlCommand cmd = new MySqlCommand(query, con);
 
                     MySqlDataReader dr = cmd.ExecuteReader();
 
@@ -86,19 +87,55 @@ namespace appSugerencias
                         if (dr["ie"].ToString().Equals("I"))
                         {
                             saldo += cantidad;
-                            DG_tabla.Rows.Add(dr["mov"].ToString(), dr["pagara"].ToString(), dr["fecha"].ToString(), dr["ref_gastoexterno"].ToString(), dr["suc_pago"].ToString(), cantidad, "", saldo, dr["tienda"].ToString(), dr["suc_pago"].ToString());
+                            DG_tabla.Rows.Add(dr["idreg"].ToString(), dr["mov"].ToString(), dr["pagara"].ToString(), dr["fecha"].ToString(), dr["ref_gastoexterno"].ToString(), dr["suc_pago"].ToString(), cantidad, "", saldo, dr["tienda"].ToString(), dr["suc_pago"].ToString());
                         }
 
                         if (dr["ie"].ToString().Equals("E"))
                         {
 
                             saldo -= cantidad;
-                            DG_tabla.Rows.Add(dr["mov"].ToString(), dr["pagara"].ToString(), dr["fecha"].ToString(), dr["ref_gastoexterno"].ToString(), dr["suc_pago"].ToString(), "", cantidad, saldo, dr["tienda"].ToString(), dr["suc_pago"].ToString());
+                            DG_tabla.Rows.Add(dr["idreg"].ToString(), dr["mov"].ToString(), dr["pagara"].ToString(), dr["fecha"].ToString(), dr["ref_gastoexterno"].ToString(), dr["suc_pago"].ToString(), "", cantidad, saldo, dr["tienda"].ToString(), dr["suc_pago"].ToString());
                         }
                     }
 
                     dr.Close();
                     con.Close();
+                }
+                else
+                {
+                    MySqlCommand cmd = new MySqlCommand("SELECT idreg, tienda,suc_pago,mov,ie,pagara,fecha,cantidad,ref_gastoexterno,suc_pago " +
+                       "FROM rd_historial_saldobancos " +
+                       "WHERE  banco='" + CB_banco.SelectedItem.ToString() + "' and cuenta='" + CB_cuentas.SelectedItem.ToString() + "' ORDER BY FECHA", con);
+
+                    MySqlDataReader dr = cmd.ExecuteReader();
+
+                    while (dr.Read())
+                    {
+
+                        double cantidad = Convert.ToDouble(dr["cantidad"].ToString());
+                        if (dr["ie"].ToString().Equals("I"))
+                        {
+                            saldo += cantidad;
+                            DG_tabla.Rows.Add(dr["idreg"].ToString(), dr["mov"].ToString(), dr["pagara"].ToString(), dr["fecha"].ToString(), dr["ref_gastoexterno"].ToString(), dr["suc_pago"].ToString(), cantidad, "", saldo, dr["tienda"].ToString(), dr["suc_pago"].ToString());
+                        }
+
+                        if (dr["ie"].ToString().Equals("E"))
+                        {
+
+                            saldo -= cantidad;
+                            DG_tabla.Rows.Add(dr["idreg"].ToString(), dr["mov"].ToString(), dr["pagara"].ToString(), dr["fecha"].ToString(), dr["ref_gastoexterno"].ToString(), dr["suc_pago"].ToString(), "", cantidad, saldo, dr["tienda"].ToString(), dr["suc_pago"].ToString());
+                        }
+                    }
+
+                    dr.Close();
+                    con.Close();
+                }
+
+                try
+                {
+
+
+                   
                 }
                 catch (Exception ex)
                 {
@@ -113,9 +150,9 @@ namespace appSugerencias
             
 
 
-            DG_tabla.Columns[5].DefaultCellStyle.Format = "C2";
             DG_tabla.Columns[6].DefaultCellStyle.Format = "C2";
             DG_tabla.Columns[7].DefaultCellStyle.Format = "C2";
+            DG_tabla.Columns[8].DefaultCellStyle.Format = "C2";
         }
 
 
@@ -265,6 +302,7 @@ namespace appSugerencias
         private void DG_tabla_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             double deposito = 0;
+            int id = Convert.ToInt32(DG_tabla.Rows[e.RowIndex].Cells["ID"].Value.ToString());
             string clienteBancario = DG_tabla.Rows[e.RowIndex].Cells["PAGARA"].Value.ToString();
             string fecha = DG_tabla.Rows[e.RowIndex].Cells["FECHA"].Value.ToString();
             string tienda = DG_tabla.Rows[e.RowIndex].Cells["TIENDA"].Value.ToString();
@@ -274,18 +312,24 @@ namespace appSugerencias
             try
             {
                 deposito = Convert.ToDouble(DG_tabla.Rows[e.RowIndex].Cells["INGRESO"].Value.ToString());
+                string banco = CB_banco.SelectedItem.ToString();
+                string cuenta = CB_cuentas.SelectedItem.ToString();
+                DepositoEntreCuentasOsmart depCuentaOsmart = new DepositoEntreCuentasOsmart(id, fecha, clienteBancario, deposito, banco, cuenta, tienda, suc_pago, mov, usuario);
+                depCuentaOsmart.Show();
             }
-#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
+
             catch (Exception ex)
-#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
+
             {
 
                 MessageBox.Show("Selecciona un registro que sea un ingreso de esta cuenta");
             }
-            string banco = CB_banco.SelectedItem.ToString();
-            string cuenta = CB_cuentas.SelectedItem.ToString();
-            DepositoEntreCuentasOsmart depCuentaOsmart = new   DepositoEntreCuentasOsmart(fecha,clienteBancario,deposito,banco,cuenta,tienda,suc_pago,mov);
-            depCuentaOsmart.Show();
+          
+        }
+
+        private void BT_egreso_otis_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

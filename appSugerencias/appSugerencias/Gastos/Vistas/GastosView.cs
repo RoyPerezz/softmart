@@ -334,9 +334,9 @@ namespace appSugerencias.Gastos.Vistas
             }
 
             List<Gasto> gastosTienda = rg.BuscarGastos(sucursal, inicio, fin,respaldo);
-#pragma warning disable CS0219 // La variable 'ticket' está asignada pero su valor nunca se usa
+
             string ticket = "";
-#pragma warning restore CS0219 // La variable 'ticket' está asignada pero su valor nunca se usa
+
 
 
             foreach (var item2 in gastosTienda)

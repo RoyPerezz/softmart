@@ -14,9 +14,9 @@ namespace appSugerencias
     public partial class CantidadFacturar : Form
     {
         double excedente = 0;
-#pragma warning disable CS0414 // El campo 'CantidadFacturar.excedenteTARJ' está asignado pero su valor nunca se usa
+
         double excedenteTARJ = 0;
-#pragma warning restore CS0414 // El campo 'CantidadFacturar.excedenteTARJ' está asignado pero su valor nunca se usa
+
         string usuario = "";
         ArrayList ventasFacturadas = new ArrayList();
         ArrayList facturasEfe = new ArrayList();
@@ -1114,6 +1114,7 @@ namespace appSugerencias
             MySqlCommand cmd = null;
             MySqlDataReader dr = null;
             double total = 0;
+            double t = 0;
             for (int i = 0; i < ventasEfectivo.Count; i++)
             {
                 cmd = new MySqlCommand("select total from facturacion where no_ticket ='"+ ventasEfectivo[i].ToString()+ "'  and rfccliente<>'XAXX010101000'", con);
@@ -1121,7 +1122,9 @@ namespace appSugerencias
 
                 while (dr.Read())
                 {
+                    t = Convert.ToDouble(dr["total"].ToString());
                     total += Convert.ToDouble(dr["total"].ToString());
+                    t = 0;
                 }
                 dr.Close();
             }

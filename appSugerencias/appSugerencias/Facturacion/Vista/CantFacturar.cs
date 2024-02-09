@@ -302,7 +302,7 @@ namespace appSugerencias
             }
             else if (mes.Equals("DICIEMBRE"))
             {
-                m = "DEC";
+                m = "DIC";
             }
             return m;
         }

@@ -96,6 +96,11 @@ namespace appSugerencias.Gastos.Vistas
                         pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
                         contarSlash = 0;
                     }
+                    else
+                    {
+                        pictureBox1.Image = Image.FromFile(ruta);
+                        pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+                    }
                 }
                 else
                 {
@@ -135,6 +140,11 @@ namespace appSugerencias.Gastos.Vistas
                         pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
                         contarSlash = 0;
                     }
+                    else
+                    {
+                        pictureBox2.Image = Image.FromFile(ruta2);
+                        pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+                    }
                 }
                 else
                 {
@@ -173,6 +183,11 @@ namespace appSugerencias.Gastos.Vistas
                         pictureBox3.Image = Image.FromFile("\\\\192.168.5.2" + ruta3);
                         pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
                         contarSlash = 0;
+                    }
+                    else
+                    {
+                        pictureBox3.Image = Image.FromFile(ruta3);
+                        pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
                     }
                 }
                 else

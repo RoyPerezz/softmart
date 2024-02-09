@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
             this.DG_tabla = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FECHA = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -88,8 +88,8 @@
             // DG_tabla
             // 
             this.DG_tabla.AllowUserToAddRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            this.DG_tabla.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.White;
+            this.DG_tabla.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle17;
             this.DG_tabla.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -117,14 +117,14 @@
             this.CHECK,
             this.PAGO_PARCIAL,
             this.PAGO_ANTICIPADO});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DG_tabla.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DG_tabla.DefaultCellStyle = dataGridViewCellStyle20;
             this.DG_tabla.Location = new System.Drawing.Point(5, 146);
             this.DG_tabla.Name = "DG_tabla";
             this.DG_tabla.Size = new System.Drawing.Size(1902, 417);
@@ -163,15 +163,15 @@
             // 
             // IMPORTE
             // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.IMPORTE.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.IMPORTE.DefaultCellStyle = dataGridViewCellStyle18;
             this.IMPORTE.HeaderText = "IMPORTE";
             this.IMPORTE.Name = "IMPORTE";
             // 
             // IVA
             // 
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
-            this.IVA.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
+            this.IVA.DefaultCellStyle = dataGridViewCellStyle19;
             this.IVA.HeaderText = "IVA";
             this.IVA.Name = "IVA";
             // 
@@ -253,14 +253,14 @@
             // 
             // DT_inicio
             // 
-            this.DT_inicio.Location = new System.Drawing.Point(51, 20);
+            this.DT_inicio.Location = new System.Drawing.Point(12, 39);
             this.DT_inicio.Name = "DT_inicio";
             this.DT_inicio.Size = new System.Drawing.Size(200, 20);
             this.DT_inicio.TabIndex = 1;
             // 
             // DT_fin
             // 
-            this.DT_fin.Location = new System.Drawing.Point(51, 68);
+            this.DT_fin.Location = new System.Drawing.Point(12, 79);
             this.DT_fin.Name = "DT_fin";
             this.DT_fin.Size = new System.Drawing.Size(200, 20);
             this.DT_fin.TabIndex = 2;
@@ -277,7 +277,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(22, 71);
+            this.label2.Location = new System.Drawing.Point(11, 64);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(24, 13);
             this.label2.TabIndex = 4;
@@ -289,7 +289,7 @@
             this.BT_aceptar.BackColor = System.Drawing.Color.DodgerBlue;
             this.BT_aceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BT_aceptar.ForeColor = System.Drawing.Color.White;
-            this.BT_aceptar.Location = new System.Drawing.Point(102, 19);
+            this.BT_aceptar.Location = new System.Drawing.Point(102, 20);
             this.BT_aceptar.Name = "BT_aceptar";
             this.BT_aceptar.Size = new System.Drawing.Size(144, 76);
             this.BT_aceptar.TabIndex = 6;
@@ -336,7 +336,7 @@
             this.BT_guardar.BackColor = System.Drawing.Color.DodgerBlue;
             this.BT_guardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BT_guardar.ForeColor = System.Drawing.Color.White;
-            this.BT_guardar.Location = new System.Drawing.Point(24, 23);
+            this.BT_guardar.Location = new System.Drawing.Point(11, 21);
             this.BT_guardar.Name = "BT_guardar";
             this.BT_guardar.Size = new System.Drawing.Size(139, 73);
             this.BT_guardar.TabIndex = 10;
@@ -346,15 +346,14 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.RB_deposito);
             this.groupBox1.Controls.Add(this.RB_spei);
             this.groupBox1.Controls.Add(this.RB_todos);
             this.groupBox1.Controls.Add(this.RB_efectivo);
             this.groupBox1.Controls.Add(this.BT_aceptar);
-            this.groupBox1.Location = new System.Drawing.Point(287, 19);
+            this.groupBox1.Location = new System.Drawing.Point(241, 19);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(272, 109);
+            this.groupBox1.Size = new System.Drawing.Size(252, 109);
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tipo de pago";
@@ -378,7 +377,7 @@
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Location = new System.Drawing.Point(12, 19);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(269, 109);
+            this.groupBox2.Size = new System.Drawing.Size(223, 109);
             this.groupBox2.TabIndex = 12;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Fecha de solicitud de pago";
@@ -387,9 +386,9 @@
             // 
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.BT_guardar);
-            this.groupBox3.Location = new System.Drawing.Point(565, 19);
+            this.groupBox3.Location = new System.Drawing.Point(1237, 20);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(193, 109);
+            this.groupBox3.Size = new System.Drawing.Size(156, 109);
             this.groupBox3.TabIndex = 13;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Guardar Estado";
@@ -499,11 +498,12 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox4.Controls.Add(this.RB_prov_serv);
             this.groupBox4.Controls.Add(this.BT_buscar_prov);
             this.groupBox4.Controls.Add(this.RB_prov);
             this.groupBox4.Controls.Add(this.CB_filtro_prov);
-            this.groupBox4.Location = new System.Drawing.Point(764, 19);
+            this.groupBox4.Location = new System.Drawing.Point(1399, 20);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(351, 109);
             this.groupBox4.TabIndex = 24;

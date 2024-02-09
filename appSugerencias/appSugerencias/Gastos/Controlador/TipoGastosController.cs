@@ -66,7 +66,8 @@ namespace appSugerencias.Gastos.Controlador
                 };
                 lista.Add(egreso);
             }
-
+            dr.Close();
+            con.Close();
             return lista;
         }
 
@@ -85,7 +86,8 @@ namespace appSugerencias.Gastos.Controlador
                 };
                 lista.Add(egreso);
             }
-
+            dr.Close();
+            con.Close();
             return lista;
         }
 
@@ -108,7 +110,8 @@ namespace appSugerencias.Gastos.Controlador
                 };
                 lista.Add(egreso);
             }
-
+            dr.Close();
+            con.Close();
             return lista;
         }
 
@@ -129,7 +132,8 @@ namespace appSugerencias.Gastos.Controlador
                 };
                 lista.Add(egreso);
             }
-
+            dr.Close();
+            con.Close();
             return lista;
         }
 

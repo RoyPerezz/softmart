@@ -30,13 +30,82 @@ namespace appSugerencias
             Area = area;
         }
 
-
+        double porcentaje = 0;
         public void Vallarta()
         {
+            double precio1 = 0;
+            double precio2 = 0;
+            double descMay = 0;
+            double descMen = 0;
            
+
+
+            
+
+
+
             try
             {
                 MySqlConnection con = BDConexicon.VallartaOpen();
+
+
+                // obtener oferta del articulo
+                string query = "SELECT porcentaje,fechainicial,fechafinal" +
+                "           FROM ofertas" +
+                "           WHERE articulo ='" + TB_articulo.Text + "'";
+
+                DateTime fechaActual = DateTime.Now;
+                DateTime fechaInicial, fechaFinal;
+                MySqlCommand cmdOferta = new MySqlCommand(query,con);
+                MySqlDataReader drOferta = cmdOferta.ExecuteReader();
+
+
+                while (drOferta.Read())
+                {
+                    fechaInicial = Convert.ToDateTime(drOferta["fechainicial"].ToString());
+                    fechaFinal = Convert.ToDateTime(drOferta["fechafinal"].ToString());
+
+                    if (fechaActual >= fechaInicial && fechaActual <= fechaFinal)
+                    {
+                        porcentaje = Convert.ToDouble(drOferta["porcentaje"].ToString());
+                        LB_porcentaje.Text = porcentaje + "%";
+                    }
+                    else
+                    {
+                        porcentaje = 0;
+                    }
+                   
+                }
+                drOferta.Close();
+                if (porcentaje <=0)
+                {
+                    LB_porcentaje.Visible = false;
+
+                    LB_oferta_may_va.Visible = false;
+                    LB_oferta_may_rena.Visible = false;
+                    LB_oferta_may_ve.Visible = false;
+                    LB_oferta_may_co.Visible = false;
+
+                    LB_oferta_men_va.Visible = false;
+                    LB_oferta_men_rena.Visible = false;
+                    LB_oferta_men_ve.Visible = false;
+                    LB_oferta_men_co.Visible = false;
+                }
+                else
+                {
+                    LB_porcentaje.Visible = true;
+
+                    LB_oferta_may_va.Visible = true;
+                    LB_oferta_may_rena.Visible = true;
+                    LB_oferta_may_ve.Visible = true;
+                    LB_oferta_may_co.Visible = true;
+
+                    LB_oferta_men_va.Visible = true;
+                    LB_oferta_men_rena.Visible = true;
+                    LB_oferta_men_ve.Visible = true;
+                    LB_oferta_men_co.Visible = true;   
+                }
+              
 
                 MySqlCommand cmd = new MySqlCommand("select existencia,linea,fabricante,precio1,precio2,impuesto from prods where articulo='" + TB_articulo.Text + "'",con );
                 MySqlDataReader rd = cmd.ExecuteReader();
@@ -46,8 +115,7 @@ namespace appSugerencias
                 //    TB_vallarta.Text = rd[0].ToString();
                 //    LB_vallarta.Text = "Conectado";
                 //}
-                double precio1 = 0;
-                double precio2 = 0;
+             
 
                 if (rd.Read())
                 {
@@ -64,6 +132,10 @@ namespace appSugerencias
                         precio2 = Convert.ToDouble(rd["precio2"].ToString());
                         LB_PM_vallarta.Text = precio2.ToString("C2");
                         LB_PME_vallarta.Text = precio1.ToString("C2");
+                        descMay = precio2 - (precio2 * porcentaje / 100);
+                        descMen = precio1 - (precio1 * porcentaje / 100);
+                        LB_oferta_may_va.Text = descMay.ToString("C2");
+                        LB_oferta_men_va.Text = descMen.ToString("C2");
                     }
                     else
                     {
@@ -74,6 +146,13 @@ namespace appSugerencias
 
                         LB_PM_vallarta.Text = Convert.ToString( precio2.ToString("C"));
                         LB_PME_vallarta.Text =Convert.ToString(precio1.ToString("C"));
+
+
+
+                        descMay = precio2 - (precio2 * porcentaje / 100);
+                        descMen = precio1 - (precio1 * porcentaje / 100);
+                        LB_oferta_may_va.Text = descMay.ToString("C2");
+                        LB_oferta_men_va.Text = descMen.ToString("C2");
                     }
                     
                 }
@@ -85,9 +164,9 @@ namespace appSugerencias
                 rd.Close();
                 con.Close();
             }
-#pragma warning disable CS0168 // La variable 'e' se ha declarado pero nunca se usa
+
             catch (Exception e)
-#pragma warning restore CS0168 // La variable 'e' se ha declarado pero nunca se usa
+
             {
                 LB_vallarta.Text = "Sin conexion";
                 LB_vallarta.ForeColor = Color.Red;
@@ -97,9 +176,75 @@ namespace appSugerencias
 
         public void Velazquez()
         {
+
+            double descMay = 0;
+            double descMen = 0;
           
-            try {
+
+
+            try
+            {
                 MySqlConnection con = BDConexicon.VelazquezOpen();
+
+
+                // obtener oferta del articulo
+                string query = "SELECT porcentaje,fechainicial,fechafinal" +
+                "           FROM ofertas" +
+                "           WHERE articulo ='" + TB_articulo.Text + "'";
+
+                DateTime fechaActual = DateTime.Now;
+                DateTime fechaInicial, fechaFinal;
+                MySqlCommand cmdOferta = new MySqlCommand(query, con);
+                MySqlDataReader drOferta = cmdOferta.ExecuteReader();
+
+
+                while (drOferta.Read())
+                {
+                    fechaInicial = Convert.ToDateTime(drOferta["fechainicial"].ToString());
+                    fechaFinal = Convert.ToDateTime(drOferta["fechafinal"].ToString());
+
+                    if (fechaActual >= fechaInicial && fechaActual <= fechaFinal)
+                    {
+                        porcentaje = Convert.ToDouble(drOferta["porcentaje"].ToString());
+                        LB_porcentaje.Text = porcentaje + "%";
+                    }
+                    else
+                    {
+                        porcentaje = 0;
+                    }
+
+                }
+                drOferta.Close();
+                if (porcentaje <= 0)
+                {
+                    LB_porcentaje.Visible = false;
+
+                    LB_oferta_may_va.Visible = false;
+                    LB_oferta_may_rena.Visible = false;
+                    LB_oferta_may_ve.Visible = false;
+                    LB_oferta_may_co.Visible = false;
+
+                    LB_oferta_men_va.Visible = false;
+                    LB_oferta_men_rena.Visible = false;
+                    LB_oferta_men_ve.Visible = false;
+                    LB_oferta_men_co.Visible = false;
+                }
+                else
+                {
+                    LB_porcentaje.Visible = true;
+
+                    LB_oferta_may_va.Visible = true;
+                    LB_oferta_may_rena.Visible = true;
+                    LB_oferta_may_ve.Visible = true;
+                    LB_oferta_may_co.Visible = true;
+
+                    LB_oferta_men_va.Visible = true;
+                    LB_oferta_men_rena.Visible = true;
+                    LB_oferta_men_ve.Visible = true;
+                    LB_oferta_men_co.Visible = true;
+                }
+
+
                 MySqlCommand cmd = new MySqlCommand("select existencia,linea,precio1,precio2,fabricante,impuesto from prods where articulo='" + TB_articulo.Text + "'",con );
             MySqlDataReader rd = cmd.ExecuteReader();
                 double precio1 = 0;
@@ -125,6 +270,11 @@ namespace appSugerencias
 
                         LB_PM_velazquez.Text = precio2.ToString("C2");
                         LB_PME_velazquez.Text = precio1.ToString("C2");
+
+                        descMay = precio2 - (precio2 * porcentaje / 100);
+                        descMen = precio1 - (precio1 * porcentaje / 100);
+                        LB_oferta_may_ve.Text = descMay.ToString("C2");
+                        LB_oferta_men_ve.Text = descMen.ToString("C2");
                     }
                     else
                     {
@@ -135,6 +285,11 @@ namespace appSugerencias
                         precio2 += precio2 * 0.16;
                         LB_PM_velazquez.Text = Convert.ToString(precio2.ToString("C"));
                         LB_PME_velazquez.Text = Convert.ToString(precio1.ToString("C"));
+
+                        descMay = precio2 - (precio2 * porcentaje / 100);
+                        descMen = precio1 - (precio1 * porcentaje / 100);
+                        LB_oferta_may_ve.Text = descMay.ToString("C2");
+                        LB_oferta_men_ve.Text = descMen.ToString("C2");
                     }
                 }
                 else
@@ -158,10 +313,80 @@ namespace appSugerencias
 
         public void Rena()
         {
+            double descMay = 0;
+            double descMen = 0;
+           
 
-          
-            try {
+
+            try
+            {
+
+
+
+
                 MySqlConnection con = BDConexicon.RenaOpen();
+
+
+
+
+                // obtener oferta del articulo
+                string query = "SELECT porcentaje,fechainicial,fechafinal" +
+                "           FROM ofertas" +
+                "           WHERE articulo ='" + TB_articulo.Text + "'";
+
+                DateTime fechaActual = DateTime.Now;
+                DateTime fechaInicial, fechaFinal;
+                MySqlCommand cmdOferta = new MySqlCommand(query, con);
+                MySqlDataReader drOferta = cmdOferta.ExecuteReader();
+
+
+                while (drOferta.Read())
+                {
+                    fechaInicial = Convert.ToDateTime(drOferta["fechainicial"].ToString());
+                    fechaFinal = Convert.ToDateTime(drOferta["fechafinal"].ToString());
+
+                    if (fechaActual >= fechaInicial && fechaActual <= fechaFinal)
+                    {
+                        porcentaje = Convert.ToDouble(drOferta["porcentaje"].ToString());
+                        LB_porcentaje.Text = porcentaje + "%";
+                    }
+                    else
+                    {
+                        porcentaje = 0;
+                    }
+
+                }
+                drOferta.Close();
+                if (porcentaje <= 0)
+                {
+                    LB_porcentaje.Visible = false;
+
+                    LB_oferta_may_va.Visible = false;
+                    LB_oferta_may_rena.Visible = false;
+                    LB_oferta_may_ve.Visible = false;
+                    LB_oferta_may_co.Visible = false;
+
+                    LB_oferta_men_va.Visible = false;
+                    LB_oferta_men_rena.Visible = false;
+                    LB_oferta_men_ve.Visible = false;
+                    LB_oferta_men_co.Visible = false;
+                }
+                else
+                {
+                    LB_porcentaje.Visible = true;
+
+                    LB_oferta_may_va.Visible = true;
+                    LB_oferta_may_rena.Visible = true;
+                    LB_oferta_may_ve.Visible = true;
+                    LB_oferta_may_co.Visible = true;
+
+                    LB_oferta_men_va.Visible = true;
+                    LB_oferta_men_rena.Visible = true;
+                    LB_oferta_men_ve.Visible = true;
+                    LB_oferta_men_co.Visible = true;
+                }
+
+
                 MySqlCommand cmd = new MySqlCommand("select existencia,linea,precio1,precio2,fabricante,impuesto from prods where articulo='" + TB_articulo.Text + "'",con);
             MySqlDataReader rd = cmd.ExecuteReader();
 
@@ -184,6 +409,11 @@ namespace appSugerencias
                         precio2 = Convert.ToDouble(rd["precio2"].ToString());
                         LB_PM_rena.Text = precio2.ToString("C2");
                         LB_PME_rena.Text = precio1.ToString("C2");
+
+                        descMay = precio2 - (precio2 * porcentaje / 100);
+                        descMen = precio1 - (precio1 * porcentaje / 100);
+                        LB_oferta_may_rena.Text = descMay.ToString("C2");
+                        LB_oferta_men_rena.Text = descMen.ToString("C2");
                     }
                     else
                     {
@@ -194,6 +424,11 @@ namespace appSugerencias
                         precio2 += precio2 * 0.16;
                         LB_PM_rena.Text = Convert.ToString(precio2.ToString("C"));
                         LB_PME_rena.Text = Convert.ToString(precio1.ToString("C"));
+
+                        descMay = precio2 - (precio2 * porcentaje / 100);
+                        descMen = precio1 - (precio1 * porcentaje / 100);
+                        LB_oferta_may_rena.Text = descMay.ToString("C2");
+                        LB_oferta_men_rena.Text = descMen.ToString("C2");
                     }
                     LB_rena.ForeColor = Color.DarkGreen;
                 }
@@ -219,10 +454,71 @@ namespace appSugerencias
 
         public void Coloso()
         {
-
-           
+            double descMay = 0;
+            double descMen = 0;
+            
+            double precio1 = 0, precio2 = 0;
             try {
                 MySqlConnection con = BDConexicon.ColosoOpen();
+
+
+                // obtener oferta del articulo
+                string query = "SELECT porcentaje,fechainicial,fechafinal" +
+                "           FROM ofertas" +
+                "           WHERE articulo ='" + TB_articulo.Text + "'";
+
+                DateTime fechaActual = DateTime.Now;
+                DateTime fechaInicial, fechaFinal;
+                MySqlCommand cmdOferta = new MySqlCommand(query, con);
+                MySqlDataReader drOferta = cmdOferta.ExecuteReader();
+
+
+                while (drOferta.Read())
+                {
+                    fechaInicial = Convert.ToDateTime(drOferta["fechainicial"].ToString());
+                    fechaFinal = Convert.ToDateTime(drOferta["fechafinal"].ToString());
+
+                    if (fechaActual >= fechaInicial && fechaActual <= fechaFinal)
+                    {
+                        porcentaje = Convert.ToDouble(drOferta["porcentaje"].ToString());
+                        LB_porcentaje.Text = porcentaje + "%";
+                    }
+                    else
+                    {
+                        porcentaje = 0;
+                    }
+
+                }
+                drOferta.Close();
+                if (porcentaje <= 0)
+                {
+                    LB_porcentaje.Visible = false;
+
+                    LB_oferta_may_va.Visible = false;
+                    LB_oferta_may_rena.Visible = false;
+                    LB_oferta_may_ve.Visible = false;
+                    LB_oferta_may_co.Visible = false;
+
+                    LB_oferta_men_va.Visible = false;
+                    LB_oferta_men_rena.Visible = false;
+                    LB_oferta_men_ve.Visible = false;
+                    LB_oferta_men_co.Visible = false;
+                }
+                else
+                {
+                    LB_porcentaje.Visible = true;
+
+                    LB_oferta_may_va.Visible = true;
+                    LB_oferta_may_rena.Visible = true;
+                    LB_oferta_may_ve.Visible = true;
+                    LB_oferta_may_co.Visible = true;
+
+                    LB_oferta_men_va.Visible = true;
+                    LB_oferta_men_rena.Visible = true;
+                    LB_oferta_men_ve.Visible = true;
+                    LB_oferta_men_co.Visible = true;
+                }
+
 
                 MySqlCommand cmd = new MySqlCommand("select existencia,linea,precio1,precio2,fabricante,impuesto from prods where articulo='" + TB_articulo.Text + "'", con);
             MySqlDataReader rd = cmd.ExecuteReader();
@@ -232,7 +528,7 @@ namespace appSugerencias
                 //    TB_coloso.Text = rd[0].ToString();
                 //    LB_coloso.Text = "Conectado";
                 //}
-                double precio1 = 0, precio2 = 0;
+               
 
                 if (rd.Read())
                 {
@@ -247,6 +543,11 @@ namespace appSugerencias
                         precio2 = Convert.ToDouble(rd["precio2"].ToString());
                         LB_PM_coloso.Text = precio2.ToString("C2");
                         LB_PME_coloso.Text = precio1.ToString("C2");
+
+                        descMay = precio2 - (precio2 * porcentaje / 100);
+                        descMen = precio1 - (precio1 * porcentaje / 100);
+                        LB_oferta_may_co.Text = descMay.ToString("C2");
+                        LB_oferta_men_co.Text = descMen.ToString("C2");
                     }
                     else
                     {
@@ -257,6 +558,11 @@ namespace appSugerencias
                         precio2 += precio2 * 0.16;
                         LB_PM_coloso.Text = Convert.ToString(precio2.ToString("C"));
                         LB_PME_coloso.Text = Convert.ToString(precio1.ToString("C"));
+
+                        descMay = precio2 - (precio2 * porcentaje / 100);
+                        descMen = precio1 - (precio1 * porcentaje / 100);
+                        LB_oferta_may_co.Text = descMay.ToString("C2");
+                        LB_oferta_men_co.Text = descMen.ToString("C2");
                     }
                     LB_coloso.ForeColor = Color.DarkGreen;
                 }
@@ -458,7 +764,7 @@ namespace appSugerencias
             
         }
 
-
+       
 
 
         private void BTN_aceptar_Click(object sender, EventArgs e)
@@ -484,7 +790,15 @@ namespace appSugerencias
                 lblRePre.Text = "";
                 lblVePre.Text = "";
                 //lblCoPre.Text = "";
-
+                LB_porcentaje.Text = "";
+                LB_oferta_may_va.Text="";
+                LB_oferta_men_va.Text = "";
+                LB_oferta_may_rena.Text = "";
+                LB_oferta_men_rena.Text = "";
+                LB_oferta_may_ve.Text = "";
+                LB_oferta_men_ve.Text = "";
+                LB_oferta_may_co.Text = "";
+                LB_oferta_men_co.Text = "";
                 DatosProducto();
 
                 if (CKB_Bodega.Checked == true)
@@ -518,7 +832,7 @@ namespace appSugerencias
                 //}
 
 
-
+                porcentaje = 0;
                 TB_total_existencia.Text = existenciaTotal.ToString();
                 existenciaTotal = 0;
 
@@ -881,6 +1195,8 @@ namespace appSugerencias
 
         private void Existencias_Load_1(object sender, EventArgs e)
         {
+
+            LB_porcentaje.Visible = false;
             string area = "";
             area = AreaTrabajo();
             //#################################################### ACTUALIZACION PARA ACTIVAR  SEGUN USUARIO #####################################
@@ -1885,7 +2201,7 @@ namespace appSugerencias
                     //    Pregot();
                     //}
 
-
+                    porcentaje = 0;
                     TB_total_existencia.Text = existenciaTotal.ToString();
                     existenciaTotal = 0;
                 }

@@ -250,7 +250,7 @@ namespace appSugerencias.Gastos.Vistas
 
             if (sucursal.Equals("VALLARTA"))
             {
-                ruta = @"\\192.168.1.2\Users\Administrador.WIN-SJDEC013JTB\Documents\imgTickets\";
+                ruta = @"\\192.168.5.2\Users\Administrador.WIN-SJDEC013JTB\Documents\imgTickets\";
             }
             else if(sucursal.Equals("RENA"))
             {
@@ -671,7 +671,7 @@ namespace appSugerencias.Gastos.Vistas
            
             this.LB_contador.Text = ts.Seconds.ToString();
 
-            if (ts.Seconds==10)
+            if (ts.Seconds==20)
             {
                 CerrarWebCam();
                 GC.Collect(GC.MaxGeneration);
@@ -702,9 +702,11 @@ namespace appSugerencias.Gastos.Vistas
         private void Capturando(object sender, NewFrameEventArgs e)
         {
             Bitmap f = (Bitmap)(e.Frame.Clone());
+          
             pictureBox0.Image = f;
+            
             GC.Collect(GC.MaxGeneration);
-            //pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox0.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 
         private void TomarFoto1()
@@ -725,7 +727,10 @@ namespace appSugerencias.Gastos.Vistas
             if (MiWebCam != null && MiWebCam.IsRunning)
             {
                 string ruta = RutaFoto(sucursal);
-                pictureBox1.Image = pictureBox0.Image;
+                Bitmap bitmap = (Bitmap)pictureBox0.Image;
+                bitmap.RotateFlip(RotateFlipType.Rotate270FlipNone);
+                pictureBox1.Image = bitmap;
+                //pictureBox1.Image = pictureBox0.Image;
                 pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
                 pictureBox1.Tag = abrirImagen.FileName;
                 rutaOrigen = pictureBox1.Tag.ToString();
@@ -765,7 +770,10 @@ namespace appSugerencias.Gastos.Vistas
             if (MiWebCam != null && MiWebCam.IsRunning)
             {
                 string ruta = RutaFoto(sucursal);
-                pictureBox2.Image = pictureBox0.Image;
+                Bitmap bitmap = (Bitmap)pictureBox0.Image;
+                bitmap.RotateFlip(RotateFlipType.Rotate270FlipNone);
+                pictureBox2.Image = bitmap;
+                //pictureBox2.Image = pictureBox0.Image;
                 pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
                 pictureBox2.Tag = abrirImagen.FileName;
                 rutaOrigen2 = pictureBox2.Tag.ToString();

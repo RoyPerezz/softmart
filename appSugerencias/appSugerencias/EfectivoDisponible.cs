@@ -75,6 +75,583 @@ namespace appSugerencias
         }
 
 
+
+
+
+
+        #region EFECTIVO DISPONIBLE POR RANGO DE FECHAS
+        public void EfectivoVA_fechas()
+        {
+
+            DateTime fecha =DateTime.Now;
+            double efeVA = 0;
+            DateTime inicio = DT_inicio.Value;
+            DateTime fin = DT_fin.Value;
+            int count = 0;
+            if (CBX_respaldo.Checked == true)
+            {
+                double disponible = 0;
+                int mes = DT_inicio.Value.Month;
+                int año = DT_inicio.Value.Year;
+                string mesRespaldo = MesRespaldo(mes);
+              
+                LB_conexion_va.ForeColor = Color.Black;
+                double retiroVA = 0;
+                
+                MySqlConnection con = BDConexicon.RespaldoVA(mesRespaldo, año);
+                for (int i = 0; i < DG_Tabla.Rows.Count; i++)
+                {
+                    string query = "SELECT flujo.concepto2,conegre.descrip,SUM(flujo.importe * flujo.tipo_cam) AS `Importe`,flujo.ing_eg AS IE, flujo.banco, flujo.cheque, flujo.fecha, " +
+                    "flujo.hora, flujo.usuario, flujo.estacion FROM(flujo INNER JOIN conegre ON flujo.concepto2 = conegre.concepto) " +
+                     "where  fecha ='" + DG_Tabla.Rows[i].Cells["FECHA"].Value.ToString() + "'GROUP BY flujo.concepto2 ORDER BY flujo.fecha, flujo.hora ";
+
+
+
+
+                    try
+                    {
+                        MySqlCommand cmd = new MySqlCommand(query, con);
+                        MySqlDataReader dr = cmd.ExecuteReader();
+                        while (dr.Read())
+                        {
+                            LB_conexion_va.ForeColor = Color.DarkGreen;
+
+                            string concepto = dr["concepto2"].ToString();
+                            if (concepto.Equals("RPPP") || concepto.Equals("RBAN") || concepto.Equals("ALBR") || concepto.Equals("CINO") || concepto.Equals("CCDMX") || concepto.Equals("FNZAS") || concepto.Equals("ACCR") || concepto.Equals("CGRAL") || concepto.Equals("ACR") || concepto.Equals("CCDIS"))
+                            {
+                                retiroVA += Convert.ToDouble(dr["Importe"].ToString());
+                            }
+
+                            if (concepto.Equals("Retir"))
+                            {
+                                efeVA = Convert.ToDouble(dr["Importe"].ToString());
+                            }
+
+
+                        }
+
+                        dr.Close();
+
+                        disponible = efeVA - retiroVA;
+
+                        DG_Tabla.Rows[i].Cells["VALLARTA"].Value = disponible.ToString("C2");
+                        efeVA = 0; retiroVA = 0; disponible = 0;
+                    }
+
+                    catch (Exception ex)
+
+                    {
+
+                        LB_conexion_va.ForeColor = Color.Red;
+
+                    }
+                }
+              
+
+                //double disponible = efeVA - retiroVA;
+                //LB_efevallarta.Text = String.Format("{0:0.##}", disponible.ToString("C"));
+                con.Close();
+            }
+            else
+            {
+                LB_va.ForeColor = Color.Black;
+                double retiroVA = 0;
+                double disponible = 0;
+                //DateTime fecha = DT_fecha.Value;
+                MySqlConnection con = BDConexicon.VallartaOpen();
+               
+                for (int i =0;i<DG_Tabla.Rows.Count;i++)
+                {
+                    
+                    string query = "SELECT flujo.concepto2,conegre.descrip,SUM(flujo.importe * flujo.tipo_cam) AS `Importe`,flujo.ing_eg AS IE, flujo.banco, flujo.cheque, flujo.fecha, " +
+                    "flujo.hora, flujo.usuario, flujo.estacion FROM(flujo INNER JOIN conegre ON flujo.concepto2 = conegre.concepto) " +
+                     "where  fecha ='" + DG_Tabla.Rows[i].Cells["FECHA"].Value.ToString() + "'GROUP BY flujo.concepto2 ORDER BY flujo.fecha, flujo.hora ";
+
+                
+
+
+                    try
+                    {
+                        MySqlCommand cmd = new MySqlCommand(query, con);
+                        MySqlDataReader dr = cmd.ExecuteReader();
+                        while (dr.Read())
+                        {
+                            LB_conexion_va.ForeColor = Color.DarkGreen;
+                           
+                            string concepto = dr["concepto2"].ToString();
+                            if (concepto.Equals("RPPP") || concepto.Equals("RBAN") || concepto.Equals("ALBR") || concepto.Equals("CINO") || concepto.Equals("CCDMX") || concepto.Equals("FNZAS") || concepto.Equals("ACCR") || concepto.Equals("CGRAL") || concepto.Equals("ACR"))
+                            {
+                                retiroVA += Convert.ToDouble(dr["Importe"].ToString());
+                            }
+
+                            if (concepto.Equals("Retir"))
+                            {
+                                efeVA = Convert.ToDouble(dr["Importe"].ToString());
+                            }
+
+
+                        }
+
+                        dr.Close();
+
+                        disponible = efeVA - retiroVA;
+                        
+                        DG_Tabla.Rows[i].Cells["VALLARTA"].Value = disponible.ToString("C2");
+                        efeVA = 0;retiroVA = 0;disponible = 0;
+                    }
+
+                    catch (Exception ex)
+
+                    {
+
+                        LB_conexion_va.ForeColor = Color.Red;
+                    }
+
+                }
+
+             
+                
+               // LB_efevallarta.Text = String.Format("{0:0.##}", disponible.ToString("C"));
+
+
+                con.Close();
+            }
+
+
+
+
+        }
+
+        public void EfectivoRE_fechas()
+        {
+
+            DateTime fecha = DateTime.Now;
+            double efeRE = 0;
+            DateTime inicio = DT_inicio.Value;
+            DateTime fin = DT_fin.Value;
+            int count = 0;
+            if (CBX_respaldo.Checked == true)
+            {
+                double disponible = 0;
+                int mes = DT_inicio.Value.Month;
+                int año = DT_inicio.Value.Year;
+                string mesRespaldo = MesRespaldo(mes);
+
+                LB_conexion_re.ForeColor = Color.Black;
+                double retiroRE = 0;
+
+                MySqlConnection con = BDConexicon.RespaldoRE(mesRespaldo, año);
+                for (int i = 0; i < DG_Tabla.Rows.Count; i++)
+                {
+                    string query = "SELECT flujo.concepto2,conegre.descrip,SUM(flujo.importe * flujo.tipo_cam) AS `Importe`,flujo.ing_eg AS IE, flujo.banco, flujo.cheque, flujo.fecha, " +
+                    "flujo.hora, flujo.usuario, flujo.estacion FROM(flujo INNER JOIN conegre ON flujo.concepto2 = conegre.concepto) " +
+                     "where  fecha ='" + DG_Tabla.Rows[i].Cells["FECHA"].Value.ToString() + "'GROUP BY flujo.concepto2 ORDER BY flujo.fecha, flujo.hora ";
+
+
+
+
+                    try
+                    {
+                        MySqlCommand cmd = new MySqlCommand(query, con);
+                        MySqlDataReader dr = cmd.ExecuteReader();
+                        while (dr.Read())
+                        {
+                            LB_conexion_re.ForeColor = Color.DarkGreen;
+
+                            string concepto = dr["concepto2"].ToString();
+                            if (concepto.Equals("RPPP") || concepto.Equals("RBAN") || concepto.Equals("ALBR") || concepto.Equals("CINO") || concepto.Equals("CCDMX") || concepto.Equals("FNZAS") || concepto.Equals("ACCR") || concepto.Equals("CGRAL") || concepto.Equals("ACR") || concepto.Equals("CCDIS"))
+                            {
+                                retiroRE += Convert.ToDouble(dr["Importe"].ToString());
+                            }
+
+                            if (concepto.Equals("Retir"))
+                            {
+                                efeRE = Convert.ToDouble(dr["Importe"].ToString());
+                            }
+
+
+                        }
+
+                        dr.Close();
+
+                        disponible = efeRE - retiroRE;
+
+                        DG_Tabla.Rows[i].Cells["RENA"].Value = disponible.ToString("C2");
+                        efeRE = 0; retiroRE = 0; disponible = 0;
+                    }
+
+                    catch (Exception ex)
+
+                    {
+
+                        LB_conexion_re.ForeColor = Color.Red;
+
+                    }
+                }
+
+
+                //double disponible = efeVA - retiroVA;
+                //LB_efevallarta.Text = String.Format("{0:0.##}", disponible.ToString("C"));
+                con.Close();
+            }
+            else
+            {
+               
+                double retiroRE = 0;
+                double disponible = 0;
+                //DateTime fecha = DT_fecha.Value;
+                MySqlConnection con = BDConexicon.RenaOpen();
+
+                for (int i = 0; i < DG_Tabla.Rows.Count; i++)
+                {
+
+                    string query = "SELECT flujo.concepto2,conegre.descrip,SUM(flujo.importe * flujo.tipo_cam) AS `Importe`,flujo.ing_eg AS IE, flujo.banco, flujo.cheque, flujo.fecha, " +
+                    "flujo.hora, flujo.usuario, flujo.estacion FROM(flujo INNER JOIN conegre ON flujo.concepto2 = conegre.concepto) " +
+                     "where  fecha ='" + DG_Tabla.Rows[i].Cells["FECHA"].Value.ToString() + "'GROUP BY flujo.concepto2 ORDER BY flujo.fecha, flujo.hora ";
+
+
+
+
+                    try
+                    {
+                        MySqlCommand cmd = new MySqlCommand(query, con);
+                        MySqlDataReader dr = cmd.ExecuteReader();
+                        while (dr.Read())
+                        {
+                            LB_conexion_re.ForeColor = Color.DarkGreen;
+
+                            string concepto = dr["concepto2"].ToString();
+                            if (concepto.Equals("RPPP") || concepto.Equals("RBAN") || concepto.Equals("ALBR") || concepto.Equals("CINO") || concepto.Equals("CCDMX") || concepto.Equals("FNZAS") || concepto.Equals("ACCR") || concepto.Equals("CGRAL") || concepto.Equals("ACR"))
+                            {
+                                retiroRE += Convert.ToDouble(dr["Importe"].ToString());
+                            }
+
+                            if (concepto.Equals("Retir"))
+                            {
+                                efeRE = Convert.ToDouble(dr["Importe"].ToString());
+                            }
+
+
+                        }
+
+                        dr.Close();
+
+                        disponible = efeRE - retiroRE;
+
+                        DG_Tabla.Rows[i].Cells["RENA"].Value = disponible.ToString("C2");
+                        efeRE = 0; retiroRE = 0; disponible = 0;
+                    }
+
+                    catch (Exception ex)
+
+                    {
+
+                        LB_conexion_re.ForeColor = Color.Red;
+                    }
+
+                }
+
+
+
+                // LB_efevallarta.Text = String.Format("{0:0.##}", disponible.ToString("C"));
+
+
+                con.Close();
+            }
+
+
+
+
+        }
+
+        public void EfectivoCO_fechas()
+        {
+
+            DateTime fecha = DateTime.Now;
+            double efeCO = 0;
+            DateTime inicio = DT_inicio.Value;
+            DateTime fin = DT_fin.Value;
+            int count = 0;
+            if (CBX_respaldo.Checked == true)
+            {
+                double disponible = 0;
+                int mes = DT_inicio.Value.Month;
+                int año = DT_inicio.Value.Year;
+                string mesRespaldo = MesRespaldo(mes);
+
+                LB_conexion_co.ForeColor = Color.Black;
+                double retiroCO = 0;
+
+                MySqlConnection con = BDConexicon.RespaldoCO(mesRespaldo, año);
+                for (int i = 0; i < DG_Tabla.Rows.Count; i++)
+                {
+                    string query = "SELECT flujo.concepto2,conegre.descrip,SUM(flujo.importe * flujo.tipo_cam) AS `Importe`,flujo.ing_eg AS IE, flujo.banco, flujo.cheque, flujo.fecha, " +
+                    "flujo.hora, flujo.usuario, flujo.estacion FROM(flujo INNER JOIN conegre ON flujo.concepto2 = conegre.concepto) " +
+                     "where  fecha ='" + DG_Tabla.Rows[i].Cells["FECHA"].Value.ToString() + "'GROUP BY flujo.concepto2 ORDER BY flujo.fecha, flujo.hora ";
+
+
+
+
+                    try
+                    {
+                        MySqlCommand cmd = new MySqlCommand(query, con);
+                        MySqlDataReader dr = cmd.ExecuteReader();
+                        while (dr.Read())
+                        {
+                            LB_conexion_co.ForeColor = Color.DarkGreen;
+
+                            string concepto = dr["concepto2"].ToString();
+                            if (concepto.Equals("RPPP") || concepto.Equals("RBAN") || concepto.Equals("ALBR") || concepto.Equals("CINO") || concepto.Equals("CCDMX") || concepto.Equals("FNZAS") || concepto.Equals("ACCR") || concepto.Equals("CGRAL") || concepto.Equals("ACR") || concepto.Equals("CCDIS"))
+                            {
+                                retiroCO += Convert.ToDouble(dr["Importe"].ToString());
+                            }
+
+                            if (concepto.Equals("Retir"))
+                            {
+                                efeCO = Convert.ToDouble(dr["Importe"].ToString());
+                            }
+
+
+                        }
+
+                        dr.Close();
+
+                        disponible = efeCO - retiroCO;
+
+                        DG_Tabla.Rows[i].Cells["COLOSO"].Value = disponible.ToString("C2");
+                        efeCO = 0; retiroCO = 0; disponible = 0;
+                    }
+
+                    catch (Exception ex)
+
+                    {
+
+                        LB_conexion_co.ForeColor = Color.Red;
+
+                    }
+                }
+
+
+                //double disponible = efeVA - retiroVA;
+                //LB_efevallarta.Text = String.Format("{0:0.##}", disponible.ToString("C"));
+                con.Close();
+            }
+            else
+            {
+              
+                double retiroCO = 0;
+                double disponible = 0;
+                //DateTime fecha = DT_fecha.Value;
+                MySqlConnection con = BDConexicon.ColosoOpen();
+
+                for (int i = 0; i < DG_Tabla.Rows.Count; i++)
+                {
+
+                    string query = "SELECT flujo.concepto2,conegre.descrip,SUM(flujo.importe * flujo.tipo_cam) AS `Importe`,flujo.ing_eg AS IE, flujo.banco, flujo.cheque, flujo.fecha, " +
+                    "flujo.hora, flujo.usuario, flujo.estacion FROM(flujo INNER JOIN conegre ON flujo.concepto2 = conegre.concepto) " +
+                     "where  fecha ='" + DG_Tabla.Rows[i].Cells["FECHA"].Value.ToString() + "'GROUP BY flujo.concepto2 ORDER BY flujo.fecha, flujo.hora ";
+
+
+
+
+                    try
+                    {
+                        MySqlCommand cmd = new MySqlCommand(query, con);
+                        MySqlDataReader dr = cmd.ExecuteReader();
+                        while (dr.Read())
+                        {
+                            LB_conexion_co.ForeColor = Color.DarkGreen;
+
+                            string concepto = dr["concepto2"].ToString();
+                            if (concepto.Equals("RPPP") || concepto.Equals("RBAN") || concepto.Equals("ALBR") || concepto.Equals("CINO") || concepto.Equals("CCDMX") || concepto.Equals("FNZAS") || concepto.Equals("ACCR") || concepto.Equals("CGRAL") || concepto.Equals("ACR"))
+                            {
+                                retiroCO += Convert.ToDouble(dr["Importe"].ToString());
+                            }
+
+                            if (concepto.Equals("Retir"))
+                            {
+                                efeCO = Convert.ToDouble(dr["Importe"].ToString());
+                            }
+
+
+                        }
+
+                        dr.Close();
+
+                        disponible = efeCO - retiroCO;
+
+                        DG_Tabla.Rows[i].Cells["COLOSO"].Value = disponible.ToString("C2");
+                        efeCO = 0; retiroCO = 0; disponible = 0;
+                    }
+
+                    catch (Exception ex)
+
+                    {
+
+                        LB_conexion_co.ForeColor = Color.Red;
+                    }
+
+                }
+
+
+
+                // LB_efevallarta.Text = String.Format("{0:0.##}", disponible.ToString("C"));
+
+
+                con.Close();
+            }
+
+
+
+
+        }
+
+        public void EfectivoVE_fechas()
+        {
+
+            DateTime fecha = DateTime.Now;
+            double efeVE = 0;
+            DateTime inicio = DT_inicio.Value;
+            DateTime fin = DT_fin.Value;
+            int count = 0;
+            if (CBX_respaldo.Checked == true)
+            {
+                double disponible = 0;
+                int mes = DT_inicio.Value.Month;
+                int año = DT_inicio.Value.Year;
+                string mesRespaldo = MesRespaldo(mes);
+
+                LB_conexion_ve.ForeColor = Color.Black;
+                double retiroVE = 0;
+
+                MySqlConnection con = BDConexicon.RespaldoVE(mesRespaldo, año);
+                for (int i = 0; i < DG_Tabla.Rows.Count; i++)
+                {
+                    string query = "SELECT flujo.concepto2,conegre.descrip,SUM(flujo.importe * flujo.tipo_cam) AS `Importe`,flujo.ing_eg AS IE, flujo.banco, flujo.cheque, flujo.fecha, " +
+                    "flujo.hora, flujo.usuario, flujo.estacion FROM(flujo INNER JOIN conegre ON flujo.concepto2 = conegre.concepto) " +
+                     "where  fecha ='" + DG_Tabla.Rows[i].Cells["FECHA"].Value.ToString() + "'GROUP BY flujo.concepto2 ORDER BY flujo.fecha, flujo.hora ";
+
+
+
+
+                    try
+                    {
+                        MySqlCommand cmd = new MySqlCommand(query, con);
+                        MySqlDataReader dr = cmd.ExecuteReader();
+                        while (dr.Read())
+                        {
+                            LB_conexion_ve.ForeColor = Color.DarkGreen;
+
+                            string concepto = dr["concepto2"].ToString();
+                            if (concepto.Equals("RPPP") || concepto.Equals("RBAN") || concepto.Equals("ALBR") || concepto.Equals("CINO") || concepto.Equals("CCDMX") || concepto.Equals("FNZAS") || concepto.Equals("ACCR") || concepto.Equals("CGRAL") || concepto.Equals("ACR") || concepto.Equals("CCDIS"))
+                            {
+                                retiroVE += Convert.ToDouble(dr["Importe"].ToString());
+                            }
+
+                            if (concepto.Equals("Retir"))
+                            {
+                                efeVE = Convert.ToDouble(dr["Importe"].ToString());
+                            }
+
+
+                        }
+
+                        dr.Close();
+
+                        disponible = efeVE - retiroVE;
+
+                        DG_Tabla.Rows[i].Cells["VELAZQUEZ"].Value = disponible.ToString("C2");
+                        efeVE = 0; retiroVE = 0; disponible = 0;
+                    }
+
+                    catch (Exception ex)
+
+                    {
+
+                        LB_conexion_co.ForeColor = Color.Red;
+
+                    }
+                }
+
+
+                //double disponible = efeVA - retiroVA;
+                //LB_efevallarta.Text = String.Format("{0:0.##}", disponible.ToString("C"));
+                con.Close();
+            }
+            else
+            {
+
+                double retiroVE = 0;
+                double disponible = 0;
+                //DateTime fecha = DT_fecha.Value;
+                MySqlConnection con = BDConexicon.VelazquezOpen();
+
+                for (int i = 0; i < DG_Tabla.Rows.Count; i++)
+                {
+
+                    string query = "SELECT flujo.concepto2,conegre.descrip,SUM(flujo.importe * flujo.tipo_cam) AS `Importe`,flujo.ing_eg AS IE, flujo.banco, flujo.cheque, flujo.fecha, " +
+                    "flujo.hora, flujo.usuario, flujo.estacion FROM(flujo INNER JOIN conegre ON flujo.concepto2 = conegre.concepto) " +
+                     "where  fecha ='" + DG_Tabla.Rows[i].Cells["FECHA"].Value.ToString() + "'GROUP BY flujo.concepto2 ORDER BY flujo.fecha, flujo.hora ";
+
+
+
+
+                    try
+                    {
+                        MySqlCommand cmd = new MySqlCommand(query, con);
+                        MySqlDataReader dr = cmd.ExecuteReader();
+                        while (dr.Read())
+                        {
+                            LB_conexion_ve.ForeColor = Color.DarkGreen;
+
+                            string concepto = dr["concepto2"].ToString();
+                            if (concepto.Equals("RPPP") || concepto.Equals("RBAN") || concepto.Equals("ALBR") || concepto.Equals("CINO") || concepto.Equals("CCDMX") || concepto.Equals("FNZAS") || concepto.Equals("ACCR") || concepto.Equals("CGRAL") || concepto.Equals("ACR"))
+                            {
+                                retiroVE += Convert.ToDouble(dr["Importe"].ToString());
+                            }
+
+                            if (concepto.Equals("Retir"))
+                            {
+                                efeVE = Convert.ToDouble(dr["Importe"].ToString());
+                            }
+
+
+                        }
+
+                        dr.Close();
+
+                        disponible = efeVE - retiroVE;
+
+                        DG_Tabla.Rows[i].Cells["VELAZQUEZ"].Value = disponible.ToString("C2");
+                        efeVE = 0; retiroVE = 0; disponible = 0;
+                    }
+
+                    catch (Exception ex)
+
+                    {
+
+                        LB_conexion_ve.ForeColor = Color.Red;
+                    }
+
+                }
+
+
+
+                // LB_efevallarta.Text = String.Format("{0:0.##}", disponible.ToString("C"));
+
+
+                con.Close();
+            }
+
+
+
+
+        }
+        #endregion
+
+
+
+
         //TRAE EL EFECTIVO DISPONIBLE DE VALLARTA
         public void EfectivoVA()
         {
@@ -741,12 +1318,32 @@ namespace appSugerencias
 
         private void BT_efectivo_Click(object sender, EventArgs e)
         {
+          
             EfectivoVA();
             EfectivoRE();
             EfectivoCO();
             EfectivoVE();
             //EfectivoPRE();
             SumarEfectivo();
+        }
+
+        private void BT_efectivo_rango_Click(object sender, EventArgs e)
+        {
+
+            DG_Tabla.Rows.Clear();
+            DateTime inicio = DT_inicio.Value;
+            DateTime fin = DT_fin.Value;
+            int count = 0;
+            for (DateTime i = inicio; i <= fin; i = i.AddDays(1))
+            {
+                DG_Tabla.Rows.Add( i.ToString("yyyy-MM-dd"));
+                count++;
+            }
+
+            EfectivoVA_fechas();
+            EfectivoRE_fechas();
+            EfectivoVE_fechas();
+            EfectivoCO_fechas();
         }
     }
 }

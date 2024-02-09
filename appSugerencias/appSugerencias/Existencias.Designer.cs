@@ -62,6 +62,8 @@
             this.Lb_bodega = new System.Windows.Forms.Label();
             this.TB_bodega = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.LB_oferta_men_va = new System.Windows.Forms.Label();
+            this.LB_oferta_may_va = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.TB_total_existencia = new System.Windows.Forms.TextBox();
             this.LB_PME_coloso = new System.Windows.Forms.Label();
@@ -118,6 +120,13 @@
             this.label17 = new System.Windows.Forms.Label();
             this.tbPrecio1 = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
+            this.LB_oferta_men_rena = new System.Windows.Forms.Label();
+            this.LB_oferta_may_rena = new System.Windows.Forms.Label();
+            this.LB_oferta_men_ve = new System.Windows.Forms.Label();
+            this.LB_oferta_may_ve = new System.Windows.Forms.Label();
+            this.LB_oferta_men_co = new System.Windows.Forms.Label();
+            this.LB_oferta_may_co = new System.Windows.Forms.Label();
+            this.LB_porcentaje = new System.Windows.Forms.Label();
             this.panelOfertas.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panelPrecio.SuspendLayout();
@@ -152,7 +161,7 @@
             this.BTN_aceptar.ForeColor = System.Drawing.Color.White;
             this.BTN_aceptar.Image = ((System.Drawing.Image)(resources.GetObject("BTN_aceptar.Image")));
             this.BTN_aceptar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BTN_aceptar.Location = new System.Drawing.Point(478, 533);
+            this.BTN_aceptar.Location = new System.Drawing.Point(712, 528);
             this.BTN_aceptar.Name = "BTN_aceptar";
             this.BTN_aceptar.Size = new System.Drawing.Size(129, 56);
             this.BTN_aceptar.TabIndex = 2;
@@ -201,7 +210,7 @@
             this.LB_coloso.AutoSize = true;
             this.LB_coloso.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LB_coloso.ForeColor = System.Drawing.Color.DarkGreen;
-            this.LB_coloso.Location = new System.Drawing.Point(168, 473);
+            this.LB_coloso.Location = new System.Drawing.Point(168, 474);
             this.LB_coloso.Name = "LB_coloso";
             this.LB_coloso.Size = new System.Drawing.Size(0, 13);
             this.LB_coloso.TabIndex = 13;
@@ -221,7 +230,7 @@
             this.LB_vallarta.AutoSize = true;
             this.LB_vallarta.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LB_vallarta.ForeColor = System.Drawing.Color.DarkGreen;
-            this.LB_vallarta.Location = new System.Drawing.Point(168, 391);
+            this.LB_vallarta.Location = new System.Drawing.Point(168, 393);
             this.LB_vallarta.Name = "LB_vallarta";
             this.LB_vallarta.Size = new System.Drawing.Size(0, 13);
             this.LB_vallarta.TabIndex = 15;
@@ -256,7 +265,7 @@
             this.panelOfertas.Controls.Add(this.cBoxRe);
             this.panelOfertas.Controls.Add(this.cBoxVa);
             this.panelOfertas.Controls.Add(this.cBoxTodas);
-            this.panelOfertas.Location = new System.Drawing.Point(779, 24);
+            this.panelOfertas.Location = new System.Drawing.Point(1010, 24);
             this.panelOfertas.Name = "panelOfertas";
             this.panelOfertas.Size = new System.Drawing.Size(364, 256);
             this.panelOfertas.TabIndex = 17;
@@ -445,7 +454,7 @@
             this.Lb_bodega.AutoSize = true;
             this.Lb_bodega.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Lb_bodega.ForeColor = System.Drawing.Color.DarkGreen;
-            this.Lb_bodega.Location = new System.Drawing.Point(168, 368);
+            this.Lb_bodega.Location = new System.Drawing.Point(168, 367);
             this.Lb_bodega.Name = "Lb_bodega";
             this.Lb_bodega.Size = new System.Drawing.Size(0, 13);
             this.Lb_bodega.TabIndex = 20;
@@ -461,6 +470,15 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.LB_porcentaje);
+            this.groupBox2.Controls.Add(this.LB_oferta_men_co);
+            this.groupBox2.Controls.Add(this.LB_oferta_may_co);
+            this.groupBox2.Controls.Add(this.LB_oferta_men_ve);
+            this.groupBox2.Controls.Add(this.LB_oferta_may_ve);
+            this.groupBox2.Controls.Add(this.LB_oferta_men_rena);
+            this.groupBox2.Controls.Add(this.LB_oferta_may_rena);
+            this.groupBox2.Controls.Add(this.LB_oferta_men_va);
+            this.groupBox2.Controls.Add(this.LB_oferta_may_va);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.TB_total_existencia);
             this.groupBox2.Controls.Add(this.LB_PME_coloso);
@@ -515,11 +533,27 @@
             this.groupBox2.Controls.Add(this.TB_velazquez);
             this.groupBox2.Location = new System.Drawing.Point(12, 24);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(761, 596);
+            this.groupBox2.Size = new System.Drawing.Size(992, 596);
             this.groupBox2.TabIndex = 21;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Existencias";
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter_2);
+            // 
+            // LB_oferta_men_va
+            // 
+            this.LB_oferta_men_va.AutoSize = true;
+            this.LB_oferta_men_va.Location = new System.Drawing.Point(896, 393);
+            this.LB_oferta_men_va.Name = "LB_oferta_men_va";
+            this.LB_oferta_men_va.Size = new System.Drawing.Size(0, 13);
+            this.LB_oferta_men_va.TabIndex = 56;
+            // 
+            // LB_oferta_may_va
+            // 
+            this.LB_oferta_may_va.AutoSize = true;
+            this.LB_oferta_may_va.Location = new System.Drawing.Point(767, 393);
+            this.LB_oferta_may_va.Name = "LB_oferta_may_va";
+            this.LB_oferta_may_va.Size = new System.Drawing.Size(0, 13);
+            this.LB_oferta_may_va.TabIndex = 55;
             // 
             // label3
             // 
@@ -542,7 +576,7 @@
             // LB_PME_coloso
             // 
             this.LB_PME_coloso.AutoSize = true;
-            this.LB_PME_coloso.Location = new System.Drawing.Point(643, 473);
+            this.LB_PME_coloso.Location = new System.Drawing.Point(643, 474);
             this.LB_PME_coloso.Name = "LB_PME_coloso";
             this.LB_PME_coloso.Size = new System.Drawing.Size(0, 13);
             this.LB_PME_coloso.TabIndex = 53;
@@ -550,7 +584,7 @@
             // LB_PM_coloso
             // 
             this.LB_PM_coloso.AutoSize = true;
-            this.LB_PM_coloso.Location = new System.Drawing.Point(518, 473);
+            this.LB_PM_coloso.Location = new System.Drawing.Point(518, 474);
             this.LB_PM_coloso.Name = "LB_PM_coloso";
             this.LB_PM_coloso.Size = new System.Drawing.Size(0, 13);
             this.LB_PM_coloso.TabIndex = 52;
@@ -606,7 +640,7 @@
             // LB_PME_bodega
             // 
             this.LB_PME_bodega.AutoSize = true;
-            this.LB_PME_bodega.Location = new System.Drawing.Point(643, 368);
+            this.LB_PME_bodega.Location = new System.Drawing.Point(643, 367);
             this.LB_PME_bodega.Name = "LB_PME_bodega";
             this.LB_PME_bodega.Size = new System.Drawing.Size(0, 13);
             this.LB_PME_bodega.TabIndex = 45;
@@ -614,7 +648,7 @@
             // LB_PM_bodega
             // 
             this.LB_PM_bodega.AutoSize = true;
-            this.LB_PM_bodega.Location = new System.Drawing.Point(518, 368);
+            this.LB_PM_bodega.Location = new System.Drawing.Point(518, 367);
             this.LB_PM_bodega.Name = "LB_PM_bodega";
             this.LB_PM_bodega.Size = new System.Drawing.Size(0, 13);
             this.LB_PM_bodega.TabIndex = 44;
@@ -625,15 +659,15 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(182, 340);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(533, 13);
+            this.label2.Size = new System.Drawing.Size(792, 13);
             this.label2.TabIndex = 43;
             this.label2.Text = "ESTADO           PROVEEDOR             LINEA              P. MAYOREO             " +
-    "P. MENUDEO ";
+    "P. MENUDEO             OFERTA MAY             OFERTA MEN";
             // 
             // LB_co_linea
             // 
             this.LB_co_linea.AutoSize = true;
-            this.LB_co_linea.Location = new System.Drawing.Point(400, 473);
+            this.LB_co_linea.Location = new System.Drawing.Point(400, 474);
             this.LB_co_linea.Name = "LB_co_linea";
             this.LB_co_linea.Size = new System.Drawing.Size(0, 13);
             this.LB_co_linea.TabIndex = 42;
@@ -705,7 +739,7 @@
             // LB_bo_linea
             // 
             this.LB_bo_linea.AutoSize = true;
-            this.LB_bo_linea.Location = new System.Drawing.Point(400, 368);
+            this.LB_bo_linea.Location = new System.Drawing.Point(400, 367);
             this.LB_bo_linea.Name = "LB_bo_linea";
             this.LB_bo_linea.Size = new System.Drawing.Size(0, 13);
             this.LB_bo_linea.TabIndex = 37;
@@ -723,7 +757,7 @@
             // LB_prov_coloso
             // 
             this.LB_prov_coloso.AutoSize = true;
-            this.LB_prov_coloso.Location = new System.Drawing.Point(260, 473);
+            this.LB_prov_coloso.Location = new System.Drawing.Point(260, 474);
             this.LB_prov_coloso.Name = "LB_prov_coloso";
             this.LB_prov_coloso.Size = new System.Drawing.Size(0, 13);
             this.LB_prov_coloso.TabIndex = 36;
@@ -755,7 +789,7 @@
             // LB_prov_bodega
             // 
             this.LB_prov_bodega.AutoSize = true;
-            this.LB_prov_bodega.Location = new System.Drawing.Point(260, 368);
+            this.LB_prov_bodega.Location = new System.Drawing.Point(260, 367);
             this.LB_prov_bodega.Name = "LB_prov_bodega";
             this.LB_prov_bodega.Size = new System.Drawing.Size(0, 13);
             this.LB_prov_bodega.TabIndex = 33;
@@ -767,7 +801,7 @@
             this.BT_limpiar.ForeColor = System.Drawing.Color.White;
             this.BT_limpiar.Image = ((System.Drawing.Image)(resources.GetObject("BT_limpiar.Image")));
             this.BT_limpiar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BT_limpiar.Location = new System.Drawing.Point(623, 533);
+            this.BT_limpiar.Location = new System.Drawing.Point(857, 528);
             this.BT_limpiar.Name = "BT_limpiar";
             this.BT_limpiar.Size = new System.Drawing.Size(129, 56);
             this.BT_limpiar.TabIndex = 29;
@@ -893,7 +927,7 @@
             this.panelPrecio.Controls.Add(this.label17);
             this.panelPrecio.Controls.Add(this.tbPrecio1);
             this.panelPrecio.Controls.Add(this.label16);
-            this.panelPrecio.Location = new System.Drawing.Point(779, 286);
+            this.panelPrecio.Location = new System.Drawing.Point(1010, 286);
             this.panelPrecio.Name = "panelPrecio";
             this.panelPrecio.Size = new System.Drawing.Size(364, 334);
             this.panelPrecio.TabIndex = 22;
@@ -1067,12 +1101,70 @@
             this.label16.Text = "Mayoreo";
             this.label16.Click += new System.EventHandler(this.label16_Click);
             // 
+            // LB_oferta_men_rena
+            // 
+            this.LB_oferta_men_rena.AutoSize = true;
+            this.LB_oferta_men_rena.Location = new System.Drawing.Point(896, 419);
+            this.LB_oferta_men_rena.Name = "LB_oferta_men_rena";
+            this.LB_oferta_men_rena.Size = new System.Drawing.Size(0, 13);
+            this.LB_oferta_men_rena.TabIndex = 58;
+            // 
+            // LB_oferta_may_rena
+            // 
+            this.LB_oferta_may_rena.AutoSize = true;
+            this.LB_oferta_may_rena.Location = new System.Drawing.Point(767, 419);
+            this.LB_oferta_may_rena.Name = "LB_oferta_may_rena";
+            this.LB_oferta_may_rena.Size = new System.Drawing.Size(0, 13);
+            this.LB_oferta_may_rena.TabIndex = 57;
+            // 
+            // LB_oferta_men_ve
+            // 
+            this.LB_oferta_men_ve.AutoSize = true;
+            this.LB_oferta_men_ve.Location = new System.Drawing.Point(896, 446);
+            this.LB_oferta_men_ve.Name = "LB_oferta_men_ve";
+            this.LB_oferta_men_ve.Size = new System.Drawing.Size(0, 13);
+            this.LB_oferta_men_ve.TabIndex = 60;
+            // 
+            // LB_oferta_may_ve
+            // 
+            this.LB_oferta_may_ve.AutoSize = true;
+            this.LB_oferta_may_ve.Location = new System.Drawing.Point(767, 446);
+            this.LB_oferta_may_ve.Name = "LB_oferta_may_ve";
+            this.LB_oferta_may_ve.Size = new System.Drawing.Size(0, 13);
+            this.LB_oferta_may_ve.TabIndex = 59;
+            // 
+            // LB_oferta_men_co
+            // 
+            this.LB_oferta_men_co.AutoSize = true;
+            this.LB_oferta_men_co.Location = new System.Drawing.Point(896, 474);
+            this.LB_oferta_men_co.Name = "LB_oferta_men_co";
+            this.LB_oferta_men_co.Size = new System.Drawing.Size(0, 13);
+            this.LB_oferta_men_co.TabIndex = 62;
+            // 
+            // LB_oferta_may_co
+            // 
+            this.LB_oferta_may_co.AutoSize = true;
+            this.LB_oferta_may_co.Location = new System.Drawing.Point(767, 474);
+            this.LB_oferta_may_co.Name = "LB_oferta_may_co";
+            this.LB_oferta_may_co.Size = new System.Drawing.Size(0, 13);
+            this.LB_oferta_may_co.TabIndex = 61;
+            // 
+            // LB_porcentaje
+            // 
+            this.LB_porcentaje.AutoSize = true;
+            this.LB_porcentaje.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LB_porcentaje.Location = new System.Drawing.Point(820, 297);
+            this.LB_porcentaje.Name = "LB_porcentaje";
+            this.LB_porcentaje.Size = new System.Drawing.Size(76, 25);
+            this.LB_porcentaje.TabIndex = 63;
+            this.LB_porcentaje.Text = "label4";
+            // 
             // Existencias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.ClientSize = new System.Drawing.Size(1151, 638);
+            this.ClientSize = new System.Drawing.Size(1393, 638);
             this.Controls.Add(this.panelPrecio);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.panelOfertas);
@@ -1180,5 +1272,14 @@
         private System.Windows.Forms.Label LB_PM_bodega;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox TB_total_existencia;
+        private System.Windows.Forms.Label LB_oferta_men_va;
+        private System.Windows.Forms.Label LB_oferta_may_va;
+        private System.Windows.Forms.Label LB_oferta_men_rena;
+        private System.Windows.Forms.Label LB_oferta_may_rena;
+        private System.Windows.Forms.Label LB_oferta_men_co;
+        private System.Windows.Forms.Label LB_oferta_may_co;
+        private System.Windows.Forms.Label LB_oferta_men_ve;
+        private System.Windows.Forms.Label LB_oferta_may_ve;
+        private System.Windows.Forms.Label LB_porcentaje;
     }
 }

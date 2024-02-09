@@ -29,17 +29,18 @@ namespace appSugerencias.Inventario.Vistas
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.DG_Tabla = new System.Windows.Forms.DataGridView();
-            this.CB_lineas = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.BT_buscar = new System.Windows.Forms.Button();
-            this.TB_claveLinea = new System.Windows.Forms.TextBox();
             this.ARTICULO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PRECIO_MAY = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.COSTO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ESTADO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CB_lineas = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.BT_buscar = new System.Windows.Forms.Button();
+            this.TB_claveLinea = new System.Windows.Forms.TextBox();
+            this.BT_exportar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DG_Tabla)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,10 +57,34 @@ namespace appSugerencias.Inventario.Vistas
             this.PRECIO_MAY,
             this.COSTO,
             this.ESTADO});
-            this.DG_Tabla.Location = new System.Drawing.Point(12, 83);
+            this.DG_Tabla.Location = new System.Drawing.Point(12, 93);
             this.DG_Tabla.Name = "DG_Tabla";
-            this.DG_Tabla.Size = new System.Drawing.Size(580, 355);
+            this.DG_Tabla.Size = new System.Drawing.Size(580, 345);
             this.DG_Tabla.TabIndex = 0;
+            // 
+            // ARTICULO
+            // 
+            this.ARTICULO.HeaderText = "ARTICULO";
+            this.ARTICULO.Name = "ARTICULO";
+            // 
+            // PRECIO_MAY
+            // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.PRECIO_MAY.DefaultCellStyle = dataGridViewCellStyle1;
+            this.PRECIO_MAY.HeaderText = "PRECIO MAYOREO";
+            this.PRECIO_MAY.Name = "PRECIO_MAY";
+            // 
+            // COSTO
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.COSTO.DefaultCellStyle = dataGridViewCellStyle2;
+            this.COSTO.HeaderText = "COSTO";
+            this.COSTO.Name = "COSTO";
+            // 
+            // ESTADO
+            // 
+            this.ESTADO.HeaderText = "ESTADO";
+            this.ESTADO.Name = "ESTADO";
             // 
             // CB_lineas
             // 
@@ -81,12 +106,14 @@ namespace appSugerencias.Inventario.Vistas
             // 
             // BT_buscar
             // 
+            this.BT_buscar.BackColor = System.Drawing.Color.DodgerBlue;
+            this.BT_buscar.ForeColor = System.Drawing.Color.White;
             this.BT_buscar.Location = new System.Drawing.Point(506, 14);
             this.BT_buscar.Name = "BT_buscar";
             this.BT_buscar.Size = new System.Drawing.Size(92, 34);
             this.BT_buscar.TabIndex = 3;
             this.BT_buscar.Text = "Buscar";
-            this.BT_buscar.UseVisualStyleBackColor = true;
+            this.BT_buscar.UseVisualStyleBackColor = false;
             this.BT_buscar.Click += new System.EventHandler(this.BT_buscar_Click);
             // 
             // TB_claveLinea
@@ -96,35 +123,25 @@ namespace appSugerencias.Inventario.Vistas
             this.TB_claveLinea.Size = new System.Drawing.Size(80, 20);
             this.TB_claveLinea.TabIndex = 4;
             // 
-            // ARTICULO
+            // BT_exportar
             // 
-            this.ARTICULO.HeaderText = "ARTICULO";
-            this.ARTICULO.Name = "ARTICULO";
-            // 
-            // PRECIO_MAY
-            // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.PRECIO_MAY.DefaultCellStyle = dataGridViewCellStyle5;
-            this.PRECIO_MAY.HeaderText = "PRECIO MAYOREO";
-            this.PRECIO_MAY.Name = "PRECIO_MAY";
-            // 
-            // COSTO
-            // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.COSTO.DefaultCellStyle = dataGridViewCellStyle6;
-            this.COSTO.HeaderText = "COSTO";
-            this.COSTO.Name = "COSTO";
-            // 
-            // ESTADO
-            // 
-            this.ESTADO.HeaderText = "ESTADO";
-            this.ESTADO.Name = "ESTADO";
+            this.BT_exportar.BackColor = System.Drawing.Color.CadetBlue;
+            this.BT_exportar.ForeColor = System.Drawing.Color.White;
+            this.BT_exportar.Location = new System.Drawing.Point(506, 54);
+            this.BT_exportar.Name = "BT_exportar";
+            this.BT_exportar.Size = new System.Drawing.Size(92, 34);
+            this.BT_exportar.TabIndex = 5;
+            this.BT_exportar.Text = "Exportar";
+            this.BT_exportar.UseVisualStyleBackColor = false;
+            this.BT_exportar.Click += new System.EventHandler(this.BT_exportar_Click);
             // 
             // CostoXlinea
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(605, 450);
+            this.Controls.Add(this.BT_exportar);
             this.Controls.Add(this.TB_claveLinea);
             this.Controls.Add(this.BT_buscar);
             this.Controls.Add(this.label1);
@@ -150,5 +167,6 @@ namespace appSugerencias.Inventario.Vistas
         private System.Windows.Forms.DataGridViewTextBoxColumn PRECIO_MAY;
         private System.Windows.Forms.DataGridViewTextBoxColumn COSTO;
         private System.Windows.Forms.DataGridViewTextBoxColumn ESTADO;
+        private System.Windows.Forms.Button BT_exportar;
     }
 }

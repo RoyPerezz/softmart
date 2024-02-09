@@ -71,14 +71,14 @@ namespace appSugerencias
 
                 try
                 {
-                    convallarta = BDConexicon.VallartaOpen();
-                    MySqlCommand cmdVallarta = new MySqlCommand("SELECT articulo AS ARTICULO from prods", convallarta);
+                    //convallarta = BDConexicon.VallartaOpen();
+                    //MySqlCommand cmdVallarta = new MySqlCommand("SELECT articulo AS ARTICULO from prods", convallarta);
 
-                    MySqlDataAdapter adVallarta = new MySqlDataAdapter(cmdVallarta);
-                    adVallarta.Fill(DTvallarta);
-                    TB_estatusVallarta.BackColor = Color.Green;
+                    //MySqlDataAdapter adVallarta = new MySqlDataAdapter(cmdVallarta);
+                    //adVallarta.Fill(DTvallarta);
+                    //TB_estatusVallarta.BackColor = Color.Green;
 
-                    convallarta.Close();
+                    //convallarta.Close();
                 }
                 catch (Exception)
                 {
@@ -125,12 +125,12 @@ namespace appSugerencias
                 {
 
 
-                    concoloso = BDConexicon.ColosoOpen();
-                    MySqlCommand cmdColoso = new MySqlCommand("SELECT articulo AS ARTICULO from prods", concoloso);
-                    MySqlDataAdapter adColoso = new MySqlDataAdapter(cmdColoso);
-                    adColoso.Fill(DTcoloso);
-                    TB_estatusColoso.BackColor = Color.Green;
-                    concoloso.Close();
+                    //concoloso = BDConexicon.ColosoOpen();
+                    //MySqlCommand cmdColoso = new MySqlCommand("SELECT articulo AS ARTICULO from prods", concoloso);
+                    //MySqlDataAdapter adColoso = new MySqlDataAdapter(cmdColoso);
+                    //adColoso.Fill(DTcoloso);
+                    //TB_estatusColoso.BackColor = Color.Green;
+                    //concoloso.Close();
 
                 }
                 catch (Exception)
@@ -140,20 +140,24 @@ namespace appSugerencias
 
                 }
 
-               
 
 
 
-                //************************************* UNIR LOS DATATABLES EN UNO PROVISIONAL *****************************************************
-                DataTable master1 = DTbodega.AsEnumerable()
-                    .Union(DTvallarta.AsEnumerable())
-                    .Union(DTrena.AsEnumerable())
-                    .Union(DTvelazquez.AsEnumerable())
-                    .Union(DTcoloso.AsEnumerable()).Distinct(DataRowComparer.Default).CopyToDataTable<DataRow>();
 
-                //master = repetidos(master1, "articulo");
+            //************************************* UNIR LOS DATATABLES EN UNO PROVISIONAL *****************************************************
+            //DataTable master1 = DTbodega.AsEnumerable()
+            //    .Union(DTvallarta.AsEnumerable())
+            //    .Union(DTrena.AsEnumerable())
+            //    .Union(DTvelazquez.AsEnumerable())
+            //    .Union(DTcoloso.AsEnumerable()).Distinct(DataRowComparer.Default).CopyToDataTable<DataRow>();
 
-                string departamento = TB_depto.Text;
+
+            DataTable master1 = DTbodega.AsEnumerable()
+                   .Union(DTrena.AsEnumerable())
+                   .Union(DTvelazquez.AsEnumerable()).Distinct(DataRowComparer.Default).CopyToDataTable<DataRow>();
+            //master = repetidos(master1, "articulo");
+
+            string departamento = TB_depto.Text;
                 string proveedor = TB_proveedor.Text;
 
                 int clavesRep = 0;

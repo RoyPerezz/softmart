@@ -66,7 +66,7 @@ namespace appSugerencias.Gastos.Vistas
             // LB_concepto
             // 
             this.LB_concepto.AutoSize = true;
-            this.LB_concepto.Location = new System.Drawing.Point(666, 15);
+            this.LB_concepto.Location = new System.Drawing.Point(1097, 11);
             this.LB_concepto.Name = "LB_concepto";
             this.LB_concepto.Size = new System.Drawing.Size(35, 13);
             this.LB_concepto.TabIndex = 0;
@@ -76,7 +76,7 @@ namespace appSugerencias.Gastos.Vistas
             // LB_descripcion
             // 
             this.LB_descripcion.AutoSize = true;
-            this.LB_descripcion.Location = new System.Drawing.Point(666, 38);
+            this.LB_descripcion.Location = new System.Drawing.Point(1097, 34);
             this.LB_descripcion.Name = "LB_descripcion";
             this.LB_descripcion.Size = new System.Drawing.Size(35, 13);
             this.LB_descripcion.TabIndex = 1;
@@ -86,7 +86,7 @@ namespace appSugerencias.Gastos.Vistas
             // LB_importe
             // 
             this.LB_importe.AutoSize = true;
-            this.LB_importe.Location = new System.Drawing.Point(666, 61);
+            this.LB_importe.Location = new System.Drawing.Point(1097, 57);
             this.LB_importe.Name = "LB_importe";
             this.LB_importe.Size = new System.Drawing.Size(35, 13);
             this.LB_importe.TabIndex = 2;
@@ -95,7 +95,7 @@ namespace appSugerencias.Gastos.Vistas
             // 
             // TB_detalle
             // 
-            this.TB_detalle.Location = new System.Drawing.Point(543, 446);
+            this.TB_detalle.Location = new System.Drawing.Point(1040, 516);
             this.TB_detalle.Multiline = true;
             this.TB_detalle.Name = "TB_detalle";
             this.TB_detalle.Size = new System.Drawing.Size(364, 51);
@@ -107,7 +107,7 @@ namespace appSugerencias.Gastos.Vistas
             this.BT_guardar.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.BT_guardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BT_guardar.ForeColor = System.Drawing.Color.White;
-            this.BT_guardar.Location = new System.Drawing.Point(777, 525);
+            this.BT_guardar.Location = new System.Drawing.Point(1274, 595);
             this.BT_guardar.Name = "BT_guardar";
             this.BT_guardar.Size = new System.Drawing.Size(113, 41);
             this.BT_guardar.TabIndex = 5;
@@ -120,7 +120,7 @@ namespace appSugerencias.Gastos.Vistas
             this.TB_cargar.BackColor = System.Drawing.Color.DodgerBlue;
             this.TB_cargar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TB_cargar.ForeColor = System.Drawing.Color.White;
-            this.TB_cargar.Location = new System.Drawing.Point(6, 493);
+            this.TB_cargar.Location = new System.Drawing.Point(129, 630);
             this.TB_cargar.Name = "TB_cargar";
             this.TB_cargar.Size = new System.Drawing.Size(252, 39);
             this.TB_cargar.TabIndex = 6;
@@ -131,7 +131,7 @@ namespace appSugerencias.Gastos.Vistas
             // LB_fecha
             // 
             this.LB_fecha.AutoSize = true;
-            this.LB_fecha.Location = new System.Drawing.Point(666, 88);
+            this.LB_fecha.Location = new System.Drawing.Point(1097, 84);
             this.LB_fecha.Name = "LB_fecha";
             this.LB_fecha.Size = new System.Drawing.Size(35, 13);
             this.LB_fecha.TabIndex = 7;
@@ -141,7 +141,7 @@ namespace appSugerencias.Gastos.Vistas
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(555, 14);
+            this.label1.Location = new System.Drawing.Point(986, 10);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(101, 13);
             this.label1.TabIndex = 8;
@@ -151,7 +151,7 @@ namespace appSugerencias.Gastos.Vistas
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(600, 61);
+            this.label2.Location = new System.Drawing.Point(1031, 57);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(56, 13);
             this.label2.TabIndex = 9;
@@ -161,7 +161,7 @@ namespace appSugerencias.Gastos.Vistas
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(614, 88);
+            this.label3.Location = new System.Drawing.Point(1045, 84);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(42, 13);
             this.label3.TabIndex = 10;
@@ -171,7 +171,7 @@ namespace appSugerencias.Gastos.Vistas
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(540, 430);
+            this.label4.Location = new System.Drawing.Point(1037, 497);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(111, 13);
             this.label4.TabIndex = 11;
@@ -183,7 +183,7 @@ namespace appSugerencias.Gastos.Vistas
             this.BT_cargar2.BackColor = System.Drawing.Color.DodgerBlue;
             this.BT_cargar2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BT_cargar2.ForeColor = System.Drawing.Color.White;
-            this.BT_cargar2.Location = new System.Drawing.Point(264, 493);
+            this.BT_cargar2.Location = new System.Drawing.Point(531, 630);
             this.BT_cargar2.Name = "BT_cargar2";
             this.BT_cargar2.Size = new System.Drawing.Size(252, 39);
             this.BT_cargar2.TabIndex = 15;
@@ -196,7 +196,7 @@ namespace appSugerencias.Gastos.Vistas
             this.BT_cargar3.BackColor = System.Drawing.Color.DodgerBlue;
             this.BT_cargar3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BT_cargar3.ForeColor = System.Drawing.Color.White;
-            this.BT_cargar3.Location = new System.Drawing.Point(761, 355);
+            this.BT_cargar3.Location = new System.Drawing.Point(1258, 425);
             this.BT_cargar3.Name = "BT_cargar3";
             this.BT_cargar3.Size = new System.Drawing.Size(146, 43);
             this.BT_cargar3.TabIndex = 17;
@@ -207,7 +207,7 @@ namespace appSugerencias.Gastos.Vistas
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(536, 37);
+            this.label5.Location = new System.Drawing.Point(967, 33);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(120, 13);
             this.label5.TabIndex = 18;
@@ -218,7 +218,7 @@ namespace appSugerencias.Gastos.Vistas
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Crimson;
-            this.label6.Location = new System.Drawing.Point(540, 105);
+            this.label6.Location = new System.Drawing.Point(967, 100);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(165, 13);
             this.label6.TabIndex = 19;
@@ -230,7 +230,7 @@ namespace appSugerencias.Gastos.Vistas
             this.BT_foto.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BT_foto.ForeColor = System.Drawing.Color.White;
             this.BT_foto.Image = global::appSugerencias.Properties.Resources.camara__2_;
-            this.BT_foto.Location = new System.Drawing.Point(6, 527);
+            this.BT_foto.Location = new System.Drawing.Point(129, 664);
             this.BT_foto.Name = "BT_foto";
             this.BT_foto.Size = new System.Drawing.Size(252, 39);
             this.BT_foto.TabIndex = 20;
@@ -241,9 +241,9 @@ namespace appSugerencias.Gastos.Vistas
             // pictureBox3
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.pictureBox3.Location = new System.Drawing.Point(543, 121);
+            this.pictureBox3.Location = new System.Drawing.Point(967, 116);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(364, 228);
+            this.pictureBox3.Size = new System.Drawing.Size(446, 269);
             this.pictureBox3.TabIndex = 16;
             this.pictureBox3.TabStop = false;
             this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
@@ -251,9 +251,9 @@ namespace appSugerencias.Gastos.Vistas
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.pictureBox2.Location = new System.Drawing.Point(264, 61);
+            this.pictureBox2.Location = new System.Drawing.Point(491, 56);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(252, 426);
+            this.pictureBox2.Size = new System.Drawing.Size(470, 559);
             this.pictureBox2.TabIndex = 14;
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
@@ -261,9 +261,9 @@ namespace appSugerencias.Gastos.Vistas
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.pictureBox1.Location = new System.Drawing.Point(6, 61);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 56);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(252, 426);
+            this.pictureBox1.Size = new System.Drawing.Size(473, 559);
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
@@ -305,7 +305,7 @@ namespace appSugerencias.Gastos.Vistas
             this.BT_foto2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BT_foto2.ForeColor = System.Drawing.Color.White;
             this.BT_foto2.Image = global::appSugerencias.Properties.Resources.camara__2_;
-            this.BT_foto2.Location = new System.Drawing.Point(264, 527);
+            this.BT_foto2.Location = new System.Drawing.Point(531, 664);
             this.BT_foto2.Name = "BT_foto2";
             this.BT_foto2.Size = new System.Drawing.Size(252, 39);
             this.BT_foto2.TabIndex = 24;
@@ -319,7 +319,7 @@ namespace appSugerencias.Gastos.Vistas
             this.BT_foto3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BT_foto3.ForeColor = System.Drawing.Color.White;
             this.BT_foto3.Image = global::appSugerencias.Properties.Resources.camara__2_;
-            this.BT_foto3.Location = new System.Drawing.Point(761, 397);
+            this.BT_foto3.Location = new System.Drawing.Point(1258, 467);
             this.BT_foto3.Name = "BT_foto3";
             this.BT_foto3.Size = new System.Drawing.Size(146, 43);
             this.BT_foto3.TabIndex = 25;
@@ -330,12 +330,11 @@ namespace appSugerencias.Gastos.Vistas
             // pictureBox0
             // 
             this.pictureBox0.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.pictureBox0.Location = new System.Drawing.Point(913, 121);
+            this.pictureBox0.Location = new System.Drawing.Point(1419, 74);
             this.pictureBox0.Name = "pictureBox0";
-            this.pictureBox0.Size = new System.Drawing.Size(10, 426);
+            this.pictureBox0.Size = new System.Drawing.Size(473, 560);
             this.pictureBox0.TabIndex = 26;
             this.pictureBox0.TabStop = false;
-            this.pictureBox0.Visible = false;
             // 
             // timer1
             // 
@@ -356,7 +355,7 @@ namespace appSugerencias.Gastos.Vistas
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.ClientSize = new System.Drawing.Size(926, 569);
+            this.ClientSize = new System.Drawing.Size(1904, 702);
             this.Controls.Add(this.LB_contador);
             this.Controls.Add(this.pictureBox0);
             this.Controls.Add(this.BT_foto3);

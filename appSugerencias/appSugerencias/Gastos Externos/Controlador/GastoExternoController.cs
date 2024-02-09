@@ -103,7 +103,29 @@ namespace appSugerencias.Gastos_Externos.Controlador
             return lista;
         }
 
-        
+        public static DataTable CantidadGastosPorAprobar(DateTime inicio,DateTime fin)
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add("FECHA", typeof(string));
+            dt.Columns.Add("CANTIDAD",typeof(int));
+
+            string query = "SELECT FECHA, COUNT(*) AS CANTIDAD FROM rd_gastos_finanzas WHERE estado_aprobacion='EN REVISION'" +
+                " AND FECHA BETWEEN '"+inicio.ToString("yyyy-MM-dd")+"' AND '"+fin.ToString("yyyy-MM-dd")+"'" +
+                "GROUP BY FECHA ";
+
+            MySqlConnection con = BDConexicon.BodegaOpen();
+            MySqlCommand cmd = new MySqlCommand(query,con);
+            MySqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                dt.Rows.Add(dr["FECHA"].ToString(),dr["CANTIDAD"].ToString());
+            }
+
+            dr.Close();
+            con.Close();
+
+            return dt;
+        }
 
     }
 }

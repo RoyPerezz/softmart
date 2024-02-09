@@ -360,7 +360,6 @@
             this.TB_clavebanco.Name = "TB_clavebanco";
             this.TB_clavebanco.Size = new System.Drawing.Size(50, 20);
             this.TB_clavebanco.TabIndex = 16;
-            this.TB_clavebanco.Visible = false;
             // 
             // BT_ajuste
             // 

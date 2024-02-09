@@ -625,6 +625,223 @@ namespace appSugerencias.Gastos.Controlador
             return lista;
         }
 
+
+        //Busqueda de cantidad de gastos por fechas
+
+        public static DataTable gastosXRevisarGina(string sucursal,DateTime inicio,DateTime fin)
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add("FECHA", typeof(DateTime));
+            dt.Columns.Add("CANTIDAD", typeof(int));
+            string query = "SELECT fecha,count(*) as cantidad " +
+                "           FROM rd_auditoria_gastos " +
+                "           WHERE revision ='SIN REVISAR' and fecha between '"+inicio.ToString("yyyy-MM-dd")+"' and '"+fin.ToString("yyyy-MM-dd")+"' group by fecha";
+            MySqlConnection con = BDConexicon.ConexionSucursal(sucursal);
+            MySqlCommand cmd = new MySqlCommand(query,con);
+            MySqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                dt.Rows.Add(Convert.ToDateTime(dr["fecha"].ToString()),Convert.ToInt32(dr["cantidad"].ToString()));
+            }
+            dr.Close();
+            con.Close();
+            return dt;
+        }
+
+        public static DataTable gastosPendientesCorregir(string sucursal, DateTime inicio, DateTime fin)
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add("FECHA", typeof(string));
+            dt.Columns.Add("CANTIDAD", typeof(int));
+            string query = "SELECT fecha,count(*) as cantidad " +
+                "           FROM rd_auditoria_gastos " +
+                "           WHERE revision ='CORREGIR' and fecha between '" + inicio.ToString("yyyy-MM-dd") + "' and '" + fin.ToString("yyyy-MM-dd") + "' group by fecha"; ;
+
+            MySqlConnection con = BDConexicon.ConexionSucursal(sucursal);
+            MySqlCommand cmd = new MySqlCommand(query, con);
+            MySqlDataReader dr = cmd.ExecuteReader();
+            int count = 0;
+            //for (DateTime i = Convert.ToDateTime(inicio.ToString("yyyy-MM-dd")); i < fin; i = i.AddDays(1))
+            //{
+            //    dt.Rows.Add(Convert.ToDateTime(i.ToString("yyyy-MM-dd")),0);
+            //    count++;
+            //}
+            int count2 = 0;
+            while (dr.Read())
+            {
+                //if (Convert.ToDateTime(dt.Rows[0]["FECHA"])== Convert.ToDateTime(dr["fecha"].ToString()))
+                //{
+                //    dt.Rows[count2]["CANTIDAD"] = Convert.ToInt32(dr["cantidad"].ToString());
+                //}
+                //else
+                //{
+                //    dt.Rows[count2]["CANTIDAD"] = 0;
+                //}
+                //count2++;
+                dt.Rows.Add(Convert.ToDateTime(dr["fecha"].ToString()), Convert.ToInt32(dr["cantidad"].ToString()));
+            }
+            dr.Close();
+            con.Close();
+            return dt;
+         
+        }
+
+
+        public static DataTable gastosXAprobar(string sucursal, DateTime inicio, DateTime fin)
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add("FECHA", typeof(DateTime));
+            dt.Columns.Add("CANTIDAD", typeof(int));
+            string query = "SELECT fecha,count(*) as cantidad " +
+                "           FROM rd_auditoria_gastos " +
+                "           WHERE revision ='REVISADO' and fecha between '" + inicio.ToString("yyyy-MM-dd") + "' and '" + fin.ToString("yyyy-MM-dd") + "' group by fecha";
+            MySqlConnection con = BDConexicon.ConexionSucursal(sucursal);
+            MySqlCommand cmd = new MySqlCommand(query, con);
+            MySqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                dt.Rows.Add(Convert.ToDateTime(dr["fecha"].ToString()), Convert.ToInt32(dr["cantidad"].ToString()));
+            }
+            dr.Close();
+            con.Close();
+            return dt;
+        }
+
+        public static DataTable BuscarGastosPendientesXCargar(string sucursal,DateTime inicio,DateTime fin,bool respaldo)
+        {
+            //DG_tabla2.Rows.Clear();
+            DataTable gastosXCargar = new DataTable();
+            List<Gasto> lista = new List<Gasto>();
+            List<Gasto> lista2 = new List<Gasto>();
+            GastosController gc = new GastosController();
+            DataTable dt = new DataTable();
+            dt.Columns.Add("FECHA",typeof(DateTime));
+            dt.Columns.Add("CANTIDAD",typeof(int));
+            //obtener el primer día y el último día del mes
+            //int año = DateTime.Now.Year;
+            //int mes = DateTime.Now.Month;
+            DateTime date = DateTime.Now;
+            //int fin = DateTime.DaysInMonth(año, mes);
+            //DateTime inicio = new DateTime(date.Year, date.Month, 1);
+
+
+
+            lista = GastosController.BuscarTodosLosGastosMesActual(sucursal, inicio, Convert.ToDateTime(fin), respaldo);
+            lista2 = gc.BuscarGastosGuardados(inicio, Convert.ToDateTime(fin), sucursal);
+            List<Gasto> NuevaLista = new List<Gasto>();
+            Gasto gasto = new Gasto();
+            //gastos = GastosController.BuscarTodosLosGastosMesActual(sucursal, inicio, fin, check);
+
+            for (int i = 0; i < lista2.Count; i++)
+            {
+                for (int j = 0; j < lista.Count; j++)
+                {
+                    if (lista[j].Ticket.Equals(lista2[i].Ticket))
+                    {
+                        lista.RemoveAt(j);
+                        break;
+                        //gasto.Ticket = lista[i].Ticket;
+                        //gasto.Fecha = lista[i].Fecha;
+                        //NuevaLista.Add(gasto);
+                    }
+                    else
+                    {
+
+
+                    }
+
+                }
+
+            }
+
+            int contador = 0;
+            for (DateTime F_inicio = inicio; F_inicio <= Convert.ToDateTime(fin); F_inicio = F_inicio.AddDays(1))
+            {
+                for (int i = 0; i < lista.Count; i++)
+                {
+                    if (F_inicio.ToString("yyyy-MM-dd") == lista[i].Fecha.ToString("yyyy-MM-dd"))
+                    {
+
+
+                        contador++;
+                    }
+                }
+                dt.Rows.Add(F_inicio.ToString("yyyy-MM-dd"), contador);
+                contador = 0;
+            }
+
+            return dt;
+        }
+
+
+        public static DataTable GastosXRevisarCedis(DateTime inicio, DateTime fin)
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add("FECHA", typeof(DateTime));
+            dt.Columns.Add("CANTIDAD", typeof(int));
+
+            string query = "SELECT FECHA,COUNT(*) AS CANTIDAD FROM rd_gastos_almacen_cedis " +
+                "where fecha between '"+inicio.ToString("yyyy-MM-dd")+"' and '"+fin.ToString("yyyy-MM-dd")+"' and estado_revision='SIN REVISAR'" +
+                " GROUP BY FECHA";
+
+            MySqlConnection con = BDConexicon.BodegaOpen();
+            MySqlCommand cmd = new MySqlCommand(query,con);
+            MySqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                dt.Rows.Add(dr["FECHA"].ToString(),dr["CANTIDAD"].ToString());
+            }
+            dr.Close();
+            con.Close();
+            return dt;
+        }
+
+        public static DataTable GastosXCorregirCedis(DateTime inicio, DateTime fin)
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add("FECHA", typeof(DateTime));
+            dt.Columns.Add("CANTIDAD", typeof(int));
+
+            string query = "SELECT FECHA,COUNT(*) AS CANTIDAD FROM rd_gastos_almacen_cedis " +
+                "where fecha between '" + inicio.ToString("yyyy-MM-dd") + "' and '" + fin.ToString("yyyy-MM-dd") + "' and estado_revision='CORREGIR'" +
+                " GROUP BY FECHA";
+
+            MySqlConnection con = BDConexicon.BodegaOpen();
+            MySqlCommand cmd = new MySqlCommand(query, con);
+            MySqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                dt.Rows.Add(dr["FECHA"].ToString(), dr["CANTIDAD"].ToString());
+            }
+            dr.Close();
+            con.Close();
+            return dt;
+        }
+
+        public static DataTable GastosXAprobarCedis(DateTime inicio, DateTime fin)
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add("FECHA", typeof(DateTime));
+            dt.Columns.Add("CANTIDAD", typeof(int));
+
+            string query = "SELECT FECHA,COUNT(*) AS CANTIDAD FROM rd_gastos_almacen_cedis " +
+                "where fecha between '" + inicio.ToString("yyyy-MM-dd") + "' and '" + fin.ToString("yyyy-MM-dd") + "' and estado_aprobacion='EN REVISION'" +
+                " GROUP BY FECHA";
+
+            MySqlConnection con = BDConexicon.BodegaOpen();
+            MySqlCommand cmd = new MySqlCommand(query, con);
+            MySqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                dt.Rows.Add(dr["FECHA"].ToString(), dr["CANTIDAD"].ToString());
+            }
+            dr.Close();
+            con.Close();
+            return dt;
+        }
+
+
+
         public static int NumAutorizacionCedis()
         {
             int num = 0;

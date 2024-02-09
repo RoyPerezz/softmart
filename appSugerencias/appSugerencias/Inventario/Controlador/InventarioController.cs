@@ -26,7 +26,7 @@ namespace appSugerencias.Inventario.Controlador
             try
             {
                 MySqlConnection conexion = BDConexicon.ConexionSucursal(sucursal);
-                string query = "SELECT sum(prods.existencia * prods.PRECIO2) *0.16 AS `mayoreo` FROM prods" +
+                string query = "SELECT sum(prods.existencia * prods.PRECIO2) AS `mayoreo` FROM prods" +
                     " WHERE prods.articulo <> 'SYS' and prods.EXISTENCIA > 0 and prods.linea ='"+linea+"' ";
                 MySqlCommand cmd = new MySqlCommand(query, conexion);
                 MySqlDataReader dr = cmd.ExecuteReader();
@@ -54,7 +54,7 @@ namespace appSugerencias.Inventario.Controlador
             try
             {
                 MySqlConnection conexion = BDConexicon.ConexionSucursal(sucursal);
-                string query = "SELECT sum(prods.existencia * prods.costo_u)*0.16 AS `costo` FROM prods WHERE prods.articulo <> 'SYS' and prods.EXISTENCIA > 0 and prods.linea ='"+linea+"' ORDER BY prods.descrip";
+                string query = "SELECT sum(prods.existencia * prods.costo_u) AS `costo` FROM prods WHERE prods.articulo <> 'SYS' and prods.EXISTENCIA > 0 and prods.linea ='"+linea+"' ORDER BY prods.descrip";
                 MySqlCommand cmd = new MySqlCommand(query, conexion);
                 MySqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())

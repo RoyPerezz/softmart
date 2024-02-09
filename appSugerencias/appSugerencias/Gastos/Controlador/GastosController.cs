@@ -380,37 +380,53 @@ namespace appSugerencias.Gastos.Controlador
 
         public List<Gasto> BuscarGastosGuardados(DateTime fecha, string sucursal)
         {
-            List<Gasto> lista = new List<Gasto>();
 
-            string query = "select * from rd_auditoria_gastos where fecha='" + fecha.ToString("yyyy-MM-dd") + "'";
-            MySqlConnection con = BDConexicon.ConexionSucursal(sucursal);
-            MySqlCommand cmd = new MySqlCommand(query, con);
-            MySqlDataReader dr = cmd.ExecuteReader();
-            while (dr.Read())
+            if (sucursal.Equals("CEDIS"))
             {
+                List<Gasto> lista = new List<Gasto>();
 
-
-
-                Gasto gasto = new Gasto()
-                {
-                    Id = Convert.ToInt32(dr["id"].ToString()),
-                    Concepto = dr["concepto"].ToString(),
-                    Descripcion = dr["descripcion"].ToString(),
-                    Importe = Convert.ToDouble(dr["importe"].ToString()),
-                    Detalle = dr["comentario"].ToString(),
-                    RutaFoto = dr["rutaFoto"].ToString(),
-                    NombreFoto = dr["nombreFoto"].ToString(),
-                    Fecha = Convert.ToDateTime(dr["fecha"].ToString()),
-                    FechaRegistro = Convert.ToDateTime(dr["fechaRegistro"].ToString()),
-                    //UsuarioAplico = dr["usuario"].ToString()
-                    UsuarioAplico = "SISTEMAS"
-                };
-
-                lista.Add(gasto);
+                return lista;
             }
-            dr.Close();
-            con.Close();
-            return lista;
+            else if(sucursal.Equals("FINANZAS"))
+            {
+                List<Gasto> lista = new List<Gasto>();
+                return lista;
+            }
+            else
+            {
+                List<Gasto> lista = new List<Gasto>();
+
+                string query = "select * from rd_auditoria_gastos where fecha='" + fecha.ToString("yyyy-MM-dd") + "'";
+                MySqlConnection con = BDConexicon.ConexionSucursal(sucursal);
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                MySqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+
+
+
+                    Gasto gasto = new Gasto()
+                    {
+                        Id = Convert.ToInt32(dr["id"].ToString()),
+                        Concepto = dr["concepto"].ToString(),
+                        Descripcion = dr["descripcion"].ToString(),
+                        Importe = Convert.ToDouble(dr["importe"].ToString()),
+                        Detalle = dr["comentario"].ToString(),
+                        RutaFoto = dr["rutaFoto"].ToString(),
+                        NombreFoto = dr["nombreFoto"].ToString(),
+                        Fecha = Convert.ToDateTime(dr["fecha"].ToString()),
+                        FechaRegistro = Convert.ToDateTime(dr["fechaRegistro"].ToString()),
+                        //UsuarioAplico = dr["usuario"].ToString()
+                        UsuarioAplico = "SISTEMAS"
+                    };
+
+                    lista.Add(gasto);
+                }
+                dr.Close();
+                con.Close();
+                return lista;
+            }
+           
         }
 
         public List<Gasto> BuscarGastosGuardados(DateTime inicio,DateTime fin, string sucursal)

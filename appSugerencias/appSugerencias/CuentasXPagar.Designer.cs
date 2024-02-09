@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CuentasXPagar));
             this.CB_proveedor = new System.Windows.Forms.ComboBox();
             this.DG_datos = new System.Windows.Forms.DataGridView();
@@ -103,22 +103,22 @@
             // DG_datos
             // 
             this.DG_datos.AllowUserToAddRows = false;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.DG_datos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.DG_datos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.DG_datos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DG_datos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DG_datos.BackgroundColor = System.Drawing.SystemColors.Control;
             this.DG_datos.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DG_datos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DG_datos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.DG_datos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DG_datos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IDMOV,
@@ -133,14 +133,14 @@
             this.SALDO_,
             this.OBSERV,
             this.COBRADOR});
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.LightSeaGreen;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DG_datos.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.LightSeaGreen;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DG_datos.DefaultCellStyle = dataGridViewCellStyle5;
             this.DG_datos.EnableHeadersVisualStyles = false;
             this.DG_datos.Location = new System.Drawing.Point(2, 163);
             this.DG_datos.Name = "DG_datos";
@@ -192,15 +192,15 @@
             // 
             // PAGO
             // 
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.PAGO.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.PAGO.DefaultCellStyle = dataGridViewCellStyle3;
             this.PAGO.HeaderText = "ABONO/PAGO";
             this.PAGO.Name = "PAGO";
             // 
             // SALDO_
             // 
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.SALDO_.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.SALDO_.DefaultCellStyle = dataGridViewCellStyle4;
             this.SALDO_.HeaderText = "SALDO";
             this.SALDO_.Name = "SALDO_";
             // 
@@ -321,7 +321,7 @@
             this.BT_Buscar.BackColor = System.Drawing.Color.DodgerBlue;
             this.BT_Buscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BT_Buscar.ForeColor = System.Drawing.Color.White;
-            this.BT_Buscar.Location = new System.Drawing.Point(1526, 94);
+            this.BT_Buscar.Location = new System.Drawing.Point(1526, 91);
             this.BT_Buscar.Name = "BT_Buscar";
             this.BT_Buscar.Size = new System.Drawing.Size(92, 36);
             this.BT_Buscar.TabIndex = 22;
@@ -402,7 +402,7 @@
             this.BT_abonos.BackColor = System.Drawing.Color.DodgerBlue;
             this.BT_abonos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BT_abonos.ForeColor = System.Drawing.Color.White;
-            this.BT_abonos.Location = new System.Drawing.Point(403, 3);
+            this.BT_abonos.Location = new System.Drawing.Point(1741, 91);
             this.BT_abonos.Name = "BT_abonos";
             this.BT_abonos.Size = new System.Drawing.Size(98, 36);
             this.BT_abonos.TabIndex = 8;
@@ -500,13 +500,12 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.BT_buscar_compra);
             this.groupBox1.Controls.Add(this.TB_compra);
-            this.groupBox1.Location = new System.Drawing.Point(1397, 22);
+            this.groupBox1.Location = new System.Drawing.Point(1388, 18);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(221, 66);
+            this.groupBox1.Size = new System.Drawing.Size(221, 70);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Buscar Compra";
-            this.groupBox1.Visible = false;
             // 
             // BT_cuentasOS
             // 
@@ -567,7 +566,7 @@
             this.BT_guardar.ForeColor = System.Drawing.Color.White;
             this.BT_guardar.Image = ((System.Drawing.Image)(resources.GetObject("BT_guardar.Image")));
             this.BT_guardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BT_guardar.Location = new System.Drawing.Point(1624, 92);
+            this.BT_guardar.Location = new System.Drawing.Point(1624, 91);
             this.BT_guardar.Name = "BT_guardar";
             this.BT_guardar.Size = new System.Drawing.Size(98, 36);
             this.BT_guardar.TabIndex = 7;

@@ -1714,6 +1714,11 @@ namespace appSugerencias
             {
                 TB_clavebanco.Visible = false;
             }
+
+            if (CB_bancosOsmart.Text.Equals("PRESTAMO OTIS"))
+            {
+                TB_clavebanco.Text = "OTIS";
+            }
            
         }
 
